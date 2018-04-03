@@ -1,0 +1,263 @@
+body {
+    background-color: rgba(202, 205, 206, .1);
+}
+
+.main-nav li .glyphicon {
+    margin-right: 10px;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #383838;
+}
+
+/* Highlighting rules for nav menu items */
+.main-nav li a.active:focus {
+    background-color: #383838;
+    color: #fffaee !important;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #383838;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #9d9d9d;
+}
+
+/* Keep the nav menu independent of scrolling and on top of other items */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    body {
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* On small screens, convert the nav menu to a vertical sidebar */
+    .main-nav {
+        height: 100%;
+        width: calc(25% - 20px);
+    }
+    .main-nav .navbar {
+        border-radius: 0px;
+        border-width: 0px;
+        height: 100%;
+    }
+    .main-nav .navbar-header {
+        float: none;
+    }
+    .main-nav .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0px;
+    }
+    .main-nav .navbar ul {
+        float: none;
+    }
+    .main-nav .navbar li {
+        float: none;
+        font-size: 15px;
+        margin: 6px;
+    }
+    .main-nav .navbar li a {
+        padding: 10px 16px;
+        border-radius: 4px;
+    }
+    .main-nav .navbar a {
+        /* If a menu item's text is too long, truncate it */
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .navbar-logout-btn {
+        padding: 7px 5px 5px 5px !important;
+    }
+}
+/* navbar style */
+.navbar {
+    border-width: 0px 0px 1px 0px;
+}
+.navbar-inverse { 
+    background-color: #fffaee !important; 
+    border-color: #383838 !important;
+}
+.navbar-brand {
+    color: #383838 !important;
+    font-weight: 5400 !important;
+}
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {
+    background: #383838 !important;
+    color: #fffaee !important;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #383838 !important;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #383838 !important;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: rgba(56,56,56,.3) !important;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #383838 !important;
+}
+.sidenav-header {
+    color: #383838;
+    letter-spacing: 1px;
+    padding-left: 10px;
+}
+.accountcontainer {
+    border-top: 1px solid;
+    margin: 15px 15px 0 15px;
+    padding: 15px 15px 0 15px;
+}
+.account {
+    color: #383838;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.logout {
+    width: 100px;
+}
+.navbar-logout-btn {
+    padding: 7px 5px 5px 5px !important;
+}
+
+/* form styles */
+/* text box */
+.form-control {
+    margin: 5px 0 !important;
+    height: auto;
+}
+/* formatting for read-only fields */
+.no-border {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent !important;
+}
+/* datepicker */
+input[readonly].datepicker{
+    padding: 6px 12px !important;
+    font-size: 14px  !important;
+    font-weight: normal  !important;
+    color: #555 !important;
+    background-color: white  !important;
+    border: 1px solid #ccc  !important;
+    border-radius: 4px  !important;
+}
+/* hide overflow of text area boxes, in conjunction with script in site.js */
+textarea { 
+    overflow: hidden;
+}
+/* format dropdown buttons to look like other fields*/
+button.bs-placeholder[role='button']>span {
+    color:#999;
+}
+/* positioning success icon in address form */
+.right-inner-addon {
+    position: relative !important;
+}
+/* coloring success icon */
+.icon-textbox {
+    font-size: 1.5em; 
+    color: #29a329;
+    margin-top: 1px;  
+}
+
+/* button styles */
+.btn-default:active, .btn-big:active, .btn-link:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #383838 !important;
+    color: white !important;
+    transform: translateY(4px);
+ }
+.btn-default:focus, .btn-big:focus, .btn-link:focus { 
+    background-color: #383838 !important;
+    color: white !important;
+    box-shadow: none !important;
+    outline: none !important;
+ }
+.btn-default:hover, .btn-big:hover, .btn-link:hover {
+    color:white !important;
+    background-color:#383838 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition-duration: .4s;
+    -webkit-transition-duration: .11s;
+    -moz-transition-duration: .6s;
+}
+.btn-success { 
+    background-color:#383838;
+    color: white;
+    box-shadow: none !important;
+}
+.btn-default {
+    /* font */
+    color: #383838;
+    font-size: 18px;
+    font-family: helvetica;
+    /* remove blue underline */
+    text-decoration: none;
+    /* border */
+    border: .5px;
+    border-style: solid;
+    border-radius: 10px;
+    /* transitions */
+    transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    /* other */
+    background-color:rgba(136, 130, 149,.15);
+    padding: 10px 15px;
+    margin: 7px;
+    width: 200px;
+  }
+.btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
+    padding: 6px 12px !important;
+    font-size: 14px  !important;
+    font-weight: normal  !important;
+    color: #555 !important;
+    background-color: white  !important;
+    border: 1px solid #ccc  !important;
+    border-radius: 4px  !important;
+}
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    /* font */
+    color: #383838;
+    font-size: 18px;
+    font-family: helvetica;
+    /* remove blue underline */
+    text-decoration: none;
+    /* border */
+    border: 0px;
+    /* transitions */
+    transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    /* other */
+    background-color:rgba(202, 205, 206,.35);
+    padding: 10px 30px;
+    margin: 7px;
+    -moz-box-shadow: 0 0 2px 2px #888;
+    -webkit-box-shadow: 5px 5px 20px 20px #888;
+    box-shadow: 2px 3px 8px 2px #888;
+}
+.btn i {
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+.vCenterItems {
+    display: flex;
+    align-items: center;
+}

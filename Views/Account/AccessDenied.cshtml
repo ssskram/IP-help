@@ -1,0 +1,30 @@
+@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
+<html>
+<div id="overlayloader" class="overlayloader">
+    <div class="loader"></div>
+</div>  
+<head>
+    <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="row login">
+        <div class="col-md-12">
+            <img src="~/images/ip.png" class="img-responsive center-block" style="opacity: 0.7; max-height: 350px !important;"/> 
+        </div>
+        <div class="col-md-12 text-center">
+            <h1 style="letter-spacing: 1px; padding: 3px;">Sorry,</h1>
+            <h1 style="font-weight: bold; letter-spacing: 1px; padding: 3px;">You don't have access to this site.</h1>
+        </div>
+    </div>
+
+<script src="~/js/auth.js" asp-append-version="true"></script>
+</body>
+</html>
