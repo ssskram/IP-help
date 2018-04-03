@@ -25,11 +25,10 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         );
     }
     public render() {
-        return <div>
+        return <div className="centered">
             <form>
                 <div className="row">
-                <div className="col-md-2"></div>
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                     <h3>PC Order Form</h3>
                     <div className="form-group">    
                         <div className="col-md-12">

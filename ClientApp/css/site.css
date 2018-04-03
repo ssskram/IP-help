@@ -1,3 +1,7 @@
+html, body {
+    height: 100% !important;
+}
+
 body {
     background-color: rgba(202, 205, 206, .1);
 }
@@ -257,7 +261,14 @@ button.bs-placeholder[role='button']>span {
     padding-bottom: 5px;
     padding-right: 10px;
 }
-.vCenterItems {
+.containing-window {
+    padding-top: 75px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+.centered {
+    width: 100vh;
+    margin-top:75px
 }

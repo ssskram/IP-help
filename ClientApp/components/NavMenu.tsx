@@ -48,28 +48,44 @@ export class NavMenu extends React.Component<UserData, UserState> {
                             </NavLink>
                         </li>
                         <li>
-                        <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-th-list'></span> Request a new user account
+                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                                <span className='glyphicon glyphicon-th-list'></span> Request a new user account
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                                <span className='glyphicon glyphicon-th-list'></span> Order a new mobile device
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                                <span className='glyphicon glyphicon-th-list'></span> Request support for an office move
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                                <span className='glyphicon glyphicon-th-list'></span> Place an order with the print shop
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                                <span className='glyphicon glyphicon-th-list'></span> Other
+                            </NavLink>
+                        </li>
+                        <li className="sidenav-header">Training Resources</li>
+                        <li>
+                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-blackboard'></span> Hardware
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-th-list'></span> Order a new mobile device
+                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-blackboard'></span> Software
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-th-list'></span> Request support for an office move
-                        </NavLink>
-                        </li>
-                        <li>
-                        <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-th-list'></span> Place an order with the print shop
-                        </NavLink>
-                        </li>
-                        <li>
-                        <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-th-list'></span> Other
+                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-blackboard'></span> Workshops
                         </NavLink>
                         </li>
                         <div className='accountcontainer'>
