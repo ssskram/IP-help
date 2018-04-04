@@ -12,13 +12,22 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
         </div>
         <div className='row'>
         <div className='col-md-4 text-center'>
-            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" type="button" title="Must be connected to the City network" className="btn btn-big"><i className="glyphicon glyphicon-search home-icon"></i><br/>My tickets</a>
+            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" type="button" title="Must be connected to the City network" className="btn btn-big">
+            <i className="glyphicon glyphicon-search home-icon"></i><br/>
+            <div className="hidden-md">My tickets</div>
+            </a>
         </div>
         <div className='col-md-4 text-center'>
-            <a href="http://google.com/" type="button" title="Google it, yo" className="btn btn-big"><i className="glyphicon glyphicon-cog home-icon"></i><br/>Self service</a>
+            <Link to={ '/SelfService' } type="button" title="Google it, yo" className="btn btn-big">
+                <i className="glyphicon glyphicon-cog home-icon"></i><br/>
+                <div className="hidden-md">Self service</div>
+            </Link>
         </div>
         <div className='col-md-4 text-center'>
-            <a href="http://portal.office.com/" target="_blank" type="button" title="Email, OneDrive, etc." className="btn btn-big"><i className="glyphicon glyphicon-th-large home-icon"></i><br/>Microsoft portal</a>
+            <a href="http://portal.office.com/" target="_blank" type="button" title="Email, OneDrive, etc." className="btn btn-big">
+                <i className="glyphicon glyphicon-th-large home-icon"></i><br/>
+                <div className="hidden-md">Microsoft portal</div>
+            </a>
         </div>
     </div>
     </div>;

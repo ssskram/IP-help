@@ -71,21 +71,21 @@ export class NavMenu extends React.Component<UserData, UserState> {
                                 <span className='glyphicon glyphicon-th-list'></span> Other
                             </a>
                         </li>
-                        <li className="sidenav-header">Training Resources</li>
+                        <li className="sidenav-header">Resources</li>
                         <li>
-                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-blackboard'></span> Hardware
+                        <NavLink to={ '/SelfService' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-cog'></span> Self service
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-blackboard'></span> Software
-                        </NavLink>
+                        <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-cog'></span> My tickets
+                        </a>
                         </li>
                         <li>
-                        <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-blackboard'></span> Workshops
-                        </NavLink>
+                        <a href="http://portal.office.com/" target="_blank" data-toggle="collapse" data-target=".in">
+                            <span className='glyphicon glyphicon-cog'></span> Microsoft portal
+                        </a>
                         </li>
                         <div className='accountcontainer'>
                             <li>

@@ -7,7 +7,7 @@ import { NetworkRegistration } from './components/NetworkRegistration';
 import { MobileDevice } from './components/MobileDevice';
 import { OfficeMoves } from './components/OfficeMoves';
 import { PrintShop } from './components/PrintShop';
-import { Blank } from './components/Blank';
+import { SelfService } from './components/SelfService';
 import { Login } from './components/Account/Login';
 
 export const routes = <Layout>
@@ -18,5 +18,5 @@ export const routes = <Layout>
     <Route path='/MobileDevice' component={ MobileDevice } />    
     <Route path='/OfficeMoves' component={ OfficeMoves } />
     <Route path='/PrintShop' component={ PrintShop } />
-    <Route path='/Blank' component={ Blank } />    
+    <Route path='/SelfService' component={ SelfService } />    
 </Layout>;
