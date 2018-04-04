@@ -53,6 +53,9 @@ h1, h2, h3, h4, h5 {
         max-height: 350px !important;
         margin-top: 20px;
     }
+    .navbar-logout-btn {
+        padding: 7px 5px 5px 5px !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -250,7 +253,7 @@ button.bs-placeholder[role='button']>span {
     -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
     /* other */
-    background-color:rgba(136, 130, 149,.1);
+    background-color:rgba(136, 130, 149,.02);
     padding: 20px;
     margin: 35px 0;
     width: 75%;
@@ -273,7 +276,7 @@ button.bs-placeholder[role='button']>span {
     -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
     /* other */
-    background-color:rgba(136, 130, 149,.1);
+    background-color:rgba(136, 130, 149,.02);
     padding: 10px 15px;
     margin: 15px 7px;
     width: 200px;
@@ -328,3 +331,26 @@ button.bs-placeholder[role='button']>span {
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+/* jquery dialog elements */
+.ui-dialog-titlebar-close { 
+    width: 25px !important; 
+    height: 25px !important; 
+    border-radius: 20px;
+  }
+  .ui-dialog {
+    z-index: 1500!important;
+    position:absolute !important;
+    border-radius: 25px;
+  }
+  .ui-widget-header {
+    background: transparent;
+    border: 0px;
+  }
+  .ui-widget-content { 
+    color: #383838;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+  }

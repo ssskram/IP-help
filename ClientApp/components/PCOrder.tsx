@@ -12,6 +12,18 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         $('.selectpicker').selectpicker('mobile');
         }
+        $( "#success" ).dialog({
+            width: 350,
+            height: 200,
+            modal: true,
+            autoOpen: false,
+            close: function () {
+                var body = document.getElementById('success');
+                if (body) {
+                    body.innerHTML = "Sending your request to someone who can help..."
+                  }
+            }
+        });
     }
     handleSubmit() {
         var data = $('form').serialize(); 
@@ -21,8 +33,21 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 url: '/api/Forms/PCOrder',
                 type: 'POST',
                 data: cleandata,
+                success: function () {
+                    var body = document.getElementById('success');
+                    if (body) {
+                        body.innerHTML = "Success!<br/>Check your email for confirmation"
+                      }
+                },
+                error: function () {
+                    var body = document.getElementById('success');
+                    if (body) {
+                        body.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
+                      }
+                }
             }
         );
+        $( "#success" ).dialog( "open" );
     }
     public render() {
         return <div className="centered">
@@ -101,6 +126,10 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
                 </div>
             </form>
+
+            <div id="success">
+            Sending your request to someone who can help...
+            </div>
         </div>;
     }
 }

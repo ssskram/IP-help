@@ -21,6 +21,18 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                 url: '/api/Forms/NetworkRegistration',
                 type: 'POST',
                 data: cleandata,
+                success: function () {
+                    var body = document.getElementById('success');
+                    if (body) {
+                        body.innerHTML = "Success!<br/>Check your email for confirmation"
+                      }
+                },
+                error: function () {
+                    var body = document.getElementById('success');
+                    if (body) {
+                        body.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
+                      }
+                }
             }
         );
     }
