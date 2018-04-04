@@ -48,27 +48,27 @@ export class NavMenu extends React.Component<UserData, UserState> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/NetworkRegistration' } activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Request a new user account
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/MobileDevice' } activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Order a new mobile device
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/OfficeMoves' } activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Request support for an office move
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/PrintShop' } activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Place an order with the print shop
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/Blank' } activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Other
                             </NavLink>
                         </li>
