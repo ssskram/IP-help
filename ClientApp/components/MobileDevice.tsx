@@ -29,7 +29,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
         <form>
             <div className="row">
                 <div className="col-md-12">
-                <h3>Mobile device form</h3>
+                <h2>Order a new mobile device</h2>
                 </div>
             </div>
         </form>

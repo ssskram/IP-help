@@ -4,6 +4,7 @@ html, body {
 
 body {
     background-color: rgba(202, 205, 206, .1);
+    font-family: 'Raleway', sans-serif;
 }
 
 .main-nav li .glyphicon {
@@ -12,6 +13,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     color: #383838;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* Highlighting rules for nav menu items */
@@ -224,7 +226,7 @@ button.bs-placeholder[role='button']>span {
     /* other */
     background-color:rgba(136, 130, 149,.15);
     padding: 10px 15px;
-    margin: 7px;
+    margin: 15px 7px;
     width: 200px;
   }
 .btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
@@ -261,14 +263,8 @@ button.bs-placeholder[role='button']>span {
     padding-bottom: 5px;
     padding-right: 10px;
 }
-.containing-window {
-    padding-top: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75vh;
-}
 .centered {
     width: 100vh;
-    margin-top:75px
+    margin-top: 25px;
+    margin-bottom: 25px;
 }

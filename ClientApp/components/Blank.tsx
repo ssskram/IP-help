@@ -29,7 +29,8 @@ export class Blank extends React.Component<RouteComponentProps<{}>, {}> {
         <form>
             <div className="row">
                 <div className="col-md-12">
-                <h3>Blank form</h3>
+                <h2>Need something else?</h2>
+                <h4>fill out all fields and submit</h4>
                 </div>
             </div>
         </form>

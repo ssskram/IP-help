@@ -29,7 +29,7 @@ export class PrintShop extends React.Component<RouteComponentProps<{}>, {}> {
         <form>
             <div className="row">
                 <div className="col-md-12">
-                <h3>Print shop form</h3>
+                <h2>Order something nice from the print shop</h2>
                 </div>
             </div>
         </form>

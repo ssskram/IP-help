@@ -29,7 +29,7 @@ export class OfficeMoves extends React.Component<RouteComponentProps<{}>, {}> {
         <form>
             <div className="row">
                 <div className="col-md-12">
-                <h3>Office move form</h3>
+                <h2>Request support for an inter-office move</h2>
                 </div>
             </div>
         </form>

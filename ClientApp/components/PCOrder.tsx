@@ -29,7 +29,9 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             <form>
                 <div className="row">
                     <div className="col-md-12">
-                    <h3>PC Order Form</h3>
+                    <h2>Order a new PC</h2>
+                    <h4>fill out all fields and submit</h4>
+
                     <div className="form-group">    
                         <div className="col-md-12">
                             <input name="CustomerName" className="form-control" placeholder="Name" required></input>
