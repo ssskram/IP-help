@@ -36,7 +36,8 @@ body {
     /* font */
     color: #383838;
     font-size: 18px;
-    font-family: helvetica;
+    font-family: 'Raleway', sans-serif !important;
+    letter-spacing: 3px !important;
     /* remove blue underline */
     text-decoration: none;
     /* border */

@@ -96,7 +96,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12 text-center">
+                    <div className="col-md-10 text-center">
                         <NavLink to={ '/' } type="button" id="submit" title="Submit order" value="Submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</NavLink>
                     </div>
                 </div>

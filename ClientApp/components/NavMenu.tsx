@@ -36,38 +36,38 @@ export class NavMenu extends React.Component<UserData, UserState> {
                         <span className='icon-bar'></span>
                         <span className='icon-bar'></span>
                     </button>
-                    <Link className='navbar-brand' to={ '/' } data-toggle="collapse" data-target=".in">IP <strong>Help</strong></Link>
+                    <Link className='navbar-brand' to={ '/' } data-toggle="collapse" data-target=".in">I&P <strong>Help</strong></Link>
                 </div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
                         <li className="sidenav-header">Services</li>
                         <li>
-                            <NavLink to={ '/PCOrder' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/PCOrder' } title="Order a new PC" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Order a new PC
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/NetworkRegistration' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/NetworkRegistration' } title="Request a new user account" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Request a new user account
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/MobileDevice' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/MobileDevice' } title="Order a new mobile device" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Order a new mobile device
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/OfficeMoves' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/OfficeMoves' } title="Request support for an office move" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Request support for an office move
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/PrintShop' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/PrintShop' } title="Place an order with the print shop" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Place an order with the print shop
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/Blank' } activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <NavLink to={ '/Blank' } title="Other" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 <span className='glyphicon glyphicon-th-list'></span> Other
                             </NavLink>
                         </li>
