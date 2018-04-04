@@ -241,7 +241,8 @@ button.bs-placeholder[role='button']>span {
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1.5px;
     text-shadow: #fffaee 0 0 10px;
-    line-height: 1.4em;
+    line-height: 2.5em;
+    white-space: normal;
     /* remove blue underline */
     text-decoration: none;
     /* border */
@@ -254,10 +255,15 @@ button.bs-placeholder[role='button']>span {
     -moz-transition-duration: .2s;
     /* other */
     background-color:rgba(136, 130, 149,.02);
-    padding: 20px;
+    padding: 45px 0;
     margin: 35px 0;
     width: 75%;
     height: 200px;
+}
+.home-icon {
+    color: rgba(56, 56, 56, .7);
+    font-size:2em; 
+    vertical-align: middle; 
 }
 .btn-default {
     /* font */
