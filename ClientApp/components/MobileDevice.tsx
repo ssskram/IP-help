@@ -28,7 +28,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
         return <div className="centered">
         <form>
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-10">
                 <h2>Order a new mobile device</h2>
                 </div>
             </div>

@@ -38,7 +38,6 @@ export class NavMenu extends React.Component<UserData, UserState> {
                     </button>
                     <Link className='navbar-brand' to={ '/' } data-toggle="collapse" data-target=".in">IP <strong>Help</strong></Link>
                 </div>
-                <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
                         <li className="sidenav-header">Services</li>

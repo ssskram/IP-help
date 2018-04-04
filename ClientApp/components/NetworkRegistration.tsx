@@ -28,7 +28,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
         return <div className="centered">
         <form>
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-10">
                 <h2>Request a new user account</h2>
                 <h4>your information</h4>
                     
@@ -40,7 +40,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                 </div>
             </div>
             <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-10">
                 <h4>employee's information</h4>
                     <div className="form-group">
                         <div className="col-md-12">

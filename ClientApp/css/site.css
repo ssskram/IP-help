@@ -42,6 +42,10 @@ h1, h2, h3, h4, h5 {
     body {
         padding-top: 50px;
     }
+    .main-nav {
+        z-index: 100000;
+        overflow:auto;
+    }
 }
 
 @media (min-width: 768px) {
@@ -264,7 +268,6 @@ button.bs-placeholder[role='button']>span {
     padding-right: 10px;
 }
 .centered {
-    width: 100vh;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 25px;
 }
