@@ -67,9 +67,9 @@ export class NavMenu extends React.Component<UserData, UserState> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/Blank' } title="Other" activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Other">
                                 <span className='glyphicon glyphicon-th-list'></span> Other
-                            </NavLink>
+                            </a>
                         </li>
                         <li className="sidenav-header">Training Resources</li>
                         <li>

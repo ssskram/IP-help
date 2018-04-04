@@ -15,6 +15,9 @@ h1, h2, h3, h4, h5 {
     color: #383838;
     font-family: 'Raleway', sans-serif;
 }
+h4 {
+    margin-left: 15px;
+}
 
 /* Highlighting rules for nav menu items */
 .main-nav li a.active:focus {
@@ -295,6 +298,9 @@ button.bs-placeholder[role='button']>span {
     background-color: white  !important;
     border: 1px solid #ccc  !important;
     border-radius: 4px  !important;
+}
+.btn-info {
+    white-space: normal;
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     /* font */

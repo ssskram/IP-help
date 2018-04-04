@@ -35,6 +35,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                 }
             }
         );
+        $( "#success" ).dialog( "open" );
     }
     public render() {
         return <div className="centered">
