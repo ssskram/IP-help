@@ -124,6 +124,7 @@ hr {
 }
 .navbar-brand {
     color: #fffaee !important;
+    letter-spacing: 1.5px;
 }
 .navbar-inverse .navbar-brand:hover, 
 .navbar-inverse .navbar-brand:focus {
