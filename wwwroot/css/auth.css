@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(202, 205, 206, .1);
+    background-color: rgba(202, 205, 206, .5);
 }
 /* center login page */
 .login {
@@ -49,7 +49,7 @@ body {
     -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
     /* other */
-    background-color:rgba(136, 130, 149,.02);
+    background-color:rgba(136, 130, 149,.05);
     padding: 10px 15px;
     margin: 7px;
     width: 200px;
