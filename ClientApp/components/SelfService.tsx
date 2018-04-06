@@ -5,6 +5,7 @@ declare var $: any;
 
 export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
+        window.scrollTo(0, 0)
         $( function() {
             $( "#accordion" ).accordion();
         } );

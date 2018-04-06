@@ -5,6 +5,7 @@ declare var $: any;
 
 export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
+        window.scrollTo(0, 0)
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  
@@ -26,7 +27,6 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         });
     }
     handleSubmit() {
-
         var data = $('form').serialize(); 
         var cleandata = data.replace(/\'/g, '');
         $.ajax(

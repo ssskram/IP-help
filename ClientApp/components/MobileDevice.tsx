@@ -5,6 +5,7 @@ declare var $: any;
 
 export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
+        window.scrollTo(0, 0)
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  

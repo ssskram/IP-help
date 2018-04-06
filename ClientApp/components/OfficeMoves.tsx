@@ -5,6 +5,7 @@ declare var $: any;
 
 export class OfficeMoves extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
+        window.scrollTo(0, 0)
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  

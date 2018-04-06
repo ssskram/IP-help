@@ -3,8 +3,11 @@ import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 
 export class Home extends React.Component<RouteComponentProps<{}>, {}> {
+    componentDidMount() {
+        window.scrollTo(0, 0)
+      }
     public render() {
-        return <div>
+        return <div className="home-container">
         <img src='./images/ip.png' className="img-responsive center-block home-image"/> 
         <div className='text-center'>
             <h1>We're here to <strong>help</strong></h1>

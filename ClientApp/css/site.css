@@ -361,6 +361,11 @@ button.bs-placeholder[role='button']>span {
     border: 0px !important;
 }
 
+/* home components */
+.home-container {
+    margin-bottom: 15px;
+}
+
 /* self service components */
 .def-title {
     font-size: xx-large !important;
