@@ -1,11 +1,29 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
+import 'isomorphic-fetch';
 declare var $: any;
 
 export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
+        fetch('/api/userdata/equipment_check', {
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data == 1)
+            {
+                alert("approver!");
+            }
+            else
+            {
+                alert("denied!");
+            }
+        });
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  
