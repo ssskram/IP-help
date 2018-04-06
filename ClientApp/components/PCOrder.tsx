@@ -26,6 +26,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         });
     }
     handleSubmit() {
+
         var data = $('form').serialize(); 
         var cleandata = data.replace(/\'/g, '');
         $.ajax(
