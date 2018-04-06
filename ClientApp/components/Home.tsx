@@ -18,7 +18,7 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
             </a>
         </div>
         <div className='col-md-4 text-center'>
-            <Link to={ '/SelfService' } type="button" title="Google it, yo" className="btn btn-big">
+            <Link to={ '/SelfService' } type="button" className="btn btn-big">
                 <i className="glyphicon glyphicon-cog home-icon"></i><br/>
                 <div className="hidden-md">Self service</div>
             </Link>

@@ -17,7 +17,6 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                     <div id="accordion">
                         <h3>Self service</h3>
                         <div>
-                        <p>
                         <div className="def-title">
                             self-serv·ice        
                         </div>
@@ -35,11 +34,9 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         <hr/>
                         <h2 className="text-center">These resources are for you</h2>
                         <h4 className="text-center">if something is missing, please let us know</h4>
-                        </p>
                         </div>
                         <h3>Hardware</h3>
                         <div>
-                        <p>
                         <br/>
                         <br/>
                         <br/>
@@ -48,11 +45,9 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         <br/>
                         <br/>
                         <br/>
-                        </p>
                         </div>
                         <h3>Software</h3>
                         <div>
-                        <p>
                         <br/>
                         <br/>
                         <br/>
@@ -64,27 +59,22 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         <br/>
                         <br/>
                         <br/>
-                        </p>
                         <ul>
                         </ul>
                         </div>
                         <h3>Workshops</h3>
                         <div>
-                        <p>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        </p>
-                        <p>
 
-                        </p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         </div>
                     </div>
                 </div>
