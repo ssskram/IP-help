@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5 {
     color: #383838;
     font-family: 'Raleway', sans-serif;
 }
-h4 {
+.form-h4 {
     margin-left: 15px;
 }
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -41,6 +41,9 @@ h4 {
     }
     .navbar-logout-btn {
         padding: 7px 5px 5px 5px !important;
+    }
+    .btn-selfservice {
+        width: 100%;
     }
 }
 
@@ -91,6 +94,9 @@ h4 {
         opacity: 0.8; 
         max-height: 350px !important;
         margin-top: 45px;
+    }
+    .btn-selfservice {
+        width: 60%;
     }
 }
 /* navbar style */
@@ -260,7 +266,7 @@ button.bs-placeholder[role='button']>span {
     border-style: solid;
     border-radius: 10px;
     color: #383838 !important;
-    transition: all .3s ease 0s;
+    transition: all .2s ease 0s;
 }
 /* icons in big btns */
 .home-icon {
@@ -289,7 +295,36 @@ button.bs-placeholder[role='button']>span {
     padding: 10px 15px;
     margin: 15px 7px;
     width: 200px;
-  }
+}
+.btn-selfservice {
+    /* font */
+    color: #383838;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.5px;
+    white-space:normal !important;
+    word-wrap: break-word; 
+    /* remove blue underline */
+    text-decoration: none;
+    /* border */
+    border: .5px rgb(186, 134, 6);
+    border-style: solid;
+    border-radius: 2px;
+    /* transitions */
+    transition: all .1s ease 0s;
+    /* other */
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .0);
+    outline: none;
+    background-color:transparent;
+    padding: 10px 15px;
+    margin: 5px 0px;
+}
+.btn-selfservice:active, .btn-selfservice:focus, .btn-selfservice:hover {
+    background-color: rgba(186, 134, 6, .8) !important;
+    color: #fffaee !important;
+    font-weight: bold;
+    outline: none;
+ }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     /* font */
     color: #383838;
@@ -344,7 +379,6 @@ button.bs-placeholder[role='button']>span {
     font-family: 'Raleway', sans-serif;
   }
 .ui-accordion-content {
-      height: 100%;
       background-color: rgba(255, 255, 255, 1); 
       text-align: left;
   }
@@ -356,7 +390,7 @@ button.bs-placeholder[role='button']>span {
     outline: none;
 }
 .ui-state-active {
-    background: rgb(26, 36, 47) !important;
+    background: rgb(44, 62, 80) !important;
     color: #fffaee !important;
     border: 0px !important;
 }
@@ -397,6 +431,12 @@ ol li {
 li > p {
     font-weight:normal;
     padding-left: 5px;
+}
+.ss-spotlight-header {
+    background-color: rgba(44, 62, 80, .2);
+}
+.ss-center {
+    text-align: center;
 }
 
 /* misc */
