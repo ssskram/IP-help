@@ -58,34 +58,19 @@ namespace IP_Help.Controllers
                 "sheri.rolewski@pittsburghpa.gov"
             };
             int check = Array.IndexOf(approvers, user);
-            List<EquipmentCheck> ea = new List<EquipmentCheck>();
             if ( (check > -1) )
             {
-                EquipmentCheck es = new EquipmentCheck()
-                {
-                    integer = check
-                };
-                ea.Add(es);
-                return Ok(ea);
+                return Ok("1");
             }
             else
             {
-                EquipmentCheck es = new EquipmentCheck()
-                {
-                    integer = check
-                };
-                ea.Add(es);
-                return Ok(ea);
+                return Ok("0");
             }
         }
 
         public class Account
         {
             public string user { get; set; }
-        }
-        public class EquipmentCheck
-        {
-            public int integer { get; set; }
         }
     }
 }

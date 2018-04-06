@@ -7,6 +7,7 @@ declare var $: any;
 export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
+        // check to see if user is a dept liaison
         fetch('/api/userdata/equipment_check', {
             credentials: 'same-origin',
             headers: {
@@ -15,15 +16,20 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         })
         .then(response => response.json())
         .then(data => {
-            if (data == 1)
+            if (data == 0)
             {
-                alert("approver!");
-            }
-            else
-            {
-                alert("denied!");
+                var overlay = document.getElementById("overlay");
+                if (overlay) {
+                    overlay.style.display = "block";
+                }
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only departmental liaisons can order PCs."
+                }
+                $( "#popup" ).dialog( "open" );
             }
         });
+        // date fields & select elements
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  
@@ -31,42 +37,45 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         $('.selectpicker').selectpicker('mobile');
         }
-        $( "#success" ).dialog({
-            width: 350,
-            height: 200,
+        // multi-use popup
+        $( "#popup" ).dialog({
+            autoResize:true,
             modal: true,
             autoOpen: false,
             close: function () {
-                var body = document.getElementById('success');
-                if (body) {
-                    body.innerHTML = "Sending your request to someone who can help..."
-                  }
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = ""
+                }
             }
         });
     }
     handleSubmit() {
+        window.scrollTo(0, 0)
         var data = $('form').serialize(); 
         var cleandata = data.replace(/\'/g, '');
+        var popup = document.getElementById('popup');
+        if (popup) {
+            popup.innerHTML = "Sending your request to someone who can help..."
+        }
+        $( "#popup" ).dialog( "open" );
         $.ajax(
             {
                 url: '/api/Forms/PCOrder',
                 type: 'POST',
                 data: cleandata,
                 success: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Success!<br/>Check your email for confirmation"
+                    if (popup) {
+                        popup.innerHTML = "<strong>Success!</strong><br/>The Help Desk will be in touch"
                       }
                 },
                 error: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
+                    if (popup) {
+                        popup.innerHTML = "Oops!<br/><storng>Something isn't right</strong><br/>Please logout, log back in, and try again"
                       }
                 }
             }
         );
-        $( "#success" ).dialog( "open" );
     }
     public render() {
         return <div className="centered">
@@ -146,9 +155,8 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 </div>
             </form>
 
-            <div id="success">
-            Sending your request to someone who can help...
-            </div>
+            <div id="overlay"></div>
+
         </div>;
     }
 }
