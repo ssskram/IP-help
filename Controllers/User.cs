@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,44 @@ namespace IP_Help.Controllers
             };
             Users.Add(wf);
             return Ok(Users);
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult equipment_check() 
+        {
+            var user = _userManager.GetUserName(HttpContext.User);
+            string[] approvers = { 
+                "paul.marks@pittsburghpa.gov", 
+                "sheri.rolewski@pittsburghpa.gov"
+            };
+            int check = Array.IndexOf(approvers, user);
+            if ( (check > -1) )
+            {
+                return Ok("1");
+            }
+            else
+            {
+                return Ok("0");
+            }
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult network_check() 
+        {
+            var user = _userManager.GetUserName(HttpContext.User);
+            string[] approvers = { 
+                "paul.marks@pittsburghpa.gov", 
+                "sheri.rolewski@pittsburghpa.gov"
+            };
+            int check = Array.IndexOf(approvers, user);
+            if ( (check > -1) )
+            {
+                return Ok("1");
+            }
+            else
+            {
+                return Ok("0");
+            }
         }
 
         public class Account
