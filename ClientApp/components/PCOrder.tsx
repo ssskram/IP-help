@@ -80,10 +80,10 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             var popup = document.getElementById('popup');
             var data = $('form').serialize(); 
             var cleandata = data.replace(/\'/g, '');
+            $( "#popup" ).dialog( "open" );
             if (popup) {
                 popup.innerHTML = "Sending your request to someone who can help..."
             }
-            $( "#popup" ).dialog( "open" );
             $.ajax(
                 {
                     url: '/api/Forms/PCOrder',

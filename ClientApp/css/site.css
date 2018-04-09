@@ -403,7 +403,7 @@ button.bs-placeholder[role='button']>span {
     height: 40px;
     border: 0px;
   }
-.ui-widget-content { 
+.ui-dialog-content { 
     color: #383838;
     font-size: 20px;
     text-align: center;
