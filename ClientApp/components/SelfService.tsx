@@ -35,10 +35,10 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                                 </ol>
                             </div>
                             <hr/>
-                            <h2 className="text-center">These resources are for you</h2>
+                            <h2 className="text-center">These are for you</h2>
                             <h4 className="text-center">if something is missing, please let us know</h4>
                         </div>
-                        <h3 className="ss-spotlight-header"><i>Spotlight:</i><strong>  Readitfor.me</strong></h3>
+                        <h3><i>Spotlight:</i><strong>  Readitfor.me</strong></h3>
                         <div>
                         <div className="row ss-center">
                             <h2>Self Service Spotlight</h2>
@@ -68,7 +68,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         </div>
                         </div>
                         <h3>Windows 7</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>User guides</b></h4>     
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Create a folder shortcut
@@ -90,7 +90,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             </a>
                         </div>
                         <h3>Windows 10</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>Training resources</b></h4>
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Windows 10
@@ -113,7 +113,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             </a>
                         </div>
                         <h3>Microsoft Office 365</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>Training resources</b></h4>
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Microsoft 365
@@ -135,7 +135,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             </a>
                         </div>
                         <h3>Printers & MFDs</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>User guides</b></h4>
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Printer guides
@@ -148,14 +148,14 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             </a>
                         </div>
                         <h3>Legistar</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>User guides</b></h4>
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Legistar 5
                             </a>
                         </div>
                         <h3>Municode</h3>
-                        <div className="ss-center">
+                        <div>
                             <h4><b>User guides</b></h4>
                             <a href="http://portal.office.com/" target="_blank" className="btn btn-selfservice">
                                 Municode

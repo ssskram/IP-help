@@ -62,11 +62,6 @@ export class NavMenu extends React.Component<UserData, UserState> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/PrintShop' } title="Place an order with the print shop" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                <span className='glyphicon glyphicon-th-list'></span> Place an order with the print shop
-                            </NavLink>
-                        </li>
-                        <li>
                             <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Other">
                                 <span className='glyphicon glyphicon-th-list'></span> Other
                             </a>
