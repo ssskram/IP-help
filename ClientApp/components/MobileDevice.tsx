@@ -57,10 +57,12 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="col-md-10">
                 <h2>Order a mobile device</h2>
                 <h4 className="form-h4">fill out all fields and submit</h4>
+                <hr/>
                 
                 <div className="form-group">
                     <div className="col-md-12">
-                        <select name="DeviceType" className="selectpicker form-control" data-style="btn-info" title="What type of device do you need?">
+                        <h4 className="form-h4">What type of device do you need?</h4>
+                        <select name="DeviceType" className="selectpicker btn-form-control" data-style="btn-info" title="Select device">
                             <option value="iPhone 6S" title="iPhone 6S" data-subtext="6S">iPhone</option>
                             <option value="iPhone 6E" title="iPhone 6E" data-subtext="6E">iPhone</option>
                             <option value="Samsung Galaxy J3 Eclipse" title="Samsung Galaxy J3 Eclipse" data-subtext="Samsung Galaxy J3 Eclipse">Android</option>
@@ -77,7 +79,8 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
 
                 <div className="form-group">
                     <div className="col-md-12">
-                        <select name="NewReplacement" data-style="btn-info" className="form-control selectpicker" title="Is this request for a new staff member, or for a replacement mobile device?">
+                        <h4 className="form-h4">Is this request for a new staff member, or for a replacement mobile device?</h4>
+                        <select name="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement">
                             <option>New</option>
                             <option>Replacement</option>
                         </select>
@@ -86,7 +89,8 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 
                 <div className="form-group">
                     <div className="col-md-12">
-                        <textarea name="JobTitle" className="form-control" placeholder="Please provide the employee's job title and description"></textarea>
+                        <h4 className="form-h4">Please provide the employee's job title and description</h4>
+                        <textarea name="JobTitle" className="form-control" placeholder="Job title and description"></textarea>
                     </div>
                 </div>
             </div>
