@@ -207,9 +207,12 @@ input[readonly].datepicker{
     font-size: 14px  !important;
     font-weight: normal  !important;
     color: #383838;
-    background-color: white !important;
-    border: 1px solid #ccc  !important;
-    border-radius: 4px  !important;
+    background-color: transparent !important;
+    border-radius: 10px;
+    height: auto;
+    border: .4px solid rgba(186, 134, 6, 1);
+    border-top: .4px solid rgba(186, 134, 6, .5);
+    border-right: .4px solid rgba(186, 134, 6, .4);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 /* hide overflow of text area boxes, in conjunction with script in site.js */
@@ -385,6 +388,13 @@ button.bs-placeholder[role='button']>span {
     background: #555; 
 }
 
+/* datepicker elements */
+.ui-datepicker-header {
+    background: rgba(44, 62, 80, .5);
+    height: 30px;
+    border: 0px;
+}
+
 /* popup elements */
 .ui-dialog-titlebar-close { 
     width: 20px !important; 
@@ -397,7 +407,7 @@ button.bs-placeholder[role='button']>span {
     position:absolute !important;
     border-radius: 25px;
   }
-.ui-widget-header {
+.ui-dialog-titlebar {
     background: rgba(44, 62, 80, .9);
     border-radius: 18px 18px 0px 0px;
     height: 40px;
@@ -409,7 +419,7 @@ button.bs-placeholder[role='button']>span {
     text-align: center;
     background-color: rgba(255, 254, 250, 1); 
     font-family: 'Raleway', sans-serif;
-  }
+}
 
 /* home components */
 .home-container {
@@ -509,6 +519,15 @@ li > p {
     height: auto;
 }
 
+/* network reg form elements */
+.networkreg-contactinfo {
+    padding: 10px;
+    margin: 10px;
+}
+
+#networkregcontact .form-control {
+    margin: 5px;
+}
 /* misc */
 .centered {
     margin-top: 10px;

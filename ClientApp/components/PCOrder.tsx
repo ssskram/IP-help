@@ -152,7 +152,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="row">
                 <div className="col-md-10">
                     <h2>Order a new PC</h2>
-                    <h4 className="form-h4">fill out all fields and submit</h4>
+                    <h4 className="form-h4">complete all fields and submit</h4>
                     <hr/>
                     <div className="form-group">    
                         <div className="col-md-12">
