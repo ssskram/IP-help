@@ -7,27 +7,27 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
     componentDidMount () {
         window.scrollTo(0, 0)
         // check to see if user is a dept liaison
-        fetch('/api/userdata/network_check', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data == 0)
-            {
-                var overlay = document.getElementById("overlay");
-                if (overlay) {
-                    overlay.style.display = "block";
-                }
-                var popup = document.getElementById('popup');
-                if (popup) {
-                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can request new network accounts"
-                }
-                $( "#popup" ).dialog( "open" );
-            }
-        });
+        // fetch('/api/userdata/network_check', {
+        //     credentials: 'same-origin',
+        //     headers: {
+        //         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+        //     },
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     if (data == 0)
+        //     {
+        //         var overlay = document.getElementById("overlay");
+        //         if (overlay) {
+        //             overlay.style.display = "block";
+        //         }
+        //         var popup = document.getElementById('popup');
+        //         if (popup) {
+        //             popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can request new network accounts"
+        //         }
+        //         $( "#popup" ).dialog( "open" );
+        //     }
+        // });
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy",
             changeMonth: true,
