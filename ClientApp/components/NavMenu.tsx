@@ -57,7 +57,7 @@ export class NavMenu extends React.Component<UserData, UserState> {
                             </NavLink>
                         </li>
                         <li>
-                            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Other">
+                            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Must be connected to the City network">
                                 Other
                             </a>
                         </li>
@@ -68,12 +68,12 @@ export class NavMenu extends React.Component<UserData, UserState> {
                         </NavLink>
                         </li>
                         <li>
-                        <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" data-toggle="collapse" data-target=".in">
+                        <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" data-toggle="collapse" data-target=".in" title="Must be connected to the City network">
                             My tickets
                         </a>
                         </li>
                         <li>
-                        <a href="http://portal.office.com/" target="_blank" data-toggle="collapse" data-target=".in">
+                        <a href="http://portal.office.com/" target="_blank" data-toggle="collapse" data-target=".in" title="Email, OneDrive, etc.">
                             Microsoft portal
                         </a>
                         </li>

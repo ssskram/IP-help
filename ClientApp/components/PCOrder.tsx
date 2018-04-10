@@ -84,6 +84,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             if (popup) {
                 popup.innerHTML = "Sending your request to someone who can help..."
             }
+            alert(cleandata);
             $.ajax(
                 {
                     url: '/api/Forms/PCOrder',
