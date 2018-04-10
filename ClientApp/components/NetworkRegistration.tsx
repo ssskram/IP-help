@@ -7,7 +7,9 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
     componentDidMount () {
         window.scrollTo(0, 0)
         $('.datepicker').datepicker({
-            format: "mm/dd/yyyy"
+            format: "mm/dd/yyyy",
+            changeMonth: true,
+            changeYear: true
         });  
         $('.selectpicker').selectpicker();
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
@@ -51,42 +53,42 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
             <div className="row">
             <div className="col-md-10">
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12  form-element">
                             <h4 className="form-h4">What is the employee's first name?</h4>
-                            <input name="FirstName" className="form-control" placeholder="Employmee's first name"></input>
+                            <input name="FirstName" className="form-control" placeholder="Employee's first name"></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12  form-element">
                             <h4 className="form-h4">What is the employee's last name?</h4>
-                            <input name="LastName" className="form-control" placeholder="Employmee's last name"></input>
+                            <input name="LastName" className="form-control" placeholder="Employee's last name"></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12  form-element">
                             <h4 className="form-h4">What is their employment type?</h4>
                             <input name="EmploymentType" className="form-control" placeholder="Employment type"></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">When did they start, or transfer?</h4>
                             <input name="StartDate" className="form-control datepicker" placeholder="Start/transfer date" readOnly></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their employee ID number?</h4>
                             <input name="EmployeeID" className="form-control" placeholder="Employee ID number"></input>
                         </div>
                     </div>
                     
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their department?</h4>
                             <select name="Department" className="selectpicker btn-form-control" data-style="btn-info" title="Department">
                                 <option>Animal Control</option>
@@ -123,7 +125,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their team, or division?</h4>
                             <input name="Division" className="form-control" placeholder="Division"></input>
                         </div>
@@ -131,27 +133,27 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
 
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their job title?</h4>
                             <input name="JobTitle" className="form-control" placeholder="Job title"></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What email distribution lists should the employee be included on?</h4>
                             <input name="EmailDistribution" className="form-control" placeholder="Email distribution lists"></input>
                         </div>
                      </div>
                     
                      <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">If applicable, what is their employment end date?</h4>
                             <input name="EndDate" className="form-control datepicker" placeholder="Employment end date" readOnly></input>
                         </div>
                     </div>
 
-                    <div className="row">
+                    <div className="row form-element">
                     <div className="col-md-1"></div>
                     <div className="col-md-10 networkreg-contactinfo" id="networkregcontact">
                         <h4 className="form-h4">Employee's contact information</h4>

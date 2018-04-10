@@ -60,7 +60,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <hr/>
                 
                 <div className="form-group">
-                    <div className="col-md-12">
+                    <div className="col-md-12 form-element">
                         <h4 className="form-h4">What type of device do you need?</h4>
                         <select name="DeviceType" className="selectpicker btn-form-control" data-style="btn-info" title="Select device">
                             <option value="iPhone 6S" title="iPhone 6S" data-subtext="6S">iPhone</option>
@@ -78,7 +78,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 </div>
 
                 <div className="form-group">
-                    <div className="col-md-12">
+                    <div className="col-md-12 form-element">
                         <h4 className="form-h4">Is this request for a new staff member, or for a replacement mobile device?</h4>
                         <select name="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement">
                             <option>New</option>
@@ -88,7 +88,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 </div>
                 
                 <div className="form-group">
-                    <div className="col-md-12">
+                    <div className="col-md-12 form-element">
                         <h4 className="form-h4">Please provide the employee's job title and description</h4>
                         <textarea name="JobTitle" className="form-control" placeholder="Job title and description"></textarea>
                     </div>

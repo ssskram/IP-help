@@ -40,46 +40,41 @@ export class NavMenu extends React.Component<UserData, UserState> {
                 </div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
-                        <li className="sidenav-header">Services</li>
+                        <li className="sidenav-header"><span className='glyphicon glyphicon-cog'></span>Services</li>
                         <li>
                             <NavLink to={ '/PCOrder' } title="Order a new PC" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                <span className='glyphicon glyphicon-th-list'></span> Order a new PC
+                                Order a new PC
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={ '/NetworkRegistration' } title="Request a new user account" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                <span className='glyphicon glyphicon-th-list'></span> Request a new user account
+                                 Request a new user account
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={ '/MobileDevice' } title="Order a new mobile device" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                <span className='glyphicon glyphicon-th-list'></span> Order a new mobile device
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/OfficeMoves' } title="Request support for an office move" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                <span className='glyphicon glyphicon-th-list'></span> Request support for an office move
+                                Order a new mobile device
                             </NavLink>
                         </li>
                         <li>
                             <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Other">
-                                <span className='glyphicon glyphicon-th-list'></span> Other
+                                Other
                             </a>
                         </li>
-                        <li className="sidenav-header">Resources</li>
+                        <li className="sidenav-header"><span className='glyphicon glyphicon-cog'></span>Resources</li>
                         <li>
                         <NavLink to={ '/SelfService' } activeClassName='active' data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-cog'></span> Self service
+                            Self service
                         </NavLink>
                         </li>
                         <li>
                         <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-cog'></span> My tickets
+                            My tickets
                         </a>
                         </li>
                         <li>
                         <a href="http://portal.office.com/" target="_blank" data-toggle="collapse" data-target=".in">
-                            <span className='glyphicon glyphicon-cog'></span> Microsoft portal
+                            Microsoft portal
                         </a>
                         </li>
                         <div className='accountcontainer'>

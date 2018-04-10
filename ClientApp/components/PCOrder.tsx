@@ -145,6 +145,21 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             $('#Replacement').attr("hidden",false);
         }
     }
+    autoexpand () {
+        var heightLimit = 300;
+        var sa = document.getElementById("SoftwareApplications");
+        var oa = document.getElementById("OtherAccessories");
+        if (sa)
+        {
+            sa.style.height = "";
+            sa.style.height = Math.min(sa.scrollHeight, heightLimit) + "px";
+        }
+        if (oa)
+        {
+            oa.style.height = ""
+            oa.style.height = Math.min(oa.scrollHeight, heightLimit) + "px";
+        }
+    }
     public render() {
         return <div className="centered">
             <form>
@@ -155,15 +170,17 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     <h4 className="form-h4">complete all fields and submit</h4>
                     <hr/>
                     <div className="form-group">    
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Enter your phone number</h4>
+                            <label htmlFor="CustomerPhone" className="error" hidden></label>
                             <input name="CustomerPhone" className="form-control" placeholder="Phone number" required></input>
                         </div>
                     </div>
                     
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                         <h4 className="form-h4">What type of machine are you requesting?</h4>
+                            <label htmlFor="type" className="error" hidden></label>
                             <select name="MachineType" id="type" className="selectpicker btn-form-control" data-style="btn-info" title="Machine type" onChange={this.setaccessories}  required>
                                 <option>Desktop</option>
                                 <option>Laptop</option>
@@ -174,8 +191,9 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                         <h4 className="form-h4">Which department will be receiving this machine?</h4>
+                            <label htmlFor="department" className="error" hidden></label>
                             <select name="Department" id="department" className="selectpicker btn-form-control" data-style="btn-info" title="Department" onChange={this.setaccessories} required>
                                 <option>Animal Control</option>
                                 <option>Bureau of Neighborhood Empowerment</option>
@@ -211,28 +229,30 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Which employee will be receiving this machine?</h4>
                             <input name="UserName" className="form-control" placeholder="Employee's name"></input>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is the employee's network id?</h4>
                             <input name="UserNetworkID" className="form-control" placeholder="Employee's network id"></input>
                         </div>
                     </div>
                 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Where is the employee located?</h4>
-                            <input name="UserNetworkID" className="form-control" placeholder="Employee's location"  required></input>
+                            <label htmlFor="Location" className="error" hidden></label>
+                            <input name="Location" className="form-control" placeholder="Employee's location"  required></input>
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Is this for a new employee, or an existing staff member?</h4>
+                            <label htmlFor="ordertype" className="error" hidden></label>
                             <select name="EmploymentStatus" id="ordertype" className="selectpicker btn-form-control" data-style="btn-info" title="Employment status" onChange={this.conditionalfields} required>
                                 <option>New</option>
                                 <option>Existing</option>
@@ -243,7 +263,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     {/* New employee fields */}
                     <div id="NewEmployee" hidden>
                         <div className="form-group">
-                            <div className="col-md-12">
+                            <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Is this for a permanent employee, or intern?</h4>
                                 <select name="Employee type" className="selectpicker btn-form-control" data-style="btn-info" title="Employment type">
                                     <option>Permanent</option>
@@ -252,7 +272,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-md-12">
+                            <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Was a functioning computer plugged into the desk network port in the previous month?</h4>
                                 <select name="Employee type" className="selectpicker btn-form-control" data-style="btn-info" title="Yes or no">
                                     <option>Yes</option>
@@ -265,12 +285,12 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     {/* Replacement employee fields */}
                     <div id="Replacement" hidden>
                         <div className="form-group">
-                            <div className="col-md-12">
+                            <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Enter their current computer number</h4>
                                 <input name="ComputerNumber" className="form-control" placeholder="Computer number"></input>
                             </div>
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Is their current computer functioning?</h4>
                             <select name="ComputerFunctioning" className="selectpicker btn-form-control" data-style="btn-info" title="Yes or no">
                                 <option>Yes</option>
@@ -278,7 +298,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                             </select>
                         </div>
                         <div className="form-group">
-                            <div className="col-md-12">
+                            <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Please enter the OTRS ticket number associated with the replacement</h4>
                                 <input name="OTRSTicket" className="form-control" placeholder="OTRS ticket number"></input>
                             </div>
@@ -287,8 +307,8 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
                     
                     <div className="form-group">
-                        <div className="col-md-12">
-                            <h4 className="form-h4">Select the necessary accessories</h4>
+                        <div className="col-md-12 form-element">
+                            <h4 className="form-h4">Select any necessary accessories</h4>
                             <select name="Accessories" id="accessories" className="selectpicker btn-form-control" data-style="btn-info" title="Accessories" multiple>
                                 <option className="desktop laptop zeroclient" disabled>Keyboard</option>
                                 <option className="desktop laptop zeroclient" disabled>Mouse</option>
@@ -300,16 +320,16 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-md-12 form-element">
                             <h4 className="form-h4">Identify any other accessories you would like</h4>
-                            <textarea name="OtherAccessories" className="form-control" placeholder="Other accessories"></textarea>
+                            <textarea name="OtherAccessories" id="OtherAccessories" className="form-control" placeholder="Other accessories" onChange={this.autoexpand}></textarea>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12" id="tooltip">
+                        <div className="col-md-12 form-element" id="tooltip">
                             <h4 className="form-h4">Identify any non-<a title="standard software">standard software</a> applications you would like*</h4>
-                            <textarea name="SoftwareApplications" className="form-control" placeholder="Additional software applications"></textarea>
+                            <textarea name="SoftwareApplications" id="SoftwareApplications" className="form-control" placeholder="Additional software applications" onChange={this.autoexpand}></textarea>
                         </div>
                     </div>
                 </div>
