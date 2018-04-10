@@ -348,8 +348,7 @@ button.bs-placeholder[role='button']>span {
     /* remove blue underline */
     text-decoration: none;
     /* border */
-    border: .5px rgb(186, 134, 6);
-    border-style: solid;
+    border: .5px solid rgb(44, 62, 80) !important;
     border-radius: 2px;
     /* transitions */
     transition: all .1s ease 0s;
@@ -363,6 +362,7 @@ button.bs-placeholder[role='button']>span {
 }
 .btn-selfservice:active, .btn-selfservice:focus, .btn-selfservice:hover {
     background-color: rgba(186, 134, 6, .8) !important;
+    border: .5px solid rgb(186, 134, 6) !important;
     color: #fffaee !important;
     font-weight: bold;
     outline: none;

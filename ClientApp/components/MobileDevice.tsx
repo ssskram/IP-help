@@ -16,9 +16,9 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
         // form validation
         $("form").validate({
             messages: {
-                Department: 'This field is required',
-                MachineType: 'This field is required',
-                EmploymentStatus: 'This field is required'
+                DeviceType: 'This field is required',
+                NewReplacement: 'This field is required',
+                JobTitle: 'This field is required'
             }
         });
         // multi-use popup
@@ -40,6 +40,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
             var popup = document.getElementById('popup');
             var data = $('form').serialize(); 
             var cleandata = data.replace(/\'/g, '');
+            alert(cleandata);
             $( "#popup" ).dialog( "open" );
             if (popup) {
                 popup.innerHTML = "Sending your request to someone who can help..."
@@ -86,7 +87,8 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="form-group">
                     <div className="col-md-12 form-element">
                         <h4 className="form-h4">What type of device do you need?</h4>
-                        <select name="DeviceType" className="selectpicker btn-form-control" data-style="btn-info" title="Select device">
+                        <label htmlFor="DeviceType" className="error" hidden></label>
+                        <select id="DeviceType" name="DeviceType" className="selectpicker btn-form-control" data-style="btn-info" title="Select device" required>
                             <option value="iPhone 6S" title="iPhone 6S" data-subtext="6S">iPhone</option>
                             <option value="iPhone 6E" title="iPhone 6E" data-subtext="6E">iPhone</option>
                             <option value="Samsung Galaxy J3 Eclipse" title="Samsung Galaxy J3 Eclipse" data-subtext="Samsung Galaxy J3 Eclipse">Android</option>
@@ -104,7 +106,8 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="form-group">
                     <div className="col-md-12 form-element">
                         <h4 className="form-h4">Is this request for a new staff member, or for a replacement mobile device?</h4>
-                        <select name="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement">
+                        <label htmlFor="NewReplacement" className="error" hidden></label>
+                        <select name="NewReplacement" id="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement" required>
                             <option>New</option>
                             <option>Replacement</option>
                         </select>
@@ -114,7 +117,8 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="form-group">
                     <div className="col-md-12 form-element">
                         <h4 className="form-h4">Please provide the employee's job title and description</h4>
-                        <textarea name="JobTitle" id="JobTitle" className="form-control" placeholder="Job title and description" onChange={this.autoexpand}></textarea>
+                        <label htmlFor="JobTitle" className="error" hidden></label>
+                        <textarea name="JobTitle" id="JobTitle" className="form-control" placeholder="Job title and description" onChange={this.autoexpand} required></textarea>
                     </div>
                 </div>
             </div>

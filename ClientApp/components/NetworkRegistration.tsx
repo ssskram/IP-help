@@ -280,6 +280,9 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                 </div>
             </div>
         </form>
+
+        <div id="overlay"></div>
+        
     </div>;
     }
 }

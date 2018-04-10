@@ -76,6 +76,11 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     }
     handleSubmit() {
         window.scrollTo(0, 0)
+        if ($('#accessories').val() != null)
+        {
+            var aces = $('#accessories').val().toString().split(',').join(', ');
+            $('#accessoriesrelay').val( aces );
+        }
         if ($("form").valid()) {
             var popup = document.getElementById('popup');
             var data = $('form').serialize(); 
@@ -84,7 +89,6 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             if (popup) {
                 popup.innerHTML = "Sending your request to someone who can help..."
             }
-            alert(cleandata);
             $.ajax(
                 {
                     url: '/api/Forms/PCOrder',
@@ -266,7 +270,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                         <div className="form-group">
                             <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Is this for a permanent employee, or intern?</h4>
-                                <select name="Employee type" className="selectpicker btn-form-control" data-style="btn-info" title="Employment type">
+                                <select name="EmploymentType" className="selectpicker btn-form-control" data-style="btn-info" title="Employment type">
                                     <option>Permanent</option>
                                     <option>Intern</option>
                                 </select>
@@ -275,7 +279,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                         <div className="form-group">
                             <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Was a functioning computer plugged into the desk network port in the previous month?</h4>
-                                <select name="Employee type" className="selectpicker btn-form-control" data-style="btn-info" title="Yes or no">
+                                <select name="PreviouslyFunctioning" className="selectpicker btn-form-control" data-style="btn-info" title="Yes or no">
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -344,6 +348,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 *Dept. may be responsible for payment of licensed software <br/>
                 *Dept. needs to provide surge protector for the computer outlet. I&P will not provide surge protectors with computers
                 </div>
+                <input name="AccessoriesRelay" id="accessoriesrelay" hidden></input>
                 </fieldset>
             </form>
 
