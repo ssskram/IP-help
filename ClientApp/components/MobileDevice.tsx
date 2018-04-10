@@ -90,7 +90,7 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                         <label htmlFor="DeviceType" className="error" hidden></label>
                         <select id="DeviceType" name="DeviceType" className="selectpicker btn-form-control" data-style="btn-info" title="Select device" required>
                             <option value="iPhone 6S" title="iPhone 6S" data-subtext="6S">iPhone</option>
-                            <option value="iPhone 6E" title="iPhone 6E" data-subtext="6E">iPhone</option>
+                            <option value="iPhone SE" title="iPhone SE" data-subtext="SE">iPhone</option>
                             <option value="Samsung Galaxy J3 Eclipse" title="Samsung Galaxy J3 Eclipse" data-subtext="Samsung Galaxy J3 Eclipse">Android</option>
                             <option value="Samsung Galaxy S7" title="Samsung Galaxy S7" data-subtext="Samsung Galaxy S7">Android</option>
                             <option value="Kyocera Dura Force Pro Rugged" title="Kyocera Dura Force Pro Rugged" data-subtext="Kyocera Dura Force Pro Rugged">Android</option>

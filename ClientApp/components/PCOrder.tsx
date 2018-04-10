@@ -7,28 +7,28 @@ declare var $: any;
 export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
-        // // check to see if user is a dept liaison
-        // fetch('/api/userdata/equipment_check', {
-        //     credentials: 'same-origin',
-        //     headers: {
-        //         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-        //     },
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     if (data == 0)
-        //     {
-        //         var overlay = document.getElementById("overlay");
-        //         if (overlay) {
-        //             overlay.style.display = "block";
-        //         }
-        //         var popup = document.getElementById('popup');
-        //         if (popup) {
-        //             popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can order PCs."
-        //         }
-        //         $( "#popup" ).dialog( "open" );
-        //     }
-        // });
+        // check to see if user is a dept liaison
+        fetch('/api/userdata/equipment_check', {
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data == 0)
+            {
+                var overlay = document.getElementById("overlay");
+                if (overlay) {
+                    overlay.style.display = "block";
+                }
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can order PCs."
+                }
+                $( "#popup" ).dialog( "open" );
+            }
+        });
         // date fields & select elements
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"

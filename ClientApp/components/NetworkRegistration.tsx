@@ -131,7 +131,10 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                     <div className="form-group">
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their employment type?</h4>
-                            <input name="EmploymentType" className="form-control" placeholder="Employment type"></input>
+                            <select name="EmploymentType" className="selectpicker btn-form-control" data-style="btn-info" title="Employment type">
+                                <option>New</option>
+                                <option>Transfer</option>
+                            </select>
                         </div>
                     </div>
 

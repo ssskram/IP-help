@@ -88,6 +88,9 @@ namespace IP_Help.Controllers
         {
             var user = _userManager.GetUserName(HttpContext.User);
             string[] approvers = { 
+                // "srinidhi.jagannath@pittsburghpa.gov",
+                "paul.marks@pittsburghpa.gov"
+                // "heidi.norman@pittsburghpa.gov",
                 // "gloria.forouzan@pittsburghpa.gov",
                 // "anthony.landolina@pittsburghpa.gov",
                 // "daniel.shak@pittsburghpa.gov",
