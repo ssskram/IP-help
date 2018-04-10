@@ -115,7 +115,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
             <div className="row">
             <div className="col-md-10">
                     <div className="form-group">
-                        <div className="col-md-12  form-element">
+                        <div className="col-md-12">
                             <h4 className="form-h4">What is the employee's first name?</h4>
                             <input name="FirstName" className="form-control" placeholder="Employee's first name"></input>
                         </div>
