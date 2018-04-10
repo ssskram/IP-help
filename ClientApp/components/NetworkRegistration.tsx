@@ -6,6 +6,28 @@ declare var $: any;
 export class NetworkRegistration extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
+        // check to see if user is a dept liaison
+        fetch('/api/userdata/network_check', {
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data == 0)
+            {
+                var overlay = document.getElementById("overlay");
+                if (overlay) {
+                    overlay.style.display = "block";
+                }
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can request new network accounts"
+                }
+                $( "#popup" ).dialog( "open" );
+            }
+        });
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy",
             changeMonth: true,
@@ -15,30 +37,70 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         $('.selectpicker').selectpicker('mobile');
         }
-    }
-    handleSubmit() {
-        var data = $('form').serialize(); 
-        var cleandata = data.replace(/\'/g, '');
-        $.ajax(
-            {
-                url: '/api/Forms/NetworkRegistration',
-                type: 'POST',
-                data: cleandata,
-                success: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Success!<br/>Check your email for confirmation"
-                      }
-                },
-                error: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
-                      }
+        // form validation
+        $("form").validate({
+            messages: {
+                Department: 'This field is required',
+                MachineType: 'This field is required',
+                EmploymentStatus: 'This field is required'
+            }
+        });
+        var validator = $( "form" ).validate();
+        $( "#type" ).change(function() {
+            validator.element("#type");
+        });
+        // multi-use popup
+        $( "#popup" ).dialog({
+            autoResize:true,
+            modal: true,
+            autoOpen: false,
+            close: function () {
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = ""
                 }
             }
-        );
-        $( "#success" ).dialog( "open" );
+        });
+    }
+    handleSubmit() {
+        window.scrollTo(0, 0)
+        if ($("form").valid()) {
+            var popup = document.getElementById('popup');
+            var data = $('form').serialize(); 
+            var cleandata = data.replace(/\'/g, '');
+            $( "#popup" ).dialog( "open" );
+            if (popup) {
+                popup.innerHTML = "Sending your request to someone who can help..."
+            }
+            $.ajax(
+                {
+                    url: '/api/Forms/NetworkRegistration',
+                    type: 'POST',
+                    data: cleandata,
+                    success: function () {
+                        if (popup) {
+                            popup.innerHTML = "<b>Success!</b><br/>The Help Desk will be in touch"
+                          }
+                    },
+                    error: function () {
+                        if (popup) {
+                            popup.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
+                          }
+                    }
+                }
+            );
+            $('form').trigger("reset");
+            $('.selectpicker').selectpicker('refresh');
+        }
+    }
+    autoexpand () {
+        var heightLimit = 300;
+        var comments = document.getElementById("Comments");
+        if (comments)
+        {
+            comments.style.height = "";
+            comments.style.height = Math.min(comments.scrollHeight, heightLimit) + "px";
+        }
     }
     public render() {
         return <div className="centered">
@@ -206,7 +268,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                     <div className="form-group">
                         <div className="col-md-12">
                             <h4 className="form-h4">Do you have any additional comments?</h4>
-                            <textarea name="Comments" className="form-control" placeholder="Additional details"></textarea>
+                            <textarea name="Comments" id="Comments" className="form-control" placeholder="Additional details" onChange={this.autoexpand}></textarea>
                         </div>
                     </div>
                 
@@ -214,7 +276,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
             </div>
             <div className="row">
                 <div className="col-md-10 text-center">
-                    <NavLink to={ '/' } type="button" id="submit" title="Submit order" value="Submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</NavLink>
+                    <a type="button" id="submit" title="Submit order" value="Submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</a>
                 </div>
             </div>
         </form>

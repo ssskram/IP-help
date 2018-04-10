@@ -24,7 +24,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 }
                 var popup = document.getElementById('popup');
                 if (popup) {
-                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only departmental liaisons can order PCs."
+                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can order PCs."
                 }
                 $( "#popup" ).dialog( "open" );
             }
@@ -310,11 +310,11 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">Select any necessary accessories</h4>
                             <select name="Accessories" id="accessories" className="selectpicker btn-form-control" data-style="btn-info" title="Accessories" multiple>
-                                <option className="desktop laptop zeroclient" disabled>Keyboard</option>
-                                <option className="desktop laptop zeroclient" disabled>Mouse</option>
-                                <option className="desktop laptop" disabled>Monitor</option>
-                                <option className="laptop" disabled>Docking station</option>
-                                <option className="speakers" disabled>Speakers</option>
+                                <option className="desktop laptop zeroclient" data-subtext=" - desktops, laptops, and zero clients" disabled>Keyboard</option>
+                                <option className="desktop laptop zeroclient" data-subtext=" - desktops, laptops, and zero clients" disabled>Mouse</option>
+                                <option className="desktop laptop" data-subtext=" - desktops and laptops" disabled>Monitor</option>
+                                <option className="laptop" data-subtext=" - laptops only" disabled>Docking Station</option>
+                                <option className="speakers" data-subtext=" - special order" disabled>Speakers</option>
                             </select>
                         </div>
                     </div>

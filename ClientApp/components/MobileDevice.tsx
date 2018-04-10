@@ -13,42 +13,66 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         $('.selectpicker').selectpicker('mobile');
         }
-        $( "#success" ).dialog({
-            width: 350,
-            height: 200,
+        // form validation
+        $("form").validate({
+            messages: {
+                Department: 'This field is required',
+                MachineType: 'This field is required',
+                EmploymentStatus: 'This field is required'
+            }
+        });
+        // multi-use popup
+        $( "#popup" ).dialog({
+            autoResize:true,
             modal: true,
             autoOpen: false,
             close: function () {
-                var body = document.getElementById('success');
-                if (body) {
-                    body.innerHTML = "Sending your request to someone who can help..."
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = ""
                 }
             }
         });
     }
     handleSubmit() {
-        var data = $('form').serialize(); 
-        var cleandata = data.replace(/\'/g, '');
-        $.ajax(
-            {
-                url: '/api/Forms/MobileDevice',
-                type: 'POST',
-                data: cleandata,
-                success: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Success!<br/>Check your email for confirmation"
-                      }
-                },
-                error: function () {
-                    var body = document.getElementById('success');
-                    if (body) {
-                        body.innerHTML = "Oops!<br/>Something isn't right<br/>Please logout, log back in, and try again"
-                      }
-                }
+        window.scrollTo(0, 0)
+        if ($("form").valid()) {
+            var popup = document.getElementById('popup');
+            var data = $('form').serialize(); 
+            var cleandata = data.replace(/\'/g, '');
+            $( "#popup" ).dialog( "open" );
+            if (popup) {
+                popup.innerHTML = "Sending your request to someone who can help..."
             }
-        );
-        $( "#success" ).dialog( "open" );
+            $.ajax(
+                {
+                    url: '/api/Forms/MobileDevice',
+                    type: 'POST',
+                    data: cleandata,
+                    success: function () {
+                        if (popup) {
+                            popup.innerHTML = "<strong>Success!</strong><br/>The Help Desk will be in touch"
+                        }
+                    },
+                    error: function () {
+                        if (popup) {
+                            popup.innerHTML = "Oops!<br/><storng>Something isn't right</strong><br/>Please logout, log back in, and try again"
+                        }
+                    }
+                }
+            );
+            $('form').trigger("reset");
+            $('.selectpicker').selectpicker('refresh');
+        }
+    }
+    autoexpand () {
+        var heightLimit = 300;
+        var jt = document.getElementById("JobTitle");
+        if (jt)
+        {
+            jt.style.height = "";
+            jt.style.height = Math.min(jt.scrollHeight, heightLimit) + "px";
+        }
     }
     public render() {
         return <div className="centered">
@@ -90,21 +114,17 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 <div className="form-group">
                     <div className="col-md-12 form-element">
                         <h4 className="form-h4">Please provide the employee's job title and description</h4>
-                        <textarea name="JobTitle" className="form-control" placeholder="Job title and description"></textarea>
+                        <textarea name="JobTitle" id="JobTitle" className="form-control" placeholder="Job title and description" onChange={this.autoexpand}></textarea>
                     </div>
                 </div>
             </div>
             </div>
             <div className="row">
                 <div className="col-md-10 text-center">
-                    <NavLink to={ '/' } type="button" id="submit" title="Submit order" value="Submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</NavLink>
+                    <a type="button" id="submit" title="Submit order" value="Submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</a>
                 </div>
             </div>
         </form>
-
-        <div id="success">
-        Sending your request to someone who can help...
-        </div>
     </div>;
     }
 }

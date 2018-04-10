@@ -218,6 +218,14 @@ input[readonly].datepicker{
     height: 30px;
     border: 0px;
 }
+.ui-datepicker {
+    background-color: rgba(255, 250, 238, 1) !important;   
+    border-radius: 10px;
+}
+.ui-state-default {
+    border-radius: 5px;
+    text-align: center !important;
+}
 /* hide overflow of text area boxes, in conjunction with script in site.js */
 textarea { 
     overflow: hidden;
@@ -411,7 +419,7 @@ button.bs-placeholder[role='button']>span {
     color: #383838;
     font-size: 20px;
     text-align: center;
-    background-color: rgba(255, 254, 250, 1); 
+    background-color: rgba(255, 250, 238, .5) !important;
     font-family: 'Raleway', sans-serif;
 }
 
