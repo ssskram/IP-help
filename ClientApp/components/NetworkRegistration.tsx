@@ -40,14 +40,12 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
         // form validation
         $("form").validate({
             messages: {
-                Department: 'This field is required',
-                MachineType: 'This field is required',
-                EmploymentStatus: 'This field is required'
+                Department: 'This field is required'
             }
         });
         var validator = $( "form" ).validate();
-        $( "#type" ).change(function() {
-            validator.element("#type");
+        $( "#Department" ).change(function() {
+            validator.element("#Department");
         });
         // multi-use popup
         $( "#popup" ).dialog({
@@ -155,7 +153,8 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                     <div className="form-group">
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their department?</h4>
-                            <select name="Department" className="selectpicker btn-form-control" data-style="btn-info" title="Department">
+                            <label htmlFor="Department" className="error" hidden></label>
+                            <select name="Department" id="Department" className="selectpicker btn-form-control" data-style="btn-info" title="Department" required>
                                 <option>Animal Control</option>
                                 <option>Bureau of Neighborhood Empowerment</option>
                                 <option>Citiparks</option>
