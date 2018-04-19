@@ -147,7 +147,7 @@ label.error {
     border-color: rgba(202, 205, 206, .5) !important;
 }
 .navbar-inverse .navbar-toggle {
-    border-color: rgba(202, 205, 206, .5) !important;
+    border-color: transparent !important;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
