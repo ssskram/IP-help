@@ -28,6 +28,8 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
         //         $( "#popup" ).dialog( "open" );
         //     }
         // });
+
+        // date fields & select elements
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy",
             changeMonth: true,

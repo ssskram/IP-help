@@ -21,13 +21,7 @@ namespace IP_Help.Controllers
         public IActionResult getuser() 
         {
             var user = _userManager.GetUserName(HttpContext.User);
-            List<Account> Users = new List<Account>();
-            Account wf = new Account()
-            {
-                user = user
-            };
-            Users.Add(wf);
-            return Ok(Users);
+            return Json(user);
         }
 
         [HttpGet("[action]")]
@@ -130,11 +124,6 @@ namespace IP_Help.Controllers
             {
                 return Ok("0");
             }
-        }
-
-        public class Account
-        {
-            public string user { get; set; }
         }
     }
 }

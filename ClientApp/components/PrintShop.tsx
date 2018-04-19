@@ -6,6 +6,7 @@ declare var $: any;
 export class PrintShop extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
+        // date fields & select elements
         $('.datepicker').datepicker({
             format: "mm/dd/yyyy"
         });  

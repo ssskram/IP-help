@@ -1,32 +1,24 @@
 import * as React from 'react';
 import { Link, NavLink, Redirect } from 'react-router-dom';
-import { RouteComponentProps } from 'react-router';
-import 'isomorphic-fetch';
+declare var $: any;
 
-interface UserState {
-    username: UserData [];
-}
-
-export class NavMenu extends React.Component<UserData, UserState> {
-    constructor() {
-        super();
-        this.state = { username: [] };
-
+export class NavMenu extends React.Component<{}, {}>  {
+    componentDidMount() {
         fetch('/api/userdata/getuser', {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
             },
         })
-        .then(response => response.json())
-        .then(data => {
-            this.setState({ username: data });
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data != null) {
+                    $('#account').html(data);
+                }
+            });
     }
 
     public render() {
-        let contents = NavMenu.renderUser(this.state.username);
-
         return <div className='main-nav'>
                 <div className='navbar navbar-inverse'>
                 <div className='navbar-header'>
@@ -78,8 +70,7 @@ export class NavMenu extends React.Component<UserData, UserState> {
                         </a>
                         </li>
                         <div className='accountcontainer'>
-                            <li>
-                            { contents }
+                            <li className="account" id="account">
                             </li>
                             <li className='logout'>
                             <NavLink to={ '/Account/Login' } activeClassName='active' id="logout" className='btn btn-link navbar-logout-btn navbar-link'>
@@ -92,15 +83,4 @@ export class NavMenu extends React.Component<UserData, UserState> {
             </div>
         </div>;
     }
-
-    private static renderUser(username: UserData[]) {
-        return <div>             
-            {username.map(un =>
-            <div className='account'>{ un.user }</div>
-        )} </div>;   
-    }
-}
-
-interface UserData {
-    user: string
 }

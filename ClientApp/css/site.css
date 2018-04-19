@@ -92,7 +92,6 @@ label.error {
         border-radius: 4px;
     }
     .main-nav .navbar a {
-        /* If a menu item's text is too long, truncate it */
         width: 100%;
         white-space: normal;
 
@@ -250,7 +249,7 @@ input[readonly].datepicker{
     border-radius: 5px;
     text-align: center !important;
 }
-/* hide overflow of text area boxes, in conjunction with script in site.js */
+/* hide overflow of text area boxes, in conjunction with autosize script */
 textarea { 
     overflow: hidden;
 }
