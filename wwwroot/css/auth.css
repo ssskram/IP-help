@@ -14,7 +14,7 @@ body {
     background-color: rgb(26, 36, 47) !important;
     color: white !important;
     outline: none;
- }
+}
 .btn-default {
     /* font */
     color: #383838;
@@ -37,7 +37,7 @@ body {
     padding: 10px 15px;
     margin: 15px 7px;
     width: 200px;
-  }
+}
 /* loader to save screen on network activity */
 .overlayloader {
     align-items: center;
