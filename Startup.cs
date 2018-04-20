@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration.UserSecrets;
@@ -61,6 +62,13 @@ namespace IP_Help
                     microsoftOptions.ClientId = Configuration["MSClientId"];
                     microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
                 });
+
+            services.AddDataProtection()
+                .SetApplicationName("SharedCookieApp");
+
+            services.ConfigureApplicationCookie(options => {
+                options.Cookie.Name = ".AspNet.SharedCookie";
+            });
 
             // add application services
             Environment.SetEnvironmentVariable("sendgrid", Configuration["sendgrid"]);
