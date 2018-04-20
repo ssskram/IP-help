@@ -1,4 +1,5 @@
 ﻿﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,7 +64,9 @@ namespace IP_Help
                     microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
                 });
 
+
             services.AddDataProtection()
+                .PersistKeysToFileSystem(GetKeyRingDirInfo())
                 .SetApplicationName("SharedCookieApp");
 
             services.ConfigureApplicationCookie(options => {
@@ -113,6 +116,25 @@ namespace IP_Help
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+        }
+        private DirectoryInfo GetKeyRingDirInfo()
+        {
+            var startupAssembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var applicationBasePath = System.AppContext.BaseDirectory;
+            var directoryInfo = new DirectoryInfo(applicationBasePath);
+            do
+            {
+                directoryInfo = directoryInfo.Parent;
+
+                var keyRingDirectoryInfo = new DirectoryInfo(Path.Combine(directoryInfo.FullName, "KeyRing"));
+                if (keyRingDirectoryInfo.Exists)
+                {
+                    return keyRingDirectoryInfo;
+                }
+            }
+            while (directoryInfo.Parent != null);
+
+            throw new Exception($"KeyRing folder could not be located using the application root {applicationBasePath}.");
         }
     }
 }
