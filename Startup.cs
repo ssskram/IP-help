@@ -72,7 +72,7 @@ namespace IP_Help
             CloudBlobContainer container = blobClient.GetContainerReference("keys");
             container.CreateIfNotExistsAsync();
             services.AddDataProtection()
-                .SetApplicationName(".PGH_SSO")
+                .SetApplicationName("PGH_SSO")
                 .PersistKeysToAzureBlobStorage(container, "keys.xml");
             services.ConfigureApplicationCookie(options => {
                 options.Cookie.Name = ".PGH_SSO";
