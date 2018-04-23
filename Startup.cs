@@ -56,8 +56,7 @@ namespace IP_Help
                 options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
                 {
@@ -70,7 +69,6 @@ namespace IP_Help
             Uri storageUri = new Uri($"{uri}");
             CloudBlobClient blobClient = new CloudBlobClient(storageUri);
             CloudBlobContainer container = blobClient.GetContainerReference("keys");
-            container.CreateIfNotExistsAsync();
             services.AddDataProtection()
                 .SetApplicationName("PGH_SSO")
                 .PersistKeysToAzureBlobStorage(container, "key.xml");
@@ -86,6 +84,7 @@ namespace IP_Help
                 .AddSessionStateTempDataProvider();
 
             services.AddDistributedMemoryCache();
+
             services.AddSession();
         }
 
