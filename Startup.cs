@@ -58,10 +58,16 @@ namespace IP_Help
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+            services.AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
                 {
                     microsoftOptions.ClientId = Configuration["MSClientId"];
                     microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
+                })
+                .Services.ConfigureApplicationCookie(options =>
+                {
+                    options.Cookie.Name = ".PGH_SSO";    
+                    options.Cookie.Domain = ".azurewebsites.us";
                 });
 
             // begin sso config
@@ -72,10 +78,6 @@ namespace IP_Help
             services.AddDataProtection()
                 .SetApplicationName("PGH_SSO")
                 .PersistKeysToAzureBlobStorage(container, "key.xml");
-            services.ConfigureApplicationCookie(options => {
-                options.Cookie.Name = ".PGH_SSO";
-                options.Cookie.Domain = ".azurewebsites.us";
-            });
             // end sso config
 
             // add application services
