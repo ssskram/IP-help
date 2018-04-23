@@ -73,7 +73,7 @@ namespace IP_Help
             container.CreateIfNotExistsAsync();
             services.AddDataProtection()
                 .SetApplicationName("PGH_SSO")
-                .PersistKeysToAzureBlobStorage(container, "keys.xml");
+                .PersistKeysToAzureBlobStorage(container, "key.xml");
             services.ConfigureApplicationCookie(options => {
                 options.Cookie.Name = ".PGH_SSO";
             });
