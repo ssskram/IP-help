@@ -53,12 +53,14 @@ namespace IP_Help
             _MSClientSecret = Configuration["MSClientSecret"];
             _sendgrid = Configuration["sendgrid"];
 
+            // add application services
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            // sso in production
             if (_currentEnvironment.IsProduction())
             {
                 string uri = Configuration.GetValue<string>("SSOuri");
@@ -90,7 +92,6 @@ namespace IP_Help
                     });
             }
 
-            // add application services
             Environment.SetEnvironmentVariable("sendgrid", Configuration["sendgrid"]);
 
             services.AddMvc()
