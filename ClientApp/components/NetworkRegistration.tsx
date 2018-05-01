@@ -134,6 +134,8 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                             <select name="EmploymentType" className="selectpicker btn-form-control" data-style="btn-info" title="Employment type">
                                 <option>New</option>
                                 <option>Transfer</option>
+                                <option>Consultant</option>
+                                <option>Temporary</option>
                             </select>
                         </div>
                     </div>
@@ -148,7 +150,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
                     <div className="form-group">
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">What is their employee ID number?</h4>
-                            <input name="EmployeeID" className="form-control" placeholder="Employee ID number"></input>
+                            <input name="EmployeeID" className="form-control" placeholder="Employee ID number" title="This can be found on the employee's paycheck"></input>
                         </div>
                     </div>
                     

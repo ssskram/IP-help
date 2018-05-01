@@ -407,6 +407,11 @@ button.bs-placeholder[role='button']>span {
     font-weight: bold;
     outline: none;
  }
+ .btn-default:active, .btn-default:focus, .btn-default:hover {
+    background-color: rgb(26, 36, 47) !important;
+    color: white !important;
+    outline: none;
+}
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     /* font */
     color: #383838;
