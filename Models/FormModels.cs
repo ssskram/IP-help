@@ -53,4 +53,11 @@ namespace IP_Help.Models
         [DataType(DataType.MultilineText)]
         public string JobTitle { get; set; }
     }
+
+    public class Other
+    {
+        public string Subject { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string Body { get; set; }
+    }
 }

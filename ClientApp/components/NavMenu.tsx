@@ -35,23 +35,23 @@ export class NavMenu extends React.Component<{}, {}>  {
                         <li className="sidenav-header"><span className='glyphicon glyphicon-cog'></span>Services</li>
                         <li>
                             <NavLink to={ '/PCOrder' } title="Order a new PC" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                Order a new PC
+                                New PC
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={ '/NetworkRegistration' } title="Request a new user account" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                 Request a new user account
+                                 New user account
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={ '/MobileDevice' } title="Order a new mobile device" activeClassName='active' data-toggle="collapse" data-target=".in">
-                                Order a new mobile device
+                                New mobile device
                             </NavLink>
                         </li>
                         <li>
-                            <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketMessage" target="_blank" data-toggle="collapse" data-target=".in" title="Must be connected to the City network">
+                            <NavLink to={ '/Other' } title="Miscellaneous request" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 Other
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="sidenav-header"><span className='glyphicon glyphicon-cog'></span>Resources</li>
                         <li>

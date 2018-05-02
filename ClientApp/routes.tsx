@@ -5,8 +5,7 @@ import { Home } from './components/Home';
 import { PCOrder } from './components/PCOrder';
 import { NetworkRegistration } from './components/NetworkRegistration';
 import { MobileDevice } from './components/MobileDevice';
-import { OfficeMoves } from './components/OfficeMoves';
-import { PrintShop } from './components/PrintShop';
+import { Other } from './components/Other';
 import { SelfService } from './components/SelfService';
 import { Login } from './components/Account/Login';
 
@@ -16,7 +15,6 @@ export const routes = <Layout>
     <Route path='/Account/Login' component={ Login } />
     <Route path='/NetworkRegistration' component={ NetworkRegistration } />
     <Route path='/MobileDevice' component={ MobileDevice } />    
-    <Route path='/OfficeMoves' component={ OfficeMoves } />
-    <Route path='/PrintShop' component={ PrintShop } />
+    <Route path='/Other' component={ Other } />
     <Route path='/SelfService' component={ SelfService } />    
 </Layout>;
