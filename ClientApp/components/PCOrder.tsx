@@ -38,11 +38,17 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
         $('.selectpicker').selectpicker('mobile');
         }
-        // tooltip for standard software
-        $( "#tooltip" ).tooltip({
+        // tooltip for standard accessories
+        $( "#accessories_tooltip" ).tooltip({
             content: 
-            "<b>standard software applications:</b><br/><li> MS Office 2013 (Word, Excel, PowerPoint, Outlook, OneNote) </li><li> Adobe Acrobat Reader DC </li><li>Chrome</li><li>IE-11</li><li>Google Earth</li><li>VLC Media Player</li><li>Java 8.15l</li><li>Net Framework</li><li>Silver Light</li><li>Firefox</li><li>VM Ware New Horizon</li><li>7Zip</li>",
-            tooltipClass: "software_tooltip"
+            "<b>Standard accessories for new devices:</b><br/><li> Wired keyboard </li><li> Wired mouse </li>",
+            tooltipClass: "pc_tooltip"
+          });
+        // tooltip for standard software
+        $( "#software_tooltip" ).tooltip({
+            content: 
+            "<b>Standard software applications:</b><br/><li> MS Office 2013 (Word, Excel, PowerPoint, Outlook, OneNote) </li><li> Adobe Acrobat Reader DC </li><li>Chrome</li><li>IE-11</li><li>Google Earth</li><li>VLC Media Player</li><li>Java 8.15l</li><li>Net Framework</li><li>Silver Light</li><li>Firefox</li><li>VM Ware New Horizon</li><li>7Zip</li>",
+            tooltipClass: "pc_tooltip"
           });
         // form validation
         $("form").validate({
@@ -112,31 +118,50 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         }
     }
     setaccessories() {
+        $('#accessories option').attr("selected",false);
         var type = $("#type").val();
         var dept = $("#department").val();
-        $('#accessories option').attr("selected",false);
-        $('#accessories option').prop("disabled",true);
         if (type == "Desktop")
         {
-            $('#accessories').find('.desktop').prop("disabled",false);
+            $('#accessories').find('.laptop').hide();
+            $('#accessories').find('.zeroclient').hide();
+            $('#accessories').find('.speakers').hide();
+            $('#accessories').find('.desktop').show();
         }
         if (type == "Laptop")
         {
-            $('#accessories').find('.laptop').prop("disabled",false);
+            $('#accessories').find('.desktop').hide();
+            $('#accessories').find('.zeroclient').hide();
+            $('#accessories').find('.speakers').hide();
+            $('#accessories').find('.laptop').show();
         }
         if (type == "Zero client")
         {
-            $('#accessories').find('.zeroclient').prop("disabled",false);
+            $('#accessories').find('.desktop').hide();
+            $('#accessories').find('.laptop').hide();
+            $('#accessories').find('.speakers').hide();
+            $('#accessories').find('.zeroclient').show();
         }
         if ( dept == "Police" || dept == "Public Safety" )
         {
-            $('#accessories').find('.speakers').prop("disabled",false);
+            $('#accessories').find('.speakers').show();
         }
-        if ( dept == "Police" )
-        {
-            $('#accessories').selectpicker('val', 'Speakers');
-        }
+        $('#accessories').prop("disabled",false);
         $('.selectpicker').selectpicker('refresh');
+    }
+    dockingstation() {
+        var acc = $("#accessories").val();
+        if (acc != null)
+        {
+            if (acc.indexOf('Docking Station') >= 0)
+            {
+                $("#accessories").find("#dockingstation").attr("selected",true);
+                $("#accessories").find("#keyboard").attr("selected",true);
+                $("#accessories").find("#mouse").attr("selected",true);
+                $("#accessories").find("#monitor").attr("selected",true);
+                $('.selectpicker').selectpicker('refresh');
+            }
+        }
     }
     conditionalfields() {
         var type = $("#ordertype").val();
@@ -190,7 +215,6 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                             <select name="MachineType" id="type" className="selectpicker btn-form-control" data-style="btn-info" title="Machine type" onChange={this.setaccessories}  required>
                                 <option>Desktop</option>
                                 <option>Laptop</option>
-                                <option>Tablet</option>
                                 <option>Zero client</option>
                             </select>
                         </div>
@@ -315,27 +339,36 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     <div className="form-group">
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">Select any necessary accessories</h4>
-                            <select name="Accessories" id="accessories" className="selectpicker btn-form-control" data-style="btn-info" title="Accessories" multiple>
-                                <option className="desktop laptop zeroclient" data-subtext=" - desktops, laptops, and zero clients" disabled>Keyboard</option>
-                                <option className="desktop laptop zeroclient" data-subtext=" - desktops, laptops, and zero clients" disabled>Mouse</option>
-                                <option className="desktop laptop" data-subtext=" - desktops and laptops" disabled>Monitor</option>
-                                <option className="laptop" data-subtext=" - laptops only" disabled>Docking Station</option>
-                                <option className="speakers" data-subtext=" - special order" disabled>Speakers</option>
+                            <select name="Accessories" id="accessories" className="selectpicker btn-form-control" data-style="btn-info" title="Accessories" onChange={this.dockingstation} multiple disabled>
+                                <option className="laptop" disabled hidden>All laptops will be issued with a protective case</option>
+                                <option className="laptop" id="dockingstation" value="Docking Station" hidden>Docking Station</option>
+                                <option className="desktop laptop zeroclient" id="keyboard" hidden>Keyboard</option>
+                                <option className="desktop laptop zeroclient" id="mouse" hidden>Mouse</option>
+                                <option className="desktop" hidden>Single Monitor</option>
+                                <option className="desktop" hidden>Dual Monitors</option>
+                                <option className="laptop" id="monitor" hidden>Additional Monitor</option>
+                                <option className="speakers" hidden>Speakers</option>
                             </select>
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12 form-element">
+                        <div className="col-md-12 form-element" id="accessories_tooltip">
                             <h4 className="form-h4">Identify any other accessories you would like</h4>
-                            <textarea name="OtherAccessories" id="OtherAccessories" className="form-control" placeholder="Other accessories" onChange={this.autoexpand}></textarea>
+                            <textarea name="OtherAccessories" id="OtherAccessories" className="form-control" placeholder="Dept. may need to pay for non-standard accessories" onChange={this.autoexpand}></textarea>
+                            <div className="standardlistslink">
+                                <a title="standard accessories">View standard accessories</a>
+                            </div>                      
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <div className="col-md-12 form-element" id="tooltip">
-                            <h4 className="form-h4">Identify any non-<a title="standard software">standard software</a> applications you would like*</h4>
-                            <textarea name="SoftwareApplications" id="SoftwareApplications" className="form-control" placeholder="Additional software applications" onChange={this.autoexpand}></textarea>
+                        <div className="col-md-12 form-element" id="software_tooltip">
+                            <h4 className="form-h4">Identify any non-standard software applications you would like</h4>
+                            <textarea name="SoftwareApplications" id="SoftwareApplications" className="form-control" placeholder="Dept. may be responsible for payment of licensed software" onChange={this.autoexpand}></textarea>
+                            <div className="standardlistslink">
+                                <a title="standard software">View standard software applications</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -346,7 +379,6 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     </div>
                 </div>
                 <div className="text-center col-md-10">
-                *Dept. may be responsible for payment of licensed software <br/>
                 *Dept. needs to provide surge protector for the computer outlet. I&P will not provide surge protectors with computers
                 </div>
                 <input name="AccessoriesRelay" id="accessoriesrelay" hidden></input>

@@ -284,22 +284,6 @@ button.bs-placeholder[role='button']>span {
     background-color: rgb(44, 62, 80) !important;
     color: white !important;
 }
-/* standard software tooltip, pc order form */
-.software_tooltip {
-    text-align: left !important;
-    font-size: 12px;
-    padding: 10px;
-    width: auto;
-    height: auto;
-}
-/* network reg form elements */
-.networkreg-contactinfo {
-    padding: 10px;
-    margin: 10px;
-}
-#networkregcontact .form-control {
-    margin: 5px;
-}
 
 /* button styles */
 .btn {
@@ -556,4 +540,29 @@ li > p {
     color: #fffaee !important;
     border: 0px !important;
     font-weight: normal !important;
+}
+
+/* pc order form */
+.standardlistslink {
+    margin-top: 10px !important;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* tooltips */
+.pc_tooltip {
+    text-align: left !important;
+    font-size: 12px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+
+/* network registration form */
+.networkreg-contactinfo {
+    padding: 10px;
+    margin: 10px;
+}
+#networkregcontact .form-control {
+    margin: 5px;
 }
