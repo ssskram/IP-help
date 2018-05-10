@@ -41,7 +41,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         // tooltip for standard accessories
         $( "#accessories_tooltip" ).tooltip({
             content: 
-            "<b>Standard accessories for new devices:</b><br/><li> Wired keyboard </li><li> Wired mouse </li>",
+            "<b>Standard accessories for new devices</b><br/><i>Desktops/Zero Clients:</i><br/><li> Wired keyboard </li><li> Wired mouse </li><li> Single monitor </li><li> Dual monitor (optional) </li><br/><i>Laptops:</i><li> Case </li><li> Docking station (optional) </li><li> Wired keyboard (optional) </li><li> Wired mouse (optional) </li><li> Additional monitor (optional) </li>",
             tooltipClass: "pc_tooltip"
           });
         // tooltip for standard software
