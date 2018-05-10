@@ -65,7 +65,15 @@ namespace IP_Help.Controllers
                 "megan.yarish@pittsburghpa.gov",
                 "christopher.reveille@pittsburghpa.gov",
                 "mimi.addy@pittsburghpa.gov",
-                "katherine.grober@pittsburghpa.gov"
+                "katherine.grober@pittsburghpa.gov",
+                "joseph.gerstbrein@pittsburghpa.gov",
+                "brian.lee@pittsburghpa.gov",
+                "da'ron.johnson@pittsburghpa.gov",
+                "christine.rice@pittsburghpa.gov",
+                "christopher.treloar@pittsburghpa.gov",
+                "joshua.shepherd@pittsburghpa.gov",
+                "paul.sinclair@pittsburghpa.gov",
+                "eric.davis@pittsburghpa.gov"
             };
             int check = Array.IndexOf(approvers, user);
             if ( (check > -1) )

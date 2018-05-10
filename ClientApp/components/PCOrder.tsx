@@ -8,27 +8,27 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount () {
         window.scrollTo(0, 0)
         // check to see if user is a dept liaison
-        // fetch('/api/userdata/equipment_check', {
-        //     credentials: 'same-origin',
-        //     headers: {
-        //         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-        //     },
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     if (data == 0)
-        //     {
-        //         var overlay = document.getElementById("overlay");
-        //         if (overlay) {
-        //             overlay.style.display = "block";
-        //         }
-        //         var popup = document.getElementById('popup');
-        //         if (popup) {
-        //             popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can order PCs."
-        //         }
-        //         $( "#popup" ).dialog( "open" );
-        //     }
-        // });
+        fetch('/api/userdata/equipment_check', {
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data == 0)
+            {
+                var overlay = document.getElementById("overlay");
+                if (overlay) {
+                    overlay.style.display = "block";
+                }
+                var popup = document.getElementById('popup');
+                if (popup) {
+                    popup.innerHTML = "<strong>Sorry...</strong><br/>Only certain people can order PCs."
+                }
+                $( "#popup" ).dialog( "open" );
+            }
+        });
         
         // date fields & select elements
         $('.datepicker').datepicker({
@@ -55,7 +55,8 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             messages: {
                 Department: 'This field is required',
                 MachineType: 'This field is required',
-                EmploymentStatus: 'This field is required'
+                EmploymentStatus: 'This field is required',
+                Location: 'This field is required'
             }
         });
         var validator = $( "form" ).validate();
@@ -66,6 +67,9 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
             validator.element("#department");
         });
         $( "#ordertype" ).change(function() {
+            validator.element("#ordertype");
+        });
+        $( "#Location" ).change(function() {
             validator.element("#ordertype");
         });
         // multi-use popup
@@ -276,7 +280,7 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">Where is the employee located?</h4>
                             <label htmlFor="Location" className="error" hidden></label>
-                            <input name="Location" className="form-control" placeholder="Employee's location"  required></input>
+                            <input name="Location" className="form-control" placeholder="Bldg & floor number"  required></input>
                         </div>
                     </div>
                     <div className="form-group">
