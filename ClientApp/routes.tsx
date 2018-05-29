@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { PCOrder } from './components/PCOrder';
-import { NetworkRegistration } from './components/NetworkRegistration';
-import { MobileDevice } from './components/MobileDevice';
-import { Other } from './components/Other';
+import { PCOrder } from './components/Forms/PCOrder';
+import { NetworkRegistration } from './components/Forms/NetworkRegistration';
+import { MobileDevice } from './components/Forms/MobileDevice';
+import { Other } from './components/Forms/Other';
 import { SelfService } from './components/SelfService';
 import { Login } from './components/Account/Login';
 

@@ -11,9 +11,6 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
             format: "mm/dd/yyyy"
         });  
         $('.selectpicker').selectpicker();
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        $('.selectpicker').selectpicker('mobile');
-        }
         // form validation
         $("form").validate({
             messages: {
