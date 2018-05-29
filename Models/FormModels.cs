@@ -11,7 +11,8 @@ namespace IP_Help.Models
         public string Department { get; set; }
         public string UserName { get; set; }
         public string UserNetworkID { get; set; }
-        public string Location { get; set; }
+        public string Building { get; set; }
+        public string Floor { get; set; }
         public string EmploymentStatus { get; set; }
         public string EmploymentType { get; set; }
         public string PreviouslyFunctioning { get; set; }
@@ -19,8 +20,6 @@ namespace IP_Help.Models
         public string ComputerFunctioning { get; set; }
         public string OTRSTicket { get; set; }
         public string AccessoriesRelay { get; set; }
-        [DataType(DataType.MultilineText)]
-        public string OtherAccessories { get; set; }
         [DataType(DataType.MultilineText)]
         public string SoftwareApplications { get; set; }
     }

@@ -56,7 +56,8 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 Department: 'This field is required',
                 MachineType: 'This field is required',
                 EmploymentStatus: 'This field is required',
-                Location: 'This field is required'
+                Building: 'This field is required',
+                Floor: 'This field is required'
             }
         });
         var validator = $( "form" ).validate();
@@ -69,7 +70,10 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
         $( "#ordertype" ).change(function() {
             validator.element("#ordertype");
         });
-        $( "#Location" ).change(function() {
+        $( "#Building" ).change(function() {
+            validator.element("#ordertype");
+        });
+        $( "#Floor" ).change(function() {
             validator.element("#ordertype");
         });
         // multi-use popup
@@ -278,11 +282,20 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                 
                     <div className="form-group">
                         <div className="col-md-12 form-element">
-                            <h4 className="form-h4">Where is the employee located?</h4>
-                            <label htmlFor="Location" className="error" hidden></label>
-                            <input name="Location" className="form-control" placeholder="Bldg & floor number"  required></input>
+                            <h4 className="form-h4">What is the employee's building?</h4>
+                            <label htmlFor="Building" className="error" hidden></label>
+                            <input name="Building" className="form-control" placeholder="Building name"  required></input>
                         </div>
                     </div>
+
+                    <div className="form-group">
+                        <div className="col-md-12 form-element">
+                            <h4 className="form-h4">What is the employee's floor number?</h4>
+                            <label htmlFor="Floor" className="error" hidden></label>
+                            <input name="Floor" className="form-control" placeholder="Floor number"  required></input>
+                        </div>
+                    </div>
+
                     <div className="form-group">
                         <div className="col-md-12 form-element">
                             <h4 className="form-h4">Is this for a new employee, or an existing staff member?</h4>
@@ -353,16 +366,9 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                                 <option className="laptop" id="monitor" hidden>Additional Monitor</option>
                                 <option className="speakers" hidden>Speakers</option>
                             </select>
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <div className="col-md-12 form-element" id="accessories_tooltip">
-                            <h4 className="form-h4">Identify any other accessories you would like</h4>
-                            <textarea name="OtherAccessories" id="OtherAccessories" className="form-control" placeholder="Dept. may need to pay for non-standard accessories" onChange={this.autoexpand}></textarea>
-                            <div className="standardlistslink">
+                            <div className="standardlistslink" id="accessories_tooltip">
                                 <a title="standard accessories">View standard accessories</a>
-                            </div>                      
+                            </div>    
                         </div>
                     </div>
 

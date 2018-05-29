@@ -161,6 +161,13 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                                 Municode
                             </a>
                         </div>
+                        <h3>APRS</h3>
+                        <div>
+                            <h4><b>Troubleshooting</b></h4>
+                            <a href="https://cityofpittsburgh.sharepoint.com/:w:/s/InnovationandPerformance/ET-fwfpq7OFOjDIRGGsO6SMBGMK34DW7JwWeph-P1tr8Ew" target="_blank" className="btn btn-selfservice">
+                                Can't see the entire screen
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
