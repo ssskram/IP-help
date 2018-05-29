@@ -70,13 +70,13 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         <h3>Windows 7</h3>
                         <div>
                             <h4><b>User guides</b></h4>     
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7Ba0e4b747-19b6-4ee3-92a5-11a0479b6d2f%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%207.pdf" target="_blank" className="btn btn-selfservice">
                                 Create a folder shortcut
                             </a>
                             <a href="http://apps.pittsburghpa.gov/redtail/images/1354_Create_Shortcuts_to_Websites_in_Windows_7.pdf" target="_blank" className="btn btn-selfservice">
                                 Create a website shortcut
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7B89fbdedb-a41c-4f96-81ba-3a42c4e945eb%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%207.pdf" target="_blank" className="btn btn-selfservice">
                                 Set a default printer
                             </a>
                             <a href="http://apps.pittsburghpa.gov/redtail/images/1355_Finding_Your_Computer_Name_in_Windows_7.pdf" target="_blank" className="btn btn-selfservice">
@@ -85,7 +85,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             <a href="http://apps.pittsburghpa.gov/redtail/images/1356_Map_a_Network_Drive_in_Windows_7.pdf" target="_blank" className="btn btn-selfservice">
                                 Map a network drive
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7B537e4656-e544-472e-9205-fa5517d4e20e%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Fax a document from the computer
                             </a>
                         </div>
@@ -96,19 +96,19 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                                 Windows 10
                             </a>
                             <h4><b>User guides</b></h4>                        
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7Bba8093c1-1c5f-4133-9a0b-d137cfbc3905%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Create a folder shortcut
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7Baa0017af-3651-440f-9637-b237e3a2902b%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Shortcut%20to%20a%20Website%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Create a website shortcut
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7Bad5af54b-4962-41fe-a242-7c68acf15548%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Set a default printer
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7B092d952f-c0dd-4041-b9a4-a7e682b35b6c%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Map%20a%20Network%20Drive%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Map a network drive
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/joan_anderson_pittsburghpa_gov1/_layouts/15/WopiFrame.aspx?sourcedoc=%7B537e4656-e544-472e-9205-fa5517d4e20e%7D&action=view" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                                 Fax a document from the computer
                             </a>
                         </div>
@@ -143,7 +143,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                             <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" title="Email and calendar" target="_blank" className="btn btn-selfservice">
                                 Instructions to connect
                             </a>
-                            <a href="https://cityofpittsburgh-my.sharepoint.com/:w:/r/personal/heidi_norman_pittsburghpa_gov/_layouts/15/WopiFrame.aspx?sourcedoc=%7B29150602-ab4b-4e99-8f6e-0012bfaa0cff%7D&action=view" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
                                 Troubleshooting
                             </a>
                         </div>
@@ -164,7 +164,7 @@ export class SelfService extends React.Component<RouteComponentProps<{}>, {}> {
                         <h3>APRS</h3>
                         <div>
                             <h4><b>Troubleshooting</b></h4>
-                            <a href="https://cityofpittsburgh.sharepoint.com/:w:/s/InnovationandPerformance/ET-fwfpq7OFOjDIRGGsO6SMBGMK34DW7JwWeph-P1tr8Ew" target="_blank" className="btn btn-selfservice">
+                            <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Problem%20with%20user%20viewing%20all%20of%20the%20APRS%20screen%20(1).pdf" target="_blank" className="btn btn-selfservice">
                                 Can't see the entire screen
                             </a>
                         </div>
