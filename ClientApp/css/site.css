@@ -557,6 +557,13 @@ li > p {
     width: auto;
     height: auto;
 }
+div.ui-tooltip {
+    max-width: 600px !important;
+}
+
+.ui-tooltip-content {
+    font-size: 16px;
+}
 
 /* network registration form */
 .networkreg-contactinfo {
