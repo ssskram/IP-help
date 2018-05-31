@@ -451,6 +451,7 @@ button.bs-placeholder[role='button']>span {
     text-align: center;
     background-color: rgba(255, 250, 238, .5) !important;
     font-family: 'Raleway', sans-serif;
+    border-radius: 25px;
 }
 
 /* home components */

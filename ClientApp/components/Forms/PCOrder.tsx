@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
-import 'isomorphic-fetch';
 declare var $: any;
 
 export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
