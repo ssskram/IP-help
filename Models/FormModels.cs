@@ -49,8 +49,11 @@ namespace IP_Help.Models
     {
         public string DeviceType { get; set; }
         public string NewReplacement { get; set; }
-        [DataType(DataType.MultilineText)]
         public string JobTitle { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string JobDuties { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string ReplacementExplanation { get; set; }
     }
 
     public class Other

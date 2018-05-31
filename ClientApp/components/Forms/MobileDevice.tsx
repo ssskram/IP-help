@@ -32,6 +32,19 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
             }
         });
     }
+    conditionalfields() {
+        var type = $("#NewReplacement").val();
+        $('#new').attr("hidden",true);
+        $('#replacement').attr("hidden",true);
+        if (type == "New")
+        {
+            $('#new').attr("hidden",false);
+        }
+        if (type == "Replacement")
+        {
+            $('#replacement').attr("hidden",false);
+        }
+    }
     handleSubmit() {
         window.scrollTo(0, 0)
         if ($("form").valid()) {
@@ -102,9 +115,9 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
 
                 <div className="form-group">
                     <div className="col-md-12 form-element">
-                        <h4 className="form-h4">Is this request for a new staff member, or for a replacement mobile device?</h4>
+                        <h4 className="form-h4">Is this request for a new or replacement mobile device?</h4>
                         <label htmlFor="NewReplacement" className="error" hidden></label>
-                        <select name="NewReplacement" id="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement" required>
+                        <select name="NewReplacement" id="NewReplacement" data-style="btn-info" className="btn-form-control selectpicker" title="New or replacement" onChange={this.conditionalfields} required>
                             <option>New</option>
                             <option>Replacement</option>
                         </select>
@@ -113,11 +126,28 @@ export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
                 
                 <div className="form-group">
                     <div className="col-md-12 form-element">
-                        <h4 className="form-h4">Please provide the employee's job title and description</h4>
+                        <h4 className="form-h4">Please provide the employee's name & job title</h4>
                         <label htmlFor="JobTitle" className="error" hidden></label>
-                        <textarea name="JobTitle" id="JobTitle" className="form-control" placeholder="Job title and description" onChange={this.autoexpand} required></textarea>
+                        <input name="JobTitle" id="JobTitle" className="form-control" placeholder="Name & title" required></input>
                     </div>
                 </div>
+
+                <div className="form-group" id="new" hidden>
+                    <div className="col-md-12 form-element">
+                        <h4 className="form-h4">Please explain how it will be used in relation to the employee's job duties</h4>
+                        <label htmlFor="JobDuties" className="error" hidden></label>
+                        <textarea name="JobDuties" id="JobDuties" className="form-control" placeholder="Explanation" onChange={this.autoexpand} required></textarea>
+                    </div>
+                </div>
+
+                <div className="form-group" id="replacement" hidden>
+                    <div className="col-md-12 form-element">
+                        <h4 className="form-h4">Please explain why the old device needs to be replaced</h4>
+                        <label htmlFor="ReplacementExplanation" className="error" hidden></label>
+                        <textarea name="ReplacementExplanation" id="ReplacementExplanation" className="form-control" placeholder="Explanation" onChange={this.autoexpand} required></textarea>
+                    </div>
+                </div>
+
             </div>
             </div>
             <div className="row">
