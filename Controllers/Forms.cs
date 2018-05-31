@@ -129,7 +129,11 @@ namespace IP_Help.Controllers
             var apiKey = Environment.GetEnvironmentVariable("sendgrid");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(submittedby, "I&P Help");
-            var subject = "Request for a new network account";
+            var subject = 
+                String.Format
+                ("New network account request for {0} {1}",
+                    model.FirstName, // 0
+                    model.LastName); // 1
             var to = new EmailAddress(submittedby, "Client");
             var plainTextContent = 
                 String.Format

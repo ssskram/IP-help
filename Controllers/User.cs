@@ -123,7 +123,9 @@ namespace IP_Help.Controllers
                 "todd.graf@pittsburghpa.gov",
                 "dawn.bowen@pittsburghpa.gov",
                 "marcelle.newman@pittsburghpa.gov",
-                "christopher.reveille@pittsburghpa.gov"
+                "paul.scherrer@pittsburghpa.gov",
+                "christopher.reveille@pittsburghpa.gov",
+                "lana.redmond@pittsburghpa.gov"
             };
             int check = Array.IndexOf(approvers, user);
             if ( (check > -1) )
