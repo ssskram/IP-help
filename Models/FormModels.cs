@@ -25,6 +25,9 @@ namespace IP_Help.Models
     }
     public class NetworkReg 
     {
+        public string SubmitterName { get; set; }
+        public string SubmitterNetworkID { get; set; }
+        public string SubmissionDate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmploymentType { get; set; }

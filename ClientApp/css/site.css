@@ -193,6 +193,11 @@ label.error {
 .form-h4 {
     margin-left: 15px;
 }
+.form-tip {
+    margin-left: 15px;
+    margin-top: 5px;
+    font-style: italic;
+}
 /* text box */
 .form-element {
     margin-bottom: 20px !important;

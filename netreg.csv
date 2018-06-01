@@ -1,2 +1,2 @@
-FirstName,LastName,EmploymentType,StartDate,EmployeeID,Department,Division,JobTitle,EmailDistribution,EndDate,Address,Room,City,State,Zip,Telephone,Fax,Comments
-Paul,Marks,Transfer,05/21/2018,1234567,Innovation and Performance,N/a,Performance improvement analyst,All of em,05/16/2018,123,1234,1234,234,1234,1234,1234,etgdgdrgds N/a
+SubmitterName,SubmitterNetworkID,SubmissionDate,FirstName,LastName,EmploymentType,StartDate,EmployeeID,Department,Division,JobTitle,EmailDistribution,EndDate,Address,Room,City,State,Zip,Telephone,Fax,Comments
+Paul Marks,marksp,,Steven,Schultze,New,06/22/2018,,Fire Bureau,Digital Services,Developer,Department Standards,,414 Grant Street,6,Pittsburgh,Pennsylvania,15219,(412) 255-0000,(412) 255-0000,Nope.
