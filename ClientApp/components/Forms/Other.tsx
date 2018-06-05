@@ -90,7 +90,7 @@ export class Other extends React.Component<RouteComponentProps<{}>, {}> {
                             <div className="col-md-12 form-element">
                                 <h4 className="form-h4">Describe your request</h4>
                                 <label htmlFor="Body" className="error" hidden></label>
-                                <textarea name="Body" id="Body" className="form-control" placeholder="What can we help you with?" onChange={this.autoexpand} required></textarea>
+                                <textarea name="Body" id="Body" className="form-control" rows={4} placeholder="What can we help you with?" onChange={this.autoexpand} required></textarea>
                             </div>
                         </div>
 
