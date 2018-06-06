@@ -73,7 +73,9 @@ namespace IP_Help.Controllers
                 "christopher.treloar@pittsburghpa.gov",
                 "joshua.shepherd@pittsburghpa.gov",
                 "paul.sinclair@pittsburghpa.gov",
-                "eric.davis@pittsburghpa.gov"
+                "eric.davis@pittsburghpa.gov",
+                "Megan.Yarish@pittsburghpa.gov",
+                "megan.yarish@pittsburghpa.gov"
             };
             int check = Array.IndexOf(approvers, user);
             if ( (check > -1) )
