@@ -39,7 +39,7 @@ namespace IP_Help.Controllers
         {
             await GetEquipmentLiaisons();
             var usergroup = GetEquipmentLiaisons().Result;
-            var user = _userManager.GetUserName(HttpContext.User);
+            var user = _userManager.GetUserName(HttpContext.User).ToLower();
 
             if (usergroup.Contains(user))
             {
@@ -56,7 +56,7 @@ namespace IP_Help.Controllers
         {
             await GetNetworkLiaisons();
             var usergroup = GetNetworkLiaisons().Result;
-            var user = _userManager.GetUserName(HttpContext.User);
+            var user = _userManager.GetUserName(HttpContext.User).ToLower();
 
             if (usergroup.Contains(user))
             {
