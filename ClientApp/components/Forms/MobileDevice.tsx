@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
-declare var $: any;
 
 export class MobileDevice extends React.Component<RouteComponentProps<{}>, {}> {
     componentDidMount() {
