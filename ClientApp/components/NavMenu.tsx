@@ -48,9 +48,9 @@ export class NavMenu extends React.Component<any, any>  {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/NetworkRegistration' } title="Request a new user account" activeClassName='active' data-toggle="collapse" data-target=".in">
+                            <a href="https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit" title="Request a new user account" target='_blank'>
                                  New user account
-                            </NavLink>
+                            </a>
                         </li>
                         <li>
                             <NavLink to={ '/MobileDevice' } title="Order a new mobile device" activeClassName='active' data-toggle="collapse" data-target=".in">
