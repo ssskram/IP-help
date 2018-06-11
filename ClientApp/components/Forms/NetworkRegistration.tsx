@@ -21,7 +21,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
             });
 
         // check to see if user is a dept liaison
-        fetch('/api/userdata/equipment_check', {
+        fetch('/api/userdata/network_check', {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
@@ -41,7 +41,7 @@ export class NetworkRegistration extends React.Component<RouteComponentProps<{}>
             <div className="row">
                 <div className="col-md-10">
                     <h2>Request a new network registration or transfer</h2>
-                    <h4 className="form-h4">complete all fields and submit</h4>
+                    <h4 className="form-h">complete all fields and submit</h4>
                     <hr />
                 </div>
             </div>
