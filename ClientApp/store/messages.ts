@@ -29,5 +29,5 @@ export const reducer: Reducer<MessageState> = (state: MessageState, action: Know
         default:
             const exhaustiveCheck: never = action;
     }
-    return state || { messages: "Welcome to the new maintenance portal!<br/><a href='/Survey'>Let us know what you think</a>" }
+    return state || { messages: "Welcome to the new Help Desk portal!<br/><a href='/Survey'>Let us know what you think</a>" }
 };
