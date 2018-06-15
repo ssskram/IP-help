@@ -61,7 +61,6 @@ namespace IPHelp.Models
 
     public class Other
     {
-        public string Subject { get; set; }
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
     }

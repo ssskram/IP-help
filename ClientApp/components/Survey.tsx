@@ -10,11 +10,6 @@ const marginTop = {
     marginTop: '20px'
 }
 
-type AllProps =
-    MessagesStore.MessageState &
-    typeof MessagesStore.actionCreators &
-    RouteComponentProps<{}>;
-
 export class Survey extends React.Component<any, any> {
     constructor() {
         super();
