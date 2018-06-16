@@ -1,8 +1,12 @@
 import * as Messages from './messages';
+import * as Ping from './ping';
+import * as User from './user';
 import * as equipmentLiaisons from './equipmentLiaisons';
 
 // The top-level state object
 export interface ApplicationState {
+    user: User.UserState;
+    ping: Ping.PingState;
     messages: Messages.MessageState;
     liaison: equipmentLiaisons.equipmentLiaisonsState;
 }
@@ -11,6 +15,8 @@ export interface ApplicationState {
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
+    user: User.reducer,
+    ping: Ping.reducer,
     messages: Messages.reducer,
     liaison: equipmentLiaisons.reducer
 };

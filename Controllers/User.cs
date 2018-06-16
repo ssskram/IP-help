@@ -43,35 +43,10 @@ namespace IPHelp.Controllers {
             }
         }
 
-        [HttpGet ("[action]")]
-        public async Task<string> network_check () {
-            await GetNetworkLiaisons ();
-            var usergroup = GetNetworkLiaisons ().Result;
-            var user = _userManager.GetUserName (HttpContext.User).ToLower ();
-
-            if (usergroup.Contains (user)) {
-                return ("1");
-            } else {
-                return ("0");
-            }
-        }
-
         public async Task<string> GetEquipmentLiaisons () {
             await refreshtoken ();
             var token = refreshtoken ().Result;
             var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/InPHelp/_api/web/lists/GetByTitle('Equipment')/items?$select=Title";
-            client.DefaultRequestHeaders.Clear ();
-            client.DefaultRequestHeaders.Add ("Accept", "application/json");
-            client.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue ("Bearer", token);
-            string listitems = await client.GetStringAsync (sharepointUrl);
-            return listitems;
-        }
-
-        public async Task<string> GetNetworkLiaisons () {
-            await refreshtoken ();
-            var token = refreshtoken ().Result;
-            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/InPHelp/_api/web/lists/GetByTitle('Network')/items?$select=Title";
             client.DefaultRequestHeaders.Clear ();
             client.DefaultRequestHeaders.Add ("Accept", "application/json");
             client.DefaultRequestHeaders.Authorization =

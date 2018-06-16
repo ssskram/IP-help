@@ -3,12 +3,15 @@ import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import TextArea from '../FormElements/textarea'
 import * as MessagesStore from '../../../store/messages';
+import * as Ping from '../../../store/ping';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 
 type AllProps =
+    Ping.PingState &
     MessagesStore.MessageState &
     typeof MessagesStore.actionCreators &
+    typeof Ping.actionCreators &
     RouteComponentProps<{}>;
 
 export class Other extends React.Component<any, any> {
@@ -24,18 +27,7 @@ export class Other extends React.Component<any, any> {
         window.scrollTo(0, 0)
 
         // ping server
-        fetch('/api/ping/pong', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    window.location.reload();
-                }
-            });
+        this.props.ping()
     }
 
     handleChildChange(event) {
@@ -89,6 +81,6 @@ export class Other extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => state.messages,
-    MessagesStore.actionCreators
+    (state: ApplicationState) => ({ ...state.messages, ...state.ping }),
+    ({ ...MessagesStore.actionCreators, ...Ping.actionCreators })
 )(Other as any) as typeof Other;

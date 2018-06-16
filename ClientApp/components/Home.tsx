@@ -1,38 +1,30 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
 import * as LiaisonsStore from '../store/equipmentLiaisons';
+import * as Ping from '../store/ping';
+import * as User from '../store/user';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import Messages from './Messages';
 
-type AllProps =
+type Props =
+    User.UserState &
+    Ping.PingState &
     LiaisonsStore.equipmentLiaisonsState &
     MessagesStore.MessageState &
+    typeof User.actionCreators &
+    typeof Ping.actionCreators &
     typeof MessagesStore.actionCreators &
-    typeof LiaisonsStore.actionCreators &
-    RouteComponentProps<{}>;
+    typeof LiaisonsStore.actionCreators;
 
 export class Home extends React.Component<any, any> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+
         // load liaison status
         this.props.requestLiaisons()
-        // ping server
-        fetch('/api/ping/pong', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    window.location.reload();
-                }
-            });
     }
 
     componentWillUnmount() {
@@ -74,6 +66,6 @@ export class Home extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.liaison }),
-    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators })
+    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping, ...state.user }),
+    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators, ...User.actionCreators })
 )(Home as any) as typeof Home;

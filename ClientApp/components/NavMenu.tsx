@@ -1,28 +1,25 @@
 import * as React from 'react';
-import { Link, NavLink, Redirect } from 'react-router-dom';
-declare var $: any;
+import { Link, NavLink } from 'react-router-dom';
+import * as User from '../store/user';
+import { connect } from 'react-redux';
+import { ApplicationState } from '../store';
+
+type AllProps =
+    User.UserState &
+    typeof User.actionCreators;
 
 export class NavMenu extends React.Component<any, any>  {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            user: ''
+            user: this.props.user
         }
     }
+    
 
-    componentDidMount() {
-        fetch('/api/userdata/getuser', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    user: data,
-                })
-            });
+    componentWillReceiveProps(props) {
+        let self = this;
+        self.setState({ user: props.user })
     }
 
     public render() {
@@ -83,7 +80,7 @@ export class NavMenu extends React.Component<any, any>  {
                             <li className='logout'>
                                 <NavLink to={'/Account/Login'} activeClassName='active' id="logout" className='btn btn-link navbar-logout-btn navbar-link'>
                                     <span className='glyphicon glyphicon-user'></span>Logout
-                            </NavLink>
+                                </NavLink>
                             </li>
                         </div>
                     </ul>
@@ -92,3 +89,8 @@ export class NavMenu extends React.Component<any, any>  {
         </div>;
     }
 }
+
+export default connect(
+    (state: ApplicationState) => state.user,
+    User.actionCreators
+)(NavMenu as any) as typeof NavMenu;

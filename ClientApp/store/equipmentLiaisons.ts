@@ -3,7 +3,7 @@ import { Action, Reducer, ActionCreator } from 'redux';
 import { AppThunkAction } from './';
 
 export interface equipmentLiaisonsState {
-    liaison: boolean
+    liaison: number
 }
 
 interface RequestLiaisonAction {
@@ -12,7 +12,7 @@ interface RequestLiaisonAction {
 
 interface ReceiveLiaisonAction {
     type: 'RECEIVE_LIAISON';
-    liaison: boolean;
+    liaison: number;
 }
 
 type KnownAction = RequestLiaisonAction | ReceiveLiaisonAction;
@@ -51,5 +51,5 @@ export const reducer: Reducer<equipmentLiaisonsState> = (state: equipmentLiaison
             const exhaustiveCheck: never = action;
     }
 
-    return state || { liaison: '' }
+    return state || { liaison: 1 }
 };

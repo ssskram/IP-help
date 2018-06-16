@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import * as MessagesStore from '../../../store/messages';
 import * as LiaisonsStore from '../../../store/equipmentLiaisons';
+import * as Ping from '../../../store/ping';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 import Input from '../FormElements/input';
@@ -22,8 +23,10 @@ const DeviceTypes = [
 ]
 
 type Props =
+    Ping.PingState &
     LiaisonsStore.equipmentLiaisonsState &
     MessagesStore.MessageState &
+    typeof Ping.actionCreators &
     typeof MessagesStore.actionCreators &
     typeof LiaisonsStore.actionCreators &
     RouteComponentProps<{}>;
@@ -43,31 +46,22 @@ export class MobileDevice extends React.Component<any, any> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+
+        // check liaison status
         if (this.props.liaison == 0) {
             this.props.fourohfour()
             this.setState({ redirect: true })
         }
 
         // ping server
-        fetch('/api/ping/pong', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    window.location.reload();
-                }
-            });
+        this.props.ping()
     }
 
     handleChildChange(event) {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSelect(event) {
+    handleChildSelect(event) {
         this.setState({ [event.name]: event.value });
     }
 
@@ -90,7 +84,13 @@ export class MobileDevice extends React.Component<any, any> {
     }
 
     public render() {
-        const { JobTitle, DeviceType, NewReplacement, JobDuties, ReplacementExplanation, redirect } = this.state
+        const {
+            JobTitle,
+            DeviceType,
+            NewReplacement,
+            JobDuties,
+            ReplacementExplanation,
+            redirect } = this.state
         const isEnabled =
             JobTitle != '' &&
             DeviceType != ''
@@ -114,7 +114,7 @@ export class MobileDevice extends React.Component<any, any> {
                         name="DeviceType"
                         header='What type of device do you need?'
                         value={DeviceType}
-                        onChange={this.handleSelect.bind(this)}
+                        onChange={this.handleChildSelect.bind(this)}
                         options={DeviceTypes}
                     />
 
@@ -136,6 +136,6 @@ export class MobileDevice extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.liaison }),
-    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators })
+    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping }),
+    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators })
 )(MobileDevice as any) as typeof MobileDevice;

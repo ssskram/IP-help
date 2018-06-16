@@ -1,42 +1,76 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
+import * as MessagesStore from '../../../store/messages';
+import * as Ping from '../../../store/ping';
+import * as LiaisonsStore from '../../../store/equipmentLiaisons';
+import { connect } from 'react-redux';
+import { ApplicationState } from '../../../store';
 
-export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
+type Props =
+    Ping.PingState &
+    LiaisonsStore.equipmentLiaisonsState &
+    MessagesStore.MessageState &
+    typeof Ping.actionCreators &
+    typeof MessagesStore.actionCreators &
+    typeof LiaisonsStore.actionCreators;
+
+export class PCOrder extends React.Component<any, any> {
+    constructor() {
+        super();
+        this.state = {
+            redirect: false
+        }
+    }
+
     componentDidMount() {
         window.scrollTo(0, 0)
 
+        // check liaison status
+        if (this.props.liaison == 0) {
+            this.props.fourohfour()
+            this.setState({ redirect: true })
+        }
+
         // ping server
-        fetch('/api/ping/pong', {
+        this.props.ping()
+    }
+
+    handleChildChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleChildSelect(event) {
+        this.setState({ [event.name]: event.value });
+    }
+
+    post(event) {
+        event.preventDefault()
+        let self = this;
+        let data = JSON.stringify({ Body: self.state.Body })
+        this.setState({ Body: '' })
+        fetch('/api/Forms/PCOrder', {
+            method: 'POST',
+            body: data,
             credentials: 'same-origin',
             headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    window.location.reload();
-                }
-            });
-
-        // check to see if user is a dept liaison
-        fetch('/api/userdata/equipment_check', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    // throw modal with 404 notice
-                }
-            });
-
+        this.props.success()
+        this.setState({ redirect: true })
     }
 
     public render() {
+        const {
+            redirect } = this.state
+        const isEnabled = false // sike
+
+        if (redirect) {
+            return <Redirect to='/' />;
+        }
+
         return <div className="centered">
             <div className="row">
                 <div className="col-md-10">
@@ -45,6 +79,19 @@ export class PCOrder extends React.Component<RouteComponentProps<{}>, {}> {
                     <hr />
                 </div>
             </div>
+            <div className="col-md-10">
+                <div className="form-group">
+
+                    <div className="text-center">
+                        <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>;
     }
 }
+
+export default connect(
+    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping }),
+    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators })
+)(PCOrder as any) as typeof PCOrder;
