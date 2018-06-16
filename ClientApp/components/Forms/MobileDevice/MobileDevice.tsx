@@ -2,14 +2,30 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import * as MessagesStore from '../../../store/messages';
+import * as LiaisonsStore from '../../../store/equipmentLiaisons';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 import Input from '../FormElements/input';
-import Select from 'react-select';
+import Select from '../FormElements/select';
 
-type AllProps =
+const DeviceTypes = [
+    { value: 'iPhone 6S', label: 'iPhone 6S', name: 'DeviceType' },
+    { value: 'iPhone SE', label: 'iPhone SE', name: 'DeviceType' },
+    { value: 'Samsung Galaxy J3 Eclipse', label: 'Samsung Galaxy J3 Eclipse', name: 'DeviceType' },
+    { value: 'Samsung Galaxy S7', label: 'Samsung Galaxy S7', name: 'DeviceType' },
+    { value: 'Kyocera Dura Force Pro Rugged', label: 'Kyocera Dura Force Pro Rugged', name: 'DeviceType' },
+    { value: 'iPad Mini 7.9”', label: 'iPad Mini 7.9”', name: 'DeviceType' },
+    { value: 'Samsung Galaxy Tab E 10”', label: 'Samsung Galaxy Tab E 10”', name: 'DeviceType' },
+    { value: 'Samsung Galaxy Tab E 10”', label: 'Samsung Galaxy Tab E 10”', name: 'DeviceType' },
+    { value: 'Flip phone', label: 'Flip phone', name: 'DeviceType' },
+    { value: 'Jet pack', label: 'Jet pack', name: 'DeviceType' },
+]
+
+type Props =
+    LiaisonsStore.equipmentLiaisonsState &
     MessagesStore.MessageState &
     typeof MessagesStore.actionCreators &
+    typeof LiaisonsStore.actionCreators &
     RouteComponentProps<{}>;
 
 export class MobileDevice extends React.Component<any, any> {
@@ -21,13 +37,16 @@ export class MobileDevice extends React.Component<any, any> {
             JobTitle: '',
             JobDuties: '',
             ReplacementExplanation: '',
-            clearable: false,
             redirect: false
         }
     }
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        if (this.props.liaison == 0) {
+            this.props.fourohfour()
+            this.setState({ redirect: true })
+        }
 
         // ping server
         fetch('/api/ping/pong', {
@@ -42,21 +61,6 @@ export class MobileDevice extends React.Component<any, any> {
                     window.location.reload();
                 }
             });
-
-        // check to see if user is a dept liaison
-        fetch('/api/userdata/equipment_check', {
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data == 0) {
-                    // throw modal with 404 notice
-                }
-            });
-
     }
 
     handleChildChange(event) {
@@ -86,7 +90,7 @@ export class MobileDevice extends React.Component<any, any> {
     }
 
     public render() {
-        const { JobTitle, DeviceType, NewReplacement, JobDuties, ReplacementExplanation, clearable, redirect } = this.state
+        const { JobTitle, DeviceType, NewReplacement, JobDuties, ReplacementExplanation, redirect } = this.state
         const isEnabled =
             JobTitle != '' &&
             DeviceType != ''
@@ -105,31 +109,26 @@ export class MobileDevice extends React.Component<any, any> {
             </div>
             <div className="col-md-10">
                 <div className="form-group">
-                    <div className="col-md-12 form-element">
-                        <h4 className="form-h4">What type of device do you need?</h4>
-                        <Select
-                            name="DeviceType"
-                            clearable={clearable}
-                            value={DeviceType}
-                            onChange={this.handleSelect.bind(this)}
-                            options={[
-                                { value: 'Yes', label: 'Yes' , name: 'DeviceType'},
-                                { value: 'No', label: 'No', name: 'DeviceType' },
-                            ]}
-                        />
+
+                    <Select
+                        name="DeviceType"
+                        header='What type of device do you need?'
+                        value={DeviceType}
+                        onChange={this.handleSelect.bind(this)}
+                        options={DeviceTypes}
+                    />
+
+                    <Input
+                        header="Please provide the employee's name & job title"
+                        placeholder="Name & title"
+                        name="JobTitle"
+                        value={JobTitle}
+                        callback={this.handleChildChange.bind(this)}
+                    />
+
+                    <div className="text-center">
+                        <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
                     </div>
-                </div>
-
-                <Input
-                    header="Please provide the employee's name & job title"
-                    placeholder="Name & title"
-                    name="JobTitle"
-                    value={JobTitle}
-                    callback={this.handleChildChange.bind(this)}
-                />
-
-                <div className="text-center">
-                    <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
                 </div>
             </div>
         </div>;
@@ -137,6 +136,6 @@ export class MobileDevice extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => state.messages,
-    MessagesStore.actionCreators
+    (state: ApplicationState) => ({ ...state.messages, ...state.liaison }),
+    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators })
 )(MobileDevice as any) as typeof MobileDevice;

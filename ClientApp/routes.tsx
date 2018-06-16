@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import Survey from './components/Survey';
-import { MobileDevice } from './components/Forms/MobileDevice/MobileDevice';
+import MobileDevice from './components/Forms/MobileDevice/MobileDevice';
 import { PCOrder } from './components/Forms/PCOrder/PCOrder';
 import Other from './components/Forms/Other/Other';
 import { SelfService } from './components/SelfService';

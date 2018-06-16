@@ -2,19 +2,24 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
+import * as LiaisonsStore from '../store/equipmentLiaisons';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import Messages from './Messages';
 
 type AllProps =
+    LiaisonsStore.equipmentLiaisonsState &
     MessagesStore.MessageState &
     typeof MessagesStore.actionCreators &
+    typeof LiaisonsStore.actionCreators &
     RouteComponentProps<{}>;
 
 export class Home extends React.Component<any, any> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        // load liaison status
+        this.props.requestLiaisons()
         // ping server
         fetch('/api/ping/pong', {
             credentials: 'same-origin',
@@ -69,6 +74,6 @@ export class Home extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => state.messages,
-    MessagesStore.actionCreators
+    (state: ApplicationState) => ({ ...state.messages, ...state.liaison }),
+    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators })
 )(Home as any) as typeof Home;
