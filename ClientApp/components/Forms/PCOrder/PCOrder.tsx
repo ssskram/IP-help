@@ -73,13 +73,42 @@ const EmploymentStatuses = [
     { value: 'Existing', label: 'Existing', name: 'EmploymentStatus' },
 ]
 
-const AvailableAccessories = [
+const DesktopAccessories = [
+    { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
+    { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
+    { value: 'Single Monitor', label: 'Single Monitor', name: 'Accessories' },
+    { value: 'Dual Monitors', label: 'Dual Monitors', name: 'Accessories' },
+]
+
+const LaptopAccessories = [
     { value: 'Docking Station', label: 'Docking Station', name: 'Accessories' },
     { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
     { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
-    { value: 'Single Monitor', label: 'Dual Monitors', name: 'Accessories' },
     { value: 'Additional Monitor', label: 'Additional Monitor', name: 'Accessories' },
+]
+
+const ZeroClientAccessories = [
+    { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
+    { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
+]
+
+const PoliceAccessories = [
     { value: 'Speakers', label: 'Speakers', name: 'Accessories' },
+]
+
+const EmploymentTypes = [
+    { value: 'Permanent', label: 'Permanent', name: 'EmploymentType' },
+    { value: 'Intern', label: 'Intern', name: 'EmploymentType' },
+]
+
+const WasPreviouslyFunctioning = [
+    { value: 'Yes', label: 'Yes', name: 'PreviouslyFunctioning' },
+    { value: 'No', label: 'No', name: 'PreviouslyFunctioning' },
+]
+
+const IsComputerFunctioning = [
+    { value: 'Yes', label: 'Yes', name: 'ComputerFunctioning' },
+    { value: 'No', label: 'No', name: 'ComputerFunctioning' },
 ]
 
 Modal.setAppElement('#main');
@@ -99,9 +128,11 @@ export class PCOrder extends React.Component<any, any> {
             EmploymentType: '',
             PreviouslyFunctioning: '',
             ComputerNumber: '',
+            ComputerFunctioning: '',
             OTRSTicket: '',
             Accessories: '',
             SoftwareApplications: '',
+            AvailableAccessories: [],
             modalIsOpen: false,
             accessoriesTrigger: false,
             softwareTrigger: false,
@@ -146,6 +177,33 @@ export class PCOrder extends React.Component<any, any> {
         this.setState({ redirect: true })
     }
 
+    setAccessories(event) {
+        if (event.value === "Desktop") {
+            this.setState({ AvailableAccessories: DesktopAccessories });
+        }
+        if (event.value === "Laptop") {
+            this.setState({ AvailableAccessories: LaptopAccessories });
+        }
+        if (event.value === "Zero client") {
+            this.setState({ AvailableAccessories: ZeroClientAccessories });
+        }
+        this.setState({ [event.name]: event.value });
+    }
+
+    addSpeakers(event) {
+        if (event.value === "Police" || event.value === "Public Safety") {
+            var join = this.state.AvailableAccessories.concat(PoliceAccessories);
+            this.setState({ AvailableAccessories: join })
+        }
+        else {
+            var newArray = [...this.state.AvailableAccessories]
+            var index = newArray.indexOf(PoliceAccessories)
+            newArray.splice(index, 1)
+            this.setState({ AvailableAccessories: newArray })
+        }
+        this.setState({ [event.name]: event.value });
+    }
+
     accessoriesTooltip() {
         this.setState({
             modalIsOpen: true,
@@ -183,9 +241,11 @@ export class PCOrder extends React.Component<any, any> {
             EmploymentType,
             PreviouslyFunctioning,
             ComputerNumber,
+            ComputerFunctioning,
             OTRSTicket,
             Accessories,
             SoftwareApplications,
+            AvailableAccessories,
             modalIsOpen,
             accessoriesTrigger,
             softwareTrigger,
@@ -220,7 +280,7 @@ export class PCOrder extends React.Component<any, any> {
                         name="MachineType"
                         header='What type of machine are you requesting?'
                         value={MachineType}
-                        onChange={this.handleChildSelect.bind(this)}
+                        onChange={this.setAccessories.bind(this)}
                         options={MachineTypes}
                     />
 
@@ -228,7 +288,7 @@ export class PCOrder extends React.Component<any, any> {
                         name="Department"
                         header='Which department will be receiving this machine?'
                         value={Department}
-                        onChange={this.handleChildSelect.bind(this)}
+                        onChange={this.addSpeakers.bind(this)}
                         options={Departments}
                     />
 
@@ -272,7 +332,53 @@ export class PCOrder extends React.Component<any, any> {
                         options={EmploymentStatuses}
                     />
 
-                    {/* enter conditional fields here */}
+                    {/* conditional fields start */}
+                    {EmploymentStatus === 'New' &&
+                        <Select
+                            name="EmploymentType"
+                            header='Is this for a permanent employee, or intern?'
+                            value={EmploymentType}
+                            onChange={this.handleChildSelect.bind(this)}
+                            options={EmploymentTypes}
+                        />
+                    }
+                    {EmploymentStatus === 'New' &&
+                        <Select
+                            name="PreviouslyFunctioning"
+                            header='Was a functioning computer plugged into the desk network port in the previous month?'
+                            value={PreviouslyFunctioning}
+                            onChange={this.handleChildSelect.bind(this)}
+                            options={WasPreviouslyFunctioning}
+                        />
+                    }
+                    {EmploymentStatus === 'Existing' &&
+                        <Input
+                            header="Enter their current computer number"
+                            placeholder="Computer number"
+                            name="ComputerNumber"
+                            value={ComputerNumber}
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
+                    {EmploymentStatus === 'Existing' &&
+                        <Select
+                            name="ComputerFunctioning"
+                            header='Is their current computer functioning?'
+                            value={ComputerFunctioning}
+                            onChange={this.handleChildSelect.bind(this)}
+                            options={IsComputerFunctioning}
+                        />
+                    }
+                    {EmploymentStatus === 'Existing' &&
+                        <Input
+                            header="Please enter the OTRS ticket number associated with the replacement"
+                            placeholder="OTRS ticket number"
+                            name="OTRSTicket"
+                            value={OTRSTicket}
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
+                    {/* conditional fields end*/}
 
                     <div className='tooltip-container'>
                         <a onClick={this.accessoriesTooltip.bind(this)}>View standard accessories</a>
@@ -302,10 +408,10 @@ export class PCOrder extends React.Component<any, any> {
 
                     <Modal isOpen={modalIsOpen} style={modalStyles}>
                         {accessoriesTrigger === true &&
-                            <StandardAccessories exit={this.closeModal.bind(this)}/>
+                            <StandardAccessories exit={this.closeModal.bind(this)} />
                         }
                         {softwareTrigger === true &&
-                            <StandardSoftware exit={this.closeModal.bind(this)}/>
+                            <StandardSoftware exit={this.closeModal.bind(this)} />
                         }
                     </Modal>
                 </div>
