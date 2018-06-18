@@ -43,6 +43,7 @@
     "react-router-redux": "5.0.0-alpha.6",
     "react-select": "^1.2.1",
     "react-table": "^6.8.6",
+    "react-tooltip": "^3.6.1",
     "redux": "3.7.1",
     "redux-thunk": "2.2.0",
     "style-loader": "0.18.2",

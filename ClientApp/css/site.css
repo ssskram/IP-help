@@ -21,6 +21,10 @@ hr {
     margin: 1.5em 0;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 /* Scroll bar
 /* ------------------------- */
 
@@ -698,6 +702,13 @@ textarea {
     color: #fffaee !important;
     font-weight: bold;
     outline: none;
+}
+
+/* Site specific
+/* ------------------------- */
+
+.tooltip-container {
+    margin-left: 25px;
 }
 
 /* Site specific

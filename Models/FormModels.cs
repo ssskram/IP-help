@@ -19,34 +19,9 @@ namespace IPHelp.Models
         public string ComputerNumber { get; set; }
         public string ComputerFunctioning { get; set; }
         public string OTRSTicket { get; set; }
-        public string AccessoriesRelay { get; set; }
+        public string Accessories { get; set; }
         [DataType(DataType.MultilineText)]
         public string SoftwareApplications { get; set; }
-    }
-    public class NetworkReg 
-    {
-        public string SubmitterName { get; set; }
-        public string SubmitterNetworkID { get; set; }
-        public string SubmissionDate { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmploymentType { get; set; }
-        public string StartDate { get; set; }
-        public string EmployeeID { get; set; }
-        public string Department { get; set; }
-        public string Division { get; set; }
-        public string JobTitle { get; set; }
-        public string EmailDistribution { get; set; }
-        public string EndDate { get; set; }
-        public string Address { get; set; }
-        public string Room { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Zip { get; set; }
-        public string Telephone { get; set; }
-        public string Fax { get; set; }
-        [DataType(DataType.MultilineText)]
-        public string Comments { get; set; }
     }
     public class MobileDevice
     {

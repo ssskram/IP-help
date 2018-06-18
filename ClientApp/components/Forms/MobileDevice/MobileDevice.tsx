@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as MessagesStore from '../../../store/messages';
 import * as LiaisonsStore from '../../../store/equipmentLiaisons';
 import * as Ping from '../../../store/ping';
