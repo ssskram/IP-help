@@ -16,8 +16,6 @@ export class PCOrder extends React.Component<any, any> {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
-
         // check liaison status
         if (this.props.liaison == 0) {
             this.props.fourohfour()
