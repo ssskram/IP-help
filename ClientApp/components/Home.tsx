@@ -8,15 +8,7 @@ import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import Messages from './Messages';
 
-type Props =
-    User.UserState &
-    Ping.PingState &
-    LiaisonsStore.equipmentLiaisonsState &
-    MessagesStore.MessageState &
-    typeof User.actionCreators &
-    typeof Ping.actionCreators &
-    typeof MessagesStore.actionCreators &
-    typeof LiaisonsStore.actionCreators;
+
 
 export class Home extends React.Component<any, any> {
 

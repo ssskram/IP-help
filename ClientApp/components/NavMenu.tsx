@@ -15,7 +15,11 @@ export class NavMenu extends React.Component<any, any>  {
             user: this.props.user
         }
     }
-    
+
+    componentDidMount() {
+        // load user
+        this.props.requestUser()
+    }
 
     componentWillReceiveProps(props) {
         let self = this;

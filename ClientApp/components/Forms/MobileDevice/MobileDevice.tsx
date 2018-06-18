@@ -7,6 +7,7 @@ import * as Ping from '../../../store/ping';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 import Input from '../FormElements/input';
+import TextArea from '../FormElements/textarea';
 import Select from '../FormElements/select';
 
 const DeviceTypes = [
@@ -20,6 +21,11 @@ const DeviceTypes = [
     { value: 'Samsung Galaxy Tab E 10”', label: 'Samsung Galaxy Tab E 10”', name: 'DeviceType' },
     { value: 'Flip phone', label: 'Flip phone', name: 'DeviceType' },
     { value: 'Jet pack', label: 'Jet pack', name: 'DeviceType' },
+]
+
+const NeworReplacement = [
+    { value: 'New', label: 'New', name: 'NewReplacement' },
+    { value: 'Replacement', label: 'Replacement', name: 'NewReplacement' },
 ]
 
 type Props =
@@ -93,7 +99,10 @@ export class MobileDevice extends React.Component<any, any> {
             redirect } = this.state
         const isEnabled =
             JobTitle != '' &&
-            DeviceType != ''
+            DeviceType != '' &&
+            NewReplacement != '' &&
+            JobDuties != '' ||
+            ReplacementExplanation != ''
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -118,6 +127,14 @@ export class MobileDevice extends React.Component<any, any> {
                         options={DeviceTypes}
                     />
 
+                    <Select
+                        name="NewReplacement"
+                        header='Is this request for a new or replacement mobile device?'
+                        value={NewReplacement}
+                        onChange={this.handleChildSelect.bind(this)}
+                        options={NeworReplacement}
+                    />
+
                     <Input
                         header="Please provide the employee's name & job title"
                         placeholder="Name & title"
@@ -125,6 +142,25 @@ export class MobileDevice extends React.Component<any, any> {
                         value={JobTitle}
                         callback={this.handleChildChange.bind(this)}
                     />
+
+                    {NewReplacement === 'New' &&
+                        <TextArea
+                            header="Please explain how it will be used in relation to the employee's job duties"
+                            placeholder="Explanation"
+                            name="JobDuties"
+                            value={JobDuties}
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
+                    {NewReplacement === 'Replacement' &&
+                        <TextArea
+                            header="Please explain why the old device needs to be replaced"
+                            placeholder="Explanation"
+                            name="ReplacementExplanation"
+                            value={ReplacementExplanation}
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
 
                     <div className="text-center">
                         <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>

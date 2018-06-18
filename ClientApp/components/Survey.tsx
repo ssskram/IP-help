@@ -4,7 +4,9 @@ import { Link, NavLink, Redirect } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
-import Select from 'react-select';
+import TextArea from './Forms/FormElements/textarea';
+import Select from './Forms/FormElements/select';
+import Input from './Forms/FormElements/input';
 
 const marginTop = {
     marginTop: '20px'

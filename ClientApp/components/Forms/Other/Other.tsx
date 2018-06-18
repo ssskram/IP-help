@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TextArea from '../FormElements/textarea'
 import * as MessagesStore from '../../../store/messages';
 import * as Ping from '../../../store/ping';
@@ -70,7 +70,13 @@ export class Other extends React.Component<any, any> {
                 </div>
             </div>
             <div className="col-md-10">
-                <TextArea header="Describe your request" placeholder="What can we help you with?" name="Body" value={Body} callback={this.handleChildChange.bind(this)} />
+                <TextArea
+                    header="Describe your request"
+                    placeholder="What can we help you with?"
+                    name="Body"
+                    value={Body}
+                    callback={this.handleChildChange.bind(this)}
+                />
 
                 <div className="text-center">
                     <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>

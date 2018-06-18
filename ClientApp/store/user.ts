@@ -3,7 +3,7 @@ import { Action, Reducer, ActionCreator } from 'redux';
 import { AppThunkAction } from './';
 
 export interface UserState {
-    user: string;
+    user: string
 }
 
 interface RequestUserAction {
@@ -19,7 +19,7 @@ type KnownAction = RequestUserAction | ReceiveUserAction;
 
 
 export const actionCreators = {
-    user: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestUser: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
         let fetchTask = fetch('/api/userdata/getuser', {
             credentials: 'same-origin',
             headers: {
@@ -29,14 +29,11 @@ export const actionCreators = {
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: 'RECEIVE_USER', user: data });
-                if (data == '') {
-                    window.location.reload();
-                }
             });
 
         addTask(fetchTask);
         dispatch({ type: 'REQUEST_USER' });
-    },
+    }
 };
 
 export const reducer: Reducer<UserState> = (state: UserState, incomingAction: Action) => {
@@ -54,5 +51,5 @@ export const reducer: Reducer<UserState> = (state: UserState, incomingAction: Ac
             const exhaustiveCheck: never = action;
     }
 
-    return state || { user: '...loading you' };
+    return state || { user: "...loading" }
 };
