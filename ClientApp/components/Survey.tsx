@@ -99,10 +99,12 @@ export class Survey extends React.Component<any, any> {
                     />
 
                     <Select
+                        value={futureUserTesting}
                         name="futureUserTesting"
                         header='Would you be willing to participate in user testing for other applications?'
-                        value={futureUserTesting}
+                        placeholder='Yes or no'
                         onChange={this.handleChildSelect.bind(this)}
+                        multi={false}
                         options={Options}
                     />
 

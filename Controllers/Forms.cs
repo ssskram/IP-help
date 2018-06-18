@@ -24,7 +24,7 @@ namespace IPHelp.Controllers {
         }
 
         [HttpPost ("[action]")]
-        public async Task PCOrder (PCOrder model) {
+        public async Task PCOrder ([FromBody] PCOrder model) {
             var submittedby = _userManager.GetUserName (HttpContext.User);
             var apiKey = Environment.GetEnvironmentVariable ("sendgrid");
             var client = new SendGridClient (apiKey);
@@ -76,7 +76,7 @@ namespace IPHelp.Controllers {
         }
 
         [HttpPost ("[action]")]
-        public async Task MobileDevice (MobileDevice model) {
+        public async Task MobileDevice ([FromBody] MobileDevice model) {
             var submittedby = _userManager.GetUserName (HttpContext.User);
             var apiKey = Environment.GetEnvironmentVariable ("sendgrid");
             var client = new SendGridClient (apiKey);

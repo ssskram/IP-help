@@ -161,6 +161,9 @@ export class PCOrder extends React.Component<any, any> {
 
     handleMultiSelect(value) {
         this.setState({ Accessories: value });
+        if (value === "Docking Station") {
+            this.setState({ Accessories: LaptopAccessories });
+        }
     };
 
     post(event) {
