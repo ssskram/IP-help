@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
 import Select from 'react-select';
 
 export default class input extends React.Component<any, any> {
     constructor() {
         super();
         this.state = {
-            clearable: false
+            clearable: false,
+            autoFocus: false
         }
     }
     public render() {
@@ -16,6 +16,7 @@ export default class input extends React.Component<any, any> {
                 <div className="col-md-12 form-element">
                     <h4 className="form-h4">{this.props.header}</h4>
                     <Select
+                        autoFocus={this.state.autoFocus}
                         name={this.props.name}
                         clearable={this.state.clearable}
                         value={this.props.value}

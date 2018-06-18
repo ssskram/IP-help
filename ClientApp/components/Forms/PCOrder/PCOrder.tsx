@@ -7,14 +7,6 @@ import * as LiaisonsStore from '../../../store/equipmentLiaisons';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 
-type Props =
-    Ping.PingState &
-    LiaisonsStore.equipmentLiaisonsState &
-    MessagesStore.MessageState &
-    typeof Ping.actionCreators &
-    typeof MessagesStore.actionCreators &
-    typeof LiaisonsStore.actionCreators;
-
 export class PCOrder extends React.Component<any, any> {
     constructor() {
         super();
@@ -63,8 +55,10 @@ export class PCOrder extends React.Component<any, any> {
     }
 
     public render() {
+        // state
         const {
             redirect } = this.state
+        // validate
         const isEnabled = false // sike
 
         if (redirect) {
@@ -92,6 +86,14 @@ export class PCOrder extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping }),
-    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators })
+    (state: ApplicationState) => ({
+        ...state.messages,
+        ...state.liaison,
+        ...state.ping
+    }),
+    ({
+        ...MessagesStore.actionCreators,
+        ...LiaisonsStore.actionCreators,
+        ...Ping.actionCreators
+    })
 )(PCOrder as any) as typeof PCOrder;

@@ -28,15 +28,6 @@ const NeworReplacement = [
     { value: 'Replacement', label: 'Replacement', name: 'NewReplacement' },
 ]
 
-type Props =
-    Ping.PingState &
-    LiaisonsStore.equipmentLiaisonsState &
-    MessagesStore.MessageState &
-    typeof Ping.actionCreators &
-    typeof MessagesStore.actionCreators &
-    typeof LiaisonsStore.actionCreators &
-    RouteComponentProps<{}>;
-
 export class MobileDevice extends React.Component<any, any> {
     constructor() {
         super();
@@ -90,6 +81,7 @@ export class MobileDevice extends React.Component<any, any> {
     }
 
     public render() {
+        // state
         const {
             JobTitle,
             DeviceType,
@@ -97,12 +89,13 @@ export class MobileDevice extends React.Component<any, any> {
             JobDuties,
             ReplacementExplanation,
             redirect } = this.state
+        // validate
         const isEnabled =
             JobTitle != '' &&
             DeviceType != '' &&
             NewReplacement != '' &&
-            JobDuties != '' ||
-            ReplacementExplanation != ''
+            (JobDuties != '' ||
+            ReplacementExplanation != '')
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -172,6 +165,14 @@ export class MobileDevice extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping }),
-    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators })
+    (state: ApplicationState) => ({
+        ...state.messages,
+        ...state.liaison,
+        ...state.ping
+    }),
+    ({
+        ...MessagesStore.actionCreators,
+        ...LiaisonsStore.actionCreators,
+        ...Ping.actionCreators
+    })
 )(MobileDevice as any) as typeof MobileDevice;

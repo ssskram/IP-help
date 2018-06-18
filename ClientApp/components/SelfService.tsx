@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
 import Accordion from 'react-responsive-accordion';
 
 

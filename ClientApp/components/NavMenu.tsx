@@ -4,10 +4,6 @@ import * as User from '../store/user';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 
-type AllProps =
-    User.UserState &
-    typeof User.actionCreators;
-
 export class NavMenu extends React.Component<any, any>  {
     constructor(props) {
         super(props);
@@ -95,6 +91,7 @@ export class NavMenu extends React.Component<any, any>  {
 }
 
 export default connect(
-    (state: ApplicationState) => state.user,
+    (state: ApplicationState) => 
+    state.user,
     User.actionCreators
 )(NavMenu as any) as typeof NavMenu;

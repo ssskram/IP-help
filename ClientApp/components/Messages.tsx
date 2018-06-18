@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { connect } from 'react-redux';
-import { ApplicationState } from '../store';
 
 const margin = {
     marginTop: '25px',
@@ -9,12 +6,9 @@ const margin = {
 }
 
 export default class Messages extends React.Component<any, {}> {
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
 
-    createMarkup() { 
-        return {__html: this.props.messages};
+    createMarkup() {
+        return { __html: this.props.messages };
     }
 
     public render() {

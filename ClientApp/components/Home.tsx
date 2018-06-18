@@ -8,14 +8,12 @@ import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
 import Messages from './Messages';
 
-
-
 export class Home extends React.Component<any, any> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
 
-        // load liaison status
+        // load liaison status into store
         this.props.requestLiaisons()
     }
 
@@ -58,6 +56,16 @@ export class Home extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.liaison, ...state.ping, ...state.user }),
-    ({ ...MessagesStore.actionCreators, ...LiaisonsStore.actionCreators, ...Ping.actionCreators, ...User.actionCreators })
+    (state: ApplicationState) => ({
+        ...state.messages,
+        ...state.liaison,
+        ...state.ping,
+        ...state.user
+    }),
+    ({
+        ...MessagesStore.actionCreators,
+        ...LiaisonsStore.actionCreators,
+        ...Ping.actionCreators,
+        ...User.actionCreators
+    })
 )(Home as any) as typeof Home;

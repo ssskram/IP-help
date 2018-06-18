@@ -7,13 +7,6 @@ import * as Ping from '../../../store/ping';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
 
-type AllProps =
-    Ping.PingState &
-    MessagesStore.MessageState &
-    typeof MessagesStore.actionCreators &
-    typeof Ping.actionCreators &
-    RouteComponentProps<{}>;
-
 export class Other extends React.Component<any, any> {
     constructor() {
         super();
@@ -87,6 +80,12 @@ export class Other extends React.Component<any, any> {
 }
 
 export default connect(
-    (state: ApplicationState) => ({ ...state.messages, ...state.ping }),
-    ({ ...MessagesStore.actionCreators, ...Ping.actionCreators })
+    (state: ApplicationState) => ({
+        ...state.messages,
+        ...state.ping
+    }),
+    ({
+        ...MessagesStore.actionCreators,
+        ...Ping.actionCreators
+    })
 )(Other as any) as typeof Other;
