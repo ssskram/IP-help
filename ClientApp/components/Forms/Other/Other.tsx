@@ -28,7 +28,9 @@ export class Other extends React.Component<any, any> {
     post(event) {
         event.preventDefault()
         let self = this;
-        let data = JSON.stringify({ Body: self.state.Body })
+        let data = JSON.stringify({ 
+            Body: self.state.Body 
+        })
         this.setState({ Body: '' })
         fetch('/api/Forms/Other', {
             method: 'POST',

@@ -159,10 +159,30 @@ export class PCOrder extends React.Component<any, any> {
         this.setState({ [event.name]: event.value });
     }
 
+    handleMultiSelect(value) {
+        this.setState({ Accessories: value });
+    };
+
     post(event) {
         event.preventDefault()
         let self = this;
-        let data = JSON.stringify({ Body: self.state.Body })
+        let data = JSON.stringify({
+            CustomerPhone: self.state.CustomerPhone,
+            MachineType: self.state.MachineType,
+            Department: self.state.Department,
+            UserName: self.state.UserName,
+            UserNetworkID: self.state.UserNetworkID,
+            Building: self.state.Building,
+            Floor: self.state.Floor,
+            EmploymentStatus: self.state.EmploymentStatus,
+            EmploymentType: self.state.EmploymentType,
+            PreviouslyFunctioning: self.state.PreviouslyFunctioning,
+            ComputerNumber: self.state.ComputerNumber,
+            ComputerFunctioning: self.state.ComputerFunctioning,
+            OTRSTicket: self.state.OTRSTicket,
+            Accessories: self.state.Accessories,
+            SoftwareApplications: self.state.SoftwareApplications,
+        })
         this.setState({ Body: '' })
         fetch('/api/Forms/PCOrder', {
             method: 'POST',
@@ -251,7 +271,13 @@ export class PCOrder extends React.Component<any, any> {
             softwareTrigger,
             redirect } = this.state
         // validate
-        const isEnabled = false // sike
+        const isEnabled =
+            CustomerPhone != '' &&
+            MachineType != '' &&
+            Department != '' &&
+            Building != '' &&
+            Floor != '' &&
+            EmploymentStatus != ''
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -269,42 +295,46 @@ export class PCOrder extends React.Component<any, any> {
                 <div className="form-group">
 
                     <Input
+                        value={CustomerPhone}
+                        name="CustomerPhone"
                         header="Enter your phone number"
                         placeholder="Phone number"
-                        name="CustomerPhone"
-                        value={CustomerPhone}
                         callback={this.handleChildChange.bind(this)}
                     />
 
                     <Select
+                        value={MachineType}
                         name="MachineType"
                         header='What type of machine are you requesting?'
-                        value={MachineType}
+                        placeholder='Select machine type'
                         onChange={this.setAccessories.bind(this)}
+                        multi={false}
                         options={MachineTypes}
                     />
 
                     <Select
+                        value={Department}
                         name="Department"
                         header='Which department will be receiving this machine?'
-                        value={Department}
+                        placeholder='Select department'
                         onChange={this.addSpeakers.bind(this)}
+                        multi={false}
                         options={Departments}
                     />
 
                     <Input
+                        value={UserName}
+                        name="UserName"
                         header="Which employee will be receiving this machine?"
                         placeholder="Employee's Name"
-                        name="UserName"
-                        value={UserName}
                         callback={this.handleChildChange.bind(this)}
                     />
 
                     <Input
+                        value={UserNetworkID}
+                        name="UserNetworkID"
                         header="What is the employee's network id?"
                         placeholder="Employee's network id"
-                        name="UserNetworkID"
-                        value={UserNetworkID}
                         callback={this.handleChildChange.bind(this)}
                     />
 
@@ -325,29 +355,35 @@ export class PCOrder extends React.Component<any, any> {
                     />
 
                     <Select
+                        value={EmploymentStatus}
                         name="EmploymentStatus"
                         header='Is this for a new employee, or an existing staff member?'
-                        value={EmploymentStatus}
+                        placeholder='New or existing employee'
                         onChange={this.handleChildSelect.bind(this)}
+                        multi={false}
                         options={EmploymentStatuses}
                     />
 
                     {/* conditional fields start */}
                     {EmploymentStatus === 'New' &&
                         <Select
+                            value={EmploymentType}
                             name="EmploymentType"
                             header='Is this for a permanent employee, or intern?'
-                            value={EmploymentType}
+                            placeholder='Permanent employee or intern'
                             onChange={this.handleChildSelect.bind(this)}
+                            multi={false}
                             options={EmploymentTypes}
                         />
                     }
                     {EmploymentStatus === 'New' &&
                         <Select
+                            value={PreviouslyFunctioning}
                             name="PreviouslyFunctioning"
                             header='Was a functioning computer plugged into the desk network port in the previous month?'
-                            value={PreviouslyFunctioning}
+                            placeholder='Yes or no'
                             onChange={this.handleChildSelect.bind(this)}
+                            multi={false}
                             options={WasPreviouslyFunctioning}
                         />
                     }
@@ -362,9 +398,10 @@ export class PCOrder extends React.Component<any, any> {
                     }
                     {EmploymentStatus === 'Existing' &&
                         <Select
+                            value={ComputerFunctioning}
                             name="ComputerFunctioning"
                             header='Is their current computer functioning?'
-                            value={ComputerFunctioning}
+                            placeholder='Yes or no'
                             onChange={this.handleChildSelect.bind(this)}
                             options={IsComputerFunctioning}
                         />
@@ -384,10 +421,12 @@ export class PCOrder extends React.Component<any, any> {
                         <a onClick={this.accessoriesTooltip.bind(this)}>View standard accessories</a>
                     </div>
                     <Select
+                        value={Accessories}
                         name="Accessories"
                         header='Select any necessary accessories'
-                        value={Accessories}
-                        onChange={this.handleChildSelect.bind(this)}
+                        placeholder='Accessories...'
+                        onChange={this.handleMultiSelect.bind(this)}
+                        multi={true}
                         options={AvailableAccessories}
                     />
 

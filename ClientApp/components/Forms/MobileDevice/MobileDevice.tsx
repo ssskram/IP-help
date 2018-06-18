@@ -62,7 +62,12 @@ export class MobileDevice extends React.Component<any, any> {
     post(event) {
         event.preventDefault()
         let self = this;
-        let data = JSON.stringify({ Body: self.state.Body })
+        let data = JSON.stringify({
+            JobTitle: self.state.JobTitle,
+            DeviceType: self.state.DeviceType,
+            NewReplacement: self.state.NewReplacement,
+            JobDuties: self.state.ReplacementExplanation
+        })
         this.setState({ Body: '' })
         fetch('/api/Forms/MobileDevice', {
             method: 'POST',
@@ -92,7 +97,7 @@ export class MobileDevice extends React.Component<any, any> {
             DeviceType != '' &&
             NewReplacement != '' &&
             (JobDuties != '' ||
-            ReplacementExplanation != '')
+                ReplacementExplanation != '')
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -110,44 +115,48 @@ export class MobileDevice extends React.Component<any, any> {
                 <div className="form-group">
 
                     <Select
+                        value={DeviceType}
                         name="DeviceType"
                         header='What type of device do you need?'
-                        value={DeviceType}
+                        placeholder='Select device type'
                         onChange={this.handleChildSelect.bind(this)}
+                        multi={false}
                         options={DeviceTypes}
                     />
 
                     <Select
+                        value={NewReplacement}
                         name="NewReplacement"
                         header='Is this request for a new or replacement mobile device?'
-                        value={NewReplacement}
+                        placeholder='New or replacement'
                         onChange={this.handleChildSelect.bind(this)}
+                        multi={false}
                         options={NeworReplacement}
                     />
 
                     <Input
+                        value={JobTitle}
+                        name="JobTitle"
                         header="Please provide the employee's name & job title"
                         placeholder="Name & title"
-                        name="JobTitle"
-                        value={JobTitle}
                         callback={this.handleChildChange.bind(this)}
                     />
 
                     {NewReplacement === 'New' &&
                         <TextArea
+                            value={JobDuties}
+                            name="JobDuties"
                             header="Please explain how it will be used in relation to the employee's job duties"
                             placeholder="Explanation"
-                            name="JobDuties"
-                            value={JobDuties}
                             callback={this.handleChildChange.bind(this)}
                         />
                     }
                     {NewReplacement === 'Replacement' &&
                         <TextArea
+                            value={ReplacementExplanation}
+                            name="ReplacementExplanation"
                             header="Please explain why the old device needs to be replaced"
                             placeholder="Explanation"
-                            name="ReplacementExplanation"
-                            value={ReplacementExplanation}
                             callback={this.handleChildChange.bind(this)}
                         />
                     }
