@@ -16,7 +16,7 @@ const DeviceTypes = [
     { value: 'Samsung Galaxy S7', label: 'Samsung Galaxy S7', name: 'DeviceType' },
     { value: 'Kyocera Dura Force Pro Rugged', label: 'Kyocera Dura Force Pro Rugged', name: 'DeviceType' },
     { value: 'iPad Mini 7.9”', label: 'iPad Mini 7.9”', name: 'DeviceType' },
-    { value: 'Samsung Galaxy Tab E 10”', label: 'Samsung Galaxy Tab E 10”', name: 'DeviceType' },
+    { value: 'iPad 10.5”', label: 'iPad 10.5”', name: 'DeviceType' },
     { value: 'Samsung Galaxy Tab E 10”', label: 'Samsung Galaxy Tab E 10”', name: 'DeviceType' },
     { value: 'Flip phone', label: 'Flip phone', name: 'DeviceType' },
     { value: 'Jet pack', label: 'Jet pack', name: 'DeviceType' },
@@ -41,6 +41,8 @@ export class MobileDevice extends React.Component<any, any> {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
+        
         // check liaison status
         if (this.props.liaison == 0) {
             this.props.fourohfour()
@@ -66,7 +68,8 @@ export class MobileDevice extends React.Component<any, any> {
             JobTitle: self.state.JobTitle,
             DeviceType: self.state.DeviceType,
             NewReplacement: self.state.NewReplacement,
-            JobDuties: self.state.ReplacementExplanation
+            JobDuties: self.state.JobDuties,
+            ReplacementExplanation: self.state.ReplacementExplanation
         })
         this.setState({ Body: '' })
         fetch('/api/Forms/MobileDevice', {
@@ -97,7 +100,7 @@ export class MobileDevice extends React.Component<any, any> {
             DeviceType != '' &&
             NewReplacement != '' &&
             (JobDuties != '' ||
-                ReplacementExplanation != '')
+            ReplacementExplanation != '')
 
         if (redirect) {
             return <Redirect to='/' />;

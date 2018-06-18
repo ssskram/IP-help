@@ -33,7 +33,7 @@ const modalStyles = {
 const MachineTypes = [
     { value: 'Desktop', label: 'Desktop', name: 'MachineType' },
     { value: 'Laptop', label: 'Laptop', name: 'MachineType' },
-    { value: 'Zero client', label: 'Zero client', name: 'MachineType' },
+    { value: 'Zero client', label: 'Zero client', name: 'MachineType' }
 ]
 
 const Departments = [
@@ -65,50 +65,50 @@ const Departments = [
     { value: 'PLI', label: 'PLI', name: 'Department' },
     { value: 'Police', label: 'Police', name: 'Department' },
     { value: 'Public Safety', label: 'Public Safety', name: 'Department' },
-    { value: 'Public Works', label: 'Public Works', name: 'Department' },
+    { value: 'Public Works', label: 'Public Works', name: 'Department' }
 ]
 
 const EmploymentStatuses = [
     { value: 'New', label: 'New', name: 'EmploymentStatus' },
-    { value: 'Existing', label: 'Existing', name: 'EmploymentStatus' },
+    { value: 'Existing', label: 'Existing', name: 'EmploymentStatus' }
 ]
 
 const DesktopAccessories = [
     { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
     { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
     { value: 'Single Monitor', label: 'Single Monitor', name: 'Accessories' },
-    { value: 'Dual Monitors', label: 'Dual Monitors', name: 'Accessories' },
+    { value: 'Dual Monitors', label: 'Dual Monitors', name: 'Accessories' }
 ]
 
 const LaptopAccessories = [
     { value: 'Docking Station', label: 'Docking Station', name: 'Accessories' },
     { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
     { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
-    { value: 'Additional Monitor', label: 'Additional Monitor', name: 'Accessories' },
+    { value: 'Additional Monitor', label: 'Additional Monitor', name: 'Accessories' }
 ]
 
 const ZeroClientAccessories = [
     { value: 'Keyboard', label: 'Keyboard', name: 'Accessories' },
-    { value: 'Mouse', label: 'Mouse', name: 'Accessories' },
+    { value: 'Mouse', label: 'Mouse', name: 'Accessories' }
 ]
 
 const PoliceAccessories = [
-    { value: 'Speakers', label: 'Speakers', name: 'Accessories' },
+    { value: 'Speakers', label: 'Speakers', name: 'Accessories' }
 ]
 
 const EmploymentTypes = [
     { value: 'Permanent', label: 'Permanent', name: 'EmploymentType' },
-    { value: 'Intern', label: 'Intern', name: 'EmploymentType' },
+    { value: 'Intern', label: 'Intern', name: 'EmploymentType' }
 ]
 
 const WasPreviouslyFunctioning = [
     { value: 'Yes', label: 'Yes', name: 'PreviouslyFunctioning' },
-    { value: 'No', label: 'No', name: 'PreviouslyFunctioning' },
+    { value: 'No', label: 'No', name: 'PreviouslyFunctioning' }
 ]
 
 const IsComputerFunctioning = [
     { value: 'Yes', label: 'Yes', name: 'ComputerFunctioning' },
-    { value: 'No', label: 'No', name: 'ComputerFunctioning' },
+    { value: 'No', label: 'No', name: 'ComputerFunctioning' }
 ]
 
 Modal.setAppElement('#main');
@@ -141,6 +141,8 @@ export class PCOrder extends React.Component<any, any> {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
+
         // check liaison status
         if (this.props.liaison == 0) {
             this.props.fourohfour()
@@ -201,30 +203,34 @@ export class PCOrder extends React.Component<any, any> {
     }
 
     setAccessories(event) {
-        if (event.value === "Desktop") {
-            this.setState({ AvailableAccessories: DesktopAccessories });
-        }
-        if (event.value === "Laptop") {
-            this.setState({ AvailableAccessories: LaptopAccessories });
-        }
-        if (event.value === "Zero client") {
-            this.setState({ AvailableAccessories: ZeroClientAccessories });
-        }
-        this.setState({ [event.name]: event.value });
+        this.setState({ AvailableAccessories: [] }, () => {
+            this.setState({ [event.name]: event.value }, () => {
+                let type = this.state.MachineType;
+                if (type === "Desktop") {
+                    this.setState({ AvailableAccessories: DesktopAccessories }, () => {
+                        this.addSpeakers()
+                    })
+                }
+                if (type === "Laptop") {
+                    this.setState({ AvailableAccessories: LaptopAccessories }, () => {
+                        this.addSpeakers()
+                    })
+                }
+                if (type === "Zero client") {
+                    this.setState({ AvailableAccessories: ZeroClientAccessories }, () => {
+                        this.addSpeakers()
+                    })
+                }
+            })
+        })
     }
 
-    addSpeakers(event) {
-        if (event.value === "Police" || event.value === "Public Safety") {
+    addSpeakers() {
+        let dept = this.state.Department
+        if (dept === "Police" || dept === "Public Safety") {
             var join = this.state.AvailableAccessories.concat(PoliceAccessories);
             this.setState({ AvailableAccessories: join })
         }
-        else {
-            var newArray = [...this.state.AvailableAccessories]
-            var index = newArray.indexOf(PoliceAccessories)
-            newArray.splice(index, 1)
-            this.setState({ AvailableAccessories: newArray })
-        }
-        this.setState({ [event.name]: event.value });
     }
 
     accessoriesTooltip() {
@@ -320,7 +326,7 @@ export class PCOrder extends React.Component<any, any> {
                         name="Department"
                         header='Which department will be receiving this machine?'
                         placeholder='Select department'
-                        onChange={this.addSpeakers.bind(this)}
+                        onChange={this.setAccessories.bind(this)}
                         multi={false}
                         options={Departments}
                     />

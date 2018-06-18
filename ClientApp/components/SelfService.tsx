@@ -3,9 +3,6 @@ import Accordion from 'react-responsive-accordion';
 
 
 export class SelfService extends React.Component<any, any> {
-    createMarkup() {
-        return { __html: "test" };
-    }
 
     public render() {
         return <div className="centered">
@@ -62,6 +59,90 @@ export class SelfService extends React.Component<any, any> {
                     </div>
                 </div>
 
+                <div data-trigger="APRS">
+                    <div>
+                        <h4><b>Troubleshooting</b></h4>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Problem%20with%20user%20viewing%20all%20of%20the%20APRS%20screen%20(1).pdf" target="_blank" className="btn btn-selfservice">
+                            Can't see the entire screen
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="Legistar">
+                    <div>
+                        <h4><b>User guides</b></h4>
+                        <a href="http://www.dconc.gov/home/showdocument?id=12259" target="_blank" className="btn btn-selfservice">
+                            Legistar 5
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="Microsoft Office 365">
+                    <div>
+                        <h4><b>Training resources</b></h4>
+                        <a href="https://o365support.com/tips-and-tricks/" target="_blank" className="btn btn-selfservice">
+                            Microsoft 365
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=48b2679e-0dc1-11e8-8108-000d3a908cc1&statusid=9" title="Email and calendar" target="_blank" className="btn btn-selfservice">
+                            Outlook 2016
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
+                            Word, Excel, & PowerPoint 2016
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9" title="Personal cloud storage" target="_blank" className="btn btn-selfservice">
+                            OneDrive for Business
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9" title="Project and team sites" target="_blank" className="btn btn-selfservice">
+                            SharePoint Online
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=0743140d-585a-11e7-80df-000d3a908cc1&statusid=9" title="Messaging and video chat" target="_blank" className="btn btn-selfservice">
+                            Skype for Business
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="Municode">
+                    <div>
+                        <h4><b>User guides</b></h4>
+                        <a href="http://www.hillcrestil.us/uploads/Municode%20Website%20-%20User%20Guide.pdf" target="_blank" className="btn btn-selfservice">
+                            Municode
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="Printers & MFDs">
+                    <div>
+                        <h4><b>User guides</b></h4>
+                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx?slrid=eb205c9e-1028-5000-e3c3-69893cfcaff7&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public%2fAmcom+Printer+Specific+Handouts&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" target="_blank" className="btn btn-selfservice">
+                            Printer guides
+                            </a>
+                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" title="Email and calendar" target="_blank" className="btn btn-selfservice">
+                            Instructions to connect
+                            </a>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
+                            Troubleshooting
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="RSA Tokens">
+                    <div>
+                        <h4><b>User guides</b></h4>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/RSA%20token%20instructions%20-%202018%20pdf.pdf" target="_blank" className="btn btn-selfservice">
+                            RSA Tokens
+                            </a>
+                    </div>
+                </div>
+
+                <div data-trigger="Telephone & Voicemail">
+                    <div>
+                        <h4><b>User guides</b></h4>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Remote%20VoiceMail%20Access%20for%20CCB%20and%20Police%20HQ.pdf" target="_blank" className="btn btn-selfservice">
+                            Remote voicemail access for CCB & PBP HQ
+                            </a>
+                    </div>
+                </div>
+
                 <div data-trigger="Windows 7">
                     <div>
                         <h4><b>User guides</b></h4>
@@ -111,80 +192,6 @@ export class SelfService extends React.Component<any, any> {
                     </div>
                 </div>
 
-                <div data-trigger="Microsoft Office 365">
-                    <div>
-                        <h4><b>Training resources</b></h4>
-                        <a href="https://o365support.com/tips-and-tricks/" target="_blank" className="btn btn-selfservice">
-                            Microsoft 365
-                            </a>
-                        <a href="https://pittsburgh.o365support.com/content/view?cguid=48b2679e-0dc1-11e8-8108-000d3a908cc1&statusid=9" title="Email and calendar" target="_blank" className="btn btn-selfservice">
-                            Outlook 2016
-                            </a>
-                        <a href="https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
-                            Word, Excel, & PowerPoint 2016
-                            </a>
-                        <a href="https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9" title="Personal cloud storage" target="_blank" className="btn btn-selfservice">
-                            OneDrive for Business
-                            </a>
-                        <a href="https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9" title="Project and team sites" target="_blank" className="btn btn-selfservice">
-                            SharePoint Online
-                            </a>
-                        <a href="https://pittsburgh.o365support.com/content/view?cguid=0743140d-585a-11e7-80df-000d3a908cc1&statusid=9" title="Messaging and video chat" target="_blank" className="btn btn-selfservice">
-                            Skype for Business
-                            </a>
-                    </div>
-                </div>
-
-                <div data-trigger="Printers & MFDs">
-                    <div>
-                        <h4><b>User guides</b></h4>
-                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx?slrid=eb205c9e-1028-5000-e3c3-69893cfcaff7&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public%2fAmcom+Printer+Specific+Handouts&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" target="_blank" className="btn btn-selfservice">
-                            Printer guides
-                            </a>
-                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" title="Email and calendar" target="_blank" className="btn btn-selfservice">
-                            Instructions to connect
-                            </a>
-                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
-                            Troubleshooting
-                            </a>
-                    </div>
-                </div>
-
-                <div data-trigger="Telephone & Voicemail">
-                    <div>
-                        <h4><b>User guides</b></h4>
-                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Remote%20VoiceMail%20Access%20for%20CCB%20and%20Police%20HQ.pdf" target="_blank" className="btn btn-selfservice">
-                            Remote voicemail access for CCB & PBP HQ
-                            </a>
-                    </div>
-                </div>
-
-                <div data-trigger="Legistar">
-                    <div>
-                        <h4><b>User guides</b></h4>
-                        <a href="http://www.dconc.gov/home/showdocument?id=12259" target="_blank" className="btn btn-selfservice">
-                            Legistar 5
-                            </a>
-                    </div>
-                </div>
-
-                <div data-trigger="Municode">
-                    <div>
-                        <h4><b>User guides</b></h4>
-                        <a href="http://www.hillcrestil.us/uploads/Municode%20Website%20-%20User%20Guide.pdf" target="_blank" className="btn btn-selfservice">
-                            Municode
-                            </a>
-                    </div>
-                </div>
-
-                <div data-trigger="APRS">
-                    <div>
-                        <h4><b>Troubleshooting</b></h4>
-                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Problem%20with%20user%20viewing%20all%20of%20the%20APRS%20screen%20(1).pdf" target="_blank" className="btn btn-selfservice">
-                            Can't see the entire screen
-                            </a>
-                    </div>
-                </div>
             </Accordion>
 
         </div>;

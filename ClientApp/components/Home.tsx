@@ -11,6 +11,8 @@ import Messages from './Messages';
 export class Home extends React.Component<any, any> {
 
     componentDidMount() {
+        window.scrollTo(0, 0)
+
         // load liaison status into store
         this.props.requestLiaisons()
     }

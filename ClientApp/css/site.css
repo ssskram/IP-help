@@ -255,6 +255,10 @@ a:hover {
     padding: 0px !important;
 }
 
+.Select-value-label {
+    padding-left: 5px !important;
+}
+
 .Select--multi .Select-input {
     margin: 0px !important;
 }

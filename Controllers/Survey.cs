@@ -47,6 +47,7 @@ namespace IPHelp.Controllers {
                     model.body, // 3
                     model.futureUserTesting); // 4
             var msg = MailHelper.CreateSingleEmail (from, to, subject, plainTextContent, htmlContent);
+            msg.AddTo(new EmailAddress("heidi.norman@pittsburghpa.gov", "Heidi Norman"));
             var response = await client.SendEmailAsync (msg);
         }
     }
