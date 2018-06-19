@@ -5,7 +5,6 @@ export default class StandardAccessories extends React.Component<any, {}> {
     public render() {
         return (
             <div>
-                <button className="topcorner btn-x" onClick={this.props.exit}>x</button>
                 <h3><i>Standard accessories for new devices</i></h3>
                 <h4>Desktops/Zero Clients:</h4>
                     <li> Wired keyboard </li>

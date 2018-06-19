@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
@@ -120,5 +119,5 @@ export class Survey extends React.Component<any, any> {
 export default connect(
     (state: ApplicationState) =>
         state.messages,
-    MessagesStore.actionCreators
+        MessagesStore.actionCreators
 )(Survey as any) as typeof Survey;

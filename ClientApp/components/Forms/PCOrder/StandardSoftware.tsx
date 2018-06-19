@@ -5,7 +5,6 @@ export default class StandardSoftware extends React.Component<any, {}> {
     public render() {
         return (
             <div>
-                <button className="topcorner btn-x" onClick={this.props.exit}>x</button>
                 <h3>Standard software applications:</h3>
                     <li> MS Office 2013 (Word, Excel, PowerPoint, Outlook, OneNote) </li>
                     <li> Adobe Acrobat Reader DC </li>

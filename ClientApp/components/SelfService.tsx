@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Accordion from 'react-responsive-accordion';
 
-
 export class SelfService extends React.Component<any, any> {
 
     public render() {
@@ -193,7 +192,6 @@ export class SelfService extends React.Component<any, any> {
                 </div>
 
             </Accordion>
-
         </div>;
     }
 }

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import TextArea from '../FormElements/textarea'
 import * as MessagesStore from '../../../store/messages';

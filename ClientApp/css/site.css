@@ -429,36 +429,6 @@ textarea {
     letter-spacing: 2px !important;
 }
 
-.btn-x {
-    /* font */
-    color: #383838;
-    font-size: 30px;
-    font-family: 'Raleway', sans-serif;
-    /* remove blue underline */
-    text-decoration: none;
-    outline: none;
-    /* border */
-    border: 0px rgb(186, 134, 6);
-    border-style: solid;
-    border-radius: 5px;
-    /* transitions */
-    transition: all .3s ease 0s;
-    /* other */
-    background-color: transparent;
-    margin-right: 5px;
-}
-
-.btn-x:active, .btn-x:focus, .btn-x:hover {
-    background-color: transparent !important;
-    text-shadow: rgb(186, 134, 6) 0 0 4px;
-    transition-duration: .4s;
-    -webkit-transition-duration: .11s;
-    -moz-transition-duration: .6s;
-    border-radius: 10px;
-    color: #383838 !important;
-    transition: all .2s ease 0s;
-}
-
 .btn-link {
     margin-top: 5px;
 }
@@ -548,9 +518,32 @@ textarea {
 /* Modal
 /* ------------------------- */
 
-.ReactModal__Overlay {
-    z-index: 2500;
-    overflow: visible !important;
+.transition-enter {
+    transform: scale(0);
+}
+
+.transition-enter-active {
+    transform: scale(1);
+    transition: transform 1000ms ease;
+}
+
+.transition-exit {
+    transform: scale(1);
+}
+
+.transition-exit-active {
+    transform: scale(0);
+    transition: transform 1000ms ease;
+}
+
+.custom-overlay {
+    background: rgba(44, 62, 80, .6);
+}
+
+.custom-modal {
+    background: #fffcf5;
+    max-width: 500px;
+    width: 100%;
 }
 
 /* Alerts
@@ -573,12 +566,6 @@ textarea {
     padding: 15px;
     font-size: 20px !important;
     text-align: center;
-}
-
-.topcorner {
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 /* Google map
@@ -714,13 +701,6 @@ textarea {
     color: #fffaee !important;
     font-weight: bold;
     outline: none;
-}
-
-/* Site specific
-/* ------------------------- */
-
-.tooltip-container {
-    margin-left: 25px;
 }
 
 /* Site specific

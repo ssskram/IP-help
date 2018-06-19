@@ -8,27 +8,9 @@ import { ApplicationState } from '../../../store';
 import Input from '../FormElements/input';
 import TextArea from '../FormElements/textarea';
 import Select from '../FormElements/select';
-import Modal from 'react-modal';
+import Modal from 'react-responsive-modal';
 import StandardAccessories from './StandardAccessories';
 import StandardSoftware from './StandardSoftware'
-
-const modalStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#fffcf5',
-        border: 'solid 1px rgba(160, 160, 160, 0.3)',
-        boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.1)',
-        overflow: 'visible',
-        maxWidth: '1300px',
-        maxHeight: '100vh',
-        overflowY: 'auto'
-    }
-};
 
 const MachineTypes = [
     { value: 'Desktop', label: 'Desktop', name: 'MachineType' },
@@ -110,8 +92,6 @@ const IsComputerFunctioning = [
     { value: 'Yes', label: 'Yes', name: 'ComputerFunctioning' },
     { value: 'No', label: 'No', name: 'ComputerFunctioning' }
 ]
-
-Modal.setAppElement('#main');
 
 export class PCOrder extends React.Component<any, any> {
     constructor() {
@@ -454,12 +434,24 @@ export class PCOrder extends React.Component<any, any> {
                         <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
                     </div>
 
-                    <Modal isOpen={modalIsOpen} style={modalStyles}>
+                    <Modal
+                        open={modalIsOpen}
+                        onClose={this.closeModal.bind(this)}
+                        classNames={{
+                            transitionEnter: 'transition-enter',
+                            transitionEnterActive: 'transition-enter-active',
+                            transitionExit: 'transition-exit-active',
+                            transitionExitActive: 'transition-exit-active',
+                            overlay: 'custom-overlay',
+                            modal: 'custom-modal'
+                        }}
+                        animationDuration={1000}
+                        center>
                         {accessoriesTrigger === true &&
-                            <StandardAccessories exit={this.closeModal.bind(this)} />
+                            <StandardAccessories />
                         }
                         {softwareTrigger === true &&
-                            <StandardSoftware exit={this.closeModal.bind(this)} />
+                            <StandardSoftware />
                         }
                     </Modal>
                 </div>
