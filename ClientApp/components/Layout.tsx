@@ -8,7 +8,7 @@ export class Layout extends React.Component<{}, {}> {
                 <div className='col-sm-3'>
                     <div className='row'><NavMenu /></div>
                 </div>
-                <div id="main" className='col-sm-9'>
+                <div className='col-sm-9'>
                     { this.props.children }
                 </div>
             </div>

@@ -13,8 +13,6 @@ export class NavMenu extends React.Component<any, any>  {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
-        
         // load user
         this.props.requestUser()
     }
