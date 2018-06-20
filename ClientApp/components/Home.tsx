@@ -36,18 +36,21 @@ export class Home extends React.Component<any, any> {
                     <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" type="button" title="Must be connected to the City network" className="btn btn-big">
                         <i className="glyphicon glyphicon-search home-icon"></i><br />
                         <div className="hidden-md">My tickets</div>
+                        <div className="hidden-xs hidden-sm hidden-lg">Tickets</div>
                     </a>
                 </div>
                 <div className='col-md-4 text-center'>
                     <Link to={'/SelfService'} type="button" className="btn btn-big">
                         <i className="glyphicon glyphicon-cog home-icon"></i><br />
                         <div className="hidden-md">Self service</div>
+                        <div className="hidden-xs hidden-sm hidden-lg">Docs</div>
                     </Link>
                 </div>
                 <div className='col-md-4 text-center'>
                     <a href="http://portal.office.com/" target="_blank" type="button" title="Email, OneDrive, etc." className="btn btn-big">
                         <i className="glyphicon glyphicon-th-large home-icon"></i><br />
                         <div className="hidden-md">Microsoft portal</div>
+                        <div className="hidden-xs hidden-sm hidden-lg hidden-xl">365</div>
                     </a>
                 </div>
             </div>
