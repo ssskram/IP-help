@@ -3,6 +3,10 @@ import Accordion from 'react-responsive-accordion';
 
 export class SelfService extends React.Component<any, any> {
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     public render() {
         return <div className="centered">
 
