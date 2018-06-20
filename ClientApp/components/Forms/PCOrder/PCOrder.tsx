@@ -5,9 +5,9 @@ import * as Ping from '../../../store/ping';
 import * as LiaisonsStore from '../../../store/equipmentLiaisons';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
-import Input from '../FormElements/input';
-import TextArea from '../FormElements/textarea';
-import Select from '../FormElements/select';
+import Input from '../../FormElements/input';
+import TextArea from '../../FormElements/textarea';
+import Select from '../../FormElements/select';
 import Modal from 'react-responsive-modal';
 import StandardAccessories from './StandardAccessories';
 import StandardSoftware from './StandardSoftware'

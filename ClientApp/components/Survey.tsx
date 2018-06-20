@@ -3,9 +3,9 @@ import { Redirect } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../store';
-import TextArea from './Forms/FormElements/textarea';
-import Select from './Forms/FormElements/select';
-import Input from './Forms/FormElements/input';
+import TextArea from './FormElements/textarea';
+import Select from './FormElements/select';
+import Input from './FormElements/input';
 
 const Options = [
     { value: 'Yes', label: 'Yes', name: 'futureUserTesting' },

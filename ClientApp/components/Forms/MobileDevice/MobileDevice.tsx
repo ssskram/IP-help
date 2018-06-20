@@ -5,9 +5,9 @@ import * as LiaisonsStore from '../../../store/equipmentLiaisons';
 import * as Ping from '../../../store/ping';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../../store';
-import Input from '../FormElements/input';
-import TextArea from '../FormElements/textarea';
-import Select from '../FormElements/select';
+import Input from '../../FormElements/input';
+import TextArea from '../../FormElements/textarea';
+import Select from '../../FormElements/select';
 
 const DeviceTypes = [
     { value: 'iPhone 6S', label: 'iPhone 6S', name: 'DeviceType' },
