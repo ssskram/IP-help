@@ -2,7 +2,8 @@ import * as React from 'react';
 
 const margin = {
     marginTop: '25px',
-    marginRight: '10px'
+    marginRight: '10px',
+    marginLeft: '10px'
 }
 
 export default class Messages extends React.Component<any, {}> {

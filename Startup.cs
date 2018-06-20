@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration.UserSecrets;
-using IPHelp.Data;
 using Microsoft.WindowsAzure.Storage.Blob;
+using IPHelp.Data;
 using IPHelp.Models;
 
 namespace IPHelp
@@ -27,7 +27,7 @@ namespace IPHelp
         string _SPClientID = null;
         string _redirecturi = null;
         string _spresourceid = null;
-        private readonly IHostingEnvironment _currentEnvironment;   
+        private readonly IHostingEnvironment _currentEnvironment;
         public IConfiguration HostingConfig { get; private set; }
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration, IHostingEnvironment env)
@@ -83,7 +83,7 @@ namespace IPHelp
                     })
                     .Services.ConfigureApplicationCookie(options =>
                     {
-                        options.Cookie.Name = ".PGH_SSO";    
+                        options.Cookie.Name = ".PGH_SSO";
                         options.Cookie.Domain = ".azurewebsites.us";
                     });
                 services.AddDataProtection()
@@ -135,7 +135,7 @@ namespace IPHelp
 
             app.UseAuthentication();
 
-            app.UseSession(); 
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
