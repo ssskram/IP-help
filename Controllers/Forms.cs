@@ -28,7 +28,7 @@ namespace IPHelp.Controllers {
             var submittedby = _userManager.GetUserName (HttpContext.User);
             var apiKey = Environment.GetEnvironmentVariable ("sendgrid");
             var client = new SendGridClient (apiKey);
-            var headers = "{'X-OTRS-DynamicField-BulkOrderCount': '1', 'X-OTRS-Type': 'Single'}";
+            var headers = "{'X-OTRS-DynamicField-BulkOrderCount': '1', 'X-OTRS-Type': 'Order Single'}";
             var headersSerial = JsonConvert.DeserializeObject<Dictionary<string, string>> (headers);
             var msg = new SendGridMessage () {
                 From = new EmailAddress (submittedby, "I&P Help"),
