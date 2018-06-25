@@ -55,6 +55,11 @@ export class NavMenu extends React.Component<any, any>  {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to={'/EmployeeData'} title="Request email or wireless records" activeClassName='active' data-toggle="collapse" data-target=".in">
+                                Request employee data
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to={'/Other'} title="Miscellaneous request" activeClassName='active' data-toggle="collapse" data-target=".in">
                                 Other
                             </NavLink>

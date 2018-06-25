@@ -715,3 +715,11 @@ textarea {
 .tooltip-container {
     margin-left: 25px;
 }
+
+.download-link {
+    font-size: 18px;
+    line-height: 2em;
+}
+.download-link:hover {
+    text-decoration: none;
+}
