@@ -155,6 +155,9 @@ export class SelfService extends React.Component<any, any> {
                         <a href="http://apps.pittsburghpa.gov/redtail/images/1354_Create_Shortcuts_to_Websites_in_Windows_7.pdf" target="_blank" className="btn btn-selfservice">
                             Create a website shortcut
                             </a>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win7.pdf" target="_blank" className="btn btn-selfservice">
+                            Configure printers & scanning
+                            </a>
                         <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%207.pdf" target="_blank" className="btn btn-selfservice">
                             Set a default printer
                             </a>
@@ -182,6 +185,9 @@ export class SelfService extends React.Component<any, any> {
                             </a>
                         <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Shortcut%20to%20a%20Website%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                             Create a website shortcut
+                            </a>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win10.pdf" target="_blank" className="btn btn-selfservice">
+                            Configure printers & scanning
                             </a>
                         <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%2010.pdf" target="_blank" className="btn btn-selfservice">
                             Set a default printer
