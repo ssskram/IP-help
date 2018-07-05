@@ -397,7 +397,7 @@ export class PCOrder extends React.Component<any, any> {
                     }
                     {EmploymentStatus === 'Existing' &&
                         <Input
-                            header="Please enter the OTRS ticket number associated with the replacement"
+                            header="I&P must assess the current computer before replacement.  Please enter the OTRS ticket number associated with an I&P technician's assessment."
                             placeholder="OTRS ticket number"
                             name="OTRSTicket"
                             value={OTRSTicket}
