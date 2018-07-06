@@ -8,7 +8,6 @@ import EmployeeData from './components/Forms/EmployeeData/EmployeeData';
 import Other from './components/Forms/Other/Other';
 import { SelfService } from './components/SelfService';
 import Home from './components/Home';
-import { Login } from './components/Account/Login';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
@@ -16,7 +15,6 @@ export const routes = <Layout>
     <Route path='/MobileDevice' component={ MobileDevice } />    
     <Route path='/EmployeeData' component={ EmployeeData } />    
     <Route path='/PCOrder' component={ PCOrder } />
-    <Route path='/Account/Login' component={ Login } />
     <Route path='/Other' component={ Other } />
     <Route path='/SelfService' component={ SelfService } />    
 </Layout>;

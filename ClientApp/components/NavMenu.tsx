@@ -83,9 +83,9 @@ export class NavMenu extends React.Component<any, any>  {
                         <div className='accountcontainer'>
                             <li className="account">{user}</li>
                             <li className='logout'>
-                                <NavLink to={'/Account/Login'} activeClassName='active' id="logout" className='btn btn-link navbar-logout-btn navbar-link'>
+                                <a href='/Account/Login' id="logout" className='btn btn-link navbar-logout-btn navbar-link'>
                                     <span className='glyphicon glyphicon-user'></span>Logout
-                                </NavLink>
+                                </a>
                             </li>
                         </div>
                     </ul>
@@ -96,7 +96,7 @@ export class NavMenu extends React.Component<any, any>  {
 }
 
 export default connect(
-    (state: ApplicationState) => 
-    state.user,
+    (state: ApplicationState) =>
+        state.user,
     User.actionCreators
 )(NavMenu as any) as typeof NavMenu;
