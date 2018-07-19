@@ -112,6 +112,7 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket: '',
             Accessories: '',
             SoftwareApplications: '',
+            CC: '',
             AvailableAccessories: [],
             modalIsOpen: false,
             accessoriesTrigger: false,
@@ -167,6 +168,7 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket: self.state.OTRSTicket,
             Accessories: self.state.Accessories,
             SoftwareApplications: self.state.SoftwareApplications,
+            CC: self.state.CC
         })
         this.setState({ Body: '' })
         fetch('/api/Forms/PCOrder', {
@@ -254,6 +256,7 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket,
             Accessories,
             SoftwareApplications,
+            CC,
             AvailableAccessories,
             modalIsOpen,
             accessoriesTrigger,
@@ -430,9 +433,19 @@ export class PCOrder extends React.Component<any, any> {
                         callback={this.handleChildChange.bind(this)}
                     />
 
+                    <Input
+                        value={CC}
+                        name="CC"
+                        header="Do you need to copy anyone on this order?"
+                        placeholder="Enter an email address"
+                        callback={this.handleChildChange.bind(this)}
+                    />
+
                     <div className="text-center">
                         <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
                     </div>
+                    <br/>
+                    <br/>
 
                     <Modal
                         open={modalIsOpen}

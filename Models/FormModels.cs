@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace IPHelp.Models
-{
-    public class PCOrder
-    {
+namespace IPHelp.Models {
+    public class PCOrder {
         public string CustomerPhone { get; set; }
         public string MachineType { get; set; }
         public string Department { get; set; }
@@ -20,23 +18,25 @@ namespace IPHelp.Models
         public string ComputerFunctioning { get; set; }
         public string OTRSTicket { get; set; }
         public string Accessories { get; set; }
-        [DataType(DataType.MultilineText)]
+
+        [DataType (DataType.MultilineText)]
         public string SoftwareApplications { get; set; }
+        public string CC { get; set; }
     }
-    public class MobileDevice
-    {
+    public class MobileDevice {
         public string DeviceType { get; set; }
         public string NewReplacement { get; set; }
         public string JobTitle { get; set; }
-        [DataType(DataType.MultilineText)]
+
+        [DataType (DataType.MultilineText)]
         public string JobDuties { get; set; }
-        [DataType(DataType.MultilineText)]
+
+        [DataType (DataType.MultilineText)]
         public string ReplacementExplanation { get; set; }
     }
 
-    public class Other
-    {
-        [DataType(DataType.MultilineText)]
+    public class Other {
+        [DataType (DataType.MultilineText)]
         public string Body { get; set; }
     }
 }
