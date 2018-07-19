@@ -12,21 +12,6 @@ export class SelfService extends React.Component<any, any> {
 
             <Accordion>
                 <div data-trigger="Self service">
-                    <div className="def-title">
-                        self-serv·ice
-                            </div>
-                    <div className="def-disamb">
-                        /ˈˌself ˈsərvəs/
-                            </div>
-                    <div className="def-adj">
-                        adjective
-                            </div>
-                    <div className="def">
-                        <ol>
-                            <li><p>of, for, or pertaining to something designed to be used or enjoyed without the aid of an attendant</p></li>
-                        </ol>
-                    </div>
-                    <hr />
                     <h2 className="text-center">These are for you</h2>
                     <h4 className="text-center">if something is missing, please let us know</h4>
                 </div>

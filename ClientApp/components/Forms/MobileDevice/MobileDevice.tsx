@@ -13,7 +13,7 @@ const DeviceTypes = [
     { value: 'iPhone 6S', label: 'iPhone 6S', name: 'DeviceType' },
     { value: 'iPhone SE', label: 'iPhone SE', name: 'DeviceType' },
     { value: 'Samsung Galaxy J3 Eclipse', label: 'Samsung Galaxy J3 Eclipse', name: 'DeviceType' },
-    { value: 'Samsung Galaxy S7', label: 'Samsung Galaxy S7', name: 'DeviceType' },
+    { value: 'Samsung Galaxy S7V', label: 'Samsung Galaxy S7V', name: 'DeviceType' },
     { value: 'Kyocera Dura Force Pro Rugged', label: 'Kyocera Dura Force Pro Rugged', name: 'DeviceType' },
     { value: 'iPad Mini 7.9”', label: 'iPad Mini 7.9”', name: 'DeviceType' },
     { value: 'iPad 10.5”', label: 'iPad 10.5”', name: 'DeviceType' },

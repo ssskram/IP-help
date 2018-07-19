@@ -67,7 +67,7 @@ export class NavMenu extends React.Component<any, any>  {
                         <li className="sidenav-header"><span className='glyphicon glyphicon-cog'></span>Resources</li>
                         <li>
                             <NavLink to={'/SelfService'} activeClassName='active' data-toggle="collapse" data-target=".in">
-                                Self service
+                                Training & FAQs
                         </NavLink>
                         </li>
                         <li>

@@ -42,7 +42,7 @@ export class Home extends React.Component<any, any> {
                 <div className='col-md-4 text-center'>
                     <Link to={'/SelfService'} type="button" className="btn btn-big">
                         <i className="glyphicon glyphicon-cog home-icon"></i><br />
-                        <div className="hidden-md">Self service</div>
+                        <div className="hidden-md">Training & FAQs</div>
                         <div className="hidden-xs hidden-sm hidden-lg">Docs</div>
                     </Link>
                 </div>
