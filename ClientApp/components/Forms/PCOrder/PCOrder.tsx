@@ -143,9 +143,11 @@ export class PCOrder extends React.Component<any, any> {
     }
 
     handleMultiSelect(value) {
-        this.setState({ Accessories: value });
         if (value === "Docking Station") {
-            this.setState({ Accessories: LaptopAccessories });
+            this.setState({ Accessories: "Docking Station,Keyboard,Mouse,Additional Monitor" });
+        }
+        else {
+            this.setState({ Accessories: value });
         }
     };
 
@@ -170,7 +172,8 @@ export class PCOrder extends React.Component<any, any> {
             SoftwareApplications: self.state.SoftwareApplications,
             CC: self.state.CC
         })
-        this.setState({ Body: '' })
+        this.setState({ CustomerPhone: '' })
+        console.log(data)
         fetch('/api/Forms/PCOrder', {
             method: 'POST',
             body: data,

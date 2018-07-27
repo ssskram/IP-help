@@ -75,7 +75,12 @@ namespace IPHelp.Controllers
             if (model.CC != "") {
                 await PCOrderCC(model);
             }
-            var response = await client.SendEmailAsync(msg);
+            try {
+                var response = await client.SendEmailAsync(msg);
+            }
+            catch (Exception e) {
+                Console.WriteLine(e);
+            }
         }
 
         public async Task PCOrderCC(PCOrder model) {
