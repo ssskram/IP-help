@@ -28,7 +28,7 @@ namespace IPHelp.Controllers {
             var client = new SendGridClient (apiKey);
             var headers = "{'X-OTRS-DynamicField-BulkOrderCount': '1', 'X-OTRS-Type': 'Order Single'}";
             var headersSerial = JsonConvert.DeserializeObject<Dictionary<string, string>> (headers);
-            string html = System.IO.File.ReadAllText ("emailTemplates/PcOrder.html");
+            string html = System.IO.File.ReadAllText ("wwwroot/emailTemplates/PcOrder.html");
             var msg = new SendGridMessage () {
                 From = new EmailAddress (submittedby, "I&P Help"),
                 Subject = "Request for new PC",
