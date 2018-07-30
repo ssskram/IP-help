@@ -88,6 +88,11 @@ const WasPreviouslyFunctioning = [
     { value: 'No', label: 'No', name: 'PreviouslyFunctioning' }
 ]
 
+const CellularDataOptions = [
+    { value: 'Yes', label: 'Yes', name: 'CellularData' },
+    { value: 'No', label: 'No', name: 'CellularData' }
+]
+
 const IsComputerFunctioning = [
     { value: 'Yes', label: 'Yes', name: 'ComputerFunctioning' },
     { value: 'No', label: 'No', name: 'ComputerFunctioning' }
@@ -113,6 +118,8 @@ export class PCOrder extends React.Component<any, any> {
             Accessories: '',
             SoftwareApplications: '',
             CC: '',
+            CellularData: '',
+            CellularDataJustification: '',
             AvailableAccessories: [],
             modalIsOpen: false,
             accessoriesTrigger: false,
@@ -170,10 +177,11 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket: self.state.OTRSTicket,
             Accessories: self.state.Accessories,
             SoftwareApplications: self.state.SoftwareApplications,
-            CC: self.state.CC
+            CC: self.state.CC,
+            CellularData: self.state.CellularData,
+            CellularDataJustification: self.state.CellularDataJustification
         })
         this.setState({ CustomerPhone: '' })
-        console.log(data)
         fetch('/api/Forms/PCOrder', {
             method: 'POST',
             body: data,
@@ -260,6 +268,8 @@ export class PCOrder extends React.Component<any, any> {
             Accessories,
             SoftwareApplications,
             CC,
+            CellularData,
+            CellularDataJustification,
             AvailableAccessories,
             modalIsOpen,
             accessoriesTrigger,
@@ -306,6 +316,28 @@ export class PCOrder extends React.Component<any, any> {
                         multi={false}
                         options={MachineTypes}
                     />
+
+                    {MachineType == 'Laptop' &&
+                        <Select
+                            value={CellularData}
+                            name="CellularData"
+                            header='Does the laptop need cellular data services?'
+                            placeholder='Yes or no'
+                            onChange={this.handleChildSelect.bind(this)}
+                            multi={false}
+                            options={CellularDataOptions}
+                        />
+                    }
+
+                    {CellularData == 'Yes' &&
+                        <TextArea
+                            value={CellularDataJustification}
+                            name="CellularDataJustification"
+                            header="Why can't the employee perform their job functions using Wifi only?"
+                            placeholder="Justify the need for cellular data services"
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
 
                     <Select
                         value={Department}
@@ -447,8 +479,8 @@ export class PCOrder extends React.Component<any, any> {
                     <div className="text-center">
                         <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
                     </div>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
 
                     <Modal
                         open={modalIsOpen}

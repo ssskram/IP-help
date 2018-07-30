@@ -22,7 +22,10 @@ namespace IPHelp.Models {
         [DataType (DataType.MultilineText)]
         public string SoftwareApplications { get; set; }
         public string CC { get; set; }
+        public string CellularData { get; set; }
+        public string CellularDataJustification { get; set; }
     }
+
     public class MobileDevice {
         public string DeviceType { get; set; }
         public string NewReplacement { get; set; }
