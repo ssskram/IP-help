@@ -68,14 +68,20 @@ export class SelfService extends React.Component<any, any> {
                 <div data-trigger="Microsoft Office 365">
                     <div>
                         <h4><b>Training resources</b></h4>
+                        <a href="https://pittsburgh.o365support.com/library" target="_blank" className="btn btn-selfservice">
+                            Microsoft 365 Online
+                            </a>
                         <a href="https://o365support.com/tips-and-tricks/" target="_blank" className="btn btn-selfservice">
-                            Microsoft 365
+                            Microsoft 365 Webinars
                             </a>
                         <a href="https://pittsburgh.o365support.com/content/view?cguid=48b2679e-0dc1-11e8-8108-000d3a908cc1&statusid=9" title="Email and calendar" target="_blank" className="btn btn-selfservice">
-                            Outlook 2016
+                            Outlook 2016 (Desktop)
+                            </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=e8faa151-56c5-11e7-80df-000d3a908cc1&tiguid=749a2e9c-8ae7-11e4-847a-00221918ee60&rtid=3" title="Email and calendar" target="_blank" className="btn btn-selfservice">
+                            Outlook (Online)
                             </a>
                         <a href="https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
-                            Word, Excel, & PowerPoint 2016
+                            Word, Excel, & PowerPoint 2016 (Desktop)
                             </a>
                         <a href="https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9" title="Personal cloud storage" target="_blank" className="btn btn-selfservice">
                             OneDrive for Business
@@ -104,10 +110,10 @@ export class SelfService extends React.Component<any, any> {
                         <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx?slrid=eb205c9e-1028-5000-e3c3-69893cfcaff7&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public%2fAmcom+Printer+Specific+Handouts&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" target="_blank" className="btn btn-selfservice">
                             Printer guides
                             </a>
-                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" title="Email and calendar" target="_blank" className="btn btn-selfservice">
+                        <a href="https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4" target="_blank" className="btn btn-selfservice">
                             Instructions to connect
                             </a>
-                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf" title="Docs, spreadhseets, and slideshows" target="_blank" className="btn btn-selfservice">
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf" target="_blank" className="btn btn-selfservice">
                             Troubleshooting
                             </a>
                     </div>

@@ -758,3 +758,30 @@ a[href^="https://maps.google.com/maps"] {
 .download-link:hover {
     text-decoration: none;
 }
+
+.sectionHeader {
+    margin-left: 30px;
+    letter-spacing: 3px;
+    font: strong;
+}
+
+.yourInfo {
+    background-color: rgba(92, 184, 92, .05);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
+.theirInfo {
+    background-color: rgba(190, 67, 67, .05);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
+.orderInfo {
+    background-color: rgba(34, 41, 107, .05);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0px;
+}

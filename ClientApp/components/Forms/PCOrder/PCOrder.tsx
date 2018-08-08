@@ -98,6 +98,11 @@ const IsComputerFunctioning = [
     { value: 'No', label: 'No', name: 'ComputerFunctioning' }
 ]
 
+const glyphs = {
+    marginRight: '25px',
+    fontSize: '30px'
+}
+
 export class PCOrder extends React.Component<any, any> {
     constructor() {
         super();
@@ -297,8 +302,9 @@ export class PCOrder extends React.Component<any, any> {
                 </div>
             </div>
             <div className="col-md-10">
-                <div className="form-group">
 
+                <div className='col-md-12 yourInfo'>
+                    <h3 className='sectionHeader'>Your info<span style={glyphs} className='glyphicon glyphicon-info-sign hidden-sm hidden-xs pull-right'></span></h3>
                     <Input
                         value={CustomerPhone}
                         name="CustomerPhone"
@@ -307,6 +313,89 @@ export class PCOrder extends React.Component<any, any> {
                         callback={this.handleChildChange.bind(this)}
                     />
 
+                    <Input
+                        value={CC}
+                        name="CC"
+                        header="Do you need to copy anyone on this order?"
+                        placeholder="Enter an email address"
+                        callback={this.handleChildChange.bind(this)}
+                    />
+                </div>
+                <div className='col-md-12 theirInfo'>
+                    <h3 className='sectionHeader'>Employee's info<span style={glyphs} className='glyphicon glyphicon-user hidden-sm hidden-xs pull-right'></span></h3>
+                    <Input
+                        value={UserName}
+                        name="UserName"
+                        header="Which employee will be receiving this machine?"
+                        placeholder="Employee's Name"
+                        callback={this.handleChildChange.bind(this)}
+                    />
+                    <Select
+                        value={Department}
+                        name="Department"
+                        header="What is the employee's department?"
+                        placeholder='Select department'
+                        onChange={this.setAccessories.bind(this)}
+                        multi={false}
+                        options={Departments}
+                    />
+                    <Input
+                        value={UserNetworkID}
+                        name="UserNetworkID"
+                        header="What is the employee's network id?"
+                        placeholder="Network ID"
+                        callback={this.handleChildChange.bind(this)}
+                    />
+
+                    <Input
+                        header="What is the employee's building?"
+                        placeholder="Building name"
+                        name="Building"
+                        value={Building}
+                        callback={this.handleChildChange.bind(this)}
+                    />
+
+                    <Input
+                        header="Floor number?"
+                        placeholder="Floor number"
+                        name="Floor"
+                        value={Floor}
+                        callback={this.handleChildChange.bind(this)}
+                    />
+                    <Select
+                        value={EmploymentStatus}
+                        name="EmploymentStatus"
+                        header='Is this for a new employee, or an existing staff member?'
+                        placeholder='New or existing employee'
+                        onChange={this.handleChildSelect.bind(this)}
+                        multi={false}
+                        options={EmploymentStatuses}
+                    />
+
+                    {EmploymentStatus === 'New' &&
+                        <Select
+                            value={EmploymentType}
+                            name="EmploymentType"
+                            header='Is this for a permanent employee, or intern?'
+                            placeholder='Permanent employee or intern'
+                            onChange={this.handleChildSelect.bind(this)}
+                            multi={false}
+                            options={EmploymentTypes}
+                        />
+                    }
+                    {EmploymentStatus === 'Existing' &&
+                        <Input
+                            header="Enter the employee's current computer number"
+                            placeholder="Computer number"
+                            name="ComputerNumber"
+                            value={ComputerNumber}
+                            callback={this.handleChildChange.bind(this)}
+                        />
+                    }
+                </div>
+
+                <div className='col-md-12 orderInfo'>
+                    <h3 className='sectionHeader'>PC info<span style={glyphs} className='glyphicon glyphicon-hdd hidden-sm hidden-xs pull-right'></span></h3>
                     <Select
                         value={MachineType}
                         name="MachineType"
@@ -339,70 +428,6 @@ export class PCOrder extends React.Component<any, any> {
                         />
                     }
 
-                    <Select
-                        value={Department}
-                        name="Department"
-                        header='Which department will be receiving this machine?'
-                        placeholder='Select department'
-                        onChange={this.setAccessories.bind(this)}
-                        multi={false}
-                        options={Departments}
-                    />
-
-                    <Input
-                        value={UserName}
-                        name="UserName"
-                        header="Which employee will be receiving this machine?"
-                        placeholder="Employee's Name"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        value={UserNetworkID}
-                        name="UserNetworkID"
-                        header="What is the employee's network id?"
-                        placeholder="Employee's network id"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        header="What is the employee's building?"
-                        placeholder="Building name"
-                        name="Building"
-                        value={Building}
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        header="What is the employee's floor number"
-                        placeholder="Floor number"
-                        name="Floor"
-                        value={Floor}
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Select
-                        value={EmploymentStatus}
-                        name="EmploymentStatus"
-                        header='Is this for a new employee, or an existing staff member?'
-                        placeholder='New or existing employee'
-                        onChange={this.handleChildSelect.bind(this)}
-                        multi={false}
-                        options={EmploymentStatuses}
-                    />
-
-                    {/* conditional fields start */}
-                    {EmploymentStatus === 'New' &&
-                        <Select
-                            value={EmploymentType}
-                            name="EmploymentType"
-                            header='Is this for a permanent employee, or intern?'
-                            placeholder='Permanent employee or intern'
-                            onChange={this.handleChildSelect.bind(this)}
-                            multi={false}
-                            options={EmploymentTypes}
-                        />
-                    }
                     {EmploymentStatus === 'New' &&
                         <Select
                             value={PreviouslyFunctioning}
@@ -412,15 +437,6 @@ export class PCOrder extends React.Component<any, any> {
                             onChange={this.handleChildSelect.bind(this)}
                             multi={false}
                             options={WasPreviouslyFunctioning}
-                        />
-                    }
-                    {EmploymentStatus === 'Existing' &&
-                        <Input
-                            header="Enter their current computer number"
-                            placeholder="Computer number"
-                            name="ComputerNumber"
-                            value={ComputerNumber}
-                            callback={this.handleChildChange.bind(this)}
                         />
                     }
                     {EmploymentStatus === 'Existing' &&
@@ -467,40 +483,31 @@ export class PCOrder extends React.Component<any, any> {
                         value={SoftwareApplications}
                         callback={this.handleChildChange.bind(this)}
                     />
-
-                    <Input
-                        value={CC}
-                        name="CC"
-                        header="Do you need to copy anyone on this order?"
-                        placeholder="Enter an email address"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <div className="text-center">
-                        <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
-                    </div>
-                    <br />
-                    <br />
-
-                    <Modal
-                        open={modalIsOpen}
-                        onClose={this.closeModal.bind(this)}
-                        classNames={{
-                            transitionEnter: 'transition-enter',
-                            transitionEnterActive: 'transition-enter-active',
-                            overlay: 'custom-overlay',
-                            modal: 'custom-modal'
-                        }}
-                        animationDuration={1000}
-                        center>
-                        {accessoriesTrigger === true &&
-                            <StandardAccessories />
-                        }
-                        {softwareTrigger === true &&
-                            <StandardSoftware />
-                        }
-                    </Modal>
                 </div>
+
+                <div className="text-center">
+                    <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                </div>
+                <br />
+                <br />
+                <Modal
+                    open={modalIsOpen}
+                    onClose={this.closeModal.bind(this)}
+                    classNames={{
+                        transitionEnter: 'transition-enter',
+                        transitionEnterActive: 'transition-enter-active',
+                        overlay: 'custom-overlay',
+                        modal: 'custom-modal'
+                    }}
+                    animationDuration={1000}
+                    center>
+                    {accessoriesTrigger === true &&
+                        <StandardAccessories />
+                    }
+                    {softwareTrigger === true &&
+                        <StandardSoftware />
+                    }
+                </Modal>
             </div>
         </div>;
     }
