@@ -327,7 +327,7 @@ export class PCOrder extends React.Component<any, any> {
                         value={UserName}
                         name="UserName"
                         header="Which employee will be receiving this machine?"
-                        placeholder="Employee's Name"
+                        placeholder="Employee's full name"
                         callback={this.handleChildChange.bind(this)}
                     />
                     <Select
@@ -494,8 +494,6 @@ export class PCOrder extends React.Component<any, any> {
                     open={modalIsOpen}
                     onClose={this.closeModal.bind(this)}
                     classNames={{
-                        transitionEnter: 'transition-enter',
-                        transitionEnterActive: 'transition-enter-active',
                         overlay: 'custom-overlay',
                         modal: 'custom-modal'
                     }}
