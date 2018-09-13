@@ -15,7 +15,8 @@ import StandardSoftware from './StandardSoftware'
 const MachineTypes = [
     { value: 'Desktop', label: 'Desktop', name: 'MachineType' },
     { value: 'Laptop', label: 'Laptop', name: 'MachineType' },
-    { value: 'Zero client', label: 'Zero client', name: 'MachineType' }
+    { value: 'Zero client', label: 'Zero client', name: 'MachineType' },
+    { value: 'Thin client', label: 'Thin client', name: 'MachineType' },
 ]
 
 const Departments = [
@@ -214,7 +215,7 @@ export class PCOrder extends React.Component<any, any> {
                         this.addSpeakers()
                     })
                 }
-                if (type === "Zero client") {
+                if (type === "Zero client" || type === "Thin client") {
                     this.setState({ AvailableAccessories: ZeroClientAccessories }, () => {
                         this.addSpeakers()
                     })
