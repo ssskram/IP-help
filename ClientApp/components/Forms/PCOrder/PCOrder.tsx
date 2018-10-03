@@ -226,7 +226,8 @@ export class PCOrder extends React.Component<any, any> {
 
     addSpeakers() {
         let dept = this.state.Department
-        if (dept === "Police") {
+        let pcType = this.state.MachineType
+        if (dept === "Police" && pcType === "Desktop") {
             var join = this.state.AvailableAccessories.concat(PoliceAccessories);
             this.setState({ 
                 AvailableAccessories: join,
