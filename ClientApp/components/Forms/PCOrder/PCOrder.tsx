@@ -226,9 +226,12 @@ export class PCOrder extends React.Component<any, any> {
 
     addSpeakers() {
         let dept = this.state.Department
-        if (dept === "Police" || dept === "Public Safety") {
+        if (dept === "Police") {
             var join = this.state.AvailableAccessories.concat(PoliceAccessories);
-            this.setState({ AvailableAccessories: join })
+            this.setState({ 
+                AvailableAccessories: join,
+                Accessories: "Speakers"
+            })
         }
     }
 
@@ -281,6 +284,7 @@ export class PCOrder extends React.Component<any, any> {
             accessoriesTrigger,
             softwareTrigger,
             redirect } = this.state
+
         // validate
         const isEnabled =
             CustomerPhone != '' &&
