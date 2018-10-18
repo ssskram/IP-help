@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import Survey from './components/Survey';
-import MobileDevice from './components/Forms/MobileDevice/MobileDevice';
-import PCOrder from './components/Forms/PCOrder/PCOrder';
-import EmployeeData from './components/Forms/EmployeeData/EmployeeData';
-import Other from './components/Forms/Other/Other';
+import MobileDevice from './components/MobileDevice/MobileDevice';
+import PCOrder from './components/PCOrder/PCOrder';
+import EmployeeData from './components/EmployeeData/EmployeeData';
+import Other from './components/Other/Other';
 import { SelfService } from './components/SelfService';
 import Home from './components/Home';
 

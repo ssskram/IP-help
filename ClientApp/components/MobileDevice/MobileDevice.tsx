@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
-import * as MessagesStore from '../../../store/messages';
-import * as LiaisonsStore from '../../../store/equipmentLiaisons';
-import * as Ping from '../../../store/ping';
+import * as MessagesStore from '../../store/messages';
+import * as LiaisonsStore from '../../store/equipmentLiaisons';
+import * as Ping from '../../store/ping';
 import { connect } from 'react-redux';
-import { ApplicationState } from '../../../store';
-import Input from '../../FormElements/input';
-import TextArea from '../../FormElements/textarea';
-import Select from '../../FormElements/select';
+import { ApplicationState } from '../../store';
+import Input from '../FormElements/input';
+import TextArea from '../FormElements/textarea';
+import Select from '../FormElements/select';
 
 const DeviceTypes = [
     { value: 'iPhone 7', label: 'iPhone 7', name: 'DeviceType' },

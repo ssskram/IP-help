@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
-import TextArea from '../../FormElements/textarea'
-import * as MessagesStore from '../../../store/messages';
-import * as Ping from '../../../store/ping';
+import TextArea from '../FormElements/textarea'
+import * as MessagesStore from '../../store/messages';
+import * as Ping from '../../store/ping';
 import { connect } from 'react-redux';
-import { ApplicationState } from '../../../store';
+import { ApplicationState } from '../../store';
 
 export class Other extends React.Component<any, any> {
     constructor() {

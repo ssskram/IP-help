@@ -9,7 +9,7 @@ export class Layout extends React.Component<{}, {}> {
                     <div className='row'><NavMenu /></div>
                 </div>
                 <div className='col-sm-9'>
-                    { this.props.children }
+                    {this.props.children}
                 </div>
             </div>
         </div>;
