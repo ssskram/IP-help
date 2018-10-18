@@ -1,12 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using IPHelp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using IPHelp.Models;
 
 namespace IPHelp.Controllers {
     [Authorize]
@@ -42,7 +42,7 @@ namespace IPHelp.Controllers {
                     model.body, // 3
                     model.futureUserTesting); // 4
             var msg = MailHelper.CreateSingleEmail (from, to, subject, plainTextContent, htmlContent);
-            msg.AddTo(new EmailAddress("heidi.norman@pittsburghpa.gov", "Heidi Norman"));
+            msg.AddTo (new EmailAddress ("heidi.norman@pittsburghpa.gov", "Heidi Norman"));
             var response = await client.SendEmailAsync (msg);
         }
     }
