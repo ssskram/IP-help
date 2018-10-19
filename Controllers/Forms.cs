@@ -74,7 +74,7 @@ namespace IPHelp.Controllers {
                 model.CellularData, // 16
                 model.CellularDataJustification), // 17
             };
-            msg.AddTo (new EmailAddress ("cis.sys.net.notifier@pittsburghpa.gov", "Help Desk"));
+            msg.AddTo (new EmailAddress ("paul.marks@pittsburghpa.gov", "Help Desk"));
             if (model.CC != "") {
                 await PCOrderCC (model);
             }
