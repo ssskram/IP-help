@@ -1,16 +1,17 @@
-import * as React from 'react';
-import { Redirect } from 'react-router-dom';
-import * as MessagesStore from '../../store/messages';
-import * as Ping from '../../store/ping';
-import * as LiaisonsStore from '../../store/equipmentLiaisons';
-import { connect } from 'react-redux';
-import { ApplicationState } from '../../store';
-import Input from '../FormElements/input';
-import TextArea from '../FormElements/textarea';
-import Select from '../FormElements/select';
-import Modal from 'react-responsive-modal';
-import StandardAccessories from './StandardAccessories';
+import * as React from 'react'
+import { Redirect } from 'react-router-dom'
+import * as MessagesStore from '../../store/messages'
+import * as Ping from '../../store/ping'
+import * as LiaisonsStore from '../../store/equipmentLiaisons'
+import { connect } from 'react-redux'
+import { ApplicationState } from '../../store'
+import Input from '../FormElements/input'
+import TextArea from '../FormElements/textarea'
+import Select from '../FormElements/select'
+import Modal from 'react-responsive-modal'
+import StandardAccessories from './StandardAccessories'
 import StandardSoftware from './StandardSoftware'
+import Phone from './../FormElements/phone'
 
 const MachineTypes = [
     { value: 'Desktop', label: 'Desktop', name: 'MachineType' },
@@ -99,11 +100,10 @@ const IsComputerFunctioning = [
     { value: 'No', label: 'No', name: 'ComputerFunctioning' }
 ]
 
-const glyphs = {
-    marginRight: '25px',
-    fontSize: '30px'
-}
-
+const CCCheckOptions = [
+    { value: 'Yes', label: 'Yes', name: 'CCCheck' },
+    { value: 'No', label: 'No', name: 'CCCheck' }
+]
 export class PCOrder extends React.Component<any, any> {
     constructor() {
         super();
@@ -123,6 +123,7 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket: '',
             Accessories: '',
             SoftwareApplications: '',
+            CCCheck: '',
             CC: '',
             CellularData: '',
             CellularDataJustification: '',
@@ -163,6 +164,12 @@ export class PCOrder extends React.Component<any, any> {
             this.setState({ Accessories: value });
         }
     };
+
+    handlePhone(number) {
+        this.setState ({
+            CustomerPhone: number
+        })
+    }
 
     post(event) {
         event.preventDefault()
@@ -229,7 +236,7 @@ export class PCOrder extends React.Component<any, any> {
         let pcType = this.state.MachineType
         if (dept === "Police" && pcType === "Desktop") {
             var join = this.state.AvailableAccessories.concat(PoliceAccessories);
-            this.setState({ 
+            this.setState({
                 AvailableAccessories: join,
                 Accessories: "Speakers"
             })
@@ -277,6 +284,7 @@ export class PCOrder extends React.Component<any, any> {
             OTRSTicket,
             Accessories,
             SoftwareApplications,
+            CCCheck,
             CC,
             CellularData,
             CellularDataJustification,
@@ -295,224 +303,279 @@ export class PCOrder extends React.Component<any, any> {
             Floor != '' &&
             EmploymentStatus != ''
 
+        // show employee card trigger
+        const employeeCard =
+            CustomerPhone != '' &&
+            CCCheck != ''
+
+        // show pc card trigger
+        const pcCard =
+            employeeCard == true &&
+            Department != '' &&
+            Building != '' &&
+            Floor != '' &&
+            EmploymentStatus != ''
+
         if (redirect) {
             return <Redirect to='/' />;
         }
 
         return <div className="centered">
-            <div className="row">
-                <div className="col-md-10">
-                    <h2>Order a new PC</h2>
+            <div className="row text-center">
+                <div className="col-md-12">
+                    <h1>Order a new PC</h1>
                     <h4 className="form-h">complete all fields and submit</h4>
-                    <hr />
+                    <br />
                 </div>
             </div>
-            <div className="col-md-10">
+            <div className="col-md-12">
+                <div className='col-md-6 col-md-offset-3 panel'>
+                    <div className='sectionHeader'>Your information</div>
+                    <div className='panel-body'>
 
-                <div className='col-md-12 yourInfo'>
-                    <h3 className='sectionHeader'>Your info<span style={glyphs} className='glyphicon glyphicon-info-sign hidden-sm hidden-xs pull-right'></span></h3>
-                    <Input
-                        value={CustomerPhone}
-                        name="CustomerPhone"
-                        header="Enter your phone number"
-                        placeholder="Phone number"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        value={CC}
-                        name="CC"
-                        header="Do you need to copy anyone on this order?"
-                        placeholder="Enter an email address"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-                </div>
-                <div className='col-md-12 theirInfo'>
-                    <h3 className='sectionHeader'>Employee's info<span style={glyphs} className='glyphicon glyphicon-user hidden-sm hidden-xs pull-right'></span></h3>
-                    <Input
-                        value={UserName}
-                        name="UserName"
-                        header="Which employee will be receiving this machine?"
-                        placeholder="Employee's full name"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-                    <Select
-                        value={Department}
-                        name="Department"
-                        header="What is the employee's department?"
-                        placeholder='Select department'
-                        onChange={this.setAccessories.bind(this)}
-                        multi={false}
-                        options={Departments}
-                    />
-                    <Input
-                        value={UserNetworkID}
-                        name="UserNetworkID"
-                        header="What is the employee's network id?"
-                        placeholder="Network ID"
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        header="What is the employee's building?"
-                        placeholder="Building name"
-                        name="Building"
-                        value={Building}
-                        callback={this.handleChildChange.bind(this)}
-                    />
-
-                    <Input
-                        header="Floor number?"
-                        placeholder="Floor number"
-                        name="Floor"
-                        value={Floor}
-                        callback={this.handleChildChange.bind(this)}
-                    />
-                    <Select
-                        value={EmploymentStatus}
-                        name="EmploymentStatus"
-                        header='Is this for a new employee, or an existing staff member?'
-                        placeholder='New or existing employee'
-                        onChange={this.handleChildSelect.bind(this)}
-                        multi={false}
-                        options={EmploymentStatuses}
-                    />
-
-                    {EmploymentStatus === 'New' &&
-                        <Select
-                            value={EmploymentType}
-                            name="EmploymentType"
-                            header='Is this for a permanent employee, or intern?'
-                            placeholder='Permanent employee or intern'
-                            onChange={this.handleChildSelect.bind(this)}
-                            multi={false}
-                            options={EmploymentTypes}
+                        <Phone
+                            value={CustomerPhone}
+                            name="CustomerPhone"
+                            header="Enter your phone number"
+                            placeholder="Phone number"
+                            callback={this.handlePhone.bind(this)}
+                            required
                         />
-                    }
-                    {EmploymentStatus === 'Existing' &&
-                        <Input
-                            header="Enter the employee's current computer number"
-                            placeholder="Computer number"
-                            name="ComputerNumber"
-                            value={ComputerNumber}
-                            callback={this.handleChildChange.bind(this)}
-                        />
-                    }
-                </div>
 
-                <div className='col-md-12 orderInfo'>
-                    <h3 className='sectionHeader'>PC info<span style={glyphs} className='glyphicon glyphicon-hdd hidden-sm hidden-xs pull-right'></span></h3>
-                    <Select
-                        value={MachineType}
-                        name="MachineType"
-                        header='What type of machine are you requesting?'
-                        placeholder='Select machine type'
-                        onChange={this.setAccessories.bind(this)}
-                        multi={false}
-                        options={MachineTypes}
-                    />
-
-                    {MachineType == 'Laptop' &&
                         <Select
-                            value={CellularData}
-                            name="CellularData"
-                            header='Does the laptop need cellular data services?'
+                            value={CCCheck}
+                            name="CCCheck"
+                            header='Do you need to copy anyone on this order?'
                             placeholder='Yes or no'
                             onChange={this.handleChildSelect.bind(this)}
                             multi={false}
-                            options={CellularDataOptions}
+                            options={CCCheckOptions}
+                            required
                         />
-                    }
 
-                    {CellularData == 'Yes' &&
-                        <TextArea
-                            value={CellularDataJustification}
-                            name="CellularDataJustification"
-                            header="Why can't the employee perform their job functions using Wifi only?"
-                            placeholder="Justify the need for cellular data services"
-                            callback={this.handleChildChange.bind(this)}
-                        />
-                    }
-
-                    {EmploymentStatus === 'New' &&
-                        <Select
-                            value={PreviouslyFunctioning}
-                            name="PreviouslyFunctioning"
-                            header='Was a functioning computer plugged into the desk network port in the previous month?'
-                            placeholder='Yes or no'
-                            onChange={this.handleChildSelect.bind(this)}
-                            multi={false}
-                            options={WasPreviouslyFunctioning}
-                        />
-                    }
-                    {EmploymentStatus === 'Existing' &&
-                        <Select
-                            value={ComputerFunctioning}
-                            name="ComputerFunctioning"
-                            header='Is their current computer functioning?'
-                            placeholder='Yes or no'
-                            onChange={this.handleChildSelect.bind(this)}
-                            options={IsComputerFunctioning}
-                        />
-                    }
-                    {EmploymentStatus === 'Existing' &&
-                        <Input
-                            header="I&P must assess the current computer before replacement.  Please enter the OTRS ticket number associated with an I&P technician's assessment."
-                            placeholder="OTRS ticket number"
-                            name="OTRSTicket"
-                            value={OTRSTicket}
-                            callback={this.handleChildChange.bind(this)}
-                        />
-                    }
-                    {/* conditional fields end*/}
-
-                    <div className='tooltip-container'>
-                        <a onClick={this.accessoriesTooltip.bind(this)}>View standard accessories</a>
+                        {CCCheck == 'Yes' &&
+                            <div className='col-md-12'>
+                                <Input
+                                    value={CC}
+                                    name="CC"
+                                    header="Enter an email address"
+                                    placeholder="Email address for CC"
+                                    callback={this.handleChildChange.bind(this)}
+                                />
+                            </div>
+                        }
                     </div>
-                    <Select
-                        value={Accessories}
-                        name="Accessories"
-                        header='Select any necessary accessories'
-                        placeholder='Accessories...'
-                        onChange={this.handleMultiSelect.bind(this)}
-                        multi={true}
-                        options={AvailableAccessories}
-                    />
+                </div>
+                {employeeCard == true &&
+                    <div className='col-md-6 col-md-offset-3 panel'>
+                        <div className='sectionHeader'>Employee's information</div>
+                        <div className='panel-body'>
+                            <Input
+                                value={UserName}
+                                name="UserName"
+                                header="Which employee will be receiving this machine?"
+                                placeholder="Employee's full name"
+                                callback={this.handleChildChange.bind(this)}
+                                required
+                            />
+                            <Select
+                                value={Department}
+                                name="Department"
+                                header="What is the employee's department?"
+                                placeholder='Select department'
+                                onChange={this.setAccessories.bind(this)}
+                                multi={false}
+                                options={Departments}
+                                required
+                            />
+                            <Input
+                                value={UserNetworkID}
+                                name="UserNetworkID"
+                                header="What is the employee's network id?"
+                                placeholder="Network ID"
+                                callback={this.handleChildChange.bind(this)}
+                            />
 
-                    <div className='tooltip-container'>
-                        <a onClick={this.softwareTooltip.bind(this)}>View standard software applications</a>
+                            <Input
+                                header="What is the employee's building?"
+                                placeholder="Building name"
+                                name="Building"
+                                value={Building}
+                                callback={this.handleChildChange.bind(this)}
+                                required
+                            />
+
+                            <Input
+                                header="Floor number?"
+                                placeholder="Floor number"
+                                name="Floor"
+                                value={Floor}
+                                callback={this.handleChildChange.bind(this)}
+                                required
+                            />
+                            <Select
+                                value={EmploymentStatus}
+                                name="EmploymentStatus"
+                                header='Is this for a new employee, or an existing staff member?'
+                                placeholder='New or existing employee'
+                                onChange={this.handleChildSelect.bind(this)}
+                                multi={false}
+                                options={EmploymentStatuses}
+                                required
+                            />
+
+                            {EmploymentStatus === 'New' &&
+                                <Select
+                                    value={EmploymentType}
+                                    name="EmploymentType"
+                                    header='Is this for a permanent employee, or intern?'
+                                    placeholder='Permanent employee or intern'
+                                    onChange={this.handleChildSelect.bind(this)}
+                                    multi={false}
+                                    options={EmploymentTypes}
+                                    required
+                                />
+                            }
+                            {EmploymentStatus === 'Existing' &&
+                                <Input
+                                    header="Enter the employee's current computer number"
+                                    placeholder="Computer number"
+                                    name="ComputerNumber"
+                                    value={ComputerNumber}
+                                    callback={this.handleChildChange.bind(this)}
+                                    required
+                                />
+                            }
+                        </div>
                     </div>
-                    <TextArea
-                        header="Identify any non-standard software applications you would like"
-                        placeholder="Dept. may be responsible for payment of licensed software"
-                        name="SoftwareApplications"
-                        value={SoftwareApplications}
-                        callback={this.handleChildChange.bind(this)}
-                    />
-                </div>
+                }
+                {pcCard == true &&
+                    <div className='col-md-6 col-md-offset-3 panel'>
+                        <div className='sectionHeader'>PC information</div>
+                        <div className='panel-body'>
+                            <Select
+                                value={MachineType}
+                                name="MachineType"
+                                header='What type of machine are you requesting?'
+                                placeholder='Select machine type'
+                                onChange={this.setAccessories.bind(this)}
+                                multi={false}
+                                options={MachineTypes}
+                                required
+                            />
 
-                <div className="text-center">
-                    <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                            {MachineType == 'Laptop' &&
+                                <Select
+                                    value={CellularData}
+                                    name="CellularData"
+                                    header='Does the laptop need cellular data services?'
+                                    placeholder='Yes or no'
+                                    onChange={this.handleChildSelect.bind(this)}
+                                    multi={false}
+                                    options={CellularDataOptions}
+                                    required
+                                />
+                            }
+
+                            {CellularData == 'Yes' &&
+                                <TextArea
+                                    value={CellularDataJustification}
+                                    name="CellularDataJustification"
+                                    header="Why can't the employee perform their job functions using Wifi only?"
+                                    placeholder="Justify the need for cellular data services"
+                                    callback={this.handleChildChange.bind(this)}
+                                    required
+                                />
+                            }
+
+                            {EmploymentStatus === 'New' &&
+                                <Select
+                                    value={PreviouslyFunctioning}
+                                    name="PreviouslyFunctioning"
+                                    header='Was a functioning computer plugged into the desk network port in the previous month?'
+                                    placeholder='Yes or no'
+                                    onChange={this.handleChildSelect.bind(this)}
+                                    multi={false}
+                                    options={WasPreviouslyFunctioning}
+                                    required
+                                />
+                            }
+                            {EmploymentStatus === 'Existing' &&
+                                <Select
+                                    value={ComputerFunctioning}
+                                    name="ComputerFunctioning"
+                                    header='Is their current computer functioning?'
+                                    placeholder='Yes or no'
+                                    onChange={this.handleChildSelect.bind(this)}
+                                    options={IsComputerFunctioning}
+                                    required
+                                />
+                            }
+                            {EmploymentStatus === 'Existing' &&
+                                <Input
+                                    header="I&P must assess the current computer before replacement.  Please enter the OTRS ticket number associated with an I&P technician's assessment."
+                                    placeholder="OTRS ticket number"
+                                    name="OTRSTicket"
+                                    value={OTRSTicket}
+                                    callback={this.handleChildChange.bind(this)}
+                                    required
+                                />
+                            }
+                            {/* conditional fields end*/}
+
+                            <div className='tooltip-container'>
+                                <a onClick={this.accessoriesTooltip.bind(this)}>View standard accessories</a>
+                            </div>
+                            <Select
+                                value={Accessories}
+                                name="Accessories"
+                                header='Select any necessary accessories'
+                                placeholder='Accessories...'
+                                onChange={this.handleMultiSelect.bind(this)}
+                                multi={true}
+                                options={AvailableAccessories}
+                            />
+
+                            <div className='tooltip-container'>
+                                <a onClick={this.softwareTooltip.bind(this)}>View standard software applications</a>
+                            </div>
+                            <TextArea
+                                header="Identify any non-standard software applications you would like"
+                                placeholder="Dept. may be responsible for payment of licensed software"
+                                name="SoftwareApplications"
+                                value={SoftwareApplications}
+                                callback={this.handleChildChange.bind(this)}
+                            />
+
+                            <div className="text-center">
+                                <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div className='col-md-12'>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </div>
-                <br />
-                <br />
-                <Modal
-                    open={modalIsOpen}
-                    onClose={this.closeModal.bind(this)}
-                    classNames={{
-                        overlay: 'custom-overlay',
-                        modal: 'custom-modal'
-                    }}
-                    animationDuration={1000}
-                    center>
-                    {accessoriesTrigger === true &&
-                        <StandardAccessories />
-                    }
-                    {softwareTrigger === true &&
-                        <StandardSoftware />
-                    }
-                </Modal>
             </div>
+            <Modal
+                open={modalIsOpen}
+                onClose={this.closeModal.bind(this)}
+                classNames={{
+                    overlay: 'custom-overlay',
+                    modal: 'custom-modal'
+                }}
+                animationDuration={1000}
+                center>
+                {accessoriesTrigger === true &&
+                    <StandardAccessories />
+                }
+                {softwareTrigger === true &&
+                    <StandardSoftware />
+                }
+            </Modal>
         </div>;
     }
 }

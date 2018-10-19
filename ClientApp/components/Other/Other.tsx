@@ -17,7 +17,7 @@ export class Other extends React.Component<any, any> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        
+
         // ping server
         this.props.ping()
     }
@@ -29,8 +29,8 @@ export class Other extends React.Component<any, any> {
     post(event) {
         event.preventDefault()
         let self = this;
-        let data = JSON.stringify({ 
-            Body: self.state.Body 
+        let data = JSON.stringify({
+            Body: self.state.Body
         })
         this.setState({ Body: '' })
         fetch('/api/Forms/Other', {
@@ -57,23 +57,26 @@ export class Other extends React.Component<any, any> {
         }
 
         return <div className="centered">
-            <div className="row">
-                <div className="col-md-10">
-                    <h2>Miscellaneous request</h2>
-                    <hr />
+            <div className="row text-center">
+                <div className="col-md-12">
+                    <h1>Miscellaneous request</h1>
+                    <br />
                 </div>
             </div>
-            <div className="col-md-10">
-                <TextArea
-                    header="Describe your request"
-                    placeholder="What can we help you with?"
-                    name="Body"
-                    value={Body}
-                    callback={this.handleChildChange.bind(this)}
-                />
+            <div className="col-md-12">
+                <div className="col-md-6 col-md-offset-3 panel panel-body">
+                    <TextArea
+                        header="Describe your request"
+                        placeholder="What can we help you with?"
+                        name="Body"
+                        value={Body}
+                        callback={this.handleChildChange.bind(this)}
+                        required
+                    />
 
-                <div className="text-center">
-                    <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                    <div className="text-center">
+                        <button disabled={!isEnabled} className="btn btn-success" onClick={this.post.bind(this)}>Submit</button>
+                    </div>
                 </div>
             </div>
         </div>;

@@ -106,16 +106,15 @@ export class MobileDevice extends React.Component<any, any> {
         }
 
         return <div className="centered">
-            <div className="row">
-                <div className="col-md-10">
-                    <h2>Order a new mobile device</h2>
+            <div className="row text-center">
+                <div className="col-md-12">
+                    <h1>Order a new mobile device</h1>
                     <h4 className="form-h">complete all fields and submit</h4>
-                    <hr />
+                `   <br/>
                 </div>
             </div>
-            <div className="col-md-10">
-                <div className="form-group">
-
+            <div className="col-md-12">
+                <div className="col-md-6 col-md-offset-3 panel panel-body">
                     <Select
                         value={DeviceType}
                         name="DeviceType"
@@ -124,6 +123,7 @@ export class MobileDevice extends React.Component<any, any> {
                         onChange={this.handleChildSelect.bind(this)}
                         multi={false}
                         options={DeviceTypes}
+                        required
                     />
 
                     <Select
@@ -134,6 +134,7 @@ export class MobileDevice extends React.Component<any, any> {
                         onChange={this.handleChildSelect.bind(this)}
                         multi={false}
                         options={NeworReplacement}
+                        required
                     />
 
                     <Input
@@ -142,6 +143,7 @@ export class MobileDevice extends React.Component<any, any> {
                         header="Please provide the employee's name & job title"
                         placeholder="Name & title"
                         callback={this.handleChildChange.bind(this)}
+                        required
                     />
 
                     {NewReplacement === 'New' &&
@@ -151,6 +153,7 @@ export class MobileDevice extends React.Component<any, any> {
                             header="Please explain how it will be used in relation to the employee's job duties"
                             placeholder="Explanation"
                             callback={this.handleChildChange.bind(this)}
+                            required
                         />
                     }
                     {NewReplacement === 'Replacement' &&
@@ -160,6 +163,7 @@ export class MobileDevice extends React.Component<any, any> {
                             header="Please explain why the old device needs to be replaced"
                             placeholder="Explanation"
                             callback={this.handleChildChange.bind(this)}
+                            required
                         />
                     }
 

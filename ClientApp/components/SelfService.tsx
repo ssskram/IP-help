@@ -12,8 +12,8 @@ export class SelfService extends React.Component<any, any> {
 
             <Accordion>
                 <div data-trigger="Self service">
-                    <h2 className="text-center">These are for you</h2>
-                    <h4 className="text-center">if something is missing, please let us know</h4>
+                    <h1 className="text-center">These are for you</h1>
+                    <h4 className="text-center">If something is missing, please let us know</h4>
                 </div>
 
                 <div data-trigger="Spotlight: Readitfor.me" className="special">

@@ -222,6 +222,10 @@ a:hover {
 /* Forms
 /* ------------------------- */
 
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+
 .form-h {
     margin-left: 15px;
 }
@@ -469,7 +473,9 @@ fieldset[disabled] .btn {
 
 .panel {
     border: solid 1px rgba(160, 160, 160, 0.3);
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .panel-heading {
@@ -493,6 +499,63 @@ fieldset[disabled] .btn {
     color: #424242;
 }
 
+.panel-button {
+    border-radius: 15px;
+}
+
+.panel-button:hover {
+    background-color: #286090 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.panel-button:active {
+    background-color: #286090;
+}
+
+.panel-button:hover h1, .panel-button:active h1, .panel-button:hover h2, .panel-button:active h2, .panel-button:hover h3, .panel-button:active h3, .panel-button:hover h4, .panel-button:active h4, .panel-button:hover h5, .panel-button:active h5, .panel-button:hover h6, .panel-button:active h6 {
+    color: #fff;
+}
+
+.panel-img-container {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.panel-img-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.panel-img-container img {
+    vertical-align: middle;
+    max-height: 70px;
+    max-width: 70px;
+}
+
+.panel-button:hover .panel-img-container {
+    background-color: #fffaee;
+    box-shadow: inset 0 0 3px #000000;
+}
+
+.panel-dark {
+    background-color: #383838 !important;
+    border-radius: 8px;
+}
+
+.panel-dark h1,
+.panel-dark h2,
+.panel-dark h3,
+.panel-dark h4,
+.panel-dark h5,
+.panel-dark h6 {
+    color: #fff;
+}
 /* Datatables
 /* ------------------------- */
 
@@ -732,7 +795,7 @@ a[href^="https://maps.google.com/maps"] {
 /* ------------------------- */
 
 .centered {
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 
@@ -760,9 +823,14 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .sectionHeader {
-    margin-left: 30px;
     letter-spacing: 3px;
-    font-weight: 600;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: rgba(92, 184, 92, .05);
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .yourInfo {
