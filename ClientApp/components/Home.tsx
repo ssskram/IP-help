@@ -9,13 +9,12 @@ import { ApplicationState } from '../store';
 import Messages from './Messages';
 
 const imgSize = {
-    height: '100px',
+    height: '75px',
     margin: '10px'
 }
 
 const btnFont = {
-    color: '#fffaee',
-    fontWeight: 600 as any
+    color: '#fffaee'
 }
 
 const msIcon = require('./../images/microsoft.png')
