@@ -14,7 +14,8 @@ const imgSize = {
 }
 
 const btnFont = {
-    color: '#fffaee'
+    color: '#fffaee',
+    fontWeight: 600 as any
 }
 
 const msIcon = require('./../images/microsoft.png')
