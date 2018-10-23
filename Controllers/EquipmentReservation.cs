@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace IPHelp.Controllers {
     [Authorize]
@@ -21,15 +23,45 @@ namespace IPHelp.Controllers {
         }
 
         [HttpGet ("[action]")]
-        public IActionResult getEquipment () {
-            var user = _userManager.GetUserName (HttpContext.User);
-            return Json (user);
+        public object getEquipment () {
+            string items = GetEquipment ().Result;
+            List<Equipment> AllEquipment = new List<Equipment> ();
+            dynamic equipment = JObject.Parse (items) ["value"];
+            foreach (var item in equipment) {
+                Equipment eqp = new Equipment () {
+                    item = item.Item,
+                    itemID = item.Id,
+                    itemType = item.ItemType,
+                    location = item.Location,
+                    pcNumber = item.PCNumber,
+                    assetNumber = item.AssetNumber
+                };
+                AllEquipment.Add (eqp);
+            }
+            return AllEquipment;
         }
 
         [HttpGet ("[action]")]
-        public IActionResult getReservations () {
-            var user = _userManager.GetUserName (HttpContext.User);
-            return Json (user);
+        public object getReservations () {
+            string items = GetResos ().Result;
+            List<Reservation> AllResos = new List<Reservation> ();
+            dynamic resos = JObject.Parse (items) ["value"];
+            foreach (var item in resos) {
+                Reservation res = new Reservation () {
+                    reservationID = item.ReservationID,
+                    user = item.User,
+                    department = item.Department,
+                    item = item.Item,
+                    itemID = item.ItemID,
+                    assetNumber = item.AssetNumber,
+                    from = item.From,
+                    to = item.To,
+                    pickedUp = item.PickedUp,
+                    returned = item.Returned
+                };
+                AllResos.Add (res);
+            }
+            return AllResos;
         }
 
         [HttpPost ("[action]")]
@@ -50,7 +82,7 @@ namespace IPHelp.Controllers {
             return listitems;
         }
 
-            public async Task<string> GetResos () {
+        public async Task<string> GetResos () {
             await refreshtoken ();
             var token = refreshtoken ().Result;
             var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/EquipmentLoan/_api/web/lists/GetByTitle('Reservations')/items";

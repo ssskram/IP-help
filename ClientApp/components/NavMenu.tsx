@@ -98,6 +98,11 @@ export class NavMenu extends React.Component<any, any>  {
                                 </NavLink>
                             </li>
                             <li>
+                                <NavLink to={'/EquipmentRental'} title="Rent a laptop, projector, etc." style={btnWidth} className='btn btn-primary'>
+                                    <b>Rent equipment</b>
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to={'/Other'} title="Miscellaneous request" style={btnWidth} className='btn btn-primary'>
                                     <b>Other</b>
                                 </NavLink>

@@ -18,11 +18,12 @@ export interface EquipmentItem {
     location: string
     pcNumber: string
     assetNumber: string
+    itemID: string
 }
 
 
 export const actionCreators = {
-    loadReservations: (): AppThunkAction<any> => (dispatch, getState) => {
+    loadEquipment: (): AppThunkAction<any> => (dispatch, getState) => {
         fetch('/api/equipmentReservation/getEquipment', {
             credentials: 'same-origin',
             headers: {
