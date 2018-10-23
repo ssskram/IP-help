@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as MessagesStore from '../store/messages';
-import * as LiaisonsStore from '../store/equipmentLiaisons';
+import * as LiaisonsStore from '../store/liaisons';
 import * as Ping from '../store/ping';
 import * as User from '../store/user';
 import { connect } from 'react-redux';
