@@ -28,7 +28,7 @@ export interface ReservationItem {
 
 export const actionCreators = {
     loadReservations: (): AppThunkAction<any> => (dispatch, getState) => {
-        fetch('/api/userdata/equipment_check', {
+        fetch('/api/equipmentReservation/getReservations', {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
@@ -39,7 +39,7 @@ export const actionCreators = {
                 dispatch({ type: loadReservations, reservations: data });
             });
     }
-};
+}
 
 export const reducer: Reducer<ReservationState> = (state: ReservationState, incomingAction: Action) => {
     const action = incomingAction as any;

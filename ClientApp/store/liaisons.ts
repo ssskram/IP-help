@@ -1,26 +1,16 @@
-import { fetch, addTask } from 'domain-task';
-import { Action, Reducer, ActionCreator } from 'redux';
+import { fetch } from 'domain-task';
+import { Action, Reducer } from 'redux';
 import { AppThunkAction } from '.';
+
+const loadLiaisons = 'loadLiaisonStatus'
 
 export interface equipmentLiaisonsState {
     liaison: number
 }
 
-interface RequestLiaisonAction {
-    type: 'REQUEST_LIAISON';
-}
-
-interface ReceiveLiaisonAction {
-    type: 'RECEIVE_LIAISON';
-    liaison: number;
-}
-
-type KnownAction = RequestLiaisonAction | ReceiveLiaisonAction;
-
-
 export const actionCreators = {
-    requestLiaisons: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
-        let fetchTask = fetch('/api/userdata/equipment_check', {
+    requestLiaisons: (): AppThunkAction<any> => (dispatch, getState) => {
+        fetch('/api/userdata/equipment_check', {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
@@ -28,27 +18,18 @@ export const actionCreators = {
         })
             .then(response => response.json())
             .then(data => {
-                dispatch({ type: 'RECEIVE_LIAISON', liaison: data });
-            });
-
-        addTask(fetchTask);
-        dispatch({ type: 'REQUEST_LIAISON' });
+                dispatch({ type: loadLiaisons, liaison: data });
+            })
     }
-};
+}
 
 export const reducer: Reducer<equipmentLiaisonsState> = (state: equipmentLiaisonsState, incomingAction: Action) => {
-    const action = incomingAction as KnownAction;
+    const action = incomingAction as any;
     switch (action.type) {
-        case 'REQUEST_LIAISON':
-            return {
-                liaison: state.liaison,
-            };
-        case 'RECEIVE_LIAISON':
+        case loadLiaisons:
             return {
                 liaison: action.liaison,
-            };
-        default:
-            const exhaustiveCheck: never = action;
+            }
     }
 
     return state || { liaison: 1 }

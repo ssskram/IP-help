@@ -32,10 +32,16 @@ namespace IPHelp.Controllers {
             return Json (user);
         }
 
+        [HttpPost ("[action]")]
+        public IActionResult postReservation () {
+            var user = _userManager.GetUserName (HttpContext.User);
+            return Json (user);
+        }
+
         public async Task<string> GetEquipment () {
             await refreshtoken ();
             var token = refreshtoken ().Result;
-            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/InPHelp/_api/web/lists/GetByTitle('Equipment')/items?$select=Title";
+            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/EquipmentLoan/_api/web/lists/GetByTitle('Equipment')/items";
             client.DefaultRequestHeaders.Clear ();
             client.DefaultRequestHeaders.Add ("Accept", "application/json");
             client.DefaultRequestHeaders.Authorization =
@@ -47,7 +53,7 @@ namespace IPHelp.Controllers {
             public async Task<string> GetResos () {
             await refreshtoken ();
             var token = refreshtoken ().Result;
-            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/InPHelp/_api/web/lists/GetByTitle('Equipment')/items?$select=Title";
+            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/EquipmentLoan/_api/web/lists/GetByTitle('Reservations')/items";
             client.DefaultRequestHeaders.Clear ();
             client.DefaultRequestHeaders.Add ("Accept", "application/json");
             client.DefaultRequestHeaders.Authorization =
