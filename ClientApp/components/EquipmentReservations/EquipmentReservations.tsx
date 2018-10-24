@@ -48,7 +48,8 @@ export class EquipmentReservations extends React.Component<any, any> {
             toTime: '',
             to: '',
             throwTimeError: false,
-            selectedTypes: []
+            selectedTypes: [],
+            availableItems: []
         }
         this.setDateTime = this.setDateTime.bind(this)
         this.checkTimeFrame = this.checkTimeFrame.bind(this)
@@ -139,8 +140,13 @@ export class EquipmentReservations extends React.Component<any, any> {
         }
     }
 
-    addRemoveItemType(type) {
+    addRemoveItem(type) {
         if (!this.state.selectedTypes.includes(type)) {
+            // select item from equipment here, and add to state[] items
+            const item = this.props.equipment.find(item => {
+                return item.itemType == type || item.item == type
+            })
+            console.log(item)
             this.setState({
                 selectedTypes: [...this.state.selectedTypes, type]
             })
@@ -153,6 +159,7 @@ export class EquipmentReservations extends React.Component<any, any> {
             })
         }
     }
+
     public render() {
         const {
             reservationID,
@@ -284,25 +291,25 @@ export class EquipmentReservations extends React.Component<any, any> {
                                     If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
                                 </div>
                                 <div className='row text-center'>
-                                    <button onClick={() => this.addRemoveItemType('Laptop')} style={(selectedTypes.includes('Laptop')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItem('Laptop')} style={(selectedTypes.includes('Laptop')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={laptop as string} />
                                         </div>
                                         Laptop
                                     </button>
-                                    <button onClick={() => this.addRemoveItemType('Tablet')} style={(selectedTypes.includes('Tablet')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItem('Surface')} style={(selectedTypes.includes('Surface')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={tablet as string} />
                                         </div>
                                         Surface Tablet
                                     </button>
-                                    <button onClick={() => this.addRemoveItemType('Projector')} style={(selectedTypes.includes('Projector')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItem('Portable Projector')} style={(selectedTypes.includes('Portable Projector')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={projector as string} />
                                         </div>
                                         Projector
                                     </button>
-                                    <button onClick={() => this.addRemoveItemType('Speakers')} style={(selectedTypes.includes('Speakers')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItem('Desktop Speakers')} style={(selectedTypes.includes('Desktop Speakers')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={speakers as string} />
                                         </div>
@@ -317,23 +324,23 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='col-md-6 col-md-offset-3 panel'>
                                 <div className='sectionHeader'>Select accessories</div>
                                 <div className='panel-body text-center'>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Projector Screen')} style={(selectedTypes.includes('Projector Screen')) ? clicked : unclicked}>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Portable Projector Screen')} style={(selectedTypes.includes('Portable Projector Screen')) ? clicked : unclicked}>
                                         Portable Projector Screen
                                     </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('VGA Cable')} style={(selectedTypes.includes('VGA Cable')) ? clicked : unclicked}>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VGA Cable')} style={(selectedTypes.includes('VGA Cable')) ? clicked : unclicked}>
                                         VGA Cable
                                     </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('HDMI Cable')} style={(selectedTypes.includes('HDMI Cable')) ? clicked : unclicked}>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('HDMI Cable')} style={(selectedTypes.includes('HDMI Cable')) ? clicked : unclicked}>
                                         HDMI Cable
                                     </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Clicker')} style={(selectedTypes.includes('Clicker')) ? clicked : unclicked}>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Clicker')} style={(selectedTypes.includes('Clicker')) ? clicked : unclicked}>
                                         Clicker
                                     </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Extension Cord')} style={(selectedTypes.includes('Extension Cord')) ? clicked : unclicked}>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Long Extension Cord')} style={(selectedTypes.includes('Long Extension Cord')) ? clicked : unclicked}>
                                         Long Extension Cord
                                     </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('VDI to USB Adaptor')} style={(selectedTypes.includes('VDI to USB Adaptor')) ? clicked : unclicked}>
-                                        VDI to USB Adaptor
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VDI to USB Adapter')} style={(selectedTypes.includes('VDI to USB Adapter')) ? clicked : unclicked}>
+                                        VDI to USB Adapter
                                     </button>
                                 </div>
                             </div>
