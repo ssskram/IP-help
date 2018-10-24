@@ -22,6 +22,16 @@ const imgSize = {
     margin: '10px'
 }
 
+const clicked = {
+    backgroundColor: '#5cb85c',
+    borderColor: '#5cb85c'
+}
+
+const unclicked = {
+    backgroundColor: '#337ab7',
+    borderColor: '#2e6da4'
+}
+
 export class EquipmentReservations extends React.Component<any, any> {
     constructor() {
         super()
@@ -37,7 +47,8 @@ export class EquipmentReservations extends React.Component<any, any> {
             toDate: '',
             toTime: '',
             to: '',
-            throwTimeError: false
+            throwTimeError: false,
+            selectedTypes: []
         }
         this.setDateTime = this.setDateTime.bind(this)
         this.checkTimeFrame = this.checkTimeFrame.bind(this)
@@ -128,6 +139,20 @@ export class EquipmentReservations extends React.Component<any, any> {
         }
     }
 
+    addRemoveItemType(type) {
+        if (!this.state.selectedTypes.includes(type)) {
+            this.setState({
+                selectedTypes: [...this.state.selectedTypes, type]
+            })
+        } else {
+            let filteredArray = this.state.selectedTypes.filter(item => {
+                return item != type
+            })
+            this.setState({
+                selectedTypes: filteredArray
+            })
+        }
+    }
     public render() {
         const {
             reservationID,
@@ -141,7 +166,8 @@ export class EquipmentReservations extends React.Component<any, any> {
             toDate,
             toTime,
             to,
-            throwTimeError
+            throwTimeError,
+            selectedTypes
         } = this.state
 
         const showTimespan = true
@@ -258,25 +284,25 @@ export class EquipmentReservations extends React.Component<any, any> {
                                     If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
                                 </div>
                                 <div className='row text-center'>
-                                    <button className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItemType('Laptop')} style={(selectedTypes.includes('Laptop')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={laptop as string} />
                                         </div>
                                         Laptop
                                     </button>
-                                    <button className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItemType('Tablet')} style={(selectedTypes.includes('Tablet')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={tablet as string} />
                                         </div>
                                         Surface Tablet
                                     </button>
-                                    <button className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItemType('Projector')} style={(selectedTypes.includes('Projector')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={projector as string} />
                                         </div>
                                         Projector
                                     </button>
-                                    <button className='btn btn-big btn-primary'>
+                                    <button onClick={() => this.addRemoveItemType('Speakers')} style={(selectedTypes.includes('Speakers')) ? clicked : unclicked} className='btn btn-big btn-primary'>
                                         <div className='col-md-12'>
                                             <img style={imgSize} src={speakers as string} />
                                         </div>
@@ -291,12 +317,24 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='col-md-6 col-md-offset-3 panel'>
                                 <div className='sectionHeader'>Select accessories</div>
                                 <div className='panel-body text-center'>
-                                    <button className='btn btn-big btn-primary'>Portable Projector Screen</button>
-                                    <button className='btn btn-big btn-primary'>VGA Cable</button>
-                                    <button className='btn btn-big btn-primary'>HDMI Cable</button>
-                                    <button className='btn btn-big btn-primary'>Clicker</button>
-                                    <button className='btn btn-big btn-primary'>Long Extension Cord</button>
-                                    <button className='btn btn-big btn-primary'>VDI to USB Adaptor</button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Projector Screen')} style={(selectedTypes.includes('Projector Screen')) ? clicked : unclicked}>
+                                        Portable Projector Screen
+                                    </button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('VGA Cable')} style={(selectedTypes.includes('VGA Cable')) ? clicked : unclicked}>
+                                        VGA Cable
+                                    </button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('HDMI Cable')} style={(selectedTypes.includes('HDMI Cable')) ? clicked : unclicked}>
+                                        HDMI Cable
+                                    </button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Clicker')} style={(selectedTypes.includes('Clicker')) ? clicked : unclicked}>
+                                        Clicker
+                                    </button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('Extension Cord')} style={(selectedTypes.includes('Extension Cord')) ? clicked : unclicked}>
+                                        Long Extension Cord
+                                    </button>
+                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItemType('VDI to USB Adaptor')} style={(selectedTypes.includes('VDI to USB Adaptor')) ? clicked : unclicked}>
+                                        VDI to USB Adaptor
+                                    </button>
                                 </div>
                             </div>
                             <div className='col-md-6 col-md-offset-3 panel'>
