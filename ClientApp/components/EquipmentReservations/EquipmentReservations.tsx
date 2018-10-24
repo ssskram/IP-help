@@ -12,6 +12,16 @@ import Select from '../FormElements/select'
 import Departments from '../Departments'
 import TimePicker from './../FormElements/timepicker'
 
+const laptop = require('./../../images/laptop.png')
+const tablet = require('./../../images/tablet.png')
+const speakers = require('./../../images/speakers.png')
+const projector = require('./../../images/projector.png')
+
+const imgSize = {
+    height: '50px',
+    margin: '10px'
+}
+
 export class EquipmentReservations extends React.Component<any, any> {
     constructor() {
         super()
@@ -248,10 +258,30 @@ export class EquipmentReservations extends React.Component<any, any> {
                                     If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
                                 </div>
                                 <div className='row text-center'>
-                                    <button className='btn btn-big btn-primary'>Laptop</button>
-                                    <button className='btn btn-big btn-primary'>Surface Tablet</button>
-                                    <button className='btn btn-big btn-primary'>Projector</button>
-                                    <button className='btn btn-big btn-primary'>Desktop Speakers</button>
+                                    <button className='btn btn-big btn-primary'>
+                                        <div className='col-md-12'>
+                                            <img style={imgSize} src={laptop as string} />
+                                        </div>
+                                        Laptop
+                                    </button>
+                                    <button className='btn btn-big btn-primary'>
+                                        <div className='col-md-12'>
+                                            <img style={imgSize} src={tablet as string} />
+                                        </div>
+                                        Surface Tablet
+                                    </button>
+                                    <button className='btn btn-big btn-primary'>
+                                        <div className='col-md-12'>
+                                            <img style={imgSize} src={projector as string} />
+                                        </div>
+                                        Projector
+                                    </button>
+                                    <button className='btn btn-big btn-primary'>
+                                        <div className='col-md-12'>
+                                            <img style={imgSize} src={speakers as string} />
+                                        </div>
+                                        Desktop Speakers
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +302,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='col-md-6 col-md-offset-3 panel'>
                                 <div className='panel-body text-center'>
                                     <h3>Please review all information before submitting.</h3>
-                                    <button className='btn btn-big btn-success'>Submit</button>
+                                    <button className='btn btn-success'>Submit</button>
                                 </div>
                             </div>
                         </div>
