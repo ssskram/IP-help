@@ -14,8 +14,9 @@ export interface ReservationState {
 
 export interface ReservationItem {
     reservationID: string
-    user: string
     department: string
+    networkID: string,
+    phone: string
     item: string
     itemID: string
     assetNumber: string
