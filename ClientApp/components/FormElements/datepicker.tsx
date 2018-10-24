@@ -22,10 +22,14 @@ export default class datepicker extends React.Component<any, any> {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.value != nextProps.value) {
-            this.setState({
-                date: moment(nextProps.value)
-            })
+        if (nextProps.value) {
+            if (this.props.value != nextProps.value) {
+                this.setState({
+                    date: moment(nextProps.value)
+                })
+            }
+        } else {
+            this.setState ({ date: null })
         }
     }
 
@@ -53,12 +57,12 @@ export default class datepicker extends React.Component<any, any> {
         return (
             <div className="form-group">
                 <div className="col-md-12 form-element">
-                    <h4 className="form-h4">{this.props.header}{this.props.required == true && <span style={{color: 'red', fontSize: '20'}}>*</span>}</h4>
+                    <h4 className="form-h4">{this.props.header}{this.props.required == true && <span style={{ color: 'red', fontSize: '20' }}>*</span>}</h4>
                     <button
                         className={conditionalClass}
                         onClick={this.toggleCalendar.bind(this)}>
                         {this.state.date == null &&
-                            <span style={{color: '#aaa'}}>{this.props.placeholder}</span>
+                            <span style={{ color: '#aaa' }}>{this.props.placeholder}</span>
                         }
                         {this.state.date != null &&
                             <Moment format="MM/DD/YYYY" date={this.state.date} />

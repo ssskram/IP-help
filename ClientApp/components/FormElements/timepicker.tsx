@@ -22,10 +22,14 @@ export default class timepicker extends React.Component<any, any> {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.value != nextProps.value) {
-            this.setState({
-                time: nextProps.value
-            })
+        if (nextProps.value) {
+            if (this.props.value != nextProps.value) {
+                this.setState({
+                    time: nextProps.value
+                })
+            }
+        } else {
+            this.setState ({ time: null })
         }
     }
 
