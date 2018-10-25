@@ -51,7 +51,7 @@ export class Home extends React.Component<any, any> {
             </div>
             <div className='row'>
                 <div className='col-md-4 text-center'>
-                    <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" type="button" title="Must be connected to the City network" className="btn btn-big btn-primary" style={btn}>
+                    <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" className="btn btn-big btn-primary" style={btn}>
                         <div className='row'>
                             <div className='col-md-12'>
                                 <img style={imgSize} src={userIcon as string} />
@@ -65,7 +65,7 @@ export class Home extends React.Component<any, any> {
                     </a>
                 </div>
                 <div className='col-md-4 text-center'>
-                    <Link to={'/SelfService'} type="button" className="btn btn-big btn-primary" style={btn}>
+                    <Link to={'/SelfService'} className="btn btn-big btn-primary" style={btn}>
                         <div className='row'>
                             <div className='col-md-12'>
                                 <img style={imgSize} src={faqIcon as string} />
@@ -79,7 +79,7 @@ export class Home extends React.Component<any, any> {
                     </Link>
                 </div>
                 <div className='col-md-4 text-center'>
-                    <a href="http://portal.office.com/" target="_blank" type="button" title="Email, OneDrive, etc." className="btn btn-big btn-primary" style={btn}>
+                    <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" style={btn}>
                         <div className='row'>
                             <div className='col-md-12'>
                                 <img style={imgSize} src={msIcon as string} />
