@@ -4,7 +4,6 @@ import * as Equipment from '../../store/equipment'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
 import Input from '../FormElements/input'
-import TextArea from '../FormElements/textarea'
 import Phone from './../FormElements/phone'
 import DatePicker from './../FormElements/datepicker'
 import * as moment from 'moment'
@@ -36,7 +35,6 @@ export class EquipmentReservations extends React.Component<any, any> {
     constructor() {
         super()
         this.state = {
-            reservationID: '',
             networkID: '',
             Department: '',
             phone: '',
@@ -56,6 +54,7 @@ export class EquipmentReservations extends React.Component<any, any> {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0)
         this.props.loadEquipment()
         this.props.loadReservations()
     }
@@ -146,9 +145,9 @@ export class EquipmentReservations extends React.Component<any, any> {
             const item = this.props.equipment.find(item => {
                 return item.itemType == type || item.item == type
             })
-            console.log(item)
             this.setState({
-                selectedTypes: [...this.state.selectedTypes, type]
+                selectedTypes: [...this.state.selectedTypes, type],
+                items: [...this.state.items, item]
             })
         } else {
             let filteredArray = this.state.selectedTypes.filter(item => {
@@ -160,13 +159,24 @@ export class EquipmentReservations extends React.Component<any, any> {
         }
     }
 
+    submit () {
+        const load = {
+            networkID: this.state.networkID,
+            department: this.state.Department,
+            phone: this.state.phone,
+            from: this.state.from,
+            to: this.state.to,
+            items: this.state.items,
+            types: this.state.selectedTypes
+        }
+        console.log(load)
+    }
+
     public render() {
         const {
-            reservationID,
             networkID,
             Department,
             phone,
-            items,
             fromDate,
             fromTime,
             from,
@@ -347,7 +357,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='col-md-6 col-md-offset-3 panel'>
                                 <div className='panel-body text-center'>
                                     <h3>Please review all information before submitting.</h3>
-                                    <button className='btn btn-success'>Submit</button>
+                                    <button onClick={this.submit.bind(this)} className='btn btn-success'>Submit</button>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,6 @@ import * as React from 'react'
 import classNames from 'classnames'
 import DatePicker from 'react-datepicker'
 import * as moment from 'moment'
-import Moment from 'react-moment'
 
 export default class timepicker extends React.Component<any, any> {
     constructor() {
@@ -84,6 +83,8 @@ export default class timepicker extends React.Component<any, any> {
                             timeFormat='h:mm A'
                             dateFormat="LT"
                             timeCaption="Time"
+                            minTime={moment().hours(8).minutes(0)}
+                            maxTime={moment().hours(15).minutes(0)}
                             withPortal
                             inline
                         />
