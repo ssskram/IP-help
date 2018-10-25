@@ -608,14 +608,6 @@ fieldset[disabled] .btn {
     border: 0.45em solid transparent;
 }
 
-.react-datepicker__navigation--previous {
-    display: none !important;
-}
-
-.react-datepicker__navigation--next {
-    display: none !important;
-}
-
 .react-datepicker__time-container {
     width: 120px !important;
 }

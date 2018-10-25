@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace IPHelp.Controllers {
     [Authorize]
@@ -97,6 +99,23 @@ namespace IPHelp.Controllers {
                     Console.WriteLine (ex);
                 }
             }
+            await confirmationEmail (model);
+        }
+
+        public async Task confirmationEmail (NewReservation model) {
+            var submittedby = _userManager.GetUserName (HttpContext.User);
+            var apiKey = Environment.GetEnvironmentVariable ("sendgrid");
+            var client = new SendGridClient (apiKey);
+            var from = new EmailAddress (submittedby, "I&P Help");
+            var subject = "Equipment Rental";
+            var to = new EmailAddress (submittedby, model.networkID);
+            string html = System.IO.File.ReadAllText ("wwwroot/emailTemplates/EquipmentRentalConfirmation.html");
+            var plainTextContent =
+                String.Format (html, model.reservationID, JsonConvert.SerializeObject(model.types), model.from, model.to); 
+            var htmlContent =
+                String.Format (html, model.reservationID, JsonConvert.SerializeObject(model.types), model.from, model.to); 
+            var msg = MailHelper.CreateSingleEmail (from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync (msg);
         }
 
         public async Task<string> GetEquipment () {
