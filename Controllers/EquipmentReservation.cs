@@ -32,8 +32,6 @@ namespace IPHelp.Controllers {
                     item = item.Item,
                     itemID = item.Id,
                     itemType = item.ItemType,
-                    location = item.Location,
-                    pcNumber = item.PCNumber,
                     assetNumber = item.AssetNumber
                 };
                 AllEquipment.Add (eqp);
@@ -48,12 +46,7 @@ namespace IPHelp.Controllers {
             dynamic resos = JObject.Parse (items) ["value"];
             foreach (var item in resos) {
                 Reservation res = new Reservation () {
-                    reservationID = item.ReservationID,
-                    user = item.User,
-                    department = item.Department,
-                    item = item.Item,
                     itemID = item.ItemID,
-                    assetNumber = item.AssetNumber,
                     from = item.From,
                     to = item.To,
                     pickedUp = item.PickedUp,
@@ -65,9 +58,45 @@ namespace IPHelp.Controllers {
         }
 
         [HttpPost ("[action]")]
-        public IActionResult postReservation () {
+        public async Task postReservation ([FromBody] NewReservation model) {
+            await refreshtoken ();
+            var token = refreshtoken ().Result;
             var user = _userManager.GetUserName (HttpContext.User);
-            return Json (user);
+            var pickedUp = "False";
+            var returned = "False";
+            var sharepointUrl = "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/EquipmentLoan/_api/web/lists/GetByTitle('Reservations')/items";
+            client.DefaultRequestHeaders.Clear ();
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue ("Bearer", token);
+            client.DefaultRequestHeaders.Add ("Accept", "application/json;odata=verbose");
+            client.DefaultRequestHeaders.Add ("X-RequestDigest", "form digest value");
+            client.DefaultRequestHeaders.Add ("X-HTTP-Method", "POST");
+            foreach (var item in model.items) {
+                var json =
+                    String.Format ("{{'__metadata': {{ 'type': 'SP.Data.ReservationsListItem' }}, 'ReservationID' : '{0}' , 'User' : '{1}', 'NetworkID' : '{2}', 'Department' : '{3}', 'Phone' : '{4}', 'Item' : '{5}', 'ItemID' : '{6}', 'AssetNumber' : '{7}', 'PickedUp' : '{8}', 'Returned' : '{9}', 'From' : '{10}', 'To' : '{11}' }}",
+                        model.reservationID, // 0
+                        user, // 1
+                        model.networkID, // 2
+                        model.department, // 3 
+                        model.phone, // 4
+                        item.item, // 5
+                        item.itemID, // 6
+                        item.assetNumber, // 7
+                        pickedUp, // 8
+                        returned, // 9
+                        model.from, // 10
+                        model.to); // 11
+                client.DefaultRequestHeaders.Add ("ContentLength", json.Length.ToString ());
+                try {
+                    StringContent strContent = new StringContent (json);
+                    strContent.Headers.ContentType = MediaTypeHeaderValue.Parse ("application/json;odata=verbose");
+                    HttpResponseMessage response = client.PostAsync (sharepointUrl, strContent).Result;
+                    response.EnsureSuccessStatusCode ();
+                    var content = await response.Content.ReadAsStringAsync ();
+                } catch (Exception ex) {
+                    Console.WriteLine (ex);
+                }
+            }
         }
 
         public async Task<string> GetEquipment () {

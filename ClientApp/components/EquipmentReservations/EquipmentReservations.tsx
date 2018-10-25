@@ -1,6 +1,8 @@
 import * as React from 'react'
+import { Redirect } from 'react-router-dom'
 import * as Reservations from '../../store/reservations'
 import * as Equipment from '../../store/equipment'
+import * as MessagesStore from '../../store/messages'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
 import Input from '../FormElements/input'
@@ -10,6 +12,7 @@ import * as moment from 'moment'
 import Select from '../FormElements/select'
 import Departments from '../Departments'
 import TimePicker from './../FormElements/timepicker'
+import * as shortID from 'shortid'
 
 const laptop = require('./../../images/laptop.png')
 const tablet = require('./../../images/tablet.png')
@@ -35,6 +38,7 @@ export class EquipmentReservations extends React.Component<any, any> {
     constructor() {
         super()
         this.state = {
+            reservationID: shortID.generate(),
             networkID: '',
             Department: '',
             phone: '',
@@ -47,7 +51,8 @@ export class EquipmentReservations extends React.Component<any, any> {
             to: '',
             throwTimeError: false,
             selectedTypes: [],
-            availableItems: []
+            availableItems: [],
+            redirect: false
         }
         this.setDateTime = this.setDateTime.bind(this)
         this.checkTimeFrame = this.checkTimeFrame.bind(this)
@@ -159,8 +164,10 @@ export class EquipmentReservations extends React.Component<any, any> {
         }
     }
 
-    submit () {
-        const load = {
+    submit (event) {
+        event.preventDefault()
+        const load = JSON.stringify({
+            reservationID: this.state.reservationID,
             networkID: this.state.networkID,
             department: this.state.Department,
             phone: this.state.phone,
@@ -168,8 +175,19 @@ export class EquipmentReservations extends React.Component<any, any> {
             to: this.state.to,
             items: this.state.items,
             types: this.state.selectedTypes
-        }
+        })
         console.log(load)
+        fetch('/api/equipmentReservation/postReservation', {
+            method: 'POST',
+            body: load,
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        this.props.success()
+        this.setState({ redirect: true })
     }
 
     public render() {
@@ -184,7 +202,8 @@ export class EquipmentReservations extends React.Component<any, any> {
             toTime,
             to,
             throwTimeError,
-            selectedTypes
+            selectedTypes,
+            redirect
         } = this.state
 
         const showTimespan = true
@@ -202,6 +221,10 @@ export class EquipmentReservations extends React.Component<any, any> {
 
         const showAccessories = true
         // items.length > 0
+
+        if (redirect) {
+            return <Redirect to='/' />;
+        }
 
         return (
             <div className='centered'>
@@ -376,10 +399,12 @@ export class EquipmentReservations extends React.Component<any, any> {
 export default connect(
     (state: ApplicationState) => ({
         ...state.reservations,
+        ...state.messages,
         ...state.equipment
     }),
     ({
         ...Reservations.actionCreators,
+        ...MessagesStore.actionCreators,
         ...Equipment.actionCreators
     })
 )(EquipmentReservations as any) as typeof EquipmentReservations;
