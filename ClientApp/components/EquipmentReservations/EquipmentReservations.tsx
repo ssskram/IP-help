@@ -186,7 +186,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                 'Content-Type': 'application/json'
             }
         })
-        this.props.success()
+        this.props.reservation('Success!<br/>Your reservation ID is ' + this.state.reservationID + '<br/>Please bring your reservation ID when picking up your equipment')
         this.setState({ redirect: true })
     }
 
