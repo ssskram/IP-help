@@ -13,6 +13,7 @@ import Select from '../FormElements/select'
 import Departments from '../Departments'
 import TimePicker from './../FormElements/timepicker'
 import * as shortID from 'shortid'
+import { checkAvailability, getAvailableEquipment } from './AvailableItems'
 
 const laptop = require('./../../images/laptop.png')
 const tablet = require('./../../images/tablet.png')
@@ -59,7 +60,7 @@ export class EquipmentReservations extends React.Component<any, any> {
     }
 
     componentDidMount() {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
         this.props.loadEquipment()
         this.props.loadReservations()
     }
@@ -110,7 +111,7 @@ export class EquipmentReservations extends React.Component<any, any> {
     setDateTime(name) {
         if (name.includes('from')) {
             this.setState({
-                from: this.state.fromDate + ' ' + this.state.fromTime
+                from: this.state.fromDate + ' ' + this.state.fromTime,
             }, function (this) {
                 this.checkTimeFrame()
             })
@@ -138,7 +139,8 @@ export class EquipmentReservations extends React.Component<any, any> {
                 })
             } else {
                 this.setState({
-                    throwTimeError: false
+                    throwTimeError: false,
+                    availableItems: getAvailableEquipment(this.state.from, this.state.to, this.props.equipment, this.props.reservations)
                 })
             }
         }
@@ -146,14 +148,12 @@ export class EquipmentReservations extends React.Component<any, any> {
 
     addRemoveItem(type, flavor) {
         if (!this.state.selectedTypes.includes(type)) {
-            const item = this.props.equipment.find(item => {
+            const item = this.state.availableItems.find(item => {
                 return item.itemType == type || item.item == type
             })
             this.setState({
                 selectedTypes: [...this.state.selectedTypes, type],
                 items: [...this.state.items, item]
-            }, function(this) {
-                console.log(this.state)
             })
         } else {
             const filteredTypes = this.state.selectedTypes.filter(item => {
@@ -172,13 +172,11 @@ export class EquipmentReservations extends React.Component<any, any> {
             this.setState({
                 selectedTypes: filteredTypes,
                 items: filteredItems
-            }, function(this) {
-                console.log(this.state)
             })
         }
     }
 
-    submit (event) {
+    submit(event) {
         event.preventDefault()
         const load = JSON.stringify({
             reservationID: this.state.reservationID,
@@ -190,7 +188,6 @@ export class EquipmentReservations extends React.Component<any, any> {
             items: this.state.items,
             types: this.state.selectedTypes
         })
-        console.log(load)
         fetch('/api/equipmentReservation/postReservation', {
             method: 'POST',
             body: load,
@@ -210,6 +207,7 @@ export class EquipmentReservations extends React.Component<any, any> {
             Department,
             phone,
             fromDate,
+            items,
             fromTime,
             from,
             toDate,
@@ -217,24 +215,25 @@ export class EquipmentReservations extends React.Component<any, any> {
             to,
             throwTimeError,
             selectedTypes,
-            redirect
+            redirect,
+            availableItems
         } = this.state
 
-        const showTimespan = true
-        // networkID != '' &&
-        // phone != '' &&
-        // Department != ''
+        const showTimespan =
+            networkID != '' &&
+            phone != '' &&
+            Department != ''
 
-        const showEquipment = true
-        // fromDate != '' &&
-        // fromTime != '' &&
-        // toDate != '' &&
-        // toTime != '' &&
-        // toTime != null &&
-        // throwTimeError != true
+        const showEquipment =
+            fromDate != '' &&
+            fromTime != '' &&
+            toDate != '' &&
+            toTime != '' &&
+            toTime != null &&
+            throwTimeError != true
 
-        const showAccessories = true
-        // items.length > 0
+        const showAccessories =
+            items.length > 0
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -338,30 +337,38 @@ export class EquipmentReservations extends React.Component<any, any> {
                                     If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
                                 </div>
                                 <div className='row text-center'>
-                                    <button onClick={() => this.addRemoveItem('Laptop', 'Equipment')} style={(selectedTypes.includes('Laptop')) ? clicked : unclicked} className='btn btn-big btn-primary'>
-                                        <div className='col-md-12'>
-                                            <img style={imgSize} src={laptop as string} />
-                                        </div>
-                                        Laptop
-                                    </button>
-                                    <button onClick={() => this.addRemoveItem('Surface', 'Equipment')} style={(selectedTypes.includes('Surface')) ? clicked : unclicked} className='btn btn-big btn-primary'>
-                                        <div className='col-md-12'>
-                                            <img style={imgSize} src={tablet as string} />
-                                        </div>
-                                        Surface Tablet
-                                    </button>
-                                    <button onClick={() => this.addRemoveItem('Portable Projector', 'Equipment')} style={(selectedTypes.includes('Portable Projector')) ? clicked : unclicked} className='btn btn-big btn-primary'>
-                                        <div className='col-md-12'>
-                                            <img style={imgSize} src={projector as string} />
-                                        </div>
-                                        Projector
-                                    </button>
-                                    <button onClick={() => this.addRemoveItem('Desktop Speakers', 'Equipment')} style={(selectedTypes.includes('Desktop Speakers')) ? clicked : unclicked} className='btn btn-big btn-primary'>
-                                        <div className='col-md-12'>
-                                            <img style={imgSize} src={speakers as string} />
-                                        </div>
-                                        Desktop Speakers
-                                    </button>
+                                    {checkAvailability('Laptop', availableItems, 'Equipment') &&
+                                        <button onClick={() => this.addRemoveItem('Laptop', 'Equipment')} style={(selectedTypes.includes('Laptop')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                            <div className='col-md-12'>
+                                                <img style={imgSize} src={laptop as string} />
+                                            </div>
+                                            Laptop
+                                        </button>
+                                    }
+                                    {checkAvailability('Surface', availableItems, 'Equipment') &&
+                                        <button onClick={() => this.addRemoveItem('Surface', 'Equipment')} style={(selectedTypes.includes('Surface')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                            <div className='col-md-12'>
+                                                <img style={imgSize} src={tablet as string} />
+                                            </div>
+                                            Surface Tablet
+                                        </button>
+                                    }
+                                    {checkAvailability('Portable Projector', availableItems, 'Equipment') &&
+                                        <button onClick={() => this.addRemoveItem('Portable Projector', 'Equipment')} style={(selectedTypes.includes('Portable Projector')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                            <div className='col-md-12'>
+                                                <img style={imgSize} src={projector as string} />
+                                            </div>
+                                            Projector
+                                        </button>
+                                    }
+                                    {checkAvailability('Desktop Speakers', availableItems, 'Equipment') &&
+                                        <button onClick={() => this.addRemoveItem('Desktop Speakers', 'Equipment')} style={(selectedTypes.includes('Desktop Speakers')) ? clicked : unclicked} className='btn btn-big btn-primary'>
+                                            <div className='col-md-12'>
+                                                <img style={imgSize} src={speakers as string} />
+                                            </div>
+                                            Desktop Speakers
+                                        </button>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -371,24 +378,36 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='col-md-6 col-md-offset-3 panel'>
                                 <div className='sectionHeader'>Select accessories</div>
                                 <div className='panel-body text-center'>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Portable Projector Screen', 'Accessory')} style={(selectedTypes.includes('Portable Projector Screen')) ? clicked : unclicked}>
-                                        Portable Projector Screen
-                                    </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VGA Cable', 'Accessory')} style={(selectedTypes.includes('VGA Cable')) ? clicked : unclicked}>
-                                        VGA Cable
-                                    </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('HDMI Cable', 'Accessory')} style={(selectedTypes.includes('HDMI Cable')) ? clicked : unclicked}>
-                                        HDMI Cable
-                                    </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Clicker', 'Accessory')} style={(selectedTypes.includes('Clicker')) ? clicked : unclicked}>
-                                        Clicker
-                                    </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Long Extension Cord', 'Accessory')} style={(selectedTypes.includes('Long Extension Cord')) ? clicked : unclicked}>
-                                        Long Extension Cord
-                                    </button>
-                                    <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VDI to USB Adapter', 'Accessory')} style={(selectedTypes.includes('VDI to USB Adapter')) ? clicked : unclicked}>
-                                        VDI to USB Adapter
-                                    </button>
+                                    {checkAvailability('Portable Projector Screen', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Portable Projector Screen', 'Accessory')} style={(selectedTypes.includes('Portable Projector Screen')) ? clicked : unclicked}>
+                                            Portable Projector Screen
+                                        </button>
+                                    }
+                                    {checkAvailability('VGA Cable', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VGA Cable', 'Accessory')} style={(selectedTypes.includes('VGA Cable')) ? clicked : unclicked}>
+                                            VGA Cable
+                                        </button>
+                                    }
+                                    {checkAvailability('HDMI Cable', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('HDMI Cable', 'Accessory')} style={(selectedTypes.includes('HDMI Cable')) ? clicked : unclicked}>
+                                            HDMI Cable
+                                        </button>
+                                    }
+                                    {checkAvailability('Clicker', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Clicker', 'Accessory')} style={(selectedTypes.includes('Clicker')) ? clicked : unclicked}>
+                                            Clicker
+                                        </button>
+                                    }
+                                    {checkAvailability('Long Extension Cord', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('Long Extension Cord', 'Accessory')} style={(selectedTypes.includes('Long Extension Cord')) ? clicked : unclicked}>
+                                            Long Extension Cord
+                                        </button>
+                                    }
+                                    {checkAvailability('VDI to USB Adapter', availableItems, 'Accessory') &&
+                                        <button className='btn btn-big btn-primary' onClick={() => this.addRemoveItem('VDI to USB Adapter', 'Accessory')} style={(selectedTypes.includes('VDI to USB Adapter')) ? clicked : unclicked}>
+                                            VDI to USB Adapter
+                                        </button>
+                                    }
                                 </div>
                             </div>
                             <div className='col-md-6 col-md-offset-3 panel'>
