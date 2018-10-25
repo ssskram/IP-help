@@ -76,6 +76,7 @@ export default class datepicker extends React.Component<any, any> {
                             placeholderText={this.props.placeholder}
                             onChange={this.handleChange.bind(this)}
                             className={conditionalClass}
+                            minDate={moment()}
                             onClickOutside={this.toggleCalendar.bind(this)}
                             showMonthDropdown
                             showYearDropdown
