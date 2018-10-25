@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f8d2d70947dfcdd30fb5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ece57fe15996fe171a68"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -53411,7 +53411,7 @@ var EquipmentReservations = (function (_super) {
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'col-md-6 col-md-offset-3 panel' },
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'sectionHeader' }, "Select equipment"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'panel-body' },
-                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-info text-center" }, "If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance."),
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-info text-center" }, "If you don't see what you're looking for, it may be out of stock during this timeframe.  Please contact the Help Desk at 255-2900 for further assistance."),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'row text-center' },
                                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_14__AvailableItems__["b" /* checkAvailability */])('Laptop', availableItems, 'Equipment') &&
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("button", { onClick: function () { return _this.addRemoveItem('Laptop', 'Equipment'); }, style: (selectedTypes.includes('Laptop')) ? clicked : unclicked, className: 'btn btn-big btn-primary' },

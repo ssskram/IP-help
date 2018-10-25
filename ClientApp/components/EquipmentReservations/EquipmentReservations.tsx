@@ -334,7 +334,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='sectionHeader'>Select equipment</div>
                             <div className='panel-body'>
                                 <div role="alert" className="alert alert-info text-center">
-                                    If you don't see what you're looking for, it may already be reserved for this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
+                                    If you don't see what you're looking for, it may be out of stock during this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.
                                 </div>
                                 <div className='row text-center'>
                                     {checkAvailability('Laptop', availableItems, 'Equipment') &&
