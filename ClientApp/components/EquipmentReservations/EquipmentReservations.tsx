@@ -243,7 +243,7 @@ export class EquipmentReservations extends React.Component<any, any> {
             <div className='centered'>
                 <div className="row text-center">
                     <div className="col-md-12">
-                        <h1>Rent equipment</h1>
+                        <h1>Borrow equipment</h1>
                         <h4>complete all fields and submit</h4>
                         <br />
                     </div>
@@ -289,7 +289,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='panel-body'>
                                 {throwTimeError == true &&
                                     <div role="alert" className="alert alert-danger text-center">
-                                        For rentals longer than 36 hours, please call the Help Desk at 255-2900
+                                        For loans longer than 36 hours, please call the Help Desk at 255-2900
                                     </div>
                                 }
                                 <h4 style={{ paddingLeft: '35px' }}>Picking up <b>{from}</b></h4>

@@ -107,7 +107,7 @@ namespace IPHelp.Controllers {
             var apiKey = Environment.GetEnvironmentVariable ("sendgrid");
             var client = new SendGridClient (apiKey);
             var from = new EmailAddress (submittedby, "I&P Help");
-            var subject = "Equipment Rental";
+            var subject = "Equipment Loan";
             var to = new EmailAddress (submittedby, model.networkID);
             string html = System.IO.File.ReadAllText ("wwwroot/emailTemplates/EquipmentRentalConfirmation.html");
             var plainTextContent =

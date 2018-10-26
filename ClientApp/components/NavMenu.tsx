@@ -99,7 +99,7 @@ export class NavMenu extends React.Component<any, any>  {
                             </li>
                             <li>
                                 <NavLink to={'/EquipmentRental'} title="Rent a laptop, projector, etc." style={btnWidth} className='btn btn-primary'>
-                                    <b>Rent equipment</b>
+                                    <b>Borrow equipment</b>
                                 </NavLink>
                             </li>
                             <li>
@@ -144,7 +144,7 @@ export class NavMenu extends React.Component<any, any>  {
                             Request employee data
                         </Link>
                         <Link onClick={this.closeModal.bind(this)} to={'/EquipmentRental'} style={btnWidth} className='btn btn-primary'>
-                            Rent equipment
+                            Borrow equipment
                         </Link>
                         <Link onClick={this.closeModal.bind(this)} to={'/Other'} style={btnWidth} className='btn btn-primary'>
                             Other

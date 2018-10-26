@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "484a0d3a5f4b03afacb3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5119bf13f1925959e8f5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -53377,7 +53377,7 @@ var EquipmentReservations = (function (_super) {
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'centered' },
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row text-center" },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "col-md-12" },
-                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null, "Rent equipment"),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null, "Borrow equipment"),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", null, "complete all fields and submit"),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("br", null))),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'col-md-12' },
@@ -53392,7 +53392,7 @@ var EquipmentReservations = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'sectionHeader' }, "Timeframe"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'panel-body' },
                             throwTimeError == true &&
-                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-danger text-center" }, "For rentals longer than 36 hours, please call the Help Desk at 255-2900"),
+                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-danger text-center" }, "For loans longer than 36 hours, please call the Help Desk at 255-2900"),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { style: { paddingLeft: '35px' } },
                                 "Picking up ",
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, from)),
@@ -54110,7 +54110,7 @@ var NavMenu = (function (_super) {
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Request employee data"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EquipmentRental', title: "Rent a laptop, projector, etc.", style: btnWidth, className: 'btn btn-primary' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Rent equipment"))),
+                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Borrow equipment"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/Other', title: "Miscellaneous request", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Other")))),
@@ -54132,7 +54132,7 @@ var NavMenu = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit", title: "Request a new user account", target: '_blank', style: btnWidth, className: 'btn btn-primary' }, "New user account"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/MobileDevice', style: btnWidth, className: 'btn btn-primary' }, "New mobile device"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EmployeeData', style: btnWidth, className: 'btn btn-primary' }, "Request employee data"),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentRental', style: btnWidth, className: 'btn btn-primary' }, "Rent equipment"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentRental', style: btnWidth, className: 'btn btn-primary' }, "Borrow equipment"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/Other', style: btnWidth, className: 'btn btn-primary' }, "Other")),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: modalLogout, className: "account" }, user),
