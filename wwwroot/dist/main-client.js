@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ece57fe15996fe171a68"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "484a0d3a5f4b03afacb3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -54132,6 +54132,7 @@ var NavMenu = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit", title: "Request a new user account", target: '_blank', style: btnWidth, className: 'btn btn-primary' }, "New user account"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/MobileDevice', style: btnWidth, className: 'btn btn-primary' }, "New mobile device"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EmployeeData', style: btnWidth, className: 'btn btn-primary' }, "Request employee data"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentRental', style: btnWidth, className: 'btn btn-primary' }, "Rent equipment"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/Other', style: btnWidth, className: 'btn btn-primary' }, "Other")),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: modalLogout, className: "account" }, user),
