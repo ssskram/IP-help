@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4e9181e6f02c128e79cc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a478130dc00954b5c1a4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -54109,9 +54109,6 @@ var NavMenu = (function (_super) {
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EmployeeData', title: "Request email or wireless records", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Request employee data"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
-                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EquipmentRental', title: "Rent a laptop, projector, etc.", style: btnWidth, className: 'btn btn-primary' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Borrow equipment"))),
-                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/Other', title: "Miscellaneous request", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Other")))),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
@@ -54132,7 +54129,6 @@ var NavMenu = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit", title: "Request a new user account", target: '_blank', style: btnWidth, className: 'btn btn-primary' }, "New user account"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/MobileDevice', style: btnWidth, className: 'btn btn-primary' }, "New mobile device"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EmployeeData', style: btnWidth, className: 'btn btn-primary' }, "Request employee data"),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentRental', style: btnWidth, className: 'btn btn-primary' }, "Borrow equipment"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/Other', style: btnWidth, className: 'btn btn-primary' }, "Other")),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: modalLogout, className: "account" }, user),

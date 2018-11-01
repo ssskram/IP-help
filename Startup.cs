@@ -61,31 +61,22 @@ namespace IPHelp {
                 .AddEntityFrameworkStores<ApplicationDbContext> ()
                 .AddDefaultTokenProviders ();
 
-            // sso in production
-            if (_currentEnvironment.IsProduction ()) {
-                string uri = Configuration.GetValue<string> ("SSOuri");
-                Uri storageUri = new Uri ($"{uri}");
-                CloudBlobClient blobClient = new CloudBlobClient (storageUri);
-                CloudBlobContainer container = blobClient.GetContainerReference ("keys");
-                services.AddAuthentication ()
-                    .AddMicrosoftAccount (microsoftOptions => {
-                        microsoftOptions.ClientId = Configuration["MSClientId"];
-                        microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
-                    })
-                    .Services.ConfigureApplicationCookie (options => {
-                        options.Cookie.Name = ".PGH_SSO";
-                        options.Cookie.Domain = ".azurewebsites.us";
-                    });
-                services.AddDataProtection ()
-                    .SetApplicationName ("PGH_SSO")
-                    .PersistKeysToAzureBlobStorage (container, "key.xml");
-            } else {
-                services.AddAuthentication ()
-                    .AddMicrosoftAccount (microsoftOptions => {
-                        microsoftOptions.ClientId = Configuration["MSClientId"];
-                        microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
-                    });
-            }
+            services.Configure<SecurityStampValidatorOptions> (options => {
+                options.ValidationInterval = TimeSpan.FromDays (10);
+            });
+
+            services.AddAuthentication ()
+                .AddMicrosoftAccount (microsoftOptions => {
+                    microsoftOptions.ClientId = Configuration["MSClientId"];
+                    microsoftOptions.ClientSecret = Configuration["MSClientSecret"];
+                })
+                .Services.ConfigureApplicationCookie (options => {
+                    options.Cookie.Name = "auth";
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.Expiration = TimeSpan.FromHours (10);
+                    options.ExpireTimeSpan = TimeSpan.FromHours (10);
+                    options.SlidingExpiration = true;
+                });
 
             Environment.SetEnvironmentVariable ("sendgrid", Configuration["sendgrid"]);
             Environment.SetEnvironmentVariable ("refreshtoken", Configuration["refreshtoken"]);
