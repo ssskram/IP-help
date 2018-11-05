@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "88add911c7b2572b7593"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8bea5f3260ca3d7632af"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -53287,7 +53287,7 @@ var EquipmentReservations = (function (_super) {
             var to = __WEBPACK_IMPORTED_MODULE_9_moment__(this.state.to);
             var duration = __WEBPACK_IMPORTED_MODULE_9_moment__["duration"](to.diff(from));
             var hours = duration.asHours();
-            if (hours > 36) {
+            if (hours > 72) {
                 this.setState({
                     toDate: '',
                     toTime: '',
@@ -53392,7 +53392,7 @@ var EquipmentReservations = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'sectionHeader' }, "Timeframe"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'panel-body' },
                             throwTimeError == true &&
-                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-danger text-center" }, "For loans longer than 36 hours, please call the Help Desk at 255-2900"),
+                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { role: "alert", className: "alert alert-danger text-center" }, "For loans longer than 72 hours, please call the Help Desk at 255-2900"),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { style: { paddingLeft: '35px' } },
                                 "Picking up ",
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, from)),

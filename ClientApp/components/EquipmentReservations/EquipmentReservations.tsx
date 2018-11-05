@@ -130,7 +130,7 @@ export class EquipmentReservations extends React.Component<any, any> {
             const to = moment(this.state.to)
             var duration = moment.duration(to.diff(from));
             var hours = duration.asHours();
-            if (hours > 36) {
+            if (hours > 72) {
                 this.setState({
                     toDate: '',
                     toTime: '',
@@ -289,7 +289,7 @@ export class EquipmentReservations extends React.Component<any, any> {
                             <div className='panel-body'>
                                 {throwTimeError == true &&
                                     <div role="alert" className="alert alert-danger text-center">
-                                        For loans longer than 36 hours, please call the Help Desk at 255-2900
+                                        For loans longer than 72 hours, please call the Help Desk at 255-2900
                                     </div>
                                 }
                                 <h4 style={{ paddingLeft: '35px' }}>Picking up <b>{from}</b></h4>
