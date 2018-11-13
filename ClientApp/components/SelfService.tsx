@@ -16,6 +16,19 @@ export class SelfService extends React.Component<any, any> {
                     <h4 className="text-center">If something is missing, please let us know</h4>
                 </div>
 
+                <div data-trigger="Departmental Liaisons to I&P" style={{ fontWeight: '600' as any }}>
+                    <div>
+                        <h4><b>Troubleshooting</b></h4>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf" target="_blank" className="btn btn-selfservice">
+                            FAQ for Liaisons
+                        </a>
+                        <h4><b>User guides</b></h4>
+                        <a href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf" target="_blank" className="btn btn-selfservice">
+                            Guidelines for ordering PCs
+                        </a>
+                    </div>
+                </div>
+
                 <div data-trigger="Spotlight: Readitfor.me" className="special">
                     <div>
                         <div className="row ss-center">

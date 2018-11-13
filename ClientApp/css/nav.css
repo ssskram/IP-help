@@ -154,8 +154,9 @@
     }
 
     .navbar-brand {
+        line-height: 0px !important;
         font-size: 18px !important;
-        padding: 15px 20px !important;
+        padding: 10px 20px !important;
     }
 
     .navbar-collapse.collapse {

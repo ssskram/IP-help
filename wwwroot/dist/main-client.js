@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a5ffc7ed0735ae678618"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ab9338ccb30dd7c7730f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -54136,12 +54136,6 @@ var btnWidth = {
 var marginTop = {
     marginTop: '18px',
 };
-var iconStyle = {
-    height: '25px',
-    marginTop: '-3px',
-    marginLeft: '5px',
-    marginRight: '15px'
-};
 var modalLogout = {
     color: '#383838',
 };
@@ -54834,6 +54828,14 @@ var SelfService = (function (_super) {
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { "data-trigger": "Self service" },
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", { className: "text-center" }, "These are for you"),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", { className: "text-center" }, "If something is missing, please let us know")),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { "data-trigger": "Departmental Liaisons to I&P", style: { fontWeight: '600' } },
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", null,
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Troubleshooting")),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf", target: "_blank", className: "btn btn-selfservice" }, "FAQ for Liaisons"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h4", null,
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "User guides")),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf", target: "_blank", className: "btn btn-selfservice" }, "Guidelines for ordering PCs"))),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { "data-trigger": "Spotlight: Readitfor.me", className: "special" },
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "row ss-center" },

@@ -13,13 +13,6 @@ const marginTop = {
     marginTop: '18px',
 }
 
-const iconStyle = {
-    height: '25px',
-    marginTop: '-3px',
-    marginLeft: '5px',
-    marginRight: '15px'
-}
-
 const modalLogout = {
     color: '#383838',
 }
