@@ -25,6 +25,7 @@ const btn = {
 const msIcon = require('./../images/microsoft.png')
 const userIcon = require('./../images/otrs.png')
 const faqIcon = require('./../images/faq.png')
+const ipIcon = require('./../images/ip.png')
 
 export class Home extends React.Component<any, any> {
 
@@ -41,11 +42,21 @@ export class Home extends React.Component<any, any> {
 
     public render() {
         return <div className="home-container">
-            <img src='./images/ip.png' className="img-responsive center-block home-image" />
+            <img src={ipIcon as string} className="img-responsive center-block home-image" />
             <div className='text-center'>
                 <h1>We're here to <strong>help</strong></h1>
                 <div className="row text-center">
                     <Messages messages={this.props.messages} />
+                </div>
+                <div style={{marginTop: '20px'}} className='row text-center'>
+                    <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
+                        Just published!  <a href="#" className="alert-link">FAQ for I&P Liaisons</a>
+                    </div>
+                </div>
+                <div className='row text-center'>
+                    <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
+                        Just published!  <a href="#" className="alert-link">Guidelines for ordering PCs</a>
+                    </div>
                 </div>
                 <hr />
             </div>
@@ -95,6 +106,7 @@ export class Home extends React.Component<any, any> {
             </div>
         </div>;
     }
+
 }
 
 export default connect(
