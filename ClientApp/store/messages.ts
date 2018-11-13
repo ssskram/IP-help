@@ -23,9 +23,9 @@ export const actionCreators = {
 export const reducer: Reducer<MessageState> = (state: MessageState, action: KnownAction) => {
     switch (action.type) {
         case 'FORM_SUCCESS':
-            return { messages: "Success! You'll be hearing from us soon." };
+            return { messages: "<b>Success!</b> You'll be hearing from us soon." };
         case 'ACCESS_DENIED':
-            return { messages: "Sorry! Only certain people can request new equipment<br/>Please contact your department's I&P liaison" };
+            return { messages: "<b>Sorry!</b> Only certain people can request new equipment<br/>Please contact your department's I&P liaison" };
         case 'CLEAR':
             return { messages: "" }
         case 'RESERVATION':

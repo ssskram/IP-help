@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7db2770182ec4269798b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a5ffc7ed0735ae678618"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -7352,9 +7352,9 @@ var actionCreators = {
 var reducer = function (state, action) {
     switch (action.type) {
         case 'FORM_SUCCESS':
-            return { messages: "Success! You'll be hearing from us soon." };
+            return { messages: "<b>Success!</b> You'll be hearing from us soon." };
         case 'ACCESS_DENIED':
-            return { messages: "Sorry! Only certain people can request new equipment<br/>Please contact your department's I&P liaison" };
+            return { messages: "<b>Sorry!</b> Only certain people can request new equipment<br/>Please contact your department's I&P liaison" };
         case 'CLEAR':
             return { messages: "" };
         case 'RESERVATION':
@@ -53816,7 +53816,7 @@ var Home = (function (_super) {
     };
     Home.prototype.render = function () {
         return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "home-container" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: ipIcon, className: "img-responsive center-block home-image" }),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: ipIcon, className: "img-responsive center-block home-image", style: { backgroundColor: '#FAF7F2' } }),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'text-center' },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h1", null,
                     "We're here to ",
@@ -53826,11 +53826,11 @@ var Home = (function (_super) {
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: { marginTop: '20px' }, className: 'row text-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: { fontSize: '1.5em' }, className: 'alert alert-info' },
                         "Just published!  ",
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "alert-link" }, "FAQ for I&P Liaisons"))),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { target: '_blank', href: "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf", className: "alert-link" }, "FAQ for I&P Liaisons"))),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'row text-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: { fontSize: '1.5em' }, className: 'alert alert-info' },
                         "Just published!  ",
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "#", className: "alert-link" }, "Guidelines for ordering PCs"))),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { target: '_blank', href: "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf", className: "alert-link" }, "Guidelines for ordering PCs"))),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("hr", null)),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'row' },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'col-md-4 text-center' },
@@ -53929,8 +53929,6 @@ var __extends = (this && this.__extends) || (function () {
 
 var margin = {
     marginTop: '25px',
-    marginRight: '10px',
-    marginLeft: '10px'
 };
 var Messages = (function (_super) {
     __extends(Messages, _super);
@@ -53942,7 +53940,7 @@ var Messages = (function (_super) {
     };
     Messages.prototype.render = function () {
         return (this.props.messages ? (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: margin, role: "alert", className: "alert alert-success" },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h3", { className: "message-body", dangerouslySetInnerHTML: this.createMarkup() }))) : null);
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { style: { fontSize: '2em' }, dangerouslySetInnerHTML: this.createMarkup() }))) : null);
     };
     return Messages;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
