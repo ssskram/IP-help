@@ -15,12 +15,13 @@ h1,h2 {
 
 .auth-img {
     min-width: 250px;
-    margin-bottom: 25px;
+    margin: 0 auto;
     width: 80%
 }
 
 .btn-secondary {
     font-size: 22px;
+    margin-top: 25px;
     padding: 10px 20px;
 }
 
