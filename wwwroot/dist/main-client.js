@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5627ae2ddc2227d52d47"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "790089cc521f4e6ea743"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -55287,6 +55287,9 @@ var NavMenu = (function (_super) {
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EmployeeData', title: "Request email or wireless records", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Request employee data"))),
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
+                                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EquipmentRental', title: "Rent a laptop, projector, etc.", style: btnWidth, className: 'btn btn-primary' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Borrow equipment"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/Other', title: "Miscellaneous request", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Other")))),
