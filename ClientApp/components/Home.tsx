@@ -1,12 +1,13 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import * as MessagesStore from '../store/messages';
-import * as LiaisonsStore from '../store/liaisons';
-import * as Ping from '../store/ping';
-import * as User from '../store/user';
-import { connect } from 'react-redux';
-import { ApplicationState } from '../store';
-import Messages from './Messages';
+import * as React from 'react'
+import { Link } from 'react-router-dom'
+import * as MessagesStore from '../store/messages'
+import * as LiaisonsStore from '../store/liaisons'
+import * as Ping from '../store/ping'
+import * as User from '../store/user'
+import { connect } from 'react-redux'
+import { StickyContainer, Sticky } from 'react-sticky'
+import { ApplicationState } from '../store'
+import Messages from './Messages'
 
 const imgSize = {
     height: '75px',
@@ -37,70 +38,81 @@ export class Home extends React.Component<any, any> {
     }
 
     public render() {
-        return <div className="home-container">
-            <img src={ipIcon as string} className="img-responsive center-block home-image" style={{backgroundColor: '#FAF7F2'}}/>
-            <div className='text-center'>
-                <h1>We're here to <strong>help</strong></h1>
-                <div className="row text-center">
-                    <Messages messages={this.props.messages} />
+        return <StickyContainer>
+            <Sticky>
+                {({
+                    style
+                }) => (
+                        <div style={style}>
+                            Yo!
+                        </div>
+                    )}
+            </Sticky>
+            <div className="home-container">
+                <img src={ipIcon as string} className="img-responsive center-block home-image" style={{ backgroundColor: '#FAF7F2' }} />
+                <div className='text-center'>
+                    <h1>We're here to <strong>help</strong></h1>
+                    <div className="row text-center">
+                        <Messages messages={this.props.messages} />
+                    </div>
+                    <div style={{ marginTop: '20px' }} className='row text-center'>
+                        <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
+                            Just published!  <a target='_blank' href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf" className="alert-link">FAQ for I&P Liaisons</a>
+                        </div>
+                    </div>
+                    <div className='row text-center'>
+                        <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
+                            Just published!  <a target='_blank' href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf" className="alert-link">Guidelines for ordering PCs</a>
+                        </div>
+                    </div>
+                    <hr />
                 </div>
-                <div style={{marginTop: '20px'}} className='row text-center'>
-                    <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
-                        Just published!  <a target='_blank' href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf" className="alert-link">FAQ for I&P Liaisons</a>
+                <div className='row'>
+                    <div className='col-md-4 text-center'>
+                        <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" className="btn btn-big btn-primary" >
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                    <img style={imgSize} src={userIcon as string} />
+                                </div>
+                                <div className='col-md-12'>
+                                    <div className='row'>
+                                        <h3 style={btnFont}>My tickets</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div className='col-md-4 text-center'>
+                        <Link to={'/SelfService'} className="btn btn-big btn-primary" >
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                    <img style={imgSize} src={faqIcon as string} />
+                                </div>
+                                <div className='col-md-12'>
+                                    <div className='row'>
+                                        <h3 style={btnFont}>Training & FAQ</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className='col-md-4 text-center'>
+                        <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" >
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                    <img style={imgSize} src={msIcon as string} />
+                                </div>
+                                <div className='col-md-12'>
+                                    <div className='row'>
+                                        <h3 style={btnFont}>Microsoft portal</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div className='row text-center'>
-                    <div style={{ fontSize: '1.5em' }} className='alert alert-info'>
-                        Just published!  <a target='_blank' href="https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf" className="alert-link">Guidelines for ordering PCs</a>
-                    </div>
-                </div>
-                <hr />
             </div>
-            <div className='row'>
-                <div className='col-md-4 text-center'>
-                    <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" className="btn btn-big btn-primary" >
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <img style={imgSize} src={userIcon as string} />
-                            </div>
-                            <div className='col-md-12'>
-                                <div className='row'>
-                                    <h3 style={btnFont}>My tickets</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div className='col-md-4 text-center'>
-                    <Link to={'/SelfService'} className="btn btn-big btn-primary" >
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <img style={imgSize} src={faqIcon as string} />
-                            </div>
-                            <div className='col-md-12'>
-                                <div className='row'>
-                                    <h3 style={btnFont}>Training & FAQ</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-                <div className='col-md-4 text-center'>
-                    <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" >
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <img style={imgSize} src={msIcon as string} />
-                            </div>
-                            <div className='col-md-12'>
-                                <div className='row'>
-                                    <h3 style={btnFont}>Microsoft portal</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>;
+        </StickyContainer>;
     }
 
 }

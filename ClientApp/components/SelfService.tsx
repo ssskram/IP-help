@@ -82,8 +82,8 @@ export class SelfService extends React.Component<any, any> {
                     <div>
                         <h4><b>Training resources</b></h4>
                         <a href="https://pittsburgh.o365support.com/library" target="_blank" className="btn btn-selfservice">
-                            Microsoft 365 Online
-                            </a>
+                            Library of Training Topics
+                        </a>
                         <a href="https://o365support.com/tips-and-tricks/" target="_blank" className="btn btn-selfservice">
                             Microsoft 365 Webinars
                             </a>
