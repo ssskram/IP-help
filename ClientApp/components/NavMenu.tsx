@@ -137,7 +137,7 @@ export class NavMenu extends React.Component<any, any>  {
                             Request employee data
                         </Link>
 
-8
+
                         <Link onClick={this.closeModal.bind(this)} to={'/Other'} style={btnWidth} className='btn btn-primary'>
                             Other
                         </Link>

@@ -1,7 +1,9 @@
-import * as React from 'react';
-import NavMenu from './NavMenu';
+import * as React from 'react'
+import NavMenu from './NavMenu'
+import MsNotice from './MsNotice'
 
 export class Layout extends React.Component<{}, {}> {
+
     public render() {
         return <div className='container-fluid'>
             <div className='row'>
@@ -12,6 +14,9 @@ export class Layout extends React.Component<{}, {}> {
                     {this.props.children}
                 </div>
             </div>
-        </div>;
+            <div>
+            </div>
+            <MsNotice />
+        </div>
     }
 }

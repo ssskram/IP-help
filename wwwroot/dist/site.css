@@ -75,7 +75,7 @@ body {
     background-color: #FAF7F2;
     font-family: 'Raleway', sans-serif;
     letter-spacing: .5px;
-    padding: 30px 12px 30px 0px;
+    padding: 40px 12px 30px 0px;
 }
 
 h1,
@@ -97,7 +97,7 @@ hr {
 @media (max-width: 767px) {
 
     body {
-        padding: 65px 5px;
+        padding: 85px 5px;
     }
 }
 
@@ -707,9 +707,7 @@ td {
     width: 100%;
 }
 
-.btn-selfservice:active,
-.btn-selfservice:focus,
-.btn-selfservice:hover {
+.btn-selfservice:active, .btn-selfservice:focus, .btn-selfservice:hover {
     background-color: #337ab7 !important;
     border: .5px solid #337ab7 !important;
     color: #fffaee !important;
@@ -723,6 +721,17 @@ td {
     width: 80%;
     line-height: 1.5em;
     margin: 20px 0px !important;
+}
+
+/* transitions for home ms notice */
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
 }/* Accordion
 /* ------------------------- */
 

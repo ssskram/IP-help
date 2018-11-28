@@ -85,9 +85,7 @@
     width: 100%;
 }
 
-.btn-selfservice:active,
-.btn-selfservice:focus,
-.btn-selfservice:hover {
+.btn-selfservice:active, .btn-selfservice:focus, .btn-selfservice:hover {
     background-color: #337ab7 !important;
     border: .5px solid #337ab7 !important;
     color: #fffaee !important;
@@ -101,4 +99,15 @@
     width: 80%;
     line-height: 1.5em;
     margin: 20px 0px !important;
+}
+
+/* transitions for home ms notice */
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
 }
