@@ -4,7 +4,7 @@ export const equipmentTypes  = [
     { value: 'Laptop', label: 'Laptop' },
     { value: 'Monitor', label: 'Monitor' },
     { value: 'Fax machine', label: 'Fax machine' },
-    { value: 'Keyboard', label: 'keyboard' },
+    { value: 'Keyboard', label: 'Keyboard' },
     { value: 'Mice', label: 'Mice' },
     { value: 'Phone', label: 'Phone' },
   ]

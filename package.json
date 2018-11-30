@@ -46,6 +46,7 @@
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "3.0.0-beta.7",
+    "react-images-upload": "^1.2.3",
     "react-moment": "^0.7.9",
     "react-phone-number-input": "^2.2.15",
     "react-places-autocomplete": "^7.2.0",

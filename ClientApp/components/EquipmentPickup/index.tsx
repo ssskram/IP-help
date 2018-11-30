@@ -1,10 +1,19 @@
 import * as React from 'react'
-import * as Ping from '../../store/ping'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
+import * as Ping from '../../store/ping'
+import * as User from '../../store/user'
+import * as Messages from '../../store/messages'
 import Fields from './fields'
 
 export class equipmentPickup extends React.Component<any, any> {
+    constructor() {
+        super()
+        this.state = {
+            redirect: false
+        }
+    }
 
     componentDidMount() {
         window.scrollTo(0, 0)
@@ -13,7 +22,26 @@ export class equipmentPickup extends React.Component<any, any> {
         this.props.ping()
     }
 
+    postSuccess() {
+        this.props.success()
+        this.redirect()
+    }
+
+    postFailure() {
+        this.props.failure()
+        this.redirect()
+    }
+
+    redirect() {
+        this.setState({ redirect: true })
+    }
+
     public render() {
+
+        if (this.state.redirect) {
+            return <Redirect push to={'/'} />
+        }
+
         return <div className='centered'>
             <div className="row text-center">
                 <div className="col-md-12">
@@ -22,16 +50,23 @@ export class equipmentPickup extends React.Component<any, any> {
                     <br />
                 </div>
             </div>
-            <Fields />
+            <Fields
+                user={this.props.user}
+                success={this.postSuccess.bind(this)}
+                failure={this.postFailure.bind(this)} />
         </div>
     }
 }
 
 export default connect(
     (state: ApplicationState) => ({
-        ...state.ping
+        ...state.ping,
+        ...state.user,
+        ...state.messages
     }),
     ({
-        ...Ping.actionCreators
+        ...Ping.actionCreators,
+        ...User.actionCreators,
+        ...Messages.actionCreators
     })
 )(equipmentPickup as any) as typeof equipmentPickup;

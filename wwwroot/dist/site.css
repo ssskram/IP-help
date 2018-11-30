@@ -732,6 +732,11 @@ td {
 .example-appear.example-appear-active {
     opacity: 1;
     transition: opacity .5s ease-in;
+}
+
+/* background color on image upload file container */
+.fileContainer {
+    background-color: grey !important;
 }/* Accordion
 /* ------------------------- */
 
