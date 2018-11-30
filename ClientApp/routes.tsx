@@ -9,6 +9,7 @@ import Other from './components/Other/Other'
 import { SelfService } from './components/SelfService'
 import Home from './components/Home'
 import EquipmentRental from './components/EquipmentReservations/EquipmentReservations'
+import EquipmentPickup from './components/EquipmentPickup'
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
@@ -19,4 +20,5 @@ export const routes = <Layout>
     <Route path='/SelfService' component={ SelfService } />    
     <Route path='/Account/Login' component={ Login } />
     <Route path='/EquipmentRental' component={ EquipmentRental } />
-</Layout>;
+    <Route path='/EquipmentPickup' component={ EquipmentPickup } />
+</Layout>
