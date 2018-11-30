@@ -85,7 +85,7 @@ export class NavMenu extends React.Component<any, any>  {
                                     <b>New mobile device</b>
                                 </NavLink>
                             </li>
-                            {/* <li>
+                            <li>
                                 <NavLink to={'/EquipmentRental'} title="Rent a laptop, projector, etc." style={btnWidth} className='btn btn-primary'>
                                     <b>Borrow equipment</b>
                                 </NavLink>
@@ -94,7 +94,7 @@ export class NavMenu extends React.Component<any, any>  {
                                 <NavLink to={'/EquipmentPickup'} title="Get rid of old IT equipment" style={btnWidth} className='btn btn-primary'>
                                     <b>IT equipment pickup</b>
                                 </NavLink>
-                            </li> */}
+                            </li>
                             <li>
                                 <NavLink to={'/EmployeeData'} title="Request email or wireless records" style={btnWidth} className='btn btn-primary'>
                                     <b>Request employee data</b>
@@ -146,12 +146,12 @@ export class NavMenu extends React.Component<any, any>  {
                         <Link onClick={this.closeModal.bind(this)} to={'/EmployeeData'} style={btnWidth} className='btn btn-primary'>
                             Request employee data
                         </Link>
-                        {/* <Link onClick={this.closeModal.bind(this)} to={'/EquipmentRental'} style={btnWidth} className='btn btn-primary'>
+                        <Link onClick={this.closeModal.bind(this)} to={'/EquipmentRental'} style={btnWidth} className='btn btn-primary'>
                             Borrow equipment
                         </Link>
                         <Link onClick={this.closeModal.bind(this)} to={'/EquipmentPickup'} style={btnWidth} className='btn btn-primary'>
                             IT equipment pickup
-                        </Link> */}
+                        </Link>
                         <Link onClick={this.closeModal.bind(this)} to={'/Other'} style={btnWidth} className='btn btn-primary'>
                             New ticket
                         </Link>
