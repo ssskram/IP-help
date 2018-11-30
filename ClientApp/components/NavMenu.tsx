@@ -102,8 +102,13 @@ export class NavMenu extends React.Component<any, any>  {
                             </li>
                             <li>
                                 <NavLink to={'/Other'} title="Miscellaneous request" style={btnWidth} className='btn btn-primary'>
-                                    <b>Other</b>
+                                    <b>New Ticket</b>
                                 </NavLink>
+                            </li>
+                            <li>
+                                <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" style={btnWidth} className='btn btn-warning'>
+                                    <span style={{color: '#383838'}}><b>My Tickets</b></span>
+                                </a>
                             </li>
                         </div>
                         <div className='accountcontainer'>

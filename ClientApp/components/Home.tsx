@@ -13,13 +13,16 @@ const imgSize = {
     margin: '10px'
 }
 
+const btnStyle= {
+    backgroundColor: 'transparent',
+    borderColor: '#383838'
+}
+
 const btnFont = {
-    color: '#fffaee',
     fontWeight: 600 as any
 }
 
 const msIcon = require('./../images/microsoft.png')
-const userIcon = require('./../images/otrs.png')
 const faqIcon = require('./../images/faq.png')
 const ipIcon = require('./../images/ip.png')
 
@@ -57,22 +60,8 @@ export class Home extends React.Component<any, any> {
                 <hr />
             </div>
             <div className='row'>
-                <div className='col-md-4 text-center'>
-                    <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" className="btn btn-big btn-primary" >
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <img style={imgSize} src={userIcon as string} />
-                            </div>
-                            <div className='col-md-12'>
-                                <div className='row'>
-                                    <h3 style={btnFont}>My tickets</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div className='col-md-4 text-center'>
-                    <Link to={'/SelfService'} className="btn btn-big btn-primary" >
+                <div className='col-md-6 text-center'>
+                    <Link to={'/SelfService'} className="btn btn-big btn-primary" style={btnStyle} >
                         <div className='row'>
                             <div className='col-md-12'>
                                 <img style={imgSize} src={faqIcon as string} />
@@ -85,8 +74,8 @@ export class Home extends React.Component<any, any> {
                         </div>
                     </Link>
                 </div>
-                <div className='col-md-4 text-center'>
-                    <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" >
+                <div className='col-md-6 text-center'>
+                    <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" style={btnStyle} >
                         <div className='row'>
                             <div className='col-md-12'>
                                 <img style={imgSize} src={msIcon as string} />

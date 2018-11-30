@@ -10,8 +10,8 @@ export default class unsupportedItems extends React.Component<any, any> {
     }
 
     public render() {
-        return <div className='col-md-12'>
-            <a onClick={() => this.setState({ modalIsOpen: true })} style={{ cursor: 'pointer' }} className='pull-right'>Don't see what you're looking for?</a>
+        return <div className='col-md-12 text-center'>
+            <a onClick={() => this.setState({ modalIsOpen: true })} style={{ cursor: 'pointer' }}>Don't see what you're looking for?</a>
             <Modal
                 open={this.state.modalIsOpen}
                 onClose={() => this.setState({ modalIsOpen: false })}
