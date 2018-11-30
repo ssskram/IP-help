@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "751225ea6f0729d5b5a0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "89d3d7b5ed12eae016aa"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -55650,15 +55650,100 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function postPickup(request, user) {
     return __awaiter(this, void 0, void 0, function () {
-        var postSuccess;
+        var postSuccess, emailBody, reader_1, err_1, sendgridLoad;
         return __generator(this, function (_a) {
-            console.log(request);
-            console.log(user);
-            postSuccess = false;
-            return [2 /*return*/, postSuccess];
+            switch (_a.label) {
+                case 0:
+                    postSuccess = true;
+                    return [4 /*yield*/, fetch('emailTemplates/EquipmentPickup.html')
+                            .then(function (response) { return response.text(); })
+                            .then(function (text) { return emailBody = String.format(text, request.equipmentType, request.quantityEquipment, request.modelNumber, request.equipmentNumber, request.assetTagNumber, request.locationEquipment, request.primaryContact, request.secondaryContact, request.phoneNumber, request.department.value, request.image); })];
+                case 1:
+                    _a.sent();
+                    if (!(request.image.length > 0)) return [3 /*break*/, 7];
+                    _a.label = 2;
+                case 2:
+                    _a.trys.push([2, 5, , 6]);
+                    return [4 /*yield*/, new FileReader()];
+                case 3:
+                    reader_1 = _a.sent();
+                    return [4 /*yield*/, reader_1.readAsDataURL(request.image[0])];
+                case 4:
+                    _a.sent();
+                    reader_1.onload = function () {
+                        // once complete, build sendgrid load with attachment
+                        var fullString = reader_1.result;
+                        var sendgridLoad = JSON.stringify({
+                            to: user,
+                            from: {
+                                email: user,
+                                name: 'I&P Help'
+                            },
+                            subject: 'Request for Equipment Pickup',
+                            html: emailBody,
+                            attachments: [
+                                {
+                                    content: fullString.split(',')[1],
+                                    filename: request.image[0].name,
+                                    type: 'image/png',
+                                    disposition: 'attachment'
+                                }
+                            ]
+                        });
+                        // and post
+                        fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
+                            method: 'POST',
+                            body: sendgridLoad,
+                            headers: new Headers({
+                                'Authorization': 'Bearer 6df4c73d-71f1-478d-ba2d-63f62e4de251',
+                                'Content-type': 'application/json'
+                            })
+                        });
+                    };
+                    return [3 /*break*/, 6];
+                case 5:
+                    err_1 = _a.sent();
+                    postSuccess = false;
+                    return [3 /*break*/, 6];
+                case 6: return [3 /*break*/, 8];
+                case 7:
+                    try {
+                        sendgridLoad = JSON.stringify({
+                            to: user,
+                            from: {
+                                email: user,
+                                name: 'I&P Help'
+                            },
+                            subject: 'Request for Equipment Pickup',
+                            html: emailBody
+                        });
+                        // and post
+                        fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
+                            method: 'POST',
+                            body: sendgridLoad,
+                            headers: new Headers({
+                                'Authorization': 'Bearer 6df4c73d-71f1-478d-ba2d-63f62e4de251',
+                                'Content-type': 'application/json'
+                            })
+                        });
+                    }
+                    catch (err) {
+                        postSuccess = false;
+                    }
+                    _a.label = 8;
+                case 8: return [2 /*return*/, postSuccess];
+            }
         });
     });
 }
+String.format = function () {
+    var s = arguments[0];
+    for (var i = 0; i < arguments.length - 1; i++) {
+        var reg = new RegExp("\\{" + i + "\\}", "gm");
+        s = s.replace(reg, arguments[i + 1]);
+    }
+    return s;
+};
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/home/sskram/Applications/IP-help/ClientApp/components/EquipmentPickup/postPickup.ts"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/home/sskram/Applications/IP-help/ClientApp/components/EquipmentPickup/postPickup.ts"); } } })();
