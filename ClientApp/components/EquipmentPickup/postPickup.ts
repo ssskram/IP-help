@@ -55,6 +55,7 @@ export default async function postPickup(request, user) {
                         'Content-type': 'application/json'
                     })
                 })
+                    .catch(err => postSuccess = false)
             }
         } catch (err) {
             postSuccess = false
@@ -81,6 +82,7 @@ export default async function postPickup(request, user) {
                     'Content-type': 'application/json'
                 })
             })
+                .catch(err => postSuccess = false)
         } catch (err) {
             postSuccess = false
         }

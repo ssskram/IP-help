@@ -7,6 +7,8 @@ import Phone from '../FormElements/phone'
 import Types from './equipmentTypes'
 import Departments from '../Departments'
 import postPickup from './postPickup'
+import Spinner from '../Spinner'
+import UnsupportedItems from './unsupportedItems'
 // import ImageUploader from 'react-images-upload'
 
 export default class equipmentPickup extends React.Component<any, any> {
@@ -23,11 +25,13 @@ export default class equipmentPickup extends React.Component<any, any> {
             modelNumber: '',
             equipmentNumber: '',
             assetTagNumber: '',
-            image: []
+            image: [],
+            spinner: false
         }
     }
 
     async post() {
+        this.setState({ spinner: true })
         const success = await postPickup(this.state, this.props.user)
         if (success == true) this.props.success()
         else this.props.failure()
@@ -45,7 +49,8 @@ export default class equipmentPickup extends React.Component<any, any> {
             modelNumber,
             equipmentNumber,
             assetTagNumber,
-            image
+            image,
+            spinner
         } = this.state
 
         let imgButton
@@ -62,7 +67,7 @@ export default class equipmentPickup extends React.Component<any, any> {
             department != '' &&
             locationEquipment != '' &&
             quantityEquipment != '' &&
-            equipmentType != '' 
+            equipmentType != ''
 
         return <div className='row'>
             <div className='col-md-6 col-md-offset-3 panel'>
@@ -77,7 +82,8 @@ export default class equipmentPickup extends React.Component<any, any> {
                         options={Types.equipmentTypes}
                         required
                     />
-
+                    <UnsupportedItems/>
+                    
                     <Number
                         value={quantityEquipment}
                         header="Quantity of equipment"
@@ -170,6 +176,9 @@ export default class equipmentPickup extends React.Component<any, any> {
                     <div className='col-md-12 text-center'>
                         <button disabled={!isEnabled} onClick={this.post.bind(this)} className='btn btn-success'>Submit</button>
                     </div>
+                    {spinner == true &&
+                        <Spinner notice='...submitting your request...' />
+                    }
                 </div>
             </div>
         </div>
