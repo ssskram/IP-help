@@ -40,6 +40,7 @@ namespace IPHelp.Models {
 
     public class Other {
         [DataType (DataType.MultilineText)]
-        public string Body { get; set; }
+        public string body { get; set; }
+        public string subject { get; set; }
     }
 }

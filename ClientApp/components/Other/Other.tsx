@@ -1,16 +1,18 @@
-import * as React from 'react';
-import { Redirect } from 'react-router-dom';
+import * as React from 'react'
+import { Redirect } from 'react-router-dom'
 import TextArea from '../FormElements/textarea'
+import Input from '../FormElements/input'
 import * as MessagesStore from '../../store/messages';
-import * as Ping from '../../store/ping';
-import { connect } from 'react-redux';
-import { ApplicationState } from '../../store';
+import * as Ping from '../../store/ping'
+import { connect } from 'react-redux'
+import { ApplicationState } from '../../store'
 
 export class Other extends React.Component<any, any> {
     constructor() {
         super();
         this.state = {
-            Body: '',
+            body: '',
+            subject: '',
             redirect: false
         }
     }
@@ -30,9 +32,10 @@ export class Other extends React.Component<any, any> {
         event.preventDefault()
         let self = this;
         let data = JSON.stringify({
-            Body: self.state.Body
+            body: self.state.body,
+            subject: self.state.subject
         })
-        this.setState({ Body: '' })
+        this.setState({ body: '' })
         fetch('/api/Forms/Other', {
             method: 'POST',
             body: data,
@@ -48,9 +51,10 @@ export class Other extends React.Component<any, any> {
 
 
     public render() {
-        const { Body, redirect } = this.state
+        const { body, subject, redirect } = this.state
         const isEnabled =
-            Body != '';
+            body != '' &&
+            subject != ''
 
         if (redirect) {
             return <Redirect to='/' />;
@@ -65,11 +69,20 @@ export class Other extends React.Component<any, any> {
             </div>
             <div className="col-md-12">
                 <div className="col-md-6 col-md-offset-3 panel panel-body">
+                    <Input
+                        value={subject}
+                        name="subject"
+                        header="Subject"
+                        placeholder="What's the issue?"
+                        callback={this.handleChildChange.bind(this)}
+                        required
+                    />
+
                     <TextArea
                         header="Describe your request"
-                        placeholder="What can we help you with?"
-                        name="Body"
-                        value={Body}
+                        placeholder="How can we help you?"
+                        name="body"
+                        value={body}
                         callback={this.handleChildChange.bind(this)}
                         required
                     />
