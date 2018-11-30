@@ -92,7 +92,7 @@ export class NavMenu extends React.Component<any, any>  {
                             </li>
                             <li>
                                 <NavLink to={'/EquipmentPickup'} title="Get rid of old IT equipment" style={btnWidth} className='btn btn-primary'>
-                                    <b>IT Equipment Pickup</b>
+                                    <b>IT equipment pickup</b>
                                 </NavLink>
                             </li>
                             <li>
@@ -102,12 +102,12 @@ export class NavMenu extends React.Component<any, any>  {
                             </li>
                             <li>
                                 <NavLink to={'/Other'} title="Miscellaneous request" style={btnWidth} className='btn btn-primary'>
-                                    <b>New Ticket</b>
+                                    <b>New ticket</b>
                                 </NavLink>
                             </li>
                             <li>
                                 <a href="https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets" target="_blank" title="Must be connected to the City network" style={btnWidth} className='btn btn-warning'>
-                                    <span style={{color: '#383838'}}><b>My Tickets</b></span>
+                                    <span style={{color: '#383838'}}><b>My tickets</b></span>
                                 </a>
                             </li>
                         </div>
@@ -146,11 +146,18 @@ export class NavMenu extends React.Component<any, any>  {
                         <Link onClick={this.closeModal.bind(this)} to={'/EmployeeData'} style={btnWidth} className='btn btn-primary'>
                             Request employee data
                         </Link>
-
-
-                        <Link onClick={this.closeModal.bind(this)} to={'/Other'} style={btnWidth} className='btn btn-primary'>
-                            Other
+                        <Link onClick={this.closeModal.bind(this)} to={'/EquipmentRental'} style={btnWidth} className='btn btn-primary'>
+                            Borrow equipment
                         </Link>
+                        <Link onClick={this.closeModal.bind(this)} to={'/EquipmentPickup'} style={btnWidth} className='btn btn-primary'>
+                            IT equipment pickup
+                        </Link>
+                        <Link onClick={this.closeModal.bind(this)} to={'/Other'} style={btnWidth} className='btn btn-primary'>
+                            New ticket
+                        </Link>
+                        <a onClick={this.closeModal.bind(this)} href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets' target='_blank' title='Must be connected to City network' style={btnWidth} className='btn btn-warning'>
+                            My tickets
+                        </a>
                     </div>
                     <div className='accountcontainer'>
                         <div style={modalLogout} className="account">{user}</div>

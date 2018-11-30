@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6512921badf004ba40d3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "056bc492841bbbf15669"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -56988,17 +56988,17 @@ var NavMenu = (function (_super) {
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Borrow equipment"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EquipmentPickup', title: "Get rid of old IT equipment", style: btnWidth, className: 'btn btn-primary' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "IT Equipment Pickup"))),
+                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "IT equipment pickup"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/EmployeeData', title: "Request email or wireless records", style: btnWidth, className: 'btn btn-primary' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "Request employee data"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["NavLink"], { to: '/Other', title: "Miscellaneous request", style: btnWidth, className: 'btn btn-primary' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "New Ticket"))),
+                                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "New ticket"))),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null,
                                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets", target: "_blank", title: "Must be connected to the City network", style: btnWidth, className: 'btn btn-warning' },
                                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { style: { color: '#383838' } },
-                                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "My Tickets"))))),
+                                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("b", null, "My tickets"))))),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "account" }, user),
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'logout' },
@@ -57017,7 +57017,10 @@ var NavMenu = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit", title: "Request a new user account", target: '_blank', style: btnWidth, className: 'btn btn-primary' }, "New user account"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/MobileDevice', style: btnWidth, className: 'btn btn-primary' }, "New mobile device"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EmployeeData', style: btnWidth, className: 'btn btn-primary' }, "Request employee data"),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/Other', style: btnWidth, className: 'btn btn-primary' }, "Other")),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentRental', style: btnWidth, className: 'btn btn-primary' }, "Borrow equipment"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/EquipmentPickup', style: btnWidth, className: 'btn btn-primary' }, "IT equipment pickup"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"], { onClick: this.closeModal.bind(this), to: '/Other', style: btnWidth, className: 'btn btn-primary' }, "New ticket"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { onClick: this.closeModal.bind(this), href: 'https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets', target: '_blank', title: 'Must be connected to City network', style: btnWidth, className: 'btn btn-warning' }, "My tickets")),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: 'accountcontainer' },
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: modalLogout, className: "account" }, user),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: modalLogout, className: 'logout' },
