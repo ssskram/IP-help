@@ -11,3 +11,6 @@ export const reservationSuccess = 'reservationSuccess'
 
 // liaisons
 export const loadLiaisons = 'loadLiaisons'
+
+// equipment loan
+export const loanEquipmentLoans = 'loanEquipmentLoans'

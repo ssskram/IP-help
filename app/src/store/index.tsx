@@ -2,17 +2,20 @@ import * as user from './user'
 import * as types from './types'
 import * as messages from './messages'
 import * as liaisons from './liaisons'
+import * as equipmentLoans from './equipmentLoan'
 
 export interface ApplicationState {
     user: types.user,
     messages: types.messsage,
-    liaisons: types.liaisons
+    liaisons: types.liaisons,
+    equipmentLoans: types.equipmentLoans
 }
 
 export const reducers = {
     user: user.reducer,
     messages: messages.reducer,
-    liaisons: liaisons.reducer
+    liaisons: liaisons.reducer,
+    equipmentLoans: liaisons.reducer
 }
 
 export interface AppThunkAction<TAction> {
