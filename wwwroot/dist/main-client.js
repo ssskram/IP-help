@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8d1e17f60e9f65dd201d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "637d42180ea6ef061a8b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -55847,14 +55847,13 @@ function checkAvailability(itemType, availableEquipment, flavor) {
     }
 }
 function getAvailableEquipment(from, to, equipment, reservations) {
-    console.log(from);
-    console.log(to);
-    console.log(equipment);
-    console.log(reservations);
-    var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment__(from);
-    var toDate = __WEBPACK_IMPORTED_MODULE_0_moment__(to);
+    var format = 'MM-DD-YYYY, hh:mm A';
+    var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment__(from).format(format);
+    var toDate = __WEBPACK_IMPORTED_MODULE_0_moment__(to).format(format);
     var overlappingResos = reservations.filter(function (reso) {
-        return __WEBPACK_IMPORTED_MODULE_0_moment__(reso.from).isBetween(fromDate, toDate) || __WEBPACK_IMPORTED_MODULE_0_moment__(reso.to).isBetween(fromDate, toDate);
+        var fromMoment = __WEBPACK_IMPORTED_MODULE_0_moment__(reso.from);
+        var toMoment = __WEBPACK_IMPORTED_MODULE_0_moment__(reso.to);
+        return (fromMoment.isBetween(fromDate, toDate)) || (toMoment.isBetween(fromDate, toDate));
     });
     if (overlappingResos.length == 0) {
         return equipment;

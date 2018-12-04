@@ -19,14 +19,13 @@ export function checkAvailability(itemType, availableEquipment, flavor) {
 }
 
 export function getAvailableEquipment(from, to, equipment, reservations) {
-    console.log(from)
-    console.log(to)
-    console.log(equipment)
-    console.log(reservations)
-    const fromDate = moment(from)
-    const toDate = moment(to)
+    const format = 'MM-DD-YYYY, hh:mm A'
+    const fromDate = moment(from).format(format)
+    const toDate = moment(to).format(format)
     const overlappingResos = reservations.filter(reso => {
-        return moment(reso.from).isBetween(fromDate, toDate) || moment(reso.to).isBetween(fromDate, toDate)
+        const fromMoment = moment(reso.from)
+        const toMoment = moment(reso.to)
+        return (fromMoment.isBetween(fromDate, toDate)) || (toMoment.isBetween(fromDate, toDate))
     })
     if (overlappingResos.length == 0) {
         return equipment
