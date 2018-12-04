@@ -1,7 +1,5 @@
+# secrets
+.env
 
-
-bin/
-obj/
-/node_modules
-.vscode
-deployment.ps1
+# dependencies
+node_modules
