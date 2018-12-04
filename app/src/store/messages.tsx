@@ -16,6 +16,12 @@ export const actionCreators = {
     },
     clearMessage: (): AppThunkAction<any> => (dispatch) => {
         dispatch({ type: constants.clear });
+    },
+    noAccess: (): AppThunkAction<any> => (dispatch) => {
+        dispatch({ type: constants.noAccess });
+    },
+    reservationSuccess: (message): AppThunkAction<any> => (dispatch) => {
+        dispatch({ type: constants.reservationSuccess, message });
     }
 }
 
@@ -23,11 +29,15 @@ export const reducer: Reducer<types.messsage> = (state: types.messsage, incoming
     const action = incomingAction as any
     switch (action.type) {
         case constants.success:
-            return { ...state, message: "<b>Success!<b/><br/>DPW is on the job" }
+            return { ...state, message: "<b>Success!<b/><br/>You'll be hearing from us soon" }
         case constants.failure:
             return { ...state, message: "<b>Oops!<b/><br/>That didn't work<br/>Please log out, log back in, and try again" }
         case constants.clear:
             return { ...state, message: '' }
+        case constants.noAccess:
+            return { ...state, message: "<b>Sorry!</b> Only certain people can request new equipment<br/>Please contact your department's I&P liaison" }
+        case constants.reservationSuccess:
+            return { ...state, message: action.message }
     }
     return state || unloadedState
 }

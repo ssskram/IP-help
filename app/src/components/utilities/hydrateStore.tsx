@@ -5,11 +5,13 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
 import * as user from '../../store/user'
+import * as liaisons from '../../store/liaisons'
 
 class Hydrate extends React.Component<any, {}> {
 
     componentDidMount() {
         this.props.loadUser()
+        this.props.loadLiaisons()
     }
 
     public render() {
@@ -19,9 +21,11 @@ class Hydrate extends React.Component<any, {}> {
 
 export default connect(
     (state: ApplicationState) => ({
-        ...state.user
+        ...state.user,
+        ...state.liaisons
     }),
     ({
-        ...user.actionCreators
+        ...user.actionCreators,
+        ...liaisons.actionCreators
     })
 )(Hydrate)

@@ -6,3 +6,8 @@ export const loadUser = 'loadUser'
 export const success = 'successMessage'
 export const failure = 'failureMessage'
 export const clear = 'clearMessage'
+export const noAccess = 'noAccess'
+export const reservationSuccess = 'reservationSuccess'
+
+// liaisons
+export const loadLiaisons = 'loadLiaisons'

@@ -8,3 +8,8 @@ export interface user {
 export interface messsage { 
     message: string
 }
+
+// liaisons
+export interface liaisons {
+    liaisons: user[]
+}
