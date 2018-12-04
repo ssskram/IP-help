@@ -1,6 +1,9 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { ApplicationState } from '../../store'
+import * as MessageStore from '../../store/messages'
 
-export default class Messages extends React.Component<any, {}> {
+export class Messages extends React.Component<any, {}> {
     
     createMarkup() {
         return { __html: this.props.message };
@@ -16,3 +19,12 @@ export default class Messages extends React.Component<any, {}> {
         )
     }
 }
+
+export default connect(
+    (state: ApplicationState) => ({
+        ...state.messages
+    }),
+    ({
+        ...MessageStore.actionCreators,
+    })
+)(Messages)
