@@ -4,18 +4,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
-import * as facilities from '../../store/facilities'
-import * as allRequests from '../../store/allRequests'
-import * as issues from '../../store/issues'
 import * as user from '../../store/user'
 
 class Hydrate extends React.Component<any, {}> {
 
     componentDidMount() {
         this.props.loadUser()
-        this.props.loadFacilities()
-        this.props.loadIssues()
-        this.props.loadAllRequests()
     }
 
     public render() {
@@ -25,15 +19,9 @@ class Hydrate extends React.Component<any, {}> {
 
 export default connect(
     (state: ApplicationState) => ({
-        ...state.facilities,
-        ...state.issues,
-        ...state.user,
-        ...state.allRequests
+        ...state.user
     }),
     ({
-        ...facilities.actionCreators,
-        ...issues.actionCreators,
-        ...user.actionCreators,
-        ...allRequests.actionCreators
+        ...user.actionCreators
     })
 )(Hydrate)
