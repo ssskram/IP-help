@@ -14,7 +14,7 @@ export class NavMenu extends React.Component<any, any> {
       <Navbar inverse fixedTop fluid collapseOnSelect style={{zIndex: 1000 as any}}>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to={'/'} onClick={() => this.props.clearRequest()}>DPW Maintenance</Link>
+            <Link to={'/'}>I&P Help</Link>
           </Navbar.Brand>
           <Navbar.Toggle/>
         </Navbar.Header>
