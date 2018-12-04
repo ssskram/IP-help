@@ -75,19 +75,18 @@ namespace IPHelp.Controllers {
             client.DefaultRequestHeaders.Add ("X-HTTP-Method", "POST");
             foreach (var item in model.items) {
                 var json =
-                    String.Format ("{{'__metadata': {{ 'type': 'SP.Data.ReservationsListItem' }}, 'ReservationID' : '{0}' , 'User' : '{1}', 'NetworkID' : '{2}', 'Department' : '{3}', 'Phone' : '{4}', 'Item' : '{5}', 'ItemID' : '{6}', 'AssetNumber' : '{7}', 'PickedUp' : '{8}', 'Returned' : '{9}', 'From' : '{10}', 'To' : '{11}' }}",
+                    String.Format ("{{'__metadata': {{ 'type': 'SP.Data.ReservationsListItem' }}, 'ReservationID' : '{0}' , 'User' : '{1}', 'Department' : '{2}', 'Phone' : '{3}', 'Item' : '{4}', 'ItemID' : '{5}', 'AssetNumber' : '{6}', 'PickedUp' : '{7}', 'Returned' : '{8}', 'From' : '{9}', 'To' : '{10}' }}",
                         model.reservationID, // 0
                         user, // 1
-                        model.networkID, // 2
-                        model.department, // 3 
-                        model.phone, // 4
-                        item.item, // 5
-                        item.itemID, // 6
-                        item.assetNumber, // 7
-                        pickedUp, // 8
-                        returned, // 9
-                        model.from, // 10
-                        model.to); // 11
+                        model.department, // 2 
+                        model.phone, // 3
+                        item.item, // 4
+                        item.itemID, // 5
+                        item.assetNumber, // 6
+                        pickedUp, // 7
+                        returned, // 8
+                        model.from, // 9
+                        model.to); // 10
                 client.DefaultRequestHeaders.Add ("ContentLength", json.Length.ToString ());
                 try {
                     StringContent strContent = new StringContent (json);

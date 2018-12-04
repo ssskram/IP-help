@@ -42,7 +42,6 @@ export class EquipmentReservations extends React.Component<any, any> {
         super()
         this.state = {
             reservationID: shortID.generate(),
-            networkID: '',
             Department: '',
             phone: '',
             items: [],
@@ -182,7 +181,6 @@ export class EquipmentReservations extends React.Component<any, any> {
         event.preventDefault()
         const load = {
             reservationID: this.state.reservationID,
-            networkID: this.state.networkID,
             department: this.state.Department,
             phone: this.state.phone,
             from: this.state.from,
@@ -206,7 +204,6 @@ export class EquipmentReservations extends React.Component<any, any> {
 
     public render() {
         const {
-            networkID,
             Department,
             phone,
             fromDate,
@@ -223,7 +220,6 @@ export class EquipmentReservations extends React.Component<any, any> {
         } = this.state
 
         const showTimespan =
-            networkID != '' &&
             phone != '' &&
             Department != ''
 
@@ -255,16 +251,6 @@ export class EquipmentReservations extends React.Component<any, any> {
                     <div className='col-md-6 col-md-offset-3 panel'>
                         <div className='sectionHeader'>Your information</div>
                         <div className='panel-body'>
-
-                            <Input
-                                value={networkID}
-                                name="networkID"
-                                header="Enter your network ID"
-                                placeholder="Network ID"
-                                callback={this.handleChildChange.bind(this)}
-                                required
-                            />
-
                             <Phone
                                 value={phone}
                                 name="phone"

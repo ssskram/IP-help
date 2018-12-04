@@ -35,7 +35,8 @@ export const actionCreators = {
                 dispatch({ type: loadEquipment, equipment: data });
             });
     }
-};
+}
+
 export const reducer: Reducer<EquipmentState> = (state: EquipmentState, incomingAction: Action) => {
     const action = incomingAction as any;
     switch (action.type) {

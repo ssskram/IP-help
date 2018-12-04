@@ -15,7 +15,6 @@ export interface ReservationState {
 export interface ReservationItem {
     reservationID: string
     department: string
-    networkID: string,
     phone: string
     item: string
     itemID: string
