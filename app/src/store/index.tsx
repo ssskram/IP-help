@@ -15,7 +15,7 @@ export const reducers = {
     user: user.reducer,
     messages: messages.reducer,
     liaisons: liaisons.reducer,
-    equipmentLoans: liaisons.reducer
+    equipmentLoans: equipmentLoans.reducer
 }
 
 export interface AppThunkAction<TAction> {

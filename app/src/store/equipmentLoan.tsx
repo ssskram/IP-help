@@ -9,7 +9,7 @@ const unloadedState: types.equipmentLoans = {
 }
 
 export const actionCreators = {
-    loanEquipmentLoans: (): AppThunkAction<any> => (dispatch) => {
+    loadEquipmentLoans: (): AppThunkAction<any> => (dispatch) => {
         fetch("https://365proxy.azurewebsites.us/iphelp/allEquipmentLoans", {
             method: 'get',
             headers: new Headers({
