@@ -47,10 +47,12 @@ namespace IPHelp.Controllers {
             List<Reservation> AllResos = new List<Reservation> ();
             dynamic resos = JObject.Parse (items) ["value"];
             foreach (var item in resos) {
+                DateTime from = item.From;
+                DateTime to = item.To;
                 Reservation res = new Reservation () {
                     itemID = item.ItemID,
-                    from = item.From,
-                    to = item.To,
+                    from = from.AddHours(-5).ToString("MM/dd/yyyy h:mm tt"),
+                    to = to.AddHours(-5).ToString("MM/dd/yyyy h:mm tt"),
                     pickedUp = item.PickedUp,
                     returned = item.Returned
                 };

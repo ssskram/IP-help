@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a1bff2e6690824d7f3a2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8d1e17f60e9f65dd201d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -55847,6 +55847,10 @@ function checkAvailability(itemType, availableEquipment, flavor) {
     }
 }
 function getAvailableEquipment(from, to, equipment, reservations) {
+    console.log(from);
+    console.log(to);
+    console.log(equipment);
+    console.log(reservations);
     var fromDate = __WEBPACK_IMPORTED_MODULE_0_moment__(from);
     var toDate = __WEBPACK_IMPORTED_MODULE_0_moment__(to);
     var overlappingResos = reservations.filter(function (reso) {

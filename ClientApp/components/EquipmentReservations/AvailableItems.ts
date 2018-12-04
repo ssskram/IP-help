@@ -19,6 +19,10 @@ export function checkAvailability(itemType, availableEquipment, flavor) {
 }
 
 export function getAvailableEquipment(from, to, equipment, reservations) {
+    console.log(from)
+    console.log(to)
+    console.log(equipment)
+    console.log(reservations)
     const fromDate = moment(from)
     const toDate = moment(to)
     const overlappingResos = reservations.filter(reso => {
