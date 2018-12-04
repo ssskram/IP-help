@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import * as Reservations from '../../store/reservations'
 import * as Equipment from '../../store/equipment'
 import * as MessagesStore from '../../store/messages'
+import * as User from '../../store/user'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../store'
 import Input from '../FormElements/input'
@@ -14,6 +15,7 @@ import Departments from '../Departments'
 import TimePicker from './../FormElements/timepicker'
 import * as shortID from 'shortid'
 import { checkAvailability, getAvailableEquipment } from './AvailableItems'
+import postOTRS from './postOTRS'
 
 const laptop = require('./../../images/laptop.png')
 const tablet = require('./../../images/tablet.png')
@@ -178,7 +180,7 @@ export class EquipmentReservations extends React.Component<any, any> {
 
     submit(event) {
         event.preventDefault()
-        const load = JSON.stringify({
+        const load = {
             reservationID: this.state.reservationID,
             networkID: this.state.networkID,
             department: this.state.Department,
@@ -187,16 +189,17 @@ export class EquipmentReservations extends React.Component<any, any> {
             to: this.state.to,
             items: this.state.items,
             types: this.state.selectedTypes
-        })
+        }
         fetch('/api/equipmentReservation/postReservation', {
             method: 'POST',
-            body: load,
+            body: JSON.stringify(load),
             credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
+        postOTRS(load, this.props.user)
         this.props.reservation('Success!<br/>Your reservation ID is ' + this.state.reservationID + '<br/>Please bring your reservation ID when picking up your equipment')
         this.setState({ redirect: true })
     }
@@ -433,11 +436,13 @@ export default connect(
     (state: ApplicationState) => ({
         ...state.reservations,
         ...state.messages,
-        ...state.equipment
+        ...state.equipment,
+        ...state.user
     }),
     ({
         ...Reservations.actionCreators,
         ...MessagesStore.actionCreators,
-        ...Equipment.actionCreators
+        ...Equipment.actionCreators,
+        ...User.actionCreators
     })
 )(EquipmentReservations as any) as typeof EquipmentReservations;
