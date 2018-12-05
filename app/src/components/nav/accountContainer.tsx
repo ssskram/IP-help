@@ -26,7 +26,7 @@ export class AccountContainer extends React.Component<props, {}> {
         } = this.props;
 
         return (
-            <div className='accountcontainer'>
+            <div style={{ marginBottom: '50px' }} className='accountcontainer'>
                 <div className="account">{user}</div>
                 <div className='logout'>
                     <button onClick={logout} id="logout" className='btn btn-link navbar-logout-btn'>
