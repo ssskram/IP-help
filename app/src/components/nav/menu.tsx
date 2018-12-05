@@ -7,12 +7,12 @@ export default class Menu extends React.Component {
     public render() {
         return (
             <Nav>
-                <LinkContainer to={'/PCOrder'} exact>
+                <LinkContainer to={'/NewPC'} exact>
                     <button className='btn btn-primary nav-button'>New PC</button>
                 </LinkContainer>
-                <LinkContainer to={'/MobileDevice'}>
+                <a target='_blank' title="Request a new user account" href='https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit'>
                     <button className='btn btn-primary nav-button'>New user account</button>
-                </LinkContainer>
+                </a>
                 <LinkContainer to={'/MobileDevice'}>
                     <button className='btn btn-primary nav-button'>New mobile device</button>
                 </LinkContainer>
@@ -28,9 +28,9 @@ export default class Menu extends React.Component {
                 <LinkContainer to={'/Other'}>
                     <button className='btn btn-primary nav-button'>New ticket</button>
                 </LinkContainer>
-                <LinkContainer to={'/Other'}>
+                <a target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
                     <button className='btn btn-warning nav-button'><span style={{color: '#383838'}}>My tickets</span></button>
-                </LinkContainer>
+                </a>
             </Nav>
         )
     }
