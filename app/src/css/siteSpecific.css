@@ -1,0 +1,26 @@
+.btn-big {
+    /* font */
+    border: 1px solid #383838;
+    border-radius: 4px;
+    color: #383838;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    line-height: 2.1em;
+    margin: 15px 0px;
+    padding: 25px;
+    width: 80%;
+}
+
+@media (max-width: 767px) {
+    .home-image {
+        max-height: 250px !important;
+        margin-top: 45px;
+    }
+}
+
+@media (min-width: 768px) {
+    .home-image {
+        max-height: 350px !important;
+        margin-top: 45px;
+    }
+}

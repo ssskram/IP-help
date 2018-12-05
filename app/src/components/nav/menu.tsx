@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Nav, NavItem } from 'react-bootstrap'
+import { Nav, button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 export default class Menu extends React.Component {
@@ -8,28 +8,28 @@ export default class Menu extends React.Component {
         return (
             <Nav>
                 <LinkContainer to={'/PCOrder'} exact>
-                    <NavItem className='btn btn-primary'>New PC</NavItem>
+                    <button className='btn btn-primary nav-button'>New PC</button>
                 </LinkContainer>
                 <LinkContainer to={'/MobileDevice'}>
-                    <NavItem className='btn btn-primary'>New user account</NavItem>
+                    <button className='btn btn-primary nav-button'>New user account</button>
                 </LinkContainer>
                 <LinkContainer to={'/MobileDevice'}>
-                    <NavItem className='btn btn-primary'>New mobile device</NavItem>
+                    <button className='btn btn-primary nav-button'>New mobile device</button>
                 </LinkContainer>
                 <LinkContainer to={'/EquipmentLoan'}>
-                    <NavItem className='btn btn-primary'>Borrow Equipment</NavItem>
+                    <button className='btn btn-primary nav-button'>Borrow Equipment</button>
                 </LinkContainer>
                 <LinkContainer to={'/EquipmentDisposal'}>
-                    <NavItem className='btn btn-primary'>IT equipment disposal</NavItem>
+                    <button className='btn btn-primary nav-button'>IT equipment disposal</button>
                 </LinkContainer>
                 <LinkContainer to={'/EmployeeData'}>
-                    <NavItem className='btn btn-primary'>Request employee data</NavItem>
+                    <button className='btn btn-primary nav-button'>Request employee data</button>
                 </LinkContainer>
                 <LinkContainer to={'/Other'}>
-                    <NavItem className='btn btn-primary'>New ticket</NavItem>
+                    <button className='btn btn-primary nav-button'>New ticket</button>
                 </LinkContainer>
                 <LinkContainer to={'/Other'}>
-                    <NavItem className='btn btn-warning'><span style={{color: '#383838'}}>My tickets</span></NavItem>
+                    <button className='btn btn-warning nav-button'><span style={{color: '#383838'}}>My tickets</span></button>
                 </LinkContainer>
             </Nav>
         )

@@ -8,15 +8,6 @@ const imgSize = {
     margin: '10px'
 }
 
-const btnStyle = {
-    backgroundColor: 'transparent',
-    borderColor: '#383838'
-}
-
-const btnFont = {
-    fontWeight: 600 as any
-}
-
 const msIcon = require('./images/microsoft.png')
 const faqIcon = require('./images/faq.png')
 const ipIcon = require('./images/ip.png')
@@ -47,28 +38,28 @@ export default class Home extends React.Component<any, any> {
                 </div>
                 <div className='row'>
                     <div className='col-md-6 text-center'>
-                        <Link to={'/SelfService'} className="btn btn-big btn-primary" style={btnStyle} >
+                        <Link to={'/SelfService'} className="btn btn-big" >
                             <div className='row'>
                                 <div className='col-md-12'>
                                     <img style={imgSize} src={faqIcon as string} />
                                 </div>
                                 <div className='col-md-12'>
                                     <div className='row'>
-                                        <h3 style={btnFont}>Training & FAQ</h3>
+                                        <h3>Training & FAQ</h3>
                                     </div>
                                 </div>
                             </div>
                         </Link>
                     </div>
                     <div className='col-md-6 text-center'>
-                        <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big btn-primary" style={btnStyle} >
+                        <a href="http://portal.office.com/" target="_blank" title="Email, OneDrive, etc." className="btn btn-big" >
                             <div className='row'>
                                 <div className='col-md-12'>
                                     <img style={imgSize} src={msIcon as string} />
                                 </div>
                                 <div className='col-md-12'>
                                     <div className='row'>
-                                        <h3 style={btnFont}>Microsoft portal</h3>
+                                        <h3>Microsoft portal</h3>
                                     </div>
                                 </div>
                             </div>
