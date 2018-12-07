@@ -99,6 +99,9 @@ export class SelfService extends React.Component<any, any> {
                         <a href="https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9" title="Personal cloud storage" target="_blank" className="btn btn-selfservice">
                             OneDrive for Business
                             </a>
+                        <a href="https://pittsburgh.o365support.com/content/view?cguid=12ddea45-f8b4-11e8-811c-000d3a7129c2&statusid=9" title="Personal notebook" target="_blank" className="btn btn-selfservice">
+                            OneNote
+                            </a>
                         <a href="https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9" title="Project and team sites" target="_blank" className="btn btn-selfservice">
                             SharePoint Online
                             </a>

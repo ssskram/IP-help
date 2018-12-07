@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "decf2492d8de030d66a5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7af0c21497be1b8cac62"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -57783,6 +57783,7 @@ var SelfService = (function (_super) {
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=e8faa151-56c5-11e7-80df-000d3a908cc1&tiguid=749a2e9c-8ae7-11e4-847a-00221918ee60&rtid=3", title: "Email and calendar", target: "_blank", className: "btn btn-selfservice" }, "Outlook (Online)"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9", title: "Docs, spreadhseets, and slideshows", target: "_blank", className: "btn btn-selfservice" }, "Word, Excel, & PowerPoint 2016 (Desktop)"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9", title: "Personal cloud storage", target: "_blank", className: "btn btn-selfservice" }, "OneDrive for Business"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=12ddea45-f8b4-11e8-811c-000d3a7129c2&statusid=9", title: "Personal notebook", target: "_blank", className: "btn btn-selfservice" }, "OneNote"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9", title: "Project and team sites", target: "_blank", className: "btn btn-selfservice" }, "SharePoint Online"),
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: "https://pittsburgh.o365support.com/content/view?cguid=0743140d-585a-11e7-80df-000d3a908cc1&statusid=9", title: "Messaging and video chat", target: "_blank", className: "btn btn-selfservice" }, "Skype for Business"))),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { "data-trigger": "Municode" },
