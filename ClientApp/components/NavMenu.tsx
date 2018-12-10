@@ -90,11 +90,11 @@ export class NavMenu extends React.Component<any, any>  {
                                     <b>Borrow equipment</b>
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink to={'/EquipmentPickup'} title="Get rid of old IT equipment" style={btnWidth} className='btn btn-primary'>
                                     <b>IT equipment pickup</b>
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to={'/EmployeeData'} title="Request email or wireless records" style={btnWidth} className='btn btn-primary'>
                                     <b>Request employee data</b>
