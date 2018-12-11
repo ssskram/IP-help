@@ -38,7 +38,7 @@ export default class Home extends React.Component<any, any> {
                 </div>
                 <div className='row'>
                     <div className='col-md-6 text-center'>
-                        <Link to={'/SelfService'} className="btn btn-big" >
+                        <Link to={'/HelpContent'} className="btn btn-big" >
                             <div className='row'>
                                 <div className='col-md-12'>
                                     <img style={imgSize} src={faqIcon as string} />
