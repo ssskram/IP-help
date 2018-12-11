@@ -28,7 +28,7 @@ export const reducer: Reducer<types.equipment> = (state: types.equipment, incomi
     const action = incomingAction as any
     switch (action.type) {
         case constants.loadEquipment:
-            return { ...state, loans: action.equipment }
+            return { ...state, equipment: action.equipment }
     }
     return state || unloadedState
 }

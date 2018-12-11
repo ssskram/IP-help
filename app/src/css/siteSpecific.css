@@ -1,3 +1,18 @@
+@media (max-width: 767px) {
+    .home-image {
+        max-height: 250px !important;
+        margin-top: 45px;
+    }
+}
+
+@media (min-width: 768px) {
+    .home-image {
+        max-height: 350px !important;
+        margin-top: 45px;
+    }
+}
+
+/* buttons on home page */
 .btn-big {
     /* font */
     border: 1px solid #383838;
@@ -11,16 +26,37 @@
     width: 80%;
 }
 
-@media (max-width: 767px) {
-    .home-image {
-        max-height: 250px !important;
-        margin-top: 45px;
-    }
+/* transitions for home ms notice */
+.example-appear {
+    opacity: 0.01;
 }
 
-@media (min-width: 768px) {
-    .home-image {
-        max-height: 350px !important;
-        margin-top: 45px;
-    }
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+
+/* background color on image upload file container */
+.fileContainer {
+    background-color: lightgrey !important;
+}
+
+/* section headers for form panels */
+.sectionHeader {
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: #5cb85c;
+    color: #fffaee;
+    font-weight: 600;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.is-open {
+    background: rgb(44, 62, 80) !important;
+    color: #fffaee !important;
+    border: 0px !important;
 }
