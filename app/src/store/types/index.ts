@@ -31,3 +31,17 @@ export interface equipmentLoan {
     pickedUp: string
     returned: string
 }
+
+// equipment
+export interface equipment {
+    equipment: equipmentItem[]
+}
+
+export interface equipmentItem {
+    item: string
+    itemType: string
+    location: string
+    pcNumber: string
+    assetNumber: string
+    itemID: string
+}

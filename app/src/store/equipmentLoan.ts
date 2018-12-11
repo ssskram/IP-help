@@ -1,7 +1,7 @@
 
 import { Action, Reducer } from 'redux'
 import { AppThunkAction } from '.'
-import * as constants from './constants'
+import * as constants from './constants/index'
 import * as types from './types'
 
 const unloadedState: types.equipmentLoans = {
