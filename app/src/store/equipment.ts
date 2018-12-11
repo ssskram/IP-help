@@ -10,7 +10,7 @@ const unloadedState: types.equipment = {
 
 export const actionCreators = {
     loadEquipment: (): AppThunkAction<any> => (dispatch) => {
-        fetch("https://365proxy.azurewebsites.us/iphelp/allEquipmentLoans", {
+        fetch("https://365proxy.azurewebsites.us/iphelp/allEquipment", {
             method: 'get',
             headers: new Headers({
                 'Authorization': 'Bearer ' + process.env.REACT_APP_365_API
@@ -18,16 +18,16 @@ export const actionCreators = {
         })
             .then(res => res.json())
             .then(data => {
-                dispatch({ type: constants.loanEquipmentLoans, loans: data });
+                dispatch({ type: constants.loadEquipment, equipment: data });
             })
     }
 }
 
-export const reducer: Reducer<types.equipmentLoans> = (state: types.equipmentLoans, incomingAction: Action) => {
+export const reducer: Reducer<types.equipment> = (state: types.equipment, incomingAction: Action) => {
     const action = incomingAction as any
     switch (action.type) {
-        case constants.loanEquipmentLoans:
-            return { ...state, loans: action.loans }
+        case constants.loadEquipment:
+            return { ...state, loans: action.equipment }
     }
     return state || unloadedState
 }

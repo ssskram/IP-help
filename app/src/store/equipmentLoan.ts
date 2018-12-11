@@ -18,7 +18,7 @@ export const actionCreators = {
         })
             .then(res => res.json())
             .then(data => {
-                dispatch({ type: constants.loanEquipmentLoans, loans: data });
+                dispatch({ type: constants.loadEquipmentLoans, loans: data });
             })
     }
 }
@@ -26,7 +26,7 @@ export const actionCreators = {
 export const reducer: Reducer<types.equipmentLoans> = (state: types.equipmentLoans, incomingAction: Action) => {
     const action = incomingAction as any
     switch (action.type) {
-        case constants.loanEquipmentLoans:
+        case constants.loadEquipmentLoans:
             return { ...state, loans: action.loans }
     }
     return state || unloadedState
