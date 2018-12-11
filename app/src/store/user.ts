@@ -17,6 +17,7 @@ export const actionCreators = {
                         dispatch({ type: constants.loadUser, user: data.user });
                     })
                 })
+                .catch(err => console.log(err))
         } else {
             dispatch({ type: constants.loadUser, user: 'paul.marks@pittsburghpa.gov' });
         }

@@ -20,6 +20,7 @@ export const actionCreators = {
             .then(data => {
                 dispatch({ type: constants.loadEquipment, equipment: data });
             })
+            .catch(err => console.log(err))
     }
 }
 

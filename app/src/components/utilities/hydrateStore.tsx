@@ -7,6 +7,7 @@ import { ApplicationState } from '../../store'
 import * as user from '../../store/user'
 import * as liaisons from '../../store/liaisons'
 import * as equipmentLoans from '../../store/equipmentLoan'
+import * as equipment from '../../store/equipment'
 
 class Hydrate extends React.Component<any, {}> {
 
@@ -14,6 +15,7 @@ class Hydrate extends React.Component<any, {}> {
         this.props.loadUser()
         this.props.loadLiaisons()
         this.props.loadEquipmentLoans()
+        this.props.loadEquipment()
     }
 
     componentWillReceiveProps(nextProps) {
@@ -30,11 +32,13 @@ export default connect(
     (state: ApplicationState) => ({
         ...state.user,
         ...state.liaisons,
-        ...state.equipmentLoans
+        ...state.equipmentLoans,
+        ...state.equipment
     }),
     ({
         ...user.actionCreators,
         ...liaisons.actionCreators,
-        ...equipmentLoans.actionCreators
+        ...equipmentLoans.actionCreators,
+        ...equipment.actionCreators
     })
 )(Hydrate)
