@@ -29,7 +29,22 @@ type props = {
     reservationConfirmation: (message: string) => void
 }
 
-export class EquipmentReservations extends React.Component<props, any> {
+type state = {
+    reservationID: string
+    department: string
+    phone: string
+    items: types.equipmentItem[]
+    fromDate: string
+    fromTime: string
+    toDate: string
+    toTime: string
+    throwTimeError: boolean
+    selectedTypes: string[]
+    availableItems: types.equipmentItem[]
+    redirect: boolean
+}
+
+export class EquipmentReservations extends React.Component<props, state> {
     constructor(props) {
         super(props)
         this.state = {
@@ -85,9 +100,8 @@ export class EquipmentReservations extends React.Component<props, any> {
     }
 
     checkTimeFrame() {
-        console.log('here yo')
         if (this.state.fromDate != '' && this.state.fromTime != '' && this.state.toDate != '' && this.state.toTime != '') {
-            const hours = moment.duration(moment(this.state.to).diff(moment(this.state.from))).asHours()
+            const hours = moment.duration(moment(this.state.toDate + ' ' + this.state.toTime).diff(moment(this.state.fromDate + ' ' + this.state.fromTime))).asHours()
             // if desired time frame is greater than 72 hours
             if (hours > 72) { 
                 // clear fields, throw error
@@ -103,7 +117,7 @@ export class EquipmentReservations extends React.Component<props, any> {
         event.preventDefault()
         const load = {
             reservationID: this.state.reservationID,
-            department: this.state.Department,
+            department: this.state.department,
             phone: this.state.phone,
             from: this.state.fromDate + ' ' + this.state.fromTime, 
             to: this.state.toDate + ' ' + this.state.toTime,
