@@ -39,16 +39,13 @@ export class EquipmentReservations extends React.Component<props, any> {
             items: [],
             fromDate: '',
             fromTime: '',
-            from: '',
             toDate: '',
             toTime: '',
-            to: '',
             throwTimeError: false,
             selectedTypes: [],
             availableItems: [],
             redirect: false
         }
-        this.setDateTime = this.setDateTime.bind(this)
         this.checkTimeFrame = this.checkTimeFrame.bind(this)
     }
 
@@ -58,9 +55,10 @@ export class EquipmentReservations extends React.Component<props, any> {
         this.props.loadEquipmentLoans()
     }
 
-    updateState(stateObject, callBack) {
-        this.setState(stateObject), function (this) {
+    updateState(stateChange, callBack) {
+        this.setState(stateChange), function (this) {
             if (callBack) callBack
+            this.checkTimeFrame()
         }
     }
 
@@ -72,46 +70,31 @@ export class EquipmentReservations extends React.Component<props, any> {
         } = this.state
 
         if (!selectedTypes.includes(type)) {
-            const item = availableItems.find(item => {
-                return item.itemType == type || item.item == type
-            })
+            const item = availableItems.find(item => item.itemType == type || item.item == type)
             this.updateState({ selectedTypes: [...this.state.selectedTypes, type], items: [...this.state.items, item] }, null)
         } else {
-            const filteredTypes = selectedTypes.filter(item => {
-                return item != type
-            })
+            const filteredTypes = selectedTypes.filter(item => item != type)
             let filteredItems = [] as any
             if (flavor == 'Accessory') {
-                filteredItems = items.filter(item => {
-                    return item.item != type
-                })
+                filteredItems = items.filter(item => item.item != type)
             } else {
-                filteredItems = items.filter(item => {
-                    return item.itemType != type
-                })
+                filteredItems = items.filter(item => item.itemType != type)
             }
             this.updateState({ selectedTypes: filteredTypes, items: filteredItems }, null)
         }
     }
 
-    setDateTime(name) {
-        if (name.includes('from')) {
-            this.updateState({ from: this.state.fromDate + ' ' + this.state.fromTime, }, this.checkTimeFrame())
-        } else {
-            this.updateState({ to: this.state.toDate + ' ' + this.state.toTime }, this.checkTimeFrame())
-        }
-    }
-
     checkTimeFrame() {
+        console.log('here yo')
         if (this.state.fromDate != '' && this.state.fromTime != '' && this.state.toDate != '' && this.state.toTime != '') {
-            const from = moment(this.state.from)
-            const to = moment(this.state.to)
-            var duration = moment.duration(to.diff(from));
-            var hours = duration.asHours();
-            if (hours > 72) {
-                this.updateState({ toTime: null, to: '', throwTimeError: true }, null)
+            const hours = moment.duration(moment(this.state.to).diff(moment(this.state.from))).asHours()
+            // if desired time frame is greater than 72 hours
+            if (hours > 72) { 
+                // clear fields, throw error
+                this.updateState({ toTime: null, toDate: null, throwTimeError: true }, null)
             } else {
-                this.updateState({ throwTimeError: false, availableItems: getAvailableEquipment(this.state.from, this.state.to, this.props.equipment, this.props.loans) }, null)
+                // calculate available items
+                this.updateState({ throwTimeError: false, availableItems: getAvailableEquipment(this.state, this.props.equipment, this.props.loans) }, null)
             }
         }
     }
@@ -122,8 +105,8 @@ export class EquipmentReservations extends React.Component<props, any> {
             reservationID: this.state.reservationID,
             department: this.state.Department,
             phone: this.state.phone,
-            from: this.state.from,
-            to: this.state.to,
+            from: this.state.fromDate + ' ' + this.state.fromTime, 
+            to: this.state.toDate + ' ' + this.state.toTime,
             items: this.state.items,
             types: this.state.selectedTypes
         }

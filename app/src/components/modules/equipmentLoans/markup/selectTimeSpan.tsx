@@ -16,6 +16,10 @@ export default class NewTicket extends React.Component<any, any> {
             throwTimeError,
         } = this.props.parentState
 
+        const {
+            updateState
+        } = this.props
+
         return <div className='col-md-6 col-md-offset-3 panel'>
             <div className='sectionHeader'>Timeframe</div>
             <div className='panel-body'>
@@ -30,7 +34,7 @@ export default class NewTicket extends React.Component<any, any> {
                         value={fromDate}
                         name="fromDate"
                         placeholder="Select a date"
-                        callback={(date) => this.setState({ fromDate: moment(date).format('MM/DD/YYYY') }, function (this) { this.setDateTime('fromDate') })}
+                        callback={(date) => updateState({ fromDate: moment(date).format('MM/DD/YYYY') }, null)}
                     />
                 </div>
                 <div className='col-md-6'>
@@ -38,7 +42,7 @@ export default class NewTicket extends React.Component<any, any> {
                         value={fromTime}
                         name="fromTime"
                         placeholder="Select a time"
-                        callback={(time) => this.setState({ fromTime: moment(time).format('h:mm A') }, function (this) { this.setDateTime('fromTime') })}
+                        callback={(time) => updateState({ fromTime: moment(time).format('h:mm A') }, null)}
                     />
                 </div>
                 <h4 style={{ paddingLeft: '35px' }}>Returning <b>{to}</b></h4>
@@ -47,7 +51,7 @@ export default class NewTicket extends React.Component<any, any> {
                         value={toDate}
                         name="toDate"
                         placeholder="Select a date"
-                        callback={(date) => this.setState({ toDate: moment(date).format('MM/DD/YYYY') }, function (this) { this.setDateTime('toDate') })}
+                        callback={(date) => updateState({ toDate: moment(date).format('MM/DD/YYYY') }, null)}
                     />
                 </div>
                 <div className='col-md-6'>
@@ -55,7 +59,7 @@ export default class NewTicket extends React.Component<any, any> {
                         value={toTime}
                         name="toTime"
                         placeholder="Select a time"
-                        callback={(time) => this.setState({ toTime: moment(time).format('h:mm A') }, function (this) { this.setDateTime('toTime') })}
+                        callback={(time) => updateState({ toTime: moment(time).format('h:mm A') }, null)}
                     />
                 </div>
             </div>

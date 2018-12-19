@@ -11,6 +11,10 @@ export default class UserInfo extends React.Component<any, any> {
             department
         } = this.props.parentState
         
+        const {
+            updateState
+        } = this.props
+
         return <div className='col-md-6 col-md-offset-3 panel'>
             <div className='sectionHeader'>Your information</div>
             <div className='panel-body'>
@@ -18,7 +22,7 @@ export default class UserInfo extends React.Component<any, any> {
                     value={phone}
                     header="Enter your phone number"
                     placeholder="Phone number"
-                    callback={(number) => this.setState({ phone: number })}
+                    callback={(phone) => updateState({ phone })}
                     required
                 />
 
@@ -26,7 +30,7 @@ export default class UserInfo extends React.Component<any, any> {
                     value={department}
                     header="Select your department"
                     placeholder='Department'
-                    onChange={department => this.setState({ department })}
+                    onChange={department => updateState({ department })}
                     multi={false}
                     options={Departments.Departments}
                     required

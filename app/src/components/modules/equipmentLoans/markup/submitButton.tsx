@@ -4,10 +4,6 @@ export default class SubmitTicket extends React.Component<any, any> {
 
     public render() {
         const {
-
-        } = this.props.parentState
-
-        const {
             submit
         } = this.props
         

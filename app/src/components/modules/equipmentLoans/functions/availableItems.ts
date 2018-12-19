@@ -2,34 +2,31 @@ import * as moment from 'moment'
 
 export function checkAvailability(itemType, availableEquipment, flavor) {
     if (flavor == 'Accessory') {
-        const available = availableEquipment.filter(item => {
-            return item.item == itemType
-        })
+        const available = availableEquipment.filter(item => item.item == itemType)
         if (available.length > 0) {
             return true
         } else return false
     } else {
-        const available = availableEquipment.filter(item => {
-            return item.itemType == itemType
-        })
+        const available = availableEquipment.filter(item => item.itemType == itemType)
         if (available.length > 0) {
             return true
         } else return false
     }
 }
 
-export function getAvailableEquipment(from, to, equipment, reservations) {
+// takes the timepsan provided, all equipment, and all existing reservations
+export function getAvailableEquipment(state, equipment, reservations) {
+
+    // finds existing reservations that overlap with timespan
     const format = 'MM-DD-YYYY, hh:mm A'
-    const fromDate = moment(from).format(format)
-    const toDate = moment(to).format(format)
     const overlappingResos = reservations.filter(reso => {
-        const fromMoment = moment(reso.from)
-        const toMoment = moment(reso.to)
-        return (fromMoment.isBetween(fromDate, toDate)) || (toMoment.isBetween(fromDate, toDate))
+        return (moment(reso.from).isBetween(moment(state.fromDate + ' ' + state.fromTime).format(format), moment(state.toDate + ' ' + state.toTime).format(format))) || 
+            (moment(reso.to).isBetween(moment(state.fromDate + ' ' + state.fromTime).format(format), moment(state.toDate + ' ' + state.toTime).format(format)))
     })
     if (overlappingResos.length == 0) {
         return equipment
     } else {
+        // if reservations overlap with timepsan, then return all equipment sub equipment for overlapping reservations
         let availableEquipment = equipment.filter(item => {
             return overlappingResos.filter(reso => {
                 return reso.itemID == item.itemID

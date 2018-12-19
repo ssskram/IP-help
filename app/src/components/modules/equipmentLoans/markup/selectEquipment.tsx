@@ -2,10 +2,10 @@ import * as React from 'react'
 import { checkAvailability } from '../functions/availableItems'
 import * as style from '../style'
 
-const laptop = require('../../../images/laptop.png')
-const tablet = require('../../../images/tablet.png')
-const speakers = require('../../../images/speakers.png')
-const projector = require('../../../images/projector.png')
+const laptop = require('../../../../images/laptop.png')
+const tablet = require('../../../../images/tablet.png')
+const speakers = require('../../../../images/speakers.png')
+const projector = require('../../../../images/projector.png')
 
 export default class SelectEquipment extends React.Component<any, any> {
 
