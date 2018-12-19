@@ -47,15 +47,20 @@ textarea {
     margin: 0.4em 1em;
 }
 
+.react-datepicker__month-read-view--selected-month {
+    font-size: 1.5em;
+}
+
+.react-datepicker__year-read-view {
+    font-size: 1.5em;
+}
+
 .react-datepicker__day-name,
 .react-datepicker__day {
     width: 1.9em;
     line-height: 1.9em;
     margin: 0.166em;
-}
-
-.react-datepicker__current-month {
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 .react-datepicker__navigation {
@@ -70,6 +75,7 @@ textarea {
 
 .react-datepicker__time {
     width: 100% !important;
+    font-size: 1.5em;
 }
 
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {
@@ -77,12 +83,11 @@ textarea {
 }
 
 .btn-datepicker {
-    border-radius: 10px;
-    border: 1px solid #909090;
-    padding: 8px 15px !important;
+    border: 1px solid #ccc;
+    padding: 6px 12px !important;
     height: auto;
     line-height: 1.8;
-    color: #383838;
+    color: #555;
     width: 100%;
     text-align: left;
     background-color: #fff;

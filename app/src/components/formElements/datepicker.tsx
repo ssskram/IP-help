@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import DatePicker from 'react-datepicker'
 import * as moment from 'moment'
 import Moment from 'react-moment'
+import "react-datepicker/dist/react-datepicker.css"
 
 export default class Datepicker extends React.Component<any, any> {
     constructor(props) {

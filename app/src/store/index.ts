@@ -9,7 +9,7 @@ export interface ApplicationState {
     user: types.user,
     messages: types.messsage,
     liaisons: types.liaisons,
-    equipmentLoans: types.equipmentLoans,
+    loans: types.equipmentLoans,
     equipment: types.equipment
 }
 
@@ -17,7 +17,7 @@ export const reducers = {
     user: user.reducer,
     messages: messages.reducer,
     liaisons: liaisons.reducer,
-    equipmentLoans: equipmentLoans.reducer,
+    loans: equipmentLoans.reducer,
     equipment: equipment.reducer
 }
 

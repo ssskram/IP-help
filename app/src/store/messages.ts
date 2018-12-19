@@ -20,8 +20,8 @@ export const actionCreators = {
     noAccess: (): AppThunkAction<any> => (dispatch) => {
         dispatch({ type: constants.noAccess });
     },
-    reservationSuccess: (message): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.reservationSuccess, message });
+    reservationConfirmation: (message): AppThunkAction<any> => (dispatch) => {
+        dispatch({ type: constants.reservationConfirmation, message });
     }
 }
 
@@ -36,7 +36,7 @@ export const reducer: Reducer<types.messsage> = (state: types.messsage, incoming
             return { ...state, message: '' }
         case constants.noAccess:
             return { ...state, message: "<b>Sorry!</b> Only certain people can request new equipment<br/>Please contact your department's I&P liaison" }
-        case constants.reservationSuccess:
+        case constants.reservationConfirmation:
             return { ...state, message: action.message }
     }
     return state || unloadedState

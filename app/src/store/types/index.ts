@@ -21,7 +21,6 @@ export interface equipmentLoans {
 export interface equipmentLoan {
     reservationID: string
     department: string
-    networkID: string
     phone: string
     item: string
     itemID: string
@@ -31,12 +30,19 @@ export interface equipmentLoan {
     pickedUp: string
     returned: string
 }
-
+// new reservation
+export interface newReservation {
+    reservationID: string
+    department: string
+    phone: string
+    items: string[]
+    from: string
+    to: string
+}
 // equipment
 export interface equipment {
     equipment: equipmentItem[]
 }
-
 export interface equipmentItem {
     item: string
     itemType: string

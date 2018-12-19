@@ -32,7 +32,7 @@ export default connect(
     (state: ApplicationState) => ({
         ...state.user,
         ...state.liaisons,
-        ...state.equipmentLoans,
+        ...state.loans,
         ...state.equipment
     }),
     ({
