@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
+import './css/accordion.css'
 import './css/alerts.css'
 import './css/buttons.css'
 import './css/core.css'

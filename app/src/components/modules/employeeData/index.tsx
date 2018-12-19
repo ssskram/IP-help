@@ -4,8 +4,8 @@ const emailIcon = require('./../../../images/mail.png')
 const mobileIcon = require('./../../../images/mobile.png')
 
 const imgSize = {
-    height: '100px',
-    margin: '10px'
+    height: '80px',
+    margin: '5px'
 }
 
 const fontColor = {

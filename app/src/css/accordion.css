@@ -1,0 +1,51 @@
+.accordion__title {
+    background-color: transparent !important;
+    font-size: 1.5em;
+}
+
+.accordion__title:hover,
+.accordion__title:active,
+.accordion__title:focus {
+    background-color: rgb(44, 62, 80) !important;
+    color: #fff;
+    outline: none;
+}
+
+.accordion {
+    border: 0px solid transparent !important;
+}
+
+.accordion__body {
+    background-color: rgb(44, 62, 80) !important;
+    color: #fff;
+}
+
+.accordion__body>a {
+    color: #fff;
+}
+
+.accordion__body>h1,
+.accordion__body>h2,
+.accordion__body>h3,
+.accordion__body>h4,
+.accordion__body>h5 {
+    color: #fff;
+}
+
+.btn-selfservice {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    border: .5px solid #fff !important;
+    border-radius: 2px;
+    transition: all .1s ease 0s;
+    padding: 10px 15px;
+    margin: 5px 0px;
+    width: 100%;
+}
+
+.btn-selfservice:hover,
+.btn-selfservice:active {
+    background-color: #FAF7F2;
+    color: rgb(44, 62, 80);
+    font-weight: bold;
+}

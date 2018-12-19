@@ -5,7 +5,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion'
-
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 export default class SelfService extends React.Component<any, any> {
@@ -16,10 +15,11 @@ export default class SelfService extends React.Component<any, any> {
         return <div className="centered">
             <h1 className="text-center">These are for you</h1>
             <h4 className="text-center">If something is missing, please let us know</h4>
+            <br />
             <Accordion>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Departmental Liaisons to I&P</h3>
+                        <div>Departmental Liaisons to I&P</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>Troubleshooting</b></h4>
@@ -34,40 +34,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Spotlight: Readitfor.me</h3>
-                    </AccordionItemTitle>
-                    <AccordionItemBody>
-                        <div className="row ss-center">
-                            <h2>Self Service Spotlight</h2>
-                            Introducing the new learning resource that is available to all employees!<br />
-                            <strong>Readitfor.me</strong> is a place to learn, retain and apply the ideas from the best personal development books in the world.
-                            <hr />
-                        </div>
-                        <div className="col-sm-6">
-                            <ul>
-                                <li>
-                                    <p>Read, listen or watch video summaries of popular professional books.</p>
-                                </li>
-                                <li>
-                                    <p>The service is unlimited, so use it as much as you want!</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-sm-6">
-                            <ul>
-                                <li>
-                                    <p><a href="https://readitfor.me/ pittsburghpa" target="_blank">Follow this link to create an account with your work email.</a></p>
-                                </li>
-                                <li>
-                                    <p>Enjoy "speed reading" today!</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </AccordionItemBody>
-                </AccordionItem>
-                <AccordionItem>
-                    <AccordionItemTitle>
-                        <h3>APRS</h3>
+                        <div>APRS</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>Troubleshooting</b></h4>
@@ -78,7 +45,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Legistar</h3>
+                        <div>Legistar</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -89,7 +56,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Microsoft Office 365</h3>
+                        <div>Microsoft Office 365</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>Training resources</b></h4>
@@ -124,7 +91,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Municode</h3>
+                        <div>Municode</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -135,7 +102,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Printers & MFDs</h3>
+                        <div>Printers & MFDs</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -152,7 +119,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>RSA Tokens</h3>
+                        <div>RSA Tokens</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -163,7 +130,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Telephone & Voicemail</h3>
+                        <div>Telephone & Voicemail</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -174,7 +141,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Windows 7</h3>
+                        <div>Windows 7</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>User guides</b></h4>
@@ -203,7 +170,7 @@ export default class SelfService extends React.Component<any, any> {
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionItemTitle>
-                        <h3>Windows 10</h3>
+                        <div>Windows 10</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                         <h4><b>Training resources</b></h4>
