@@ -8,6 +8,9 @@ const unloadedState: types.messsage = {
 }
 
 export const actionCreators = {
+    newMessage: (message): AppThunkAction<any> => (dispatch) => {
+        dispatch({ type: constants.newMessage, message });
+    },
     successMessage: (): AppThunkAction<any> => (dispatch) => {
         dispatch({ type: constants.success });
     },
@@ -16,12 +19,6 @@ export const actionCreators = {
     },
     clearMessage: (): AppThunkAction<any> => (dispatch) => {
         dispatch({ type: constants.clear });
-    },
-    noAccess: (): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.noAccess });
-    },
-    reservationConfirmation: (message): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.reservationConfirmation, message });
     }
 }
 
@@ -31,12 +28,10 @@ export const reducer: Reducer<types.messsage> = (state: types.messsage, incoming
         case constants.success:
             return { ...state, message: "<b>Success!<b/><br/>You'll be hearing from us soon" }
         case constants.failure:
-            return { ...state, message: "<b>Oops!<b/><br/>That didn't work<br/>Please log out, log back in, and try again" }
+            return { ...state, message: "Ooops!<br/>That didn't work<br/>Please logout, log back in, and try again" }
         case constants.clear:
             return { ...state, message: '' }
-        case constants.noAccess:
-            return { ...state, message: "<b>Sorry!</b> Only certain people can request new equipment<br/>Please contact your department's I&P liaison" }
-        case constants.reservationConfirmation:
+        case constants.newMessage:
             return { ...state, message: action.message }
     }
     return state || unloadedState

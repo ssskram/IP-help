@@ -8,8 +8,8 @@ import * as Equipment from '../../../store/equipment'
 import * as Messages from '../../../store/messages'
 import * as User from '../../../store/user'
 import * as moment from 'moment'
-import * as shortID from 'shortid'
 import { getAvailableEquipment } from './availableItems'
+import randomize from 'randomatic'
 import postOTRS from './postOTRS'
 import postSP from './postSP'
 import SelectTimeSpan from './markup/selectTimeSpan'
@@ -26,7 +26,8 @@ type props = {
     user: types.user
     loadEquipment: () => void
     loadEquipmentLoans: () => void
-    reservationConfirmation: (message: string) => void
+    newMessage: (message: string) => void
+    errorMessage: () => void
 }
 
 type state = {
@@ -48,7 +49,7 @@ export class EquipmentReservations extends React.Component<props, state> {
     constructor(props) {
         super(props)
         this.state = {
-            reservationID: shortID.generate(),
+            reservationID: randomize('0', 7),
             department: '',
             phone: '',
             items: [],
@@ -112,8 +113,8 @@ export class EquipmentReservations extends React.Component<props, state> {
         }
     }
 
-    submit(event) {
-        event.preventDefault()
+    async submit() {
+        // data to post
         const load = {
             reservationID: this.state.reservationID,
             department: this.state.department,
@@ -123,9 +124,16 @@ export class EquipmentReservations extends React.Component<props, state> {
             items: this.state.items,
             types: this.state.selectedTypes
         }
-        postSP(load, this.props.user)
-        postOTRS(load, this.props.user)
-        this.props.reservationConfirmation('Success!<br/>Your reservation ID is ' + this.state.reservationID + '<br/>Please bring your reservation ID when picking up your equipment')
+        // communicate success/failure
+        let success = true
+        success = await postSP(load, this.props.user)
+        if (success == true) success = await postOTRS(load, this.props.user)
+        if (success == true) {
+            this.props.newMessage('Success!<br/>Your reservation ID is ' + this.state.reservationID + '<br/>Please bring your reservation ID when picking up your equipment')
+        } else {
+            this.props.errorMessage()
+        }
+        // send 'em on home
         this.setState({ redirect: true })
     }
 

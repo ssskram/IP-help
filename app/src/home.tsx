@@ -14,6 +14,10 @@ const ipIcon = require('./images/ip.png')
 
 export default class Home extends React.Component<any, any> {
 
+    componentDidMount () {
+        window.scrollTo(0,0)
+    }
+
     render() {
         return (
             <div className="home-container">
@@ -22,6 +26,7 @@ export default class Home extends React.Component<any, any> {
                 <div className='text-center'>
                     <h1>We're here to <strong>help</strong></h1>
                     <div className="row text-center">
+                        <br />
                         <Messages />
                     </div>
                     <div style={{ marginTop: '20px' }} className='row text-center'>
