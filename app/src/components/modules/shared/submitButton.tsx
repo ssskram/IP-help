@@ -1,7 +1,15 @@
 import * as React from 'react'
 import Spinner from '../../utilities/spinner'
 
-export default class SubmitTicket extends React.Component<any, any> {
+type props = {
+    submit: () => void
+}
+
+type state = {
+    spinner: boolean
+}
+
+export default class SubmitTicket extends React.Component<props, state> {
     constructor(props) {
         super(props)
         this.state = {

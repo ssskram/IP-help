@@ -1,4 +1,15 @@
-export const Departments  = [
+
+export const YesNo = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+]
+
+export const NewReplacement = [
+    { value: 'New', label: 'New' },
+    { value: 'Replacement', label: 'Replacement' }
+]
+
+export const Departments = [
     { value: 'Animal Control', label: 'Animal Control', name: 'Department' },
     { value: 'Bureau of Neighborhood Empowerment', label: 'Bureau of Neighborhood Empowerment', name: 'Department' },
     { value: 'Citiparks', label: 'Citiparks', name: 'Department' },
@@ -28,8 +39,4 @@ export const Departments  = [
     { value: 'Police', label: 'Police', name: 'Department' },
     { value: 'Public Safety', label: 'Public Safety', name: 'Department' },
     { value: 'Public Works', label: 'Public Works', name: 'Department' }
-  ]
-  
-  export default {
-      Departments
-  }
+]

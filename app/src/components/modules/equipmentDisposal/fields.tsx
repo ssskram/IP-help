@@ -5,7 +5,7 @@ import Select from '../../formElements/select'
 import Number from '../../formElements/numbers'
 import Phone from '../../formElements/phone'
 import Types from './equipmentTypes'
-import Departments from '../../utilities/departments'
+import * as SharedSelects from '../shared/selects'
 import postPickup from './postPickup'
 import Spinner from '../../utilities/spinner'
 import UnsupportedItems from './unsupportedItems'
@@ -137,7 +137,7 @@ export default class equipmentPickup extends React.Component<any, any> {
                         placeholder='Select department'
                         onChange={department => this.setState({ department })}
                         multi={false}
-                        options={Departments.Departments}
+                        options={SharedSelects.Departments}
                         required
                     />
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Phone from '../../../formElements/phone'
 import Select from '../../../formElements/select'
-import Departments from '../../../utilities/departments'
+import * as SharedSelects from '../../shared/selects'
 
 export default class UserInfo extends React.Component<any, any> {
 
@@ -32,7 +32,7 @@ export default class UserInfo extends React.Component<any, any> {
                     placeholder='Department'
                     onChange={department => setState({ department })}
                     multi={false}
-                    options={Departments.Departments}
+                    options={SharedSelects.Departments}
                     required
                 />
             </div>

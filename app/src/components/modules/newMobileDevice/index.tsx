@@ -12,12 +12,14 @@ import Post from './post'
 import SubmitButton from '../shared/submitButton'
 import Header from '../shared/header'
 import * as Selects from './selects'
+import * as SharedSelects from '../shared/selects'
 
 type props = {
     successMessage: () => void
     errorMessage: () => void
     user: types.user
 }
+
 type state = {
     deviceType: string
     newReplacement: any
@@ -108,7 +110,7 @@ export class MobileDevice extends React.Component<props, state> {
                         placeholder='New or replacement'
                         onChange={newReplacement => this.setState({ newReplacement })}
                         multi={false}
-                        options={Selects.NeworReplacement}
+                        options={SharedSelects.NewReplacement}
                         required
                     />
                     <Input

@@ -17,7 +17,7 @@ export default class SelectElement extends React.Component<any, any> {
                         closeOnSelect={!this.props.multi}
                         simpleValue={this.props.multi}
                         removeSelected={this.props.multi}
-                        multi={this.props.multi}
+                        isMulti={this.props.multi}
                         clearable={this.props.multi}
                     />
                 </div>
