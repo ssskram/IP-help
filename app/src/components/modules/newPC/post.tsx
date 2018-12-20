@@ -29,7 +29,7 @@ export default async function postOTRS(request, user) {
         .catch(err => postSuccess = false)
     try {
         // build sendgrid load
-        const otrsLoad = JSON.stringify({
+        let otrsLoad = {
             to: "paul.marks@pittsburghpa.gov",
             from: {
                 email: user,
@@ -37,17 +37,30 @@ export default async function postOTRS(request, user) {
             },
             subject: "Request for new PC",
             html: otrs
-        })
+        }
         // and post
         await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
             method: 'POST',
-            body: otrsLoad,
+            body: JSON.stringify(otrsLoad),
             headers: new Headers({
                 'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
                 'Content-type': 'application/json'
             })
         })
             .catch(err => postSuccess = false)
+        // if somebody is CCd
+        if (request.cc) {
+            otrsLoad.to = request.cc
+            await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
+                method: 'POST',
+                body: JSON.stringify(otrsLoad),
+                headers: new Headers({
+                    'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
+                    'Content-type': 'application/json'
+                })
+            })
+                .catch(err => postSuccess = false)
+        }
     } catch (err) {
         postSuccess = false
     }
