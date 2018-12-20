@@ -5,19 +5,18 @@ import * as moment from 'moment'
 
 export default class NewTicket extends React.Component<any, any> {
 
+    handleChange(field, value) {
+        const self = this
+        this.props.setState({ [field]: value }, () => { self.props.checkTimeFrame() })
+    }
+
     public render() {
         const {
             fromDate,
             fromTime,
-            from,
             toDate,
             toTime,
-            to,
-            throwTimeError,
-        } = this.props.parentState
-
-        const {
-            updateState
+            throwTimeError
         } = this.props
 
         return <div className='col-md-6 col-md-offset-3 panel'>
@@ -28,13 +27,13 @@ export default class NewTicket extends React.Component<any, any> {
                         For loans longer than 72 hours, please call the Help Desk at 255-2900
                 </div>
                 }
-                <h4 style={{ paddingLeft: '35px' }}>Picking up <b>{from}</b></h4>
+                <h4 style={{ paddingLeft: '35px' }}>Picking up</h4>
                 <div className='col-md-6'>
                     <DatePicker
                         value={fromDate}
                         name="fromDate"
                         placeholder="Select a date"
-                        callback={(date) => updateState({ fromDate: moment(date).format('MM/DD/YYYY') }, null)}
+                        callback={(date) => this.handleChange('fromDate', moment(date).format('MM/DD/YYYY'))}
                     />
                 </div>
                 <div className='col-md-6'>
@@ -42,16 +41,16 @@ export default class NewTicket extends React.Component<any, any> {
                         value={fromTime}
                         name="fromTime"
                         placeholder="Select a time"
-                        callback={(time) => updateState({ fromTime: moment(time).format('h:mm A') }, null)}
+                        callback={((time) => this.handleChange('fromTime', moment(time).format('h:mm A')))}
                     />
                 </div>
-                <h4 style={{ paddingLeft: '35px' }}>Returning <b>{to}</b></h4>
+                <h4 style={{ paddingLeft: '35px' }}>Returning</h4>
                 <div className='col-md-6'>
                     <DatePicker
                         value={toDate}
                         name="toDate"
                         placeholder="Select a date"
-                        callback={(date) => updateState({ toDate: moment(date).format('MM/DD/YYYY') }, null)}
+                        callback={((date) => this.handleChange('toDate', moment(date).format('MM/DD/YYYY')))}
                     />
                 </div>
                 <div className='col-md-6'>
@@ -59,7 +58,7 @@ export default class NewTicket extends React.Component<any, any> {
                         value={toTime}
                         name="toTime"
                         placeholder="Select a time"
-                        callback={(time) => updateState({ toTime: moment(time).format('h:mm A') }, null)}
+                        callback={((time) => this.handleChange('toTime', moment(time).format('h:mm A')))}
                     />
                 </div>
             </div>

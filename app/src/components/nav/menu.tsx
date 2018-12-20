@@ -10,7 +10,7 @@ export default class Menu extends React.Component {
 
     public render() {
         return (
-            <Nav>
+            <div>
                 <LinkContainer style={buttonWidth} to={'/NewPC'} exact>
                     <button className='btn btn-primary nav-button'>New PC</button>
                 </LinkContainer>
@@ -35,7 +35,7 @@ export default class Menu extends React.Component {
                 <a target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
                     <button style={buttonWidth} className='btn btn-warning nav-button'><span style={{ color: '#383838' }}>My tickets</span></button>
                 </a>
-            </Nav>
+            </div>
         )
     }
 }

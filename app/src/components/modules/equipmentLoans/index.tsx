@@ -61,7 +61,6 @@ export class EquipmentReservations extends React.Component<props, state> {
             availableItems: [],
             redirect: false
         }
-        this.checkTimeFrame = this.checkTimeFrame.bind(this)
     }
 
     componentDidMount() {
@@ -70,24 +69,37 @@ export class EquipmentReservations extends React.Component<props, state> {
         this.props.loadEquipmentLoans()
     }
 
-    updateState(stateChange, callBack) {
-        this.setState(stateChange), function (this) {
-            if (callBack) callBack
-            this.checkTimeFrame()
+    checkTimeFrame() {
+        // calculate span in hours
+        const hours = moment.duration(moment(this.state.toDate + ' ' + this.state.toTime).diff(moment(this.state.fromDate + ' ' + this.state.fromTime))).asHours()
+        // if desired time frame is greater than 72 hours
+        if (hours > 72) {
+            // clear fields, throw error
+            this.setState({ toTime: '', throwTimeError: true })
+        } else {
+            // calculate available items
+            this.setState({ throwTimeError: false, availableItems: getAvailableEquipment(this.state, this.props.equipment, this.props.loans) })
         }
     }
 
     addRemoveItem(type, flavor) {
+        // manages state arrays of selectedTypes and items
         const {
             selectedTypes,
             availableItems,
             items
         } = this.state
 
-        if (!selectedTypes.includes(type)) {
-            const item = availableItems.find(item => item.itemType == type || item.item == type)
-            this.updateState({ selectedTypes: [...this.state.selectedTypes, type], items: [...this.state.items, item] }, null)
-        } else {
+        if (!selectedTypes.includes(type)) { // add item
+            // get an item of corresponding item type
+            const item: any = availableItems.find(item => item.itemType == type || item.item == type)
+            // add item to state, and add type to selectedTypes for reference
+            this.setState({
+                selectedTypes: [...this.state.selectedTypes, type],
+                items: [...this.state.items, item]
+            })
+        } else { // remove item
+            // filter out item & item type from existing state arrays
             const filteredTypes = selectedTypes.filter(item => item != type)
             let filteredItems = [] as any
             if (flavor == 'Accessory') {
@@ -95,21 +107,8 @@ export class EquipmentReservations extends React.Component<props, state> {
             } else {
                 filteredItems = items.filter(item => item.itemType != type)
             }
-            this.updateState({ selectedTypes: filteredTypes, items: filteredItems }, null)
-        }
-    }
-
-    checkTimeFrame() {
-        if (this.state.fromDate != '' && this.state.fromTime != '' && this.state.toDate != '' && this.state.toTime != '') {
-            const hours = moment.duration(moment(this.state.toDate + ' ' + this.state.toTime).diff(moment(this.state.fromDate + ' ' + this.state.fromTime))).asHours()
-            // if desired time frame is greater than 72 hours
-            if (hours > 72) { 
-                // clear fields, throw error
-                this.updateState({ toTime: null, toDate: null, throwTimeError: true }, null)
-            } else {
-                // calculate available items
-                this.updateState({ throwTimeError: false, availableItems: getAvailableEquipment(this.state, this.props.equipment, this.props.loans) }, null)
-            }
+            // set filtered arrays to state
+            this.setState({ selectedTypes: filteredTypes, items: filteredItems })
         }
     }
 
@@ -119,7 +118,7 @@ export class EquipmentReservations extends React.Component<props, state> {
             reservationID: this.state.reservationID,
             department: this.state.department,
             phone: this.state.phone,
-            from: this.state.fromDate + ' ' + this.state.fromTime, 
+            from: this.state.fromDate + ' ' + this.state.fromTime,
             to: this.state.toDate + ' ' + this.state.toTime,
             items: this.state.items,
             types: this.state.selectedTypes
@@ -156,12 +155,17 @@ export class EquipmentReservations extends React.Component<props, state> {
                 <div className='col-md-12'>
                     <UserInfo
                         parentState={this.state}
-                        updateState={this.updateState.bind(this)}
+                        setState={this.setState.bind(this)}
                     />
                     {showTimespan == true &&
                         <SelectTimeSpan
-                            parentState={this.state}
-                            updateState={this.updateState.bind(this)}
+                            fromDate={this.state.fromDate}
+                            fromTime={this.state.fromTime}
+                            toDate={this.state.toDate}
+                            toTime={this.state.toTime}
+                            throwTimeError={this.state.throwTimeError}
+                            setState={this.setState.bind(this)}
+                            checkTimeFrame={this.checkTimeFrame.bind(this)}
                         />
                     }
                     {showEquipment == true &&
