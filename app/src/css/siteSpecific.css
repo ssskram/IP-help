@@ -13,6 +13,7 @@
 }
 
 /* buttons on home page */
+
 .btn-big {
     font-size: 18px;
     padding: 15px 40px !important;
@@ -22,6 +23,7 @@
 }
 
 /* transitions for home ms notice */
+
 .example-appear {
     opacity: 0.01;
 }
@@ -32,11 +34,13 @@
 }
 
 /* background color on image upload file container */
+
 .fileContainer {
     background-color: lightgrey !important;
 }
 
 /* section headers for form panels */
+
 .sectionHeader {
     letter-spacing: 3px;
     text-align: center;
@@ -54,4 +58,8 @@
     background: rgb(44, 62, 80) !important;
     color: #fffaee !important;
     border: 0px !important;
+}
+
+.tooltip-container {
+    margin-left: 25px;
 }
