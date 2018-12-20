@@ -5,28 +5,24 @@ export default async function postOTRS(request, user) {
 
     // prepare email
     let otrs
-    await fetch('emailTemplates/equipmentLoanOTRS.html')
+    await fetch('emailTemplates/miscTicket.html')
         .then(response => response.text())
         .then(text => otrs = String.format(text,
-            request.reservationID, // 0
-            user, // 1
-            request.items.map(u => u.item).join(', '), // 2
-            request.from, // 3
-            request.to)) // 4
+            request.body)) // 4
         .catch(err => postSuccess = false)
     try {
         // build sendgrid load
         const otrsLoad = JSON.stringify({
-            to: "cis.sys.net.notifier@pittsburghpa.gov",
+            to: "paul.marks@pittsburghpa.gov",
             from: {
                 email: user,
                 name: 'I&P Help'
             },
-            subject: 'Equipment Loan #' + request.reservationID,
+            subject: request.subject,
             html: otrs
         })
         // and post
-        fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
+        await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
             method: 'POST',
             body: otrsLoad,
             headers: new Headers({
