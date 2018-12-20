@@ -1,22 +1,5 @@
 import * as moment from 'moment'
 
-// takes an item type, array of available equipment during timespoan, and  flavor (accessory vs. nonaccessory)
-export function checkAvailability(itemType, availableEquipment, flavor) {
-    // filters available equipment by item type
-    if (flavor == 'Accessory') {
-        const available = availableEquipment.filter(item => item.item == itemType)
-        if (available.length > 0) {
-            // got anything? return true
-            return true
-        } else return false
-    } else {
-        const available = availableEquipment.filter(item => item.itemType == itemType)
-        if (available.length > 0) {
-            return true
-        } else return false
-    }
-}
-
 // takes the timepsan provided, all equipment, and all existing reservations
 export function getAvailableEquipment(state, equipment, reservations) {
 
@@ -36,5 +19,22 @@ export function getAvailableEquipment(state, equipment, reservations) {
             }).length == 0
         })
         return availableEquipment
+    }
+}
+
+// takes an item type, array of available equipment from getAvailableEquipment(), and  flavor (accessory vs. nonaccessory)
+export function checkAvailability(itemType, availableEquipment, flavor) {
+    // filters available equipment by item type
+    if (flavor == 'Accessory') {
+        const available = availableEquipment.filter(item => item.item == itemType)
+        if (available.length > 0) {
+            // got anything? return true
+            return true
+        } else return false
+    } else {
+        const available = availableEquipment.filter(item => item.itemType == itemType)
+        if (available.length > 0) {
+            return true
+        } else return false
     }
 }
