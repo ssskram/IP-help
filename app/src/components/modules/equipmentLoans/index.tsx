@@ -16,8 +16,8 @@ import SelectTimeSpan from './markup/selectTimeSpan'
 import UserInfo from './markup/userInfo'
 import SelectEquipment from './markup/selectEquipment'
 import SelectAccessories from './markup/selectAccessories'
-import SubmitButton from './markup/submitButton'
-import Header from './markup/header'
+import SubmitButton from '../shared/submitButton'
+import Header from '../shared/header'
 
 type props = {
     loans: types.equipmentLoans
@@ -159,7 +159,10 @@ export class EquipmentReservations extends React.Component<props, state> {
 
         return (
             <div style={{ marginBottom: '100px' }} className='centered'>
-                <Header />
+                <Header 
+                    mainText='Borrow equipment'
+                    subText='Complete all fields and submit'
+                />
                 <div className='col-md-12'>
                     <UserInfo
                         parentState={this.state}

@@ -1,13 +1,115 @@
 import * as React from 'react'
+import { Redirect } from 'react-router-dom'
+import TextArea from '../../formElements/textarea'
+import Input from '../../formElements/input'
+import * as MessagesStore from '../../../store/messages'
+import * as User from '../../../store/user'
+import { connect } from 'react-redux'
+import { ApplicationState } from '../../../store'
+import * as types from '../../../store/types'
+import Post from './post'
+import SubmitButton from '../shared/submitButton'
+import Header from '../shared/header'
 
-export default class NewTicket extends React.Component<any, any> {
+type props = {
+    successMessage: () => void
+    errorMessage: () => void
+    user: types.user
+}
+type state = {
+    body: string
+    subject: string
+    redirect: boolean
+}
+
+export class Other extends React.Component<props, state> {
+    constructor(props) {
+        super(props);
+        this.state = {
+            body: '',
+            subject: '',
+            redirect: false
+        }
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
+    async submit() {
+        // data to post
+        const load = {
+            body: this.state.body,
+            subject: this.state.subject
+        }
+        // communicate success/failure
+        let success = true
+        success = await Post(load, this.props.user)
+        if (success == true) {
+            this.props.successMessage()
+        } else {
+            this.props.errorMessage()
+        }
+        // send 'em on home
+        this.setState({ redirect: true })
+    }
+
 
     public render() {
-        
-        window.scrollTo(0, 0)
+        const {
+            body,
+            subject,
+            redirect
+        } = this.state
+
+        const isEnabled =
+            body != '' &&
+            subject != ''
+
+        if (redirect) {
+            return <Redirect to='/' />
+        }
 
         return <div className="centered">
-        misc
+            <Header
+                mainText='Miscellaneous request'
+            />
+            <div className="col-md-12">
+                <div className="col-md-6 col-md-offset-3 panel panel-body">
+                    <Input
+                        value={subject}
+                        name="subject"
+                        header="Subject"
+                        placeholder="What's the issue?"
+                        callback={e => this.setState({ subject: e.target.value })}
+                        required
+                    />
+                    <TextArea
+                        header="Describe your request"
+                        placeholder="How can we help you?"
+                        name="body"
+                        value={body}
+                        callback={e => this.setState({ body: e.target.value })}
+                        required
+                    />
+                </div>
+                {isEnabled &&
+                    <SubmitButton
+                        submit={this.submit.bind(this)}
+                    />
+                }
+            </div>
         </div>
     }
 }
+
+export default connect(
+    (state: ApplicationState) => ({
+        ...state.messages,
+        ...state.user
+    }),
+    ({
+        ...MessagesStore.actionCreators,
+        ...User.actionCreators
+    })
+)(Other as any)
