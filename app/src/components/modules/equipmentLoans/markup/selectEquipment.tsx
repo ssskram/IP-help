@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { checkAvailability } from '../functions/availableItems'
+import { checkAvailability } from '../availableItems'
 import * as style from '../style'
 
 const laptop = require('../../../../images/laptop.png')
@@ -27,36 +27,36 @@ export default class SelectEquipment extends React.Component<any, any> {
             </div>
                 <div className='row text-center'>
                     {checkAvailability('Laptop', availableItems, 'Equipment') &&
-                        <button onClick={() => addRemoveItem('Laptop', 'Equipment')} style={(selectedTypes.includes('Laptop')) ? style.clicked : style.unclicked} className='btn btn-big btn-primary'>
+                        <button onClick={() => addRemoveItem('Laptop', 'Equipment')} style={(selectedTypes.includes('Laptop')) ? style.clicked : style.unclicked} className='btn btn-big'>
                             <div className='col-md-12'>
                                 <img style={style.imgSize} src={laptop as string} />
                             </div>
                             Laptop
-                    </button>
+                        </button>
                     }
                     {checkAvailability('Surface', availableItems, 'Equipment') &&
-                        <button onClick={() => addRemoveItem('Surface', 'Equipment')} style={(selectedTypes.includes('Surface')) ? style.clicked : style.unclicked} className='btn btn-big btn-primary'>
+                        <button onClick={() => addRemoveItem('Surface', 'Equipment')} style={(selectedTypes.includes('Surface')) ? style.clicked : style.unclicked} className='btn btn-big'>
                             <div className='col-md-12'>
                                 <img style={style.imgSize} src={tablet as string} />
                             </div>
                             Surface Tablet
-                    </button>
+                        </button>
                     }
                     {checkAvailability('Portable Projector', availableItems, 'Equipment') &&
-                        <button onClick={() => addRemoveItem('Portable Projector', 'Equipment')} style={(selectedTypes.includes('Portable Projector')) ? style.clicked : style.unclicked} className='btn btn-big btn-primary'>
+                        <button onClick={() => addRemoveItem('Portable Projector', 'Equipment')} style={(selectedTypes.includes('Portable Projector')) ? style.clicked : style.unclicked} className='btn btn-big'>
                             <div className='col-md-12'>
                                 <img style={style.imgSize} src={projector as string} />
                             </div>
                             Projector
-                    </button>
+                        </button>
                     }
                     {checkAvailability('Desktop Speakers', availableItems, 'Equipment') &&
-                        <button onClick={() => addRemoveItem('Desktop Speakers', 'Equipment')} style={(selectedTypes.includes('Desktop Speakers')) ? style.clicked : style.unclicked} className='btn btn-big btn-primary'>
+                        <button onClick={() => addRemoveItem('Desktop Speakers', 'Equipment')} style={(selectedTypes.includes('Desktop Speakers')) ? style.clicked : style.unclicked} className='btn btn-big'>
                             <div className='col-md-12'>
                                 <img style={style.imgSize} src={speakers as string} />
                             </div>
                             Desktop Speakers
-                    </button>
+                        </button>
                     }
                 </div>
             </div>
