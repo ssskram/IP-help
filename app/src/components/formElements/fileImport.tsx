@@ -18,7 +18,7 @@ const deleteBtn = {
 }
 
 export default class fileImport extends React.Component<any, any> {
-
+    
     addAttachment(attachments) {
         this.props.callback({ attachments })
     }

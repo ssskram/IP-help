@@ -43,7 +43,8 @@ export class Other extends React.Component<props, state> {
         // data to post
         const load = {
             body: this.state.body,
-            subject: this.state.subject
+            subject: this.state.subject,
+            attachments: this.state.attachments
         }
         // communicate success/failure
         let success = true

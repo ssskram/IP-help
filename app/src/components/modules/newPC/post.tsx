@@ -30,7 +30,7 @@ export default async function postOTRS(request, user) {
     try {
         // build sendgrid load
         let otrsLoad = {
-            to: "paul.marks@pittsburghpa.gov",
+            to: "cis.sys.net.notifier@pittsburghpa.gov",
             from: {
                 email: user,
                 name: 'I&P Help'
