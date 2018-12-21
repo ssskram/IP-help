@@ -24,7 +24,7 @@ export default class Home extends React.Component<any, any> {
                     <div className='home-child-1 text-center'>
                         <img src={ipIcon as string} className="img-responsive center-block home-image" />
                         <h1>We're here to <b>help</b></h1>
-                        <button style={{ fontSize: '1.2em' }} onClick={() => this.ref.current.scrollIntoView({ block: 'center', behavior: "smooth" })} className='btn btn-primary'>View services</button>
+                        <button style={{ fontSize: '1.2em', width: '60%' }} onClick={() => this.ref.current.scrollIntoView({ block: 'start', behavior: "smooth" })} className='btn btn-secondary'>View services</button>
                         <div>
                             <br />
                             <Messages />
@@ -46,8 +46,8 @@ export default class Home extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
-                <div className='home-container-2'>
-                    <div ref={this.ref} className='home-child-2'>
+                <div ref={this.ref} className='home-container-2'>
+                    <div className='home-child-2'>
                         <div style={{ fontSize: '3em' }}>Services</div>
                         <br />
                         <div className='col-sm-6'>
