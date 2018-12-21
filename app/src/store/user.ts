@@ -5,21 +5,23 @@ import * as constants from './constants'
 import * as types from './types'
 
 const unloadedState: types.user = {
-    user: ''
+    user: '...loading',
+    organization: '...loading',
+    name: '...loading'
 }
 
+
 export const actionCreators = {
-    loadUser: (): AppThunkAction<any> => (dispatch) => {
+    loadUser: (): AppThunkAction<any> => async (dispatch) => {
         if (process.env.REACT_APP_ENV != 'dev') {
-            fetch('/getUser', { credentials: 'same-origin' })
-                .then(response => {
-                    response.json().then(data => {
-                        dispatch({ type: constants.loadUser, user: data.user });
-                    })
-                })
-                .catch(err => console.log(err))
+            const response = await fetch('/getUser', { credentials: 'same-origin' })
+            const user = await response.json()
+            dispatch({ type: constants.loadUser, user: user })
+            return user
         } else {
-            dispatch({ type: constants.loadUser, user: 'paul.marks@pittsburghpa.gov' });
+            const user = { user: 'paul.marks@pittsburghpa.gov', organization: 'City of Pittsburgh', name: 'Marks, Paul' }
+            dispatch({ type: constants.loadUser, user: user })
+            return user
         }
     }
 }

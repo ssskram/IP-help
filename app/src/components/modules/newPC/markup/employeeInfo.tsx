@@ -22,7 +22,7 @@ export default class EmployeeInfo extends React.Component<any, any> {
             setState
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
+        return <div className='col-md-8 col-md-offset-2 panel'>
             <div className='sectionHeader'>Employee's information</div>
             <div className='panel-body'>
                 <Input

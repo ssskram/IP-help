@@ -1,13 +1,13 @@
 @media (max-width: 767px) {
     .home-image {
-        max-height: 250px !important;
+        max-height: 200px !important;
         margin-top: 45px;
     }
 }
 
 @media (min-width: 768px) {
     .home-image {
-        max-height: 350px !important;
+        max-height: 300px !important;
         margin-top: 45px;
     }
 }
@@ -62,4 +62,46 @@
 
 .tooltip-container {
     margin-left: 25px;
+}
+
+.home-container-1 {
+    min-height: 85vh;
+    display: inline-block;
+}
+
+.home-child-1 {
+    display: inline-block;
+}
+
+.home-container-2 {
+    color: #fff;
+    min-height: 120vh;
+    background-color: rgb(44, 62, 80);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-child-2 {
+    align-self: center;
+    max-width: 600px;
+}
+
+.btn-home {
+    margin: 10px 0px;
+}
+
+.btn-home-header {
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.btn-home-body {
+    color: #fff;
 }

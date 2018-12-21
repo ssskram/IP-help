@@ -5,11 +5,10 @@ import { ApplicationState } from '../../store'
 import * as types from './../../store/types'
 import * as user from '../../store/user'
 
-interface actionProps {
+type props = {
+    user: types.user,
     loadUser: () => void
 }
-
-type props = types.user & actionProps
 
 export class AccountContainer extends React.Component<props, {}> {
     constructor(props) {
@@ -23,16 +22,17 @@ export class AccountContainer extends React.Component<props, {}> {
     render() {
         const {
             user
-        } = this.props;
+        } = this.props
 
         return (
-            <div style={{ marginBottom: '50px' }} className='accountcontainer'>
-                <div className="account">{user}</div>
-                <div className='logout'>
-                    <button onClick={logout} id="logout" className='btn btn-link navbar-logout-btn'>
-                        <span className='glyphicon glyphicon-user nav-glyphicon'></span>Logout
-                    </button>
-                </div>
+            <div style={{ marginTop: '10px', marginLeft: '20px', marginRight: '10px' }} className="navbar-right">
+                <ul className="nav navbar-nav navbar-right">
+                    <li>
+                        <span style={{ color: '#fff' }}><b><span className='glyphicon glyphicon-user nav-glyphicon'></span>{user.name}</b></span>
+                        <button onClick={logout} type="submit" className="btn btn-link navbar-logout-btn">Logout</button>
+                    </li>
+
+                </ul>
             </div>
         )
     }
@@ -45,4 +45,4 @@ export default connect(
     ({
         ...user.actionCreators
     })
-)(AccountContainer);
+)(AccountContainer as any)
