@@ -39,8 +39,9 @@ export default async function postOTRS(request, user) {
 }
 
 declare module String {
-    export var format: any;
+    export var format: any
 }
+
 String.format = function () {
     var s = arguments[0]
     for (var i = 0; i < arguments.length - 1; i++) {

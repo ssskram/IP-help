@@ -6,7 +6,7 @@ import EmployeeData from './components/modules/employeeData'
 import EquipmentDisposal from './components/modules/equipmentDisposal'
 import EquipmentLoans from './components/modules/equipmentLoans'
 import HelpContent from './components/modules/helpContent'
-import NewTicket from './components/modules/misc'
+import NewTicket from './components/modules/miscTicket'
 import MobileDevice from './components/modules/newMobileDevice'
 import NewPC from './components/modules/newPC'
 

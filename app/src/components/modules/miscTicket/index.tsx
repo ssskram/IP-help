@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 import TextArea from '../../formElements/textarea'
 import Input from '../../formElements/input'
+import FileUpload from '../../formElements/fileImport'
 import * as MessagesStore from '../../../store/messages'
 import * as User from '../../../store/user'
 import { connect } from 'react-redux'
@@ -20,6 +21,7 @@ type state = {
     body: string
     subject: string
     redirect: boolean
+    attachments: any[]
 }
 
 export class Other extends React.Component<props, state> {
@@ -28,6 +30,7 @@ export class Other extends React.Component<props, state> {
         this.state = {
             body: '',
             subject: '',
+            attachments: [],
             redirect: false
         }
     }
@@ -54,17 +57,18 @@ export class Other extends React.Component<props, state> {
         this.setState({ redirect: true })
     }
 
-
     public render() {
         const {
             body,
             subject,
+            attachments,
             redirect
         } = this.state
 
         const isEnabled =
             body != '' &&
             subject != ''
+
 
         if (redirect) {
             return <Redirect to='/' />
@@ -92,6 +96,12 @@ export class Other extends React.Component<props, state> {
                         callback={e => this.setState({ body: e.target.value })}
                         required
                     />
+                    <FileUpload
+                        header={'Attach a file'}
+                        attachments={attachments}
+                        multi={false}
+                        callback={this.setState.bind(this)}
+                    />
                 </div>
                 {isEnabled &&
                     <SubmitButton
@@ -99,7 +109,7 @@ export class Other extends React.Component<props, state> {
                     />
                 }
             </div>
-        </div>
+        </div >
     }
 }
 
