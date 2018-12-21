@@ -80,7 +80,7 @@ export class Other extends React.Component<props, state> {
                 mainText='Miscellaneous request'
             />
             <div className="col-md-12">
-                <div className="col-md-6 col-md-offset-3 panel panel-body">
+                <div className="col-md-8 col-md-offset-2 panel">
                     <Input
                         value={subject}
                         name="subject"

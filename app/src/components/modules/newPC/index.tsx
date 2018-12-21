@@ -160,19 +160,6 @@ export class NewPC extends React.Component<props, any> {
             this.state.floor != '' &&
             this.state.employmentStatus != ''
 
-        // show employee card trigger
-        const employeeCard =
-            this.state.customerPhone != '' &&
-            this.state.ccCheck != ''
-
-        // show pc card trigger
-        const pcCard =
-            employeeCard == true &&
-            this.state.department != '' &&
-            this.state.building != '' &&
-            this.state.floor != '' &&
-            this.state.employmentStatus != ''
-
         if (this.state.redirect) {
             return <Redirect to='/' />
         }
@@ -186,20 +173,16 @@ export class NewPC extends React.Component<props, any> {
                 parentState={this.state}
                 setState={this.setState.bind(this)}
             />
-            {employeeCard == true &&
-                <EmployeeInfo
-                    parentState={this.state}
-                    setState={this.setState.bind(this)}
-                />
-            }
-            {pcCard == true &&
-                <PCInfo
-                    parentState={this.state}
-                    setState={this.setState.bind(this)}
-                    accessoriesTooltip={this.accessoriesTooltip.bind(this)}
-                    softwareTooltip={this.softwareTooltip.bind(this)}
-                />
-            }
+            <EmployeeInfo
+                parentState={this.state}
+                setState={this.setState.bind(this)}
+            />
+            <PCInfo
+                parentState={this.state}
+                setState={this.setState.bind(this)}
+                accessoriesTooltip={this.accessoriesTooltip.bind(this)}
+                softwareTooltip={this.softwareTooltip.bind(this)}
+            />
             {isEnabled == true &&
                 <SubmitButton
                     submit={this.submit.bind(this)}

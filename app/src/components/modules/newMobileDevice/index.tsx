@@ -94,7 +94,7 @@ export class MobileDevice extends React.Component<props, state> {
                 subText='Complete all fields and submit'
             />
             <div className="col-md-12">
-                <div className="col-md-6 col-md-offset-3 panel panel-body">
+                <div className="col-md-8 col-md-offset-2 panel">
                     <Select
                         value={deviceType}
                         header='What type of device do you need?'

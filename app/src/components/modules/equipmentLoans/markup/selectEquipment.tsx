@@ -19,7 +19,7 @@ export default class SelectEquipment extends React.Component<any, any> {
             addRemoveItem
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
+        return <div className='col-md-8 col-md-offset-2 panel'>
             <div className='sectionHeader'>Select equipment</div>
             <div className='panel-body'>
                 <div role="alert" className="alert alert-info text-center">

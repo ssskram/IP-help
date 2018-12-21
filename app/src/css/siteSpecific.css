@@ -42,14 +42,13 @@
 /* section headers for form panels */
 
 .sectionHeader {
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-align: center;
     font-size: 24px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    background-color: #5cb85c;
-    color: #fffaee;
-    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background-color: #d9edf7;
+    color: #383838;
     margin-left: -16px;
     margin-right: -16px;
 }
@@ -96,10 +95,13 @@
 
 .btn-home {
     margin: 10px 0px;
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 30px;
 }
 
 .btn-home-header {
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: #fff;
 }
 

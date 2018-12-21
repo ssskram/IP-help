@@ -14,7 +14,7 @@ export default class SelectAccessories extends React.Component<any, any> {
             addRemoveItem
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
+        return <div className='col-md-8 col-md-offset-2 panel'>
             <div className='sectionHeader'>Select accessories</div>
             <div className='panel-body text-center'>
                 {checkAvailability('Portable Projector Screen', availableItems, 'Accessory') &&

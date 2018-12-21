@@ -19,7 +19,7 @@ export default class NewTicket extends React.Component<any, any> {
             throwTimeError
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
+        return <div className='col-md-8 col-md-offset-2 panel'>
             <div className='sectionHeader'>Timeframe</div>
             <div className='panel-body'>
                 {throwTimeError == true &&
