@@ -90,7 +90,6 @@
 
 .home-child-2 {
     align-self: center;
-    max-width: 600px;
 }
 
 .btn-home {
@@ -98,6 +97,9 @@
     width: 100%;
     padding-bottom: 15px;
     padding-top: 30px;
+}
+.btn-home:hover {
+    background-color: #337ab7;
 }
 
 .btn-home-header {
