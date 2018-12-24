@@ -19,8 +19,8 @@ export default class SelectEquipment extends React.Component<any, any> {
             addRemoveItem
         } = this.props
 
-        return <div className='col-md-8 col-md-offset-2 panel'>
-            <div className='sectionHeader'>Select equipment</div>
+        return <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Equipment<span className='glyphicon glyphicon-blackboard pull-right'></span></div>
             <div className='panel-body'>
                 <div role="alert" className="alert alert-info text-center">
                     If you don't see what you're looking for, it may be out of stock during this timeframe.  Please contact the Help Desk at 255-2900 for further assistance.

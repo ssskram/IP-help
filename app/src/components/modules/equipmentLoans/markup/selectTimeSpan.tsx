@@ -19,8 +19,8 @@ export default class NewTicket extends React.Component<any, any> {
             throwTimeError
         } = this.props
 
-        return <div className='col-md-8 col-md-offset-2 panel'>
-            <div className='sectionHeader'>Timeframe</div>
+        return <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Timeframe<span className='glyphicon glyphicon-time pull-right'></span></div>
             <div className='panel-body'>
                 {throwTimeError == true &&
                     <div role="alert" className="alert alert-danger text-center">

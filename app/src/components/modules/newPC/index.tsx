@@ -151,8 +151,8 @@ export class NewPC extends React.Component<props, any> {
     }
 
     public render() {
-        // validate
-        const isEnabled =
+
+        const valid =
             this.state.customerPhone != '' &&
             this.state.machineType != '' &&
             this.state.department != '' &&
@@ -183,7 +183,7 @@ export class NewPC extends React.Component<props, any> {
                 accessoriesTooltip={this.accessoriesTooltip.bind(this)}
                 softwareTooltip={this.softwareTooltip.bind(this)}
             />
-            {isEnabled == true &&
+            {valid == true &&
                 <SubmitButton
                     submit={this.submit.bind(this)}
                 />

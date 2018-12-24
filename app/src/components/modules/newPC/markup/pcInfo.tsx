@@ -27,8 +27,8 @@ export default class PcInfo extends React.Component<any, any> {
             softwareTooltip
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
-            <div className='sectionHeader'>PC information</div>
+        return <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>PC information<span className='glyphicon glyphicon-hdd pull-right'></span></div>
             <div className='panel-body'>
                 <Select
                     value={machineType}

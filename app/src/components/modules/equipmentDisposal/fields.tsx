@@ -69,9 +69,9 @@ export default class equipmentPickup extends React.Component<any, any> {
             quantityEquipment != '' &&
             equipmentType != ''
 
-        return <div className='col-md-12'>
-            <div className='col-md-8 col-md-offset-2 panel'>
-                <div className='sectionHeader'>Equipment information</div>
+        return <div>
+            <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Equipment information<span className='glyphicon glyphicon-hdd pull-right'></span></div>
                 <div className='panel-body'>
                     <Select
                         value={equipmentType}
@@ -128,8 +128,8 @@ export default class equipmentPickup extends React.Component<any, any> {
                     </div>
                 </div>
             </div>
-            <div className='col-md-8 col-md-offset-2 panel'>
-                <div className='sectionHeader'>Pickup information</div>
+            <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Pickup information<span className='glyphicon glyphicon-map-marker pull-right'></span></div>
                 <div className='panel-body'>
                     <Select
                         value={department}

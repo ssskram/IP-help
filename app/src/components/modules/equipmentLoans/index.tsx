@@ -138,20 +138,14 @@ export class EquipmentReservations extends React.Component<props, state> {
     }
 
     public render() {
-        const showTimespan =
-            this.state.phone != '' &&
-            this.state.department != ''
 
-        const showEquipment =
+        const valid =
             this.state.fromDate != '' &&
-            this.state.fromTime != '' &&
             this.state.toDate != '' &&
+            this.state.fromTime != '' &&
             this.state.toTime != '' &&
-            this.state.toTime != null &&
-            this.state.throwTimeError != true
-
-        const showAccessories =
-            this.state.items.length > 0
+            this.state.department != '' &&
+            this.state.items != []
 
         if (this.state.redirect) {
             return <Redirect to='/' />
@@ -159,7 +153,7 @@ export class EquipmentReservations extends React.Component<props, state> {
 
         return (
             <div style={{ marginBottom: '100px' }} className='centered'>
-                <Header 
+                <Header
                     mainText='Borrow equipment'
                     subText='Complete all fields and submit'
                 />
@@ -168,33 +162,27 @@ export class EquipmentReservations extends React.Component<props, state> {
                         parentState={this.state}
                         setState={this.setState.bind(this)}
                     />
-                    {showTimespan == true &&
-                        <SelectTimeSpan
-                            fromDate={this.state.fromDate}
-                            fromTime={this.state.fromTime}
-                            toDate={this.state.toDate}
-                            toTime={this.state.toTime}
-                            throwTimeError={this.state.throwTimeError}
-                            setState={this.setState.bind(this)}
-                            checkTimeFrame={this.checkTimeFrame.bind(this)}
+                    <SelectTimeSpan
+                        fromDate={this.state.fromDate}
+                        fromTime={this.state.fromTime}
+                        toDate={this.state.toDate}
+                        toTime={this.state.toTime}
+                        throwTimeError={this.state.throwTimeError}
+                        setState={this.setState.bind(this)}
+                        checkTimeFrame={this.checkTimeFrame.bind(this)}
+                    />
+                    <SelectEquipment
+                        parentState={this.state}
+                        addRemoveItem={this.addRemoveItem.bind(this)}
+                    />
+                    <SelectAccessories
+                        parentState={this.state}
+                        addRemoveItem={this.addRemoveItem.bind(this)}
+                    />
+                    {valid &&
+                        <SubmitButton
+                            submit={this.submit.bind(this)}
                         />
-                    }
-                    {showEquipment == true &&
-                        <SelectEquipment
-                            parentState={this.state}
-                            addRemoveItem={this.addRemoveItem.bind(this)}
-                        />
-                    }
-                    {showAccessories == true &&
-                        <div>
-                            <SelectAccessories
-                                parentState={this.state}
-                                addRemoveItem={this.addRemoveItem.bind(this)}
-                            />
-                            <SubmitButton
-                                submit={this.submit.bind(this)}
-                            />
-                        </div>
                     }
                 </div>
             </div>

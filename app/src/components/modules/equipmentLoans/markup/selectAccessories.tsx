@@ -14,8 +14,8 @@ export default class SelectAccessories extends React.Component<any, any> {
             addRemoveItem
         } = this.props
 
-        return <div className='col-md-8 col-md-offset-2 panel'>
-            <div className='sectionHeader'>Select accessories</div>
+        return <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Accessories</div>
             <div className='panel-body text-center'>
                 {checkAvailability('Portable Projector Screen', availableItems, 'Accessory') &&
                     <button className='btn btn-big' onClick={() => addRemoveItem('Portable Projector Screen', 'Accessory')} style={(selectedTypes.includes('Portable Projector Screen')) ? style.clicked : style.unclicked}>

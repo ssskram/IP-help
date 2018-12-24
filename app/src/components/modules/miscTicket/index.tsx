@@ -66,7 +66,7 @@ export class Other extends React.Component<props, state> {
             redirect
         } = this.state
 
-        const isEnabled =
+        const valid =
             body != '' &&
             subject != ''
 
@@ -79,8 +79,9 @@ export class Other extends React.Component<props, state> {
             <Header
                 mainText='Miscellaneous request'
             />
-            <div className="col-md-12">
-                <div className="col-md-8 col-md-offset-2 panel">
+            <div className="col-md-4 col-md-offset-4 panel">
+                <div className='sectionHeader'>Ticket information<span className='glyphicon glyphicon-info-sign pull-right'></span></div>
+                <div className='panel-body'>
                     <Input
                         value={subject}
                         name="subject"
@@ -104,7 +105,7 @@ export class Other extends React.Component<props, state> {
                         callback={this.setState.bind(this)}
                     />
                 </div>
-                {isEnabled &&
+                {valid &&
                     <SubmitButton
                         submit={this.submit.bind(this)}
                     />

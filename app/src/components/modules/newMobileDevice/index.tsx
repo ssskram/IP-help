@@ -78,7 +78,7 @@ export class MobileDevice extends React.Component<props, state> {
             redirect
         } = this.state
 
-        const isEnabled =
+        const valid =
             jobTitle != '' &&
             deviceType != '' &&
             newReplacement != '' &&
@@ -93,8 +93,9 @@ export class MobileDevice extends React.Component<props, state> {
                 mainText='Order a new mobile device'
                 subText='Complete all fields and submit'
             />
-            <div className="col-md-12">
-                <div className="col-md-8 col-md-offset-2 panel">
+            <div className="col-md-4 col-md-offset-4 panel">
+                <div className='sectionHeader'>Mobile device<span className='glyphicon glyphicon-phone pull-right'></span></div>
+                <div className='panel-body'>
                     <Select
                         value={deviceType}
                         header='What type of device do you need?'
@@ -139,12 +140,12 @@ export class MobileDevice extends React.Component<props, state> {
                         />
                     }
                 </div>
-                {isEnabled &&
-                    <SubmitButton
-                        submit={this.submit.bind(this)}
-                    />
-                }
             </div>
+            {valid &&
+                <SubmitButton
+                    submit={this.submit.bind(this)}
+                />
+            }
         </div>
     }
 }

@@ -17,8 +17,8 @@ export default class UserInfo extends React.Component<any, any> {
             setState
         } = this.props
 
-        return <div className='col-md-6 col-md-offset-3 panel'>
-            <div className='sectionHeader'>Your information</div>
+        return <div className='col-md-4 col-md-offset-4 panel'>
+            <div className='sectionHeader'>Your information<span className='glyphicon glyphicon-info-sign pull-right'></span></div>
             <div className='panel-body'>
                 <Phone
                     value={customerPhone}
