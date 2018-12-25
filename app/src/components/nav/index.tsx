@@ -16,6 +16,12 @@ export default class NavMenu extends React.Component<any, any> {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
+          <LinkContainer to={'/HelpContent'}>
+            <button style={{ color: '#fff' }}>Training & FAQ</button>
+          </LinkContainer>
+          <a target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
+            <button>My tickets</button>
+          </a>
           <AccountContainer />
         </Navbar.Collapse>
       </Navbar>
