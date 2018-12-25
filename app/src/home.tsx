@@ -114,7 +114,7 @@ export default class Home extends React.Component<any, any> {
                                 </div>
                                 <div className="clearfix"></div>
                                 <div className='col-xs-6'>
-                                    <Link to={'/EquipmentDisposal'} className='btn btn-home text-center'>
+                                    <Link to={'/EmployeeData'} className='btn btn-home text-center'>
                                         <img src={computer as string} className="center-block" />
                                         <span className='btn-home-header'>Request employee data</span>
 

@@ -147,6 +147,17 @@ export class EquipmentReservations extends React.Component<props, state> {
             this.state.department != '' &&
             this.state.items != []
 
+        const showEquipment =
+            this.state.fromDate != '' &&
+            this.state.fromTime != '' &&
+            this.state.toDate != '' &&
+            this.state.toTime != '' &&
+            this.state.toTime != null &&
+            this.state.throwTimeError != true
+
+        const showAccessories =
+            this.state.items.length > 0
+
         if (this.state.redirect) {
             return <Redirect to='/' />
         }
@@ -171,14 +182,23 @@ export class EquipmentReservations extends React.Component<props, state> {
                         setState={this.setState.bind(this)}
                         checkTimeFrame={this.checkTimeFrame.bind(this)}
                     />
-                    <SelectEquipment
-                        parentState={this.state}
-                        addRemoveItem={this.addRemoveItem.bind(this)}
-                    />
-                    <SelectAccessories
-                        parentState={this.state}
-                        addRemoveItem={this.addRemoveItem.bind(this)}
-                    />
+                    {showEquipment == true &&
+                        <SelectEquipment
+                            parentState={this.state}
+                            addRemoveItem={this.addRemoveItem.bind(this)}
+                        />
+                    }
+                    {showAccessories == true &&
+                        <div>
+                            <SelectAccessories
+                                parentState={this.state}
+                                addRemoveItem={this.addRemoveItem.bind(this)}
+                            />
+                            <SubmitButton
+                                submit={this.submit.bind(this)}
+                            />
+                        </div>
+                    }
                     {valid &&
                         <SubmitButton
                             submit={this.submit.bind(this)}
