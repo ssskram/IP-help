@@ -10,14 +10,15 @@ export default class Home extends React.Component<any, any> {
     private ref: React.RefObject<any>
     constructor(props) {
         super(props)
-        this.state = {
-            search: ''
-        }
         this.ref = React.createRef()
     }
 
     componentDidMount() {
         window.scrollTo(0, 0)
+    }
+
+    scrollServices () {
+        this.ref.current.scrollIntoView({ block: 'start', behavior: 'smooth'})
     }
 
     render() {
@@ -28,7 +29,7 @@ export default class Home extends React.Component<any, any> {
                     <div className='home-child-1 text-center'>
                         <img src={ipIcon as string} className="img-responsive center-block home-image" />
                         <h1>We're here to <b>help</b></h1>
-                        <button style={{ fontSize: '1.2em', width: '60%' }} onClick={() => this.ref.current.scrollIntoView({ block: 'start', behavior: "smooth" })} className='btn btn-secondary'>View services</button>
+                        <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>View services</button>
                         <div>
                             <br />
                             <Messages />
@@ -58,7 +59,7 @@ export default class Home extends React.Component<any, any> {
                                 <div style={{ fontSize: '3em' }}>I need a...</div>
                                 <br />
                                 <div className='col-xs-6'>
-                                    <Link to={'/NewPC'} className='btn  btn-home text-center'>
+                                    <Link to={'/NewPC'} className='btn btn-home text-center'>
                                         <img src={computer as string} className="center-block" />
                                         <span className='btn-home-header'>PC</span>
                                     </Link>

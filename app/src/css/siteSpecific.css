@@ -90,12 +90,27 @@
     align-self: center;
 }
 
+.btn-view-services {
+    margin: 10px 0px;
+    padding: 10px 0px;
+    font-size: 1.5em;
+    width: 60%;
+    animation: glow .8s infinite alternate;
+}
+
+@keyframes glow {
+    to {
+        text-shadow: 0 0 1px #337ab7;
+    }
+}
+
 .btn-home {
     margin: 10px 0px;
     width: 100%;
     padding-bottom: 15px;
     padding-top: 30px;
 }
+
 .btn-home:hover {
     background-color: #337ab7;
 }
