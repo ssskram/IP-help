@@ -1,4 +1,7 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { ApplicationState } from '../../store'
+import * as MessageStore from '../../store/messages'
 import HydrateStore from '../utilities/hydrateStore'
 import Messages from '../utilities/messages'
 import Alerts from './alerts'
@@ -6,7 +9,7 @@ import Services from './services'
 
 const ipIcon = require('../../images/ip.png')
 
-export default class Home extends React.Component<any, any> {
+export class Home extends React.Component<any, any> {
     private ref: React.RefObject<any>
     constructor(props) {
         super(props)
@@ -49,3 +52,13 @@ export default class Home extends React.Component<any, any> {
         )
     }
 }
+
+
+export default connect(
+    (state: ApplicationState) => ({
+        ...state.messages
+    }),
+    ({
+        ...MessageStore.actionCreators,
+    })
+)(Home)

@@ -6,16 +6,22 @@ import {
     AccordionItemBody,
 } from 'react-accessible-accordion'
 import 'react-accessible-accordion/dist/fancy-example.css'
+import Header from '../services/shared/header'
+
 
 export default class SelfService extends React.Component<any, any> {
 
-    public render() {
+    componentDidMount() {
         window.scrollTo(0, 0)
+    }
 
-        return <div className="centered">
-            <h1 className="text-center">These are for you</h1>
-            <h4 className="text-center">If something is missing, please let us know</h4>
-            <br />
+    public render() {
+
+        return <div style={{ maxWidth: '600px', margin: '0 auto', paddingBottom: '100px' }}>
+            <Header
+                mainText='Training resources'
+                subText='If something is missing, please let us know'
+            />
             <Accordion>
                 <AccordionItem>
                     <AccordionItemTitle>

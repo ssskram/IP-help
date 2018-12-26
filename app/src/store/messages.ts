@@ -33,7 +33,7 @@ export const reducer: Reducer<types.messsage> = (state: types.messsage, incoming
         case constants.failure:
             return { ...state, message: "Ooops!<br/>That didn't work<br/>Please logout, log back in, and try again" }
         case constants.accessDenied:
-            return { ...state, message: "Sorry,<br/>Only I&P liaisons can order " + action.obj }
+            return { ...state, message: "<b>Sorry,</b><br/>Only I&P liaisons can order " + action.obj  }
         case constants.clear:
             return { ...state, message: '' }
         case constants.newMessage:
