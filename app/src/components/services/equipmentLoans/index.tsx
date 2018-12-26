@@ -8,7 +8,6 @@ import * as Equipment from '../../../store/equipment'
 import * as Messages from '../../../store/messages'
 import * as User from '../../../store/user'
 import * as moment from 'moment'
-import LiaisonCheck from '../shared/liaisonCheck'
 import { getAvailableEquipment } from './availableItems'
 import randomize from 'randomatic'
 import postOTRS from './postOTRS'
@@ -165,9 +164,6 @@ export class EquipmentReservations extends React.Component<props, state> {
 
         return (
             <div style={{ marginBottom: '100px' }} className='centered'>
-                <LiaisonCheck
-                    itemType='meow'
-                />
                 <Header
                     mainText='Borrow equipment'
                     subText='Complete all fields and submit'

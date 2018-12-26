@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../../store'
+import * as Liaisons from '../../../store/liaisons'
+import LiaisonCheck from '../shared/liaisonCheck'
 import * as types from '../../../store/types'
 import * as Messages from '../../../store/messages'
 import * as User from '../../../store/user'
@@ -17,9 +19,11 @@ import PCInfo from './markup/pcInfo'
 import SubmitButton from '../shared/submitButton'
 
 type props = {
+    user: types.user
+    liaisons: types.liaisons
     successMessage: () => void
     errorMessage: () => void
-    user: types.user
+    accessDenied: (type: string) => void
 }
 
 export class NewPC extends React.Component<props, any> {
@@ -165,6 +169,12 @@ export class NewPC extends React.Component<props, any> {
         }
 
         return <div className="centered">
+            <LiaisonCheck
+                itemType='new computers'
+                user={this.props.user}
+                liaisons={this.props.liaisons}
+                accessDenied={this.props.accessDenied.bind(this)}
+            />
             <Header
                 mainText='Order a new PC'
                 subText='Complete all fields and submit'
@@ -211,10 +221,12 @@ export class NewPC extends React.Component<props, any> {
 export default connect(
     (state: ApplicationState) => ({
         ...state.messages,
-        ...state.user
+        ...state.user,
+        ...state.liaisons
     }),
     ({
         ...Messages.actionCreators,
-        ...User.actionCreators
+        ...User.actionCreators,
+        ...Liaisons.actionCreators
     })
 )(NewPC as any)

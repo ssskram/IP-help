@@ -1,24 +1,16 @@
 import * as React from 'react'
 import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { ApplicationState } from '../../../store'
 import * as types from '../../../store/types'
-import * as User from '../../../store/user'
-import * as Liaisons from '../../../store/liaisons'
-import * as Messages from '../../../store/messages'
 
 type props = {
     user: types.user,
-    liaisons: types.liaisons,
+    liaisons: types.liaisons
     itemType: string
-    accessDenied: (type: string) => boolean
+    accessDenied: (type: string) => void
 }
 
-export class LiaisonCheck extends React.Component<props, any> {
-    constructor(props) {
-        super(props)
-        this.checkStatus = this.checkStatus.bind(this)
-    }
+export default class LS extends React.Component<props, any> {
+
     checkStatus(user, liaisons) {
         const liaison = liaisons.find(ls => ls['user'] === user.user)
         if (liaison) return true
@@ -33,16 +25,3 @@ export class LiaisonCheck extends React.Component<props, any> {
         } else return null
     }
 }
-
-export default connect(
-    (state: ApplicationState) => ({
-        ...state.user,
-        ...state.liaisons,
-        ...state.messages
-    }),
-    ({
-        ...Liaisons.actionCreators,
-        ...User.actionCreators,
-        ...Messages.actionCreators
-    })
-)(LiaisonCheck as any)
