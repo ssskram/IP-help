@@ -80,7 +80,7 @@ export class Other extends React.Component<props, state> {
                 mainText='Miscellaneous request'
             />
             <div className="col-md-4 col-md-offset-4 panel">
-                <div className='sectionHeader'>Ticket information<span className='glyphicon glyphicon-info-sign pull-right'></span></div>
+                <div className='sectionHeader'>Blank ticket<span className='glyphicon glyphicon-info-sign pull-right'></span></div>
                 <div className='panel-body'>
                     <Input
                         value={subject}

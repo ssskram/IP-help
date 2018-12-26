@@ -7,6 +7,7 @@ export const newMessage = 'reservationSuccess'
 export const success = 'successMessage'
 export const failure = 'failureMessage'
 export const clear = 'clearMessage'
+export const accessDenied = 'accessDenied'
 
 // liaisons
 export const loadLiaisons = 'loadLiaisons'

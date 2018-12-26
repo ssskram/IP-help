@@ -18,6 +18,10 @@ class Hydrate extends React.Component<any, {}> {
         this.props.loadEquipment()
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+    }
+
     public render() {
         return null
     }
