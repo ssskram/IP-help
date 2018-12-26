@@ -168,7 +168,7 @@ export class NewPC extends React.Component<props, any> {
             return <Redirect to='/' />
         }
 
-        return <div style={{ paddingBottom: '100px' }}>
+        return <div className='col-md-12' style={{ marginBottom: '100px' }}>
             <LiaisonCheck
                 itemType='new computers'
                 user={this.props.user}
