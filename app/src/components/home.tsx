@@ -36,7 +36,9 @@ export default class Home extends React.Component<any, any> {
                     <div className='home-child-1 text-center'>
                         <img src={ipIcon as string} className="img-responsive center-block home-image" />
                         <h1>We're here to <b>help</b></h1>
-                        <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>Products & services</button>
+                        <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>
+                            Products & services
+                        </button>
                         <div>
                             <br />
                             <Messages />
@@ -97,6 +99,9 @@ export default class Home extends React.Component<any, any> {
                                         <span className='btn-home-header'>Tablet</span>
                                     </Link>
                                 </div>
+                            </div>
+                            <div className='hidden-sm hidden-md hidden-lg hidden-xl'>
+                                <hr style={{ borderColor: '#fff' }} />
                             </div>
                             <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                                 <div style={{ fontSize: '3em' }}>I want to...</div>

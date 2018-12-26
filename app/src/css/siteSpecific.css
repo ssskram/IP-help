@@ -91,16 +91,17 @@
 }
 
 .btn-view-services {
-    margin: 10px 0px;
-    padding: 10px 0px;
-    font-size: 1.5em;
-    width: 60%;
+    margin: 5px 0px 10px 0px;
+    padding: 10px 5px;
+    font-size: 1.8em;
+    letter-spacing: 3px;
     animation: glow .8s infinite alternate;
+    background-color: transparent;
 }
 
 @keyframes glow {
     to {
-        text-shadow: 0 0 1px #337ab7;
+        text-shadow: 0 0 2px #337ab7;
     }
 }
 

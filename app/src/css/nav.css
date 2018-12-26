@@ -30,15 +30,23 @@
     margin-top: 10px !important;
 }
 
-.navbar-toggle:hover, .navbar-toggle:focus {
+.navbar-toggle:hover,
+.navbar-toggle:focus {
     background-color: transparent !important;
 }
 
-.navbar-collapse, .navbar-form {
+.navbar-collapse,
+.navbar-form {
     border-color: transparent !important;
 }
 
 .navbar-collapse {
     border-top: 0px solid transparent !important;
     box-shadow: inset 0px 0px 0px transparent !important;
+}
+
+@media (max-width: 767px) {
+    .text-xs-center {
+        text-align: center;
+    }
 }

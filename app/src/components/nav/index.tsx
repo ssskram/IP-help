@@ -20,7 +20,7 @@ export default class NavMenu extends React.Component<any, any> {
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
+        <Navbar.Collapse className='text-xs-center'>
           <Link to={'/HelpContent'} className='btn btn-primary' style={btnStyle}>Training & FAQ</Link>
           <a className='btn btn-warning' style={btnStyle} target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
             My tickets
