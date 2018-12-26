@@ -1,10 +1,17 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import HydrateStore from './components/utilities/hydrateStore'
-import Messages from './components/utilities/messages'
+import HydrateStore from './utilities/hydrateStore'
+import Messages from './utilities/messages'
 
-const ipIcon = require('./images/ip.png')
-const computer = require('./images/computer.png')
+const ipIcon = require('../images/ip.png')
+const computer = require('../images/computer.png')
+const laptop = require('../images/laptop.png')
+const email = require('../images/email.png')
+const cellphone = require('../images/cellphone.png')
+const tablet = require('../images/tablet2.png')
+const dispose = require('../images/dispose.png')
+const projector = require('../images/projector.png')
+const employee = require('../images/employee.png')
 
 export default class Home extends React.Component<any, any> {
     private ref: React.RefObject<any>
@@ -17,8 +24,8 @@ export default class Home extends React.Component<any, any> {
         window.scrollTo(0, 0)
     }
 
-    scrollServices () {
-        this.ref.current.scrollIntoView({ block: 'start', behavior: 'smooth'})
+    scrollServices() {
+        this.ref.current.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
 
     render() {
@@ -29,7 +36,7 @@ export default class Home extends React.Component<any, any> {
                     <div className='home-child-1 text-center'>
                         <img src={ipIcon as string} className="img-responsive center-block home-image" />
                         <h1>We're here to <b>help</b></h1>
-                        <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>View services</button>
+                        <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>Products & services</button>
                         <div>
                             <br />
                             <Messages />
@@ -58,41 +65,35 @@ export default class Home extends React.Component<any, any> {
                             <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                                 <div style={{ fontSize: '3em' }}>I need a...</div>
                                 <br />
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/NewPC'} className='btn btn-home text-center'>
                                         <img src={computer as string} className="center-block" />
                                         <span className='btn-home-header'>PC</span>
                                     </Link>
                                 </div>
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/NewPC'} className='btn  btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                        <img src={laptop as string} className="center-block" />
                                         <span className='btn-home-header'>Laptop</span>
                                     </Link>
                                 </div>
                                 <div className="clearfix"></div>
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <a className='btn  btn-home text-center' target='_blank' title="Request a new user account" href='https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit'>
-                                        <img src={computer as string} className="center-block" />
-                                        <span className='btn-home-header'>Email Address</span>
+                                        <img src={email as string} className="center-block" />
+                                        <span className='btn-home-header'>User account</span>
                                     </a>
                                 </div>
-                                <div className='col-xs-6'>
-                                    <a className='btn  btn-home text-center' target='_blank' title="Request a new user account" href='https://cityofpittsburgh-my.sharepoint.com/:x:/r/personal/paul_scherrer_pittsburghpa_gov2/_layouts/15/WopiFrame.aspx?guestaccesstoken=Snz9oKYl15kxoHFHQPDs7rtciwH3mrGq7ZYGkIdqAOU%3d&docid=1_1f1cdb0766967490195afb496b2218146&wdFormId=%7B7F3E2D75-4E10-4612-BCE7-CFC4DA40381D%7D&action=formsubmit'>
-                                        <img src={computer as string} className="center-block" />
-                                        <span className='btn-home-header'>Network account</span>
-                                    </a>
-                                </div>
-                                <div className="clearfix"></div>
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/MobileDevice'} className='btn  btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                        <img src={cellphone as string} className="center-block" />
                                         <span className='btn-home-header'>Cellphone</span><br />
                                     </Link>
                                 </div>
-                                <div className='col-xs-6'>
-                                    <Link to={'/MobileDevice'} className='btn  btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                <div className="clearfix"></div>
+                                <div className='col-sm-6'>
+                                    <Link to={'/MobileDevice'} className='btn btn-home text-center'>
+                                        <img src={tablet as string} className="center-block" />
                                         <span className='btn-home-header'>Tablet</span>
                                     </Link>
                                 </div>
@@ -100,22 +101,22 @@ export default class Home extends React.Component<any, any> {
                             <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                                 <div style={{ fontSize: '3em' }}>I want to...</div>
                                 <br />
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/EquipmentLoan'} className='btn  btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                        <img src={projector as string} className="center-block" />
                                         <span className='btn-home-header'>Borrow equipment</span>
                                     </Link>
                                 </div>
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/EquipmentDisposal'} className='btn  btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                        <img src={dispose as string} className="center-block" />
                                         <span className='btn-home-header'>Get rid of equipment</span>
                                     </Link>
                                 </div>
                                 <div className="clearfix"></div>
-                                <div className='col-xs-6'>
+                                <div className='col-sm-6'>
                                     <Link to={'/EmployeeData'} className='btn btn-home text-center'>
-                                        <img src={computer as string} className="center-block" />
+                                        <img src={employee as string} className="center-block" />
                                         <span className='btn-home-header'>Request employee data</span>
 
                                     </Link>
@@ -125,8 +126,7 @@ export default class Home extends React.Component<any, any> {
                         <div className='row'>
                             <div style={{ fontSize: '3em', marginTop: '80px' }}>Something else?</div>
                             <div className='col-sm-12'>
-                                <Link to={'/Other'} style={{ maxWidth: '400px', border: '1px solid #337ab7', }} className='btn btn-home text-center'>
-                                    <img src={computer as string} className="center-block" />
+                                <Link to={'/Other'} style={{ maxWidth: '400px', border: '1px solid #337ab7', padding: '15px 0px' }} className='btn btn-home text-center'>
                                     <span className='btn-home-header'>Blank ticket</span>
                                 </Link>
                             </div>

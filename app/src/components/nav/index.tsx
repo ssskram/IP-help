@@ -1,8 +1,13 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import AccountContainer from './accountContainer'
+
+const btnStyle = {
+  fontSize: '20px',
+  padding: '3px 15px',
+  margin: '7px 10px'
+}
 
 export default class NavMenu extends React.Component<any, any> {
 
@@ -16,12 +21,10 @@ export default class NavMenu extends React.Component<any, any> {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <LinkContainer to={'/HelpContent'}>
-            <button style={{ color: '#fff' }}>Training & FAQ</button>
-          </LinkContainer>
-          <a target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
-            <button>My tickets</button>
-          </a>
+          <Link to={'/HelpContent'} className='btn btn-primary' style={btnStyle}>Training & FAQ</Link>
+          <a className='btn btn-warning' style={btnStyle} target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>
+            My tickets
+            </a>
           <AccountContainer />
         </Navbar.Collapse>
       </Navbar>

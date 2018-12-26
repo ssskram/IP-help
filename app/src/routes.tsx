@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route } from 'react-router'
 import Layout from './components/layout'
-import Home from './home'
+import Home from './components/home'
 import EmployeeData from './components/modules/employeeData'
 import EquipmentDisposal from './components/modules/equipmentDisposal'
 import EquipmentLoans from './components/modules/equipmentLoans'

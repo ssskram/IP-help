@@ -115,6 +115,10 @@
     background-color: #337ab7;
 }
 
+.btn-home>img {
+    margin-bottom: 10px;
+}
+
 .btn-home-header {
     font-size: 1.5em;
     color: #fff;
