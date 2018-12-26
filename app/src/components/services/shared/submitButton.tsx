@@ -24,7 +24,7 @@ export default class SubmitTicket extends React.Component<props, state> {
     }
 
     public render() {
-        return <div className='col-md-12 text-center' style={{ marginBottom: '100px' }}>
+        return <div className='col-md-12 text-center'>
             <h4>Please review all information before submitting.</h4>
             <button onClick={this.submit.bind(this)} className='btn btn-success'>Submit</button>
             {this.state.spinner == true &&

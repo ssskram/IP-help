@@ -4,7 +4,7 @@ const emailIcon = require('./../../../images/mail.png')
 const mobileIcon = require('./../../../images/mobile.png')
 
 const imgSize = {
-    height: '80px',
+    height: '60px',
     margin: '5px'
 }
 
@@ -20,7 +20,7 @@ export default class EmployeeData extends React.Component<any, any> {
         return <div className="centered">
             <div className="row text-center">
                 <div className="col-md-12">
-                    <h1>Request employee data</h1>
+                    <h2>Request employee data</h2>
                     <h4>1. Download & complete form</h4>
                     <h4>2. Collect approval from your Director</h4>
                     <h4>3. Collect approval from the Law Department</h4>
@@ -28,7 +28,7 @@ export default class EmployeeData extends React.Component<any, any> {
                     <br />
                 </div>
             </div>
-            <div className="row text-center">
+            <div className="row text-center" style={{ marginBottom: '100px' }}>
                 <div className="col-md-6 col-md-offset-3">
                     <a href='https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Permission_to_View_Email.pdf' className='btn btn-primary btn-big'>
                         <div className='row'>
@@ -41,6 +41,7 @@ export default class EmployeeData extends React.Component<any, any> {
                             </div>
                         </div>
                     </a>
+                    <br/>
                     <a href='https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Permission_to_View_Wireless.pdf' className='btn btn-primary btn-big'>
                         <div className='row'>
                             <div className='col-md-12'>

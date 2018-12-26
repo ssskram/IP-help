@@ -4,8 +4,8 @@ import Dropzone from 'react-dropzone'
 const baseStyle = {
     width: '100%',
     height: 'auto',
-    backgroundColor: '#DDDADA',
-    padding: '10px',
+    backgroundColor: 'rgba(221, 218, 218, .6)',
+    padding: '30px 10px',
     margin: '0 auto',
     borderRadius: 5
 }
@@ -14,7 +14,15 @@ const deleteBtn = {
     backgroundColor: 'transparent',
     border: 'transparent',
     fontWeight: 600,
-    color: 'red'
+    color: 'red',
+    fontSize: '.8em',
+    marginRight: '5px'
+}
+
+const fileName = {
+    whiteSpace: 'nowrap' as 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
 }
 
 export default class fileImport extends React.Component<any, any> {
@@ -30,7 +38,7 @@ export default class fileImport extends React.Component<any, any> {
     public render() {
         const attachments = this.props.attachments.map((file, key) => (
             <div key={key}>
-                <button style={deleteBtn} onClick={this.deleteAttachment.bind(this)}>X</button>{file.name}
+                <h3 style={fileName}><button style={deleteBtn} onClick={this.deleteAttachment.bind(this)}>X</button>{file.name}</h3>
             </div>
         ))
         return (

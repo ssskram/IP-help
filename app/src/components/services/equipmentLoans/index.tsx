@@ -139,14 +139,6 @@ export class EquipmentReservations extends React.Component<props, state> {
 
     public render() {
 
-        const valid =
-            this.state.fromDate != '' &&
-            this.state.toDate != '' &&
-            this.state.fromTime != '' &&
-            this.state.toTime != '' &&
-            this.state.department != '' &&
-            this.state.items != []
-
         const showEquipment =
             this.state.fromDate != '' &&
             this.state.fromTime != '' &&
@@ -155,7 +147,7 @@ export class EquipmentReservations extends React.Component<props, state> {
             this.state.toTime != null &&
             this.state.throwTimeError != true
 
-        const showAccessories =
+        const valid =
             this.state.items.length > 0
 
         if (this.state.redirect) {
@@ -163,12 +155,12 @@ export class EquipmentReservations extends React.Component<props, state> {
         }
 
         return (
-            <div style={{ marginBottom: '100px' }} className='centered'>
+            <div>
                 <Header
                     mainText='Borrow equipment'
                     subText='Complete all fields and submit'
                 />
-                <div className='col-md-12'>
+                <div className='col-md-12' style={{ marginBottom: '100px' }}>
                     <UserInfo
                         parentState={this.state}
                         setState={this.setState.bind(this)}
@@ -188,7 +180,7 @@ export class EquipmentReservations extends React.Component<props, state> {
                             addRemoveItem={this.addRemoveItem.bind(this)}
                         />
                     }
-                    {showAccessories == true &&
+                    {valid == true &&
                         <div>
                             <SelectAccessories
                                 parentState={this.state}
@@ -198,11 +190,6 @@ export class EquipmentReservations extends React.Component<props, state> {
                                 submit={this.submit.bind(this)}
                             />
                         </div>
-                    }
-                    {valid &&
-                        <SubmitButton
-                            submit={this.submit.bind(this)}
-                        />
                     }
                 </div>
             </div>

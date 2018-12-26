@@ -17,7 +17,6 @@ export default class Services extends React.Component {
             <div className='row'>
                 <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                     <div style={{ fontSize: '3em' }}>I need a...</div>
-                    <br />
                     <div className='col-sm-6'>
                         <Link to={'/NewPC'} className='btn btn-home text-center'>
                             <img src={computer as string} className="center-block" />
@@ -53,10 +52,10 @@ export default class Services extends React.Component {
                 </div>
                 <div className='hidden-sm hidden-md hidden-lg hidden-xl'>
                     <hr style={{ borderColor: '#fff' }} />
+                    <br/>
                 </div>
                 <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                     <div style={{ fontSize: '3em' }}>I want to...</div>
-                    <br />
                     <div className='col-sm-6'>
                         <Link to={'/EquipmentLoan'} className='btn  btn-home text-center'>
                             <img src={projector as string} className="center-block" />

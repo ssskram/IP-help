@@ -98,7 +98,7 @@ export class equipmentPickup extends React.Component<props, state> {
             return <Redirect push to={'/'} />
         }
 
-        return <div className='centered'>
+        return <div style={{ marginBottom: '100px' }}>
             <Header
                 mainText='IT Equipment Disposal'
                 subText="We'll pick it up!"
