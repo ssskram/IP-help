@@ -1,3 +1,4 @@
+import sendgridPost from '../shared/sendgridEndpoint'
 
 export default async function postOTRS(request, user) {
 
@@ -17,7 +18,7 @@ export default async function postOTRS(request, user) {
         .catch(err => postSuccess = false)
     try {
         // build sendgrid load
-        const otrsLoad = JSON.stringify({
+        const otrsLoad = await JSON.stringify({
             to: "cis.sys.net.notifier@pittsburghpa.gov",
             from: {
                 email: user,
@@ -27,15 +28,8 @@ export default async function postOTRS(request, user) {
             html: otrs
         })
         // and post
-        await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
-            method: 'POST',
-            body: otrsLoad,
-            headers: new Headers({
-                'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-                'Content-type': 'application/json'
-            })
-        })
-            .catch(err => postSuccess = false)
+        postSuccess = await sendgridPost(otrsLoad)
+
     } catch (err) {
         postSuccess = false
     }

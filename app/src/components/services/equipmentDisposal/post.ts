@@ -1,8 +1,6 @@
+import sendgridPost from '../shared/sendgridEndpoint'
 
 export default async function postPickup(request, user) {
-
-    console.log(request)
-    console.log(user)
 
     let postSuccess = true
 
@@ -24,7 +22,6 @@ export default async function postPickup(request, user) {
             request.image))
 
     if (request.image.length > 0) {
-        console.log('image')
         try {
             // for sendgrid, transform image, base64
             let reader = await new FileReader()
@@ -51,21 +48,12 @@ export default async function postPickup(request, user) {
                 })
 
                 // and post
-                await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
-                    method: 'POST',
-                    body: sendgridLoad,
-                    headers: new Headers({
-                        'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-                        'Content-type': 'application/json'
-                    })
-                })
-                    .catch(err => postSuccess = false)
+                postSuccess = await sendgridPost(sendgridLoad)
             }
         } catch (err) {
             postSuccess = false
         }
     } else {
-        console.log('no image')
         try {
             // build sendgrid load, no attachment
             const sendgridLoad = JSON.stringify({
@@ -77,17 +65,8 @@ export default async function postPickup(request, user) {
                 subject: 'Request for Equipment Pickup',
                 html: emailBody
             })
-
             // and post
-            await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
-                method: 'POST',
-                body: sendgridLoad,
-                headers: new Headers({
-                    'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-                    'Content-type': 'application/json'
-                })
-            })
-                .catch(err => postSuccess = false)
+            postSuccess = await sendgridPost(sendgridLoad)
         } catch (err) {
             postSuccess = false
         }

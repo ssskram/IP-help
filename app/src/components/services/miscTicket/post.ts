@@ -1,3 +1,4 @@
+import sendgridPost from '../shared/sendgridEndpoint'
 
 export default async function postOTRS(request, user) {
 
@@ -11,16 +12,6 @@ export default async function postOTRS(request, user) {
             request.body)) // 4
         .catch(err => postSuccess = false)
 
-    // define call
-    const call = async body => await fetch('http://localhost:3000/sendMail/single', {
-        method: 'POST',
-        body: body,
-        headers: new Headers({
-            'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-            'Content-type': 'application/json'
-        })
-    })
-        .catch(err => postSuccess = false)
 
     if (request.attachments.length > 0) {
         // build sendgrid load with attachment
@@ -44,7 +35,7 @@ export default async function postOTRS(request, user) {
                     }
                 ]
             })
-            try { call(otrsLoad) } catch (error) { postSuccess = false }
+            postSuccess = await sendgridPost(otrsLoad)
         }
     } else {
         // build sendgrid load w/o attachment
@@ -57,7 +48,7 @@ export default async function postOTRS(request, user) {
             subject: request.subject,
             html: otrsEmail
         })
-        try { call(otrsLoad) } catch (error) { postSuccess = false }
+        postSuccess = await sendgridPost(otrsLoad)
     }
     return postSuccess
 }

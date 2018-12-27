@@ -1,3 +1,4 @@
+import sendgridPost from '../shared/sendgridEndpoint'
 
 export default async function postOTRS(request, user) {
 
@@ -39,27 +40,12 @@ export default async function postOTRS(request, user) {
             html: otrs
         }
         // and post
-        await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
-            method: 'POST',
-            body: JSON.stringify(otrsLoad),
-            headers: new Headers({
-                'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-                'Content-type': 'application/json'
-            })
-        })
-            .catch(err => postSuccess = false)
+        postSuccess = await sendgridPost(otrsLoad)
+
         // if somebody is CCd
         if (request.cc) {
             otrsLoad.to = request.cc
-            await fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
-                method: 'POST',
-                body: JSON.stringify(otrsLoad),
-                headers: new Headers({
-                    'Authorization': 'Bearer ' + process.env.REACT_APP_SENDGRID_API,
-                    'Content-type': 'application/json'
-                })
-            })
-                .catch(err => postSuccess = false)
+            postSuccess = await sendgridPost(otrsLoad)
         }
     } catch (err) {
         postSuccess = false
