@@ -7,7 +7,7 @@ export default class Alerts extends React.Component {
         return <div>
             <div style={{ marginTop: '20px' }}>
                 <div style={{ fontSize: '1.2em' }} className='alert alert-warning'>
-                    New feature!  <Link to={'/equipmentLoan'} className="alert-link">Borrow equipment</Link>
+                    New service!  <Link to={'/equipmentLoan'} className="alert-link">Borrow equipment</Link>
                 </div>
             </div>
             <div>

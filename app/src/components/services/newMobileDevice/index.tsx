@@ -93,7 +93,7 @@ export class MobileDevice extends React.Component<props, state> {
             return <Redirect to='/' />
         }
 
-        return <div className="centered">
+        return <div className="centered" style={{ marginBottom: '100px' }}>
             <LiaisonCheck
                 itemType='mobile devices'
                 user={this.props.user}
@@ -105,7 +105,7 @@ export class MobileDevice extends React.Component<props, state> {
                 mainText='Order a new mobile device'
                 subText='Complete all fields and submit'
             />
-            <div className="col-md-4 col-md-offset-4 panel" style={{ marginBottom: '100px' }}>
+            <div className="col-md-4 col-md-offset-4 panel">
                 <div className='sectionHeader'>Mobile device<span className='glyphicon glyphicon-phone pull-right'></span></div>
                 <div className='panel-body'>
                     <Select
