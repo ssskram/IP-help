@@ -1,5 +1,4 @@
 import sendgridPost from '../../../functions/sendgridEndpoint'
-import stringFormat from '../../../functions/stringFormat'
 
 export default async function postOTRS(request, user) {
 

@@ -7,7 +7,7 @@ export default async function postOTRS(request, user) {
     await fetch('emailTemplates/mobileDevice.html')
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
-            user, // 0
+            user.email, // 0
             request.deviceType.value, // 1
             request.newReplacement.value, // 2
             request.jobTitle, // 3
