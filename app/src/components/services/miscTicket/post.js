@@ -10,7 +10,15 @@ export default async function postOTRS(request, user) {
             request.body)) // 4
         .catch(err => postSuccess = false)
 
-    const success = await sendgridPost(user, 'test', emailBody, request.attachment[0])
+
+    const args = {
+        user: user,
+        subject: request.subject,
+        email: emailBody,
+        attachment: request.attachment[0]
+    }
+
+    const success = await sendgridPost(args)
     return success
 }
 

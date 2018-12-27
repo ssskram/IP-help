@@ -30,8 +30,6 @@ type state = {
     assetTagNumber: string,
     image: Array<any>,
     redirect: boolean
-
-
 }
 
 export class equipmentPickup extends React.Component<props, state> {

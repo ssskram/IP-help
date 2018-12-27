@@ -14,6 +14,14 @@ export default async function postOTRS(request, user) {
             request.jobDuties, // 4
             request.replacementExplanation)) // 5
 
-    const success = await sendgridPost(user, 'test', emailBody, undefined)
+
+    const args = {
+        user: user,
+        subject: "New mobile device ordered for " + request.jobTitle,
+        email: emailBody,
+        attachment: undefined
+    }
+
+    const success = await sendgridPost(args)
     return success
 }

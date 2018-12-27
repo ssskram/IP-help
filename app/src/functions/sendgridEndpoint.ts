@@ -1,21 +1,40 @@
+import * as types from '../store/types'
 
 // handles sendgrid POSTs
 
-export default async function sendgridEndpoint(user, subject, email, attachment) {
+interface args {
+    user: types.user
+    subject: any
+    email: string
+    attachment: any
+}
+
+interface sgLoad {
+    to: string
+    from: {
+        email: string
+        name: string
+    }
+    subject: string
+    html: string
+    attachments?: any
+}
+
+export default async function sendgridEndpoint(args: args) {
 
     let postSuccess = true
 
-    let sendgridLoad = {
+    let sendgridLoad: sgLoad = {
         // OTRS HERE
-        to: user.email,
+        to: args.user.email,
         from: {
-            email: user.email,
+            email: args.user.email,
             name: 'I&P Help'
         },
-        subject: subject,
-        html: email,
+        subject: args.subject,
+        html: args.email,
         // attachment comes later, if applicable, if applicable
-    } as any
+    }
 
     // define endpoint
     const post = async (load) => fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
@@ -28,17 +47,17 @@ export default async function sendgridEndpoint(user, subject, email, attachment)
     })
         .catch(err => postSuccess = false)
 
-    if (attachment) {
+    if (args.attachment) {
         // transform file, base64
         let reader = new FileReader()
-        reader.readAsDataURL(attachment)
+        reader.readAsDataURL(args.attachment)
         reader.onload = () => {
             // once complete, build sendgrid load with attachment
             const fullString: any = reader.result
             // add attachment to load
             sendgridLoad.attachments = [{
                 content: fullString.split(',')[1],
-                filename: attachment.name,
+                filename: args.attachment.name,
                 disposition: 'attachment'
             }]
             //then 

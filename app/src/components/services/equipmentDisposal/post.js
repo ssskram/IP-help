@@ -19,6 +19,13 @@ export default async function postPickup(request, user) {
             request.department.value,
             request.image))
 
-    const success = await sendgridPost(user, 'test', emailBody, request.image[0])
+    const args = {
+        user: user,
+        subject: 'Request For Equipment Pickup',
+        email: emailBody,
+        attachment: request.image[0]
+    }
+
+    const success = await sendgridPost(args)
     return success
 }

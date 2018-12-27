@@ -28,6 +28,13 @@ export default async function postOTRS(request, user) {
             request.computerFunctioning, // 16
             request.OTRSticket)) // 17
 
-    const success = await sendgridPost(user, 'test', emailBody, undefined)
+    const args = {
+        user: user,
+        subject: 'Request for new PC',
+        email: emailBody,
+        attachment: undefined
+    }
+
+    const success = await sendgridPost(args)
     return success
 }
