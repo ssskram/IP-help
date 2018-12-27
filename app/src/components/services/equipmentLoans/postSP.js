@@ -6,7 +6,7 @@ export default async function postSP(request, user) {
     for (const item of request.items) {
         const forSP = {
             ReservationID: request.reservationID,
-            User: user,
+            User: user.email,
             Department: request.department.value,
             Phone: request.phone,
             Item: item.item,
@@ -17,7 +17,8 @@ export default async function postSP(request, user) {
             From: moment(request.from),
             To: moment(request.to)
         }
-        await fetch("http://localhost:3000/iphelp/newEquipmentLoan", {
+        console.log(forSP)
+        await fetch("https://365proxy.azurewebsites.us/iphelp/newEquipmentLoan", {
             method: 'post',
             body: JSON.stringify(forSP),
             headers: new Headers({

@@ -1,4 +1,5 @@
 import sendgridPost from '../../../functions/sendgridEndpoint'
+import stringFormat from '../../../functions/stringFormat'
 
 export default async function postOTRS(request, user) {
 
@@ -22,7 +23,7 @@ export default async function postOTRS(request, user) {
         .then(response => response.text())
         .then(text => otrsBody = String.format(text,
             request.reservationID, // 0
-            user, // 1
+            user.email, // 1
             request.items.map(u => u.item).join(', '), // 2
             request.from, // 3
             request.to)) // 4
@@ -41,5 +42,5 @@ export default async function postOTRS(request, user) {
     await setBody(confirmationBody)
     success = await sendgridPost(args)
 
-    return postSuccess
+    return success
 }
