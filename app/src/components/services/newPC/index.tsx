@@ -23,6 +23,7 @@ type props = {
     liaisons: types.liaisons
     successMessage: () => void
     errorMessage: () => void
+    loadLiaisons: () => void
     accessDenied: (type: string) => void
 }
 
@@ -173,6 +174,7 @@ export class NewPC extends React.Component<props, any> {
                 itemType='new computers'
                 user={this.props.user}
                 liaisons={this.props.liaisons}
+                loadLiaisons={this.props.loadLiaisons.bind(this)}
                 accessDenied={this.props.accessDenied.bind(this)}
             />
             <Header

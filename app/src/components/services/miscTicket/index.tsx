@@ -75,11 +75,11 @@ export class Other extends React.Component<props, state> {
             return <Redirect to='/' />
         }
 
-        return <div className="centered">
+        return <div className="centered" style={{ marginBottom: '100px' }}>
             <Header
                 mainText='Miscellaneous request'
             />
-            <div className="col-md-4 col-md-offset-4 panel" style={{ marginBottom: '100px' }}>
+            <div className="col-md-4 col-md-offset-4 panel">
                 <div className='sectionHeader'>Blank ticket<span className='glyphicon glyphicon-info-sign pull-right'></span></div>
                 <div className='panel-body'>
                     <Input
@@ -105,12 +105,12 @@ export class Other extends React.Component<props, state> {
                         callback={this.setState.bind(this)}
                     />
                 </div>
-                {valid &&
-                    <SubmitButton
-                        submit={this.submit.bind(this)}
-                    />
-                }
             </div>
+            {valid &&
+                <SubmitButton
+                    submit={this.submit.bind(this)}
+                />
+            }
         </div >
     }
 }

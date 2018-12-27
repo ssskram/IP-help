@@ -38,7 +38,7 @@ export default class fileImport extends React.Component<any, any> {
     public render() {
         const attachments = this.props.attachments.map((file, key) => (
             <div key={key}>
-                <h3 style={fileName}><button style={deleteBtn} onClick={this.deleteAttachment.bind(this)}>X</button>{file.name}</h3>
+                <h4 style={fileName}><button style={deleteBtn} onClick={this.deleteAttachment.bind(this)}>X</button>{file.name}</h4>
             </div>
         ))
         return (
@@ -63,7 +63,7 @@ export default class fileImport extends React.Component<any, any> {
                 }
                 {attachments.length > 0 &&
                     <div style={{ marginTop: '15px' }}>
-                        <h4>Attachment:</h4>
+                        <h5>Attachment:</h5>
                         {attachments}
                     </div>
                 }

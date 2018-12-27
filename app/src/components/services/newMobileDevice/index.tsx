@@ -17,10 +17,11 @@ import * as Selects from './selects'
 import * as SharedSelects from '../shared/selects'
 
 type props = {
-    successMessage: () => void
-    errorMessage: () => void
     liaisons: types.liaisons
     user: types.user
+    successMessage: () => void
+    errorMessage: () => void
+    loadLiaisons: () => void
     accessDenied: (type: string) => void
 }
 
@@ -97,6 +98,7 @@ export class MobileDevice extends React.Component<props, state> {
                 itemType='mobile devices'
                 user={this.props.user}
                 liaisons={this.props.liaisons}
+                loadLiaisons={this.props.loadLiaisons.bind(this)}
                 accessDenied={this.props.accessDenied.bind(this)}
             />
             <Header

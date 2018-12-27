@@ -27,7 +27,7 @@ export default class NewTicket extends React.Component<any, any> {
                         For loans longer than 72 hours, please call the Help Desk at 255-2900
                 </div>
                 }
-                <h4 style={{ paddingLeft: '35px' }}>Picking up</h4>
+                <h5 style={{ paddingLeft: '35px', marginBottom: '0px' }}>Picking up</h5>
                 <div className='col-md-6'>
                     <DatePicker
                         value={fromDate}
@@ -44,7 +44,7 @@ export default class NewTicket extends React.Component<any, any> {
                         callback={((time) => this.handleChange('fromTime', moment(time).format('h:mm A')))}
                     />
                 </div>
-                <h4 style={{ paddingLeft: '35px' }}>Returning</h4>
+                <h5 style={{ paddingLeft: '35px', marginBottom: '0px' }}>Returning</h5>
                 <div className='col-md-6'>
                     <DatePicker
                         value={toDate}
