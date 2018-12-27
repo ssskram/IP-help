@@ -29,7 +29,7 @@ export default class NavMenu extends React.Component<any, any> {
         <Navbar.Collapse className='text-xs-center'>
           <Nav>
             <NavItem><Link to='/HelpContent' className='btn btn-primary' style={btnStyle}>Training & FAQ</Link></NavItem>
-            <NavItem><a className='btn btn-warning' style={btnStyle} target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>My tickets</a></NavItem>
+            <a className='btn btn-warning' style={btnStyle} target="_blank" title="Must be connected to the City network" href='https://otrs.city.pittsburgh.pa.us/otrs/customer.pl?Action=CustomerTicketOverview;Subaction=MyTickets'>My tickets</a>
           </Nav>
           <AccountContainer />
         </Navbar.Collapse>

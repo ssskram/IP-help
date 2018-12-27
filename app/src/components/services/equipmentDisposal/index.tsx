@@ -8,7 +8,7 @@ import Header from '../shared/header'
 import * as Messages from '../../../store/messages'
 import EquipmentInformation from './markup/equipmentInformation'
 import PickupInformation from './markup/pickupInformation'
-import postPickup from './post'
+import postPickup from './post.js'
 import SubmitButton from '../shared/submitButton'
 
 type props = {
