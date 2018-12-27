@@ -45,7 +45,7 @@ export default class fileImport extends React.Component<any, any> {
             <div className='col-md-12'>
                 {attachments.length == 0 &&
                     <div>
-                        <h4 className="form-h4">{this.props.header}{this.props.required == true && <span style={{ color: 'red', fontSize: '20' }}>*</span>}</h4>
+                        <h5 className="form-h4">{this.props.header}{this.props.required == true && <span style={{ color: 'red', fontSize: '20' }}>*</span>}</h5>
                         <Dropzone
                             multiple={this.props.multi}
                             onDrop={this.addAttachment.bind(this)}

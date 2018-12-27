@@ -8,7 +8,7 @@ import * as User from '../../../store/user'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../../store'
 import * as types from '../../../store/types'
-import Post from './post'
+import Post from './post.js'
 import SubmitButton from '../shared/submitButton'
 import Header from '../shared/header'
 

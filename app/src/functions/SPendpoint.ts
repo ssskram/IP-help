@@ -3,9 +3,8 @@ import * as types from '../store/types'
 // handles sendgrid POSTs
 
 interface args {
-    to: string
     user: types.user
-    subject: string
+    subject: any
     email: string
     attachment: any
 }
@@ -21,22 +20,23 @@ interface sgLoad {
     attachments?: any
 }
 
-export default async function sendgridEndpoint(args: args) {
+export default async function sharepointEndpoint(args: args) {
 
     let postSuccess = true
-    const to = args.to || 'paul.marks@pittsburghpa.gov' // OTRS HERE
+
     let sendgridLoad: sgLoad = {
-        to: to,
+        // OTRS HERE
+        to: args.user.email,
         from: {
             email: args.user.email,
             name: 'I&P Help'
         },
         subject: args.subject,
         html: args.email,
-        // attachment comes later, if existent
+        // attachment comes later, if applicable, if applicable
     }
 
-    // endpoint
+    // define endpoint
     const post = async (load) => fetch('https://sendgridproxy.azurewebsites.us/sendMail/single', {
         method: 'POST',
         body: load,
@@ -47,28 +47,23 @@ export default async function sendgridEndpoint(args: args) {
     })
         .catch(err => postSuccess = false)
 
-    // attachment transform
-    const handleAttachment = async (attachment) => {
+    if (args.attachment) {
         // transform file, base64
         let reader = new FileReader()
-        reader.readAsDataURL(attachment)
-        reader.onload = async () => {
+        reader.readAsDataURL(args.attachment)
+        reader.onload = () => {
             // once complete, build sendgrid load with attachment
             const fullString: any = reader.result
             // add attachment to load
             sendgridLoad.attachments = [{
                 content: fullString.split(',')[1],
-                filename: attachment.name,
+                filename: args.attachment.name,
                 disposition: 'attachment'
             }]
-            // post load
-            await post(JSON.stringify(sendgridLoad))
+            //then 
+            post(JSON.stringify(sendgridLoad))
         }
-    }
+    } else post(JSON.stringify(sendgridLoad))
 
-    if (args.attachment) {
-        await handleAttachment(args.attachment)
-    } else await post(JSON.stringify(sendgridLoad))
-    
     return postSuccess
 }

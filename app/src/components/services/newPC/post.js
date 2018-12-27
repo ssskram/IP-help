@@ -2,14 +2,12 @@ import sendgridPost from '../../../functions/sendgridEndpoint'
 
 export default async function postOTRS(request, user) {
 
-    let postSuccess = true
-
     // prepare email
     let emailBody
     await fetch('emailTemplates/pcOrder.html')
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
-            user, // 0
+            user.email, // 0
             request.customerPhone, // 1
             request.department, // 2
             request.machineType, // 3
@@ -28,13 +26,23 @@ export default async function postOTRS(request, user) {
             request.computerFunctioning, // 16
             request.OTRSticket)) // 17
 
-    const args = {
+    let args = {
+        to: undefined,
         user: user,
         subject: 'Request for new PC',
         email: emailBody,
         attachment: undefined
     }
 
-    const success = await sendgridPost(args)
+    let success = await sendgridPost(args)
+
+    // cc on the order
+    if (request.cc != '') {
+        const setCC = async (cc) => args.to = cc
+        await setCC(request.cc)
+        console.log(args)
+        success = await sendgridPost(args)
+    }
+
     return success
 }

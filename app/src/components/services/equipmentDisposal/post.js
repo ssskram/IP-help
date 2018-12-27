@@ -20,10 +20,16 @@ export default async function postPickup(request, user) {
             request.image))
 
     const args = {
+        to: undefined,
         user: user,
         subject: 'Request For Equipment Pickup',
         email: emailBody,
-        attachment: request.image[0]
+        attachment: undefined
+    }
+
+    if (request.image.length > 0) {
+        const setAttachment = async (a) => args.attachment = a
+        await setAttachment(request.image[0])
     }
 
     const success = await sendgridPost(args)

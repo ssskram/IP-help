@@ -8,18 +8,20 @@ export default async function postOTRS(request, user) {
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
             request.body)) // 4
-        .catch(err => postSuccess = false)
-
 
     const args = {
+        to: undefined,
         user: user,
         subject: request.subject,
         email: emailBody,
-        attachment: request.attachment[0]
+        attachment: undefined
+    }
+
+    if (request.attachments.length > 0) {
+        const setAttachment = async (a) => args.attachment = a
+        await setAttachment(request.attachments[0])
     }
 
     const success = await sendgridPost(args)
     return success
 }
-
-
