@@ -10,7 +10,7 @@ export default class unsupportedItems extends React.Component<any, any> {
     }
 
     public render() {
-        return <div className='col-md-12 text-center'>
+        return <div className='col-md-12 text-center' style={{ marginTop: '-15px', marginBottom: '10px' }}>
             <a onClick={() => this.setState({ modalIsOpen: true })} style={{ cursor: 'pointer' }}>Don't see what you're looking for?</a>
             <Modal
                 open={this.state.modalIsOpen}

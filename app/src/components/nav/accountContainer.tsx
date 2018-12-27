@@ -28,7 +28,9 @@ export class AccountContainer extends React.Component<props, {}> {
             <div style={{ marginTop: '10px', marginLeft: '20px', marginRight: '10px' }} className="navbar-right">
                 <ul className="nav navbar-nav navbar-right">
                     <li>
-                        <span style={{ color: '#fff' }}><b><span className='glyphicon glyphicon-user nav-glyphicon'></span>{user.name}</b></span>
+                        {user &&
+                            <span style={{ color: '#fff' }}><b><span className='glyphicon glyphicon-user nav-glyphicon'></span>{user.name}</b></span>
+                        }
                         <button onClick={logout} type="submit" className="btn btn-link navbar-logout-btn">Logout</button>
                     </li>
 

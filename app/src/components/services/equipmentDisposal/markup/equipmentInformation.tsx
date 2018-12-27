@@ -35,9 +35,9 @@ export default class equipmentInformation extends React.Component<any, any> {
                 <Select
                     value={equipmentType}
                     header='Equipment type'
-                    placeholder='You can select more than one'
+                    placeholder='Select equipment type'
                     onChange={equipmentType => setState({ equipmentType })}
-                    multi={true}
+                    multi={false}
                     options={Types.equipmentTypes}
                     required
                 />

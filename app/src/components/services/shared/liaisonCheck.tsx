@@ -12,7 +12,7 @@ type props = {
 export default class LS extends React.Component<props, any> {
 
     checkStatus(user, liaisons) {
-        const liaison = liaisons.find(ls => ls['user'] === user.user)
+        const liaison = liaisons.find(ls => ls['user'] === user.email)
         if (liaison) return true
         else return false
     }

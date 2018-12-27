@@ -5,7 +5,7 @@ import * as constants from './constants'
 import * as types from './types'
 
 const unloadedState: types.user = {
-    user: '...loading',
+    email: '...loading',
     organization: '...loading',
     name: '...loading'
 }
@@ -19,7 +19,7 @@ export const actionCreators = {
             dispatch({ type: constants.loadUser, user: user })
             return user
         } else {
-            const user = { user: 'paul.marks@pittsburghpa.gov', organization: 'City of Pittsburgh', name: 'Marks, Paul' }
+            const user = { email: 'paul.marks@pittsburghpa.gov', organization: 'City of Pittsburgh', name: 'Marks, Paul' }
             dispatch({ type: constants.loadUser, user: user })
             return user
         }
