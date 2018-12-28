@@ -93,11 +93,17 @@
 
 .btn-view-services {
     margin: 5px 0px 10px 0px;
-    padding: 10px 5px;
+    padding: 10px 15px;
     font-size: 1.8em;
     letter-spacing: 3px;
     animation: glow .8s infinite alternate;
     background-color: transparent;
+    border: 1px solid rgb(44, 62, 80);
+}
+
+.btn-view-services:hover {
+    background-color: #337ab7;
+    color: #fff;
 }
 
 @keyframes glow {
