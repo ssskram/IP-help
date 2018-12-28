@@ -40,18 +40,8 @@ export default async function postOTRS(request, user) {
     if (request.cc != '') {
         const setCC = async (cc) => args.to = cc
         await setCC(request.cc)
-        console.log(args)
         success = await sendgridPost(args)
     }
 
     return success
-}
-
-String.format = function () {
-    var s = arguments[0]
-    for (var i = 0; i < arguments.length - 1; i++) {
-        var reg = new RegExp("\\{" + i + "\\}", "gm")
-        s = s.replace(reg, arguments[i + 1])
-    }
-    return s
 }

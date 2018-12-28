@@ -20,7 +20,7 @@ export const actionCreators = {
             .then(data => {
                 dispatch({ type: constants.loadLiaisons, liaisons: data });
             })
-            .catch(err => console.log(err))
+            .catch(err => {})
     }
 }
 

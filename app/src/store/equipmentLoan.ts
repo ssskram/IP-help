@@ -20,7 +20,7 @@ export const actionCreators = {
             .then(data => {
                 dispatch({ type: constants.loadEquipmentLoans, loans: data });
             })
-            .catch(err => console.log(err))
+            .catch(err => {})
     }
 }
 
