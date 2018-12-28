@@ -14,6 +14,7 @@ export default async function postOTRS(request, user) {
         attachment: undefined
     }
     const setBody = async (b) => args.email = b
+    const setTo = async (t) => args.to = t
 
     // prepare emails
     //.. first otrs
@@ -39,6 +40,7 @@ export default async function postOTRS(request, user) {
             request.from, // 2
             request.to)) // 3
     await setBody(confirmationBody)
+    await setTo(user.email)
     success = await sendgridPost(args)
 
     return success

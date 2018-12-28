@@ -24,7 +24,7 @@ interface sgLoad {
 export default async function sendgridEndpoint(args: args) {
 
     let postSuccess = true
-    const to = args.to || 'cis.sys.net.notifier@pittsburghpa.gov'
+    const to = args.to || 'paul.marks@pittsburghpa.gov'
     let sendgridLoad: sgLoad = {
         to: to,
         from: {

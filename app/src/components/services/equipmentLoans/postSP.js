@@ -17,7 +17,6 @@ export default async function postSP(request, user) {
             From: moment(request.from),
             To: moment(request.to)
         }
-        console.log(forSP)
         await fetch("https://365proxy.azurewebsites.us/iphelp/newEquipmentLoan", {
             method: 'post',
             body: JSON.stringify(forSP),
