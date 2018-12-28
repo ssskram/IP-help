@@ -33,7 +33,7 @@ export class Home extends React.Component<any, any> {
                         <img src={ipIcon as string} className="img-responsive center-block home-image" />
                         <h1>We're here to <b>help</b></h1>
                         <button onClick={this.scrollServices.bind(this)} className='btn btn-view-services'>
-                            Products & services
+                            View products & services
                         </button>
                         <div>
                             <br />
