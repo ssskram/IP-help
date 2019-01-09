@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Col, Grid, Row } from 'react-bootstrap'
+import MsNotice from './msNotice'
 import NavMenu from './nav'
 
 export default props => (
@@ -12,5 +13,6 @@ export default props => (
         {props.children}
       </Col>
     </Row>
+    <MsNotice />
   </Grid>
 )

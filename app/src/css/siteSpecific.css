@@ -135,3 +135,14 @@
 .btn-home-body {
     color: #fff;
 }
+
+/* transitions for home ms notice */
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}

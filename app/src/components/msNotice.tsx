@@ -10,7 +10,7 @@ const msIcon = require('./../images/microsoft2.png')
 
 const styleLarge = {
     position: 'absolute' as any,
-    top: '0px',
+    top: '50px',
     right: '0px',
     padding: '8px 15px 8px 45px',
     backgroundColor: '#5cb85c',
@@ -20,9 +20,9 @@ const styleLarge = {
 
 const styleSmall = {
     position: 'absolute' as any,
-    top: '51px',
+    top: '50px',
     right: '0px',
-    padding: '5px',
+    padding: '7px 0px 5px 0px',
     backgroundColor: '#5cb85c',
     width: '100%'
 }
@@ -40,7 +40,7 @@ export default class Notice extends React.Component<any, any> {
             showContact
         } = this.state
 
-        const header = <div><h5 style={{ color: '#fff' }}> <img style={imgSize} src={msIcon as string} /><b>Trouble with Microsoft?</b></h5></div>
+        const header = <div><h5 style={{ color: '#fff', cursor: 'pointer' }}> <img style={imgSize} src={msIcon as string} /><b>Trouble with Microsoft?</b></h5></div>
         const contact =
             <ReactCSSTransitionGroup
                 transitionName="example"

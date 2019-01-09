@@ -9,19 +9,19 @@ const unloadedState: types.messsage = {
 
 export const actionCreators = {
     newMessage: (message): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.newMessage, message });
+        dispatch({ type: constants.newMessage, message })
     },
     successMessage: (): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.success });
+        dispatch({ type: constants.success })
     },
     errorMessage: (): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.failure });
+        dispatch({ type: constants.failure })
     },
     clearMessage: (): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.clear });
+        dispatch({ type: constants.clear })
     },
     accessDenied: (obj): AppThunkAction<any> => (dispatch) => {
-        dispatch({ type: constants.accessDenied, obj });
+        dispatch({ type: constants.accessDenied, obj })
     }
 }
 
