@@ -24,10 +24,11 @@ export default async function postOTRS(request, user) {
             request.previouslyFunctioning, // 14
             request.computerNumber, // 15
             request.computerFunctioning, // 16
-            request.OTRSticket)) // 17
+            request.OTRSticket, // 17
+            request.additionalInformation)) // 18
 
     let args = {
-        to: undefined,
+        to: 'paul.marks@pittsburghpa.gov',
         user: user,
         subject: 'Request for new PC',
         email: emailBody,

@@ -17,6 +17,7 @@ import UserInfo from './markup/userInfo'
 import EmployeeInfo from './markup/employeeInfo'
 import PCInfo from './markup/pcInfo'
 import SubmitButton from '../shared/submitButton'
+import AdditionalInformation from './markup/additionalInfo'
 
 type props = {
     user: types.user
@@ -50,6 +51,7 @@ export class NewPC extends React.Component<props, any> {
             cc: '',
             cellularData: '',
             cellularDataJustification: '',
+            aditionalInformation: '',
             availableAccessories: [],
             modalIsOpen: false,
             accessoriesTooltip: false,
@@ -119,7 +121,8 @@ export class NewPC extends React.Component<props, any> {
             softwareApplications: this.state.softwareApplications,
             cc: this.state.cc,
             cellularData: this.state.cellularData.value || '',
-            cellularDataJustification: this.state.cellularDataJustification
+            cellularDataJustification: this.state.cellularDataJustification,
+            additionalInformation: this.state.additionalInformation
         }
         // communicate success/failure
         let success = true
@@ -194,6 +197,10 @@ export class NewPC extends React.Component<props, any> {
                 setState={this.setState.bind(this)}
                 accessoriesTooltip={this.accessoriesTooltip.bind(this)}
                 softwareTooltip={this.softwareTooltip.bind(this)}
+            />
+            <AdditionalInformation
+                parentState={this.state}
+                setState={this.setState.bind(this)}
             />
             {valid == true &&
                 <SubmitButton

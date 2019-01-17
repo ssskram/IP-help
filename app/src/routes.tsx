@@ -9,6 +9,7 @@ import HelpContent from './components/FAQ'
 import NewTicket from './components/services/miscTicket'
 import MobileDevice from './components/services/newMobileDevice'
 import NewPC from './components/services/newPC'
+import newDeskPhone from './components/services/newDeskPhone'
 
 export default () => (
   <Layout>
@@ -20,5 +21,6 @@ export default () => (
     <Route exact path='/Other' component={NewTicket} />
     <Route exact path='/MobileDevice' component={MobileDevice} />
     <Route exact path='/NewPC' component={NewPC} />
+    <Route exact path='/DeskPhone' component={newDeskPhone} />
   </Layout>
 )

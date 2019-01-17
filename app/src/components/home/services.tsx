@@ -9,6 +9,7 @@ const tablet = require('../../images/tablet2.png')
 const dispose = require('../../images/dispose.png')
 const projector = require('../../images/projector.png')
 const employee = require('../../images/employee.png')
+const deskPhone = require('../../images/deskPhone.png')
 
 export default class Services extends React.Component {
 
@@ -47,6 +48,12 @@ export default class Services extends React.Component {
                         <Link to={'/MobileDevice'} className='btn btn-home text-center'>
                             <img src={tablet as string} className="center-block" />
                             <span className='btn-home-header'>Tablet</span>
+                        </Link>
+                    </div>
+                    <div className='col-sm-6'>
+                        <Link to={'/DeskPhone'} className='btn btn-home text-center'>
+                            <img src={deskPhone as string} className="center-block" />
+                            <span className='btn-home-header'>Desk phone</span>
                         </Link>
                     </div>
                 </div>
