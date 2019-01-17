@@ -28,7 +28,7 @@ export default async function postOTRS(request, user) {
             request.additionalInformation)) // 18
 
     let args = {
-        to: 'paul.marks@pittsburghpa.gov',
+        to: user.email, // switch to undefined
         user: user,
         subject: 'Request for new PC',
         email: emailBody,
