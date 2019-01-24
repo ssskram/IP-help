@@ -26,6 +26,7 @@ type state = {
     intercomNumber: string
     voicemail: string
     phoneTrees: string
+    department: string
 }
 
 export class MobileDevice extends React.Component<props, state> {
@@ -37,7 +38,8 @@ export class MobileDevice extends React.Component<props, state> {
             userName: '',
             intercomNumber: '',
             voicemail: '',
-            phoneTrees: ''
+            phoneTrees: '',
+            department: ''
         }
     }
 
@@ -52,7 +54,8 @@ export class MobileDevice extends React.Component<props, state> {
             userName: this.state.userName,
             intercomNumber: this.state.intercomNumber,
             voicemail: this.state.voicemail,
-            phoneTrees: this.state.phoneTrees
+            phoneTrees: this.state.phoneTrees,
+            department: this.state.department
         }
         // communicate success/failure
         let success = true
@@ -74,14 +77,16 @@ export class MobileDevice extends React.Component<props, state> {
             userName,
             intercomNumber,
             voicemail,
-            phoneTrees
+            phoneTrees,
+            department
         } = this.state
 
         const valid =
             existingNumber != '' &&
             userName != '' &&
             voicemail != '' &&
-            phoneTrees != ''
+            phoneTrees != '' &&
+            department != ''
 
         if (redirect) {
             return <Redirect to='/' />
@@ -100,6 +105,15 @@ export class MobileDevice extends React.Component<props, state> {
                         header="What is the employee's name?"
                         placeholder="Employee name"
                         callback={e => this.setState({ userName: e.target.value })}
+                        required
+                    />
+                    <Select
+                        value={department}
+                        header="What is the employee's department?"
+                        placeholder='Select department'
+                        onChange={department => this.setState({ department })}
+                        multi={false}
+                        options={SharedSelects.Departments}
                         required
                     />
                     <Phone
