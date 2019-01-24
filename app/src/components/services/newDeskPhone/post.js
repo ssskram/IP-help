@@ -12,7 +12,8 @@ export default async function postOTRS(request, user) {
             request.intercomNumber, // 2
             request.voicemail.value, // 3
             request.phoneTrees.value, // 4
-            request.department.value)) // 5
+            request.department.value, // 5
+            request.location)) // 6
 
 
     const args = {

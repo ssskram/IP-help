@@ -27,6 +27,7 @@ type state = {
     voicemail: string
     phoneTrees: string
     department: string
+    location: string
 }
 
 export class MobileDevice extends React.Component<props, state> {
@@ -39,7 +40,8 @@ export class MobileDevice extends React.Component<props, state> {
             intercomNumber: '',
             voicemail: '',
             phoneTrees: '',
-            department: ''
+            department: '',
+            location: ''
         }
     }
 
@@ -55,7 +57,8 @@ export class MobileDevice extends React.Component<props, state> {
             intercomNumber: this.state.intercomNumber,
             voicemail: this.state.voicemail,
             phoneTrees: this.state.phoneTrees,
-            department: this.state.department
+            department: this.state.department,
+            location: this.state.location
         }
         // communicate success/failure
         let success = true
@@ -78,7 +81,8 @@ export class MobileDevice extends React.Component<props, state> {
             intercomNumber,
             voicemail,
             phoneTrees,
-            department
+            department,
+            location
         } = this.state
 
         const valid =
@@ -86,7 +90,8 @@ export class MobileDevice extends React.Component<props, state> {
             userName != '' &&
             voicemail != '' &&
             phoneTrees != '' &&
-            department != ''
+            department != '' &&
+            location != ''
 
         if (redirect) {
             return <Redirect to='/' />
@@ -114,6 +119,13 @@ export class MobileDevice extends React.Component<props, state> {
                         onChange={department => this.setState({ department })}
                         multi={false}
                         options={SharedSelects.Departments}
+                        required
+                    />
+                    <Input
+                        value={location}
+                        header="Where is the employee located?"
+                        placeholder="Building, floor, room, etc."
+                        callback={e => this.setState({ location: e.target.value })}
                         required
                     />
                     <Phone
