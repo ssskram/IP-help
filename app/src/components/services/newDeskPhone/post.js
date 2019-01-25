@@ -17,7 +17,7 @@ export default async function postOTRS(request, user) {
 
 
     const args = {
-        to: user.email, // switch to undefined
+        to: undefined,
         user: user,
         subject: "New desk phone ordered for " + request.userName,
         email: emailBody,
