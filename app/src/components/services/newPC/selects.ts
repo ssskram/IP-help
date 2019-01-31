@@ -2,6 +2,7 @@
 export const MachineTypes = [
     { value: 'Desktop', label: 'Desktop' },
     { value: 'Laptop', label: 'Laptop' },
+    { value: 'Tablet', label: 'Tablet' },
     { value: 'Zero client', label: 'Zero client' },
     { value: 'Thin client', label: 'Thin client' },
 ]
