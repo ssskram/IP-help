@@ -25,12 +25,12 @@ export default class SelfService extends React.Component {
                         <div>{section.title}</div>
                     </AccordionItemTitle>
                     <AccordionItemBody>
-                        {section.body.map(body => {
+                        {section.body.map((body, bk) => {
                             return (
-                                <div>
+                                <div key={bk}>
                                     <h4><b>{body.section}</b></h4>
-                                    {body.items.map(item => {
-                                        return <a href={item.link} target="_blank" className="btn btn-selfservice">{item.title}</a>
+                                    {body.items.map((item, ik) => {
+                                        return <a href={item.link} target="_blank" className="btn btn-selfservice" key={ik}>{item.title}</a>
                                     })}
                                 </div>
                             )
