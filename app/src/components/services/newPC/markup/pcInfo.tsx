@@ -40,10 +40,10 @@ export default class PcInfo extends React.Component<any, any> {
                     required
                 />
 
-                {machineType.value == 'Laptop' &&
+                {(machineType.value == 'Laptop' || machineType.value == 'Laptop/Tablet Combo' || machineType.value == 'Tablet') &&
                     <Select
                         value={cellularData}
-                        header='Does the laptop need cellular data services?'
+                        header='Does the device need cellular data services?'
                         placeholder='Yes or no'
                         onChange={cellularData => setState({ cellularData })}
                         multi={false}

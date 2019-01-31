@@ -88,6 +88,9 @@ export class NewPC extends React.Component<props, any> {
             if (this.state.machineType.value === "Laptop") {
                 this.setState({ availableAccessories: Selects.LaptopAccessories }, () => this.addSpeakers())
             }
+            if (this.state.machineType.value === "Laptop/Tablet Combo") {
+                this.setState({ availableAccessories: Selects.LaptopAccessories }, () => this.addSpeakers())
+            }
             if (this.state.machineType.value === "Tablet") {
                 this.setState({ availableAccessories: Selects.LaptopAccessories }, () => this.addSpeakers())
             }
