@@ -96,7 +96,6 @@
     padding: 12px 18px;
     font-size: 1.6em;
     letter-spacing: 3px;
-    animation: glow .8s infinite alternate;
     background-color: transparent;
     border: 1px solid rgb(44, 62, 80);
 }
@@ -104,12 +103,6 @@
 .btn-view-services:hover {
     background-color: #337ab7;
     color: #fff;
-}
-
-@keyframes glow {
-    to {
-        text-shadow: 0 0 2px #337ab7;
-    }
 }
 
 .btn-home {

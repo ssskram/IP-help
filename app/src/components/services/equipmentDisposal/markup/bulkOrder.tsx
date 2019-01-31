@@ -3,7 +3,11 @@ import FileUpload from '../../../formElements/fileImport'
 
 type props = {
     setState: (stateObj: object) => void
-    attachment: Array<any>
+    attachments: Array<any>
+}
+
+const bigFont = {
+    fontSize: '1.5em'
 }
 
 export default class Bulk extends React.Component<props, {}> {
@@ -13,11 +17,14 @@ export default class Bulk extends React.Component<props, {}> {
             <div className='sectionHeader'>Bulk Disposal<span className='glyphicon glyphicon-hdd pull-right'></span></div>
             <div className='panel-body'>
                 <h4><b>Step One</b></h4>
-                Download and complete this spreadsheet
+                <a style={bigFont} target='_blank' href='https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Bulk%20Disposal%20Spreadsheet.xlsx'>
+                    Download and complete this spreadsheet
+                </a>
                 <h4><b>Step Two</b></h4>
+                <p style={bigFont}>Upload completed spreadsheet here:</p>
                 <FileUpload
-                    header={'Upload spreadsheet here'}
-                    attachments={this.props.attachment}
+                    header=''
+                    attachments={this.props.attachments}
                     multi={false}
                     callback={this.props.setState.bind(this)}
                 />

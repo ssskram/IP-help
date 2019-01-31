@@ -1,7 +1,6 @@
 import * as React from 'react'
-import TextArea from '../../../formElements/textarea'
+import Input from '../../../formElements/input'
 import Select from '../../../formElements/select'
-import Number from '../../../formElements/numbers'
 import Types from '../markup/equipmentTypes'
 import UnsupportedItems from '../markup/unsupportedItems'
 import ImageUploader from 'react-images-upload'
@@ -14,7 +13,7 @@ export default class equipmentInformation extends React.Component<any, any> {
             modelNumber,
             equipmentNumber,
             assetTagNumber,
-            attachment,
+            attachments,
         } = this.props.parentState
 
         const { 
@@ -22,7 +21,7 @@ export default class equipmentInformation extends React.Component<any, any> {
         } = this.props
 
         let imgButton
-        if (attachment.length == 0) {
+        if (attachments.length == 0) {
             imgButton = { display: 'block' }
         } else {
             imgButton = { display: 'none' }
@@ -42,24 +41,24 @@ export default class equipmentInformation extends React.Component<any, any> {
                 />
                 <UnsupportedItems />
 
-                <TextArea
+                <Input
                     value={modelNumber}
-                    header="Model numbers"
-                    placeholder="Enter model numbers"
+                    header="Model number"
+                    placeholder="Enter model number"
                     callback={(e) => setState({ modelNumber: e.target.value })}
                 />
 
-                <TextArea
+                <Input
                     value={equipmentNumber}
-                    header="Equipment numbers"
-                    placeholder="Enter equipment numbers"
+                    header="Equipment number"
+                    placeholder="Enter equipment number"
                     callback={(e) => setState({ equipmentNumber: e.target.value })}
                 />
 
-                <TextArea
+                <Input
                     value={assetTagNumber}
-                    header="Asset tags"
-                    placeholder="Enter numbers on asset tags"
+                    header="Asset tag"
+                    placeholder="Enter numbers on asset tag"
                     callback={(e) => setState({ assetTagNumber: e.target.value })}
                 />
 
@@ -68,7 +67,7 @@ export default class equipmentInformation extends React.Component<any, any> {
                         buttonStyles={imgButton}
                         withIcon={true}
                         buttonText='Attach an image'
-                        onChange={attachment => setState({ attachment })}
+                        onChange={attachments => setState({ attachments })}
                         imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
                         withLabel={false}
                         maxFileSize={5242880}

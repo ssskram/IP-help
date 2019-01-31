@@ -31,7 +31,7 @@ type state = {
     modelNumber: string,
     equipmentNumber: string
     assetTagNumber: string,
-    attachment: Array<any>,
+    attachments: Array<any>,
     redirect: boolean
 }
 
@@ -39,7 +39,7 @@ export class equipmentPickup extends React.Component<props, state> {
     constructor(props) {
         super(props)
         this.state = {
-            bulk: false,
+            bulk: undefined,
             primaryContact: '',
             secondaryContact: '',
             phoneNumber: '',
@@ -49,7 +49,7 @@ export class equipmentPickup extends React.Component<props, state> {
             modelNumber: '',
             equipmentNumber: '',
             assetTagNumber: '',
-            attachment: [],
+            attachments: [],
             redirect: false
         }
     }
@@ -70,7 +70,7 @@ export class equipmentPickup extends React.Component<props, state> {
             secondaryContact: this.state.secondaryContact,
             phoneNumber: this.state.phoneNumber,
             department: this.state.department,
-            attachment: this.state.attachment
+            attachments: this.state.attachments
         }
         // communicate success/failure
         let success = true
@@ -85,13 +85,19 @@ export class equipmentPickup extends React.Component<props, state> {
     }
 
     public render() {
-        const valid =
-            this.state.primaryContact != '' &&
-            this.state.secondaryContact != '' &&
-            this.state.phoneNumber != '' &&
-            this.state.department != '' &&
-            this.state.locationEquipment != '' &&
-            this.state.equipmentType != ''
+        let valid
+        if (this.state.bulk == false) {
+            valid =
+                this.state.primaryContact != '' &&
+                this.state.secondaryContact != '' &&
+                this.state.phoneNumber != '' &&
+                this.state.department != '' &&
+                this.state.locationEquipment != '' &&
+                this.state.equipmentType != ''
+        } else {
+            valid =
+                this.state.attachments.length > 0
+        }
 
         if (this.state.redirect) {
             return <Redirect push to={'/'} />
@@ -111,22 +117,22 @@ export class equipmentPickup extends React.Component<props, state> {
                     parentState={this.state}
                 />
             }
-            {this.state.bulk == true &&
-                <BulkOrder
-                    setState={this.setState.bind(this)}
-                    attachment={this.state.attachment}
-                />
-            }
-            {this.state.bulk != undefined &&
+            {this.state.bulk == false &&
                 <PickupInformation
                     setState={this.setState.bind(this)}
                     parentState={this.state}
                 />
             }
-            {/* {valid == false && this.state.bulk != undefined &&
+            {this.state.bulk == true &&
+                <BulkOrder
+                    setState={this.setState.bind(this)}
+                    attachments={this.state.attachments}
+                />
+            }
+            {valid == false && this.state.bulk != undefined &&
                 <BackButton setState={this.setState.bind(this)} />
-            } */}
-            {valid == true &&
+            }
+            {valid == true && this.state.bulk != undefined &&
                 <SubmitButton
                     submit={this.submit.bind(this)}
                 />

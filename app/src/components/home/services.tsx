@@ -45,7 +45,7 @@ export default class Services extends React.Component {
                     </div>
                     <div className="clearfix"></div>
                     <div className='col-sm-6'>
-                        <Link to={'/MobileDevice'} className='btn btn-home text-center'>
+                        <Link to={'/NewPC'} className='btn btn-home text-center'>
                             <img src={tablet as string} className="center-block" />
                             <span className='btn-home-header'>Tablet</span>
                         </Link>

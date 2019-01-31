@@ -11,12 +11,12 @@ export default async function postPickup(request, user) {
             request.modelNumber || 'Bulk',
             request.equipmentNumber || 'Bulk',
             request.assetTagNumber || 'Bulk',
-            request.locationEquipment,
-            request.primaryContact,
-            request.secondaryContact,
-            request.phoneNumber,
-            request.department.value,
-            request.attachment))
+            request.locationEquipment || 'Bulk',
+            request.primaryContact || 'Bulk',
+            request.secondaryContact || 'Bulk',
+            request.phoneNumber || 'Bulk',
+            request.department.value || 'Bulk',
+            request.attachments))
 
     const args = {
         to: undefined,
@@ -26,9 +26,9 @@ export default async function postPickup(request, user) {
         attachment: undefined
     }
 
-    if (request.attachment.length > 0) {
+    if (request.attachments.length > 0) {
         const setAttachment = async (a) => args.attachment = a
-        await setAttachment(request.attachment[0])
+        await setAttachment(request.attachments[0])
     }
 
     const success = await sendgridPost(args)
