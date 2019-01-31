@@ -18,7 +18,7 @@ export default class LS extends React.Component<props, any> {
     }
 
     checkStatus(user, liaisons) {
-        const liaison = liaisons.find(ls => ls.user === user.email.toLowerCase())
+        const liaison = liaisons.find(ls => ls.user == user.email.toLowerCase())
         if (liaison) return true
         else return false
     }

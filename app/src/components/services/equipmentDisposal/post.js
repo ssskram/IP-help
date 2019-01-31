@@ -7,17 +7,16 @@ export default async function postPickup(request, user) {
     await fetch('emailTemplates/equipmentPickup.html')
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
-            request.equipmentType.value,
-            request.quantityEquipment,
-            request.modelNumber,
-            request.equipmentNumber,
-            request.assetTagNumber,
+            request.equipmentType.value || 'Bulk',
+            request.modelNumber || 'Bulk',
+            request.equipmentNumber || 'Bulk',
+            request.assetTagNumber || 'Bulk',
             request.locationEquipment,
             request.primaryContact,
             request.secondaryContact,
             request.phoneNumber,
             request.department.value,
-            request.image))
+            request.attachment))
 
     const args = {
         to: undefined,
@@ -27,9 +26,9 @@ export default async function postPickup(request, user) {
         attachment: undefined
     }
 
-    if (request.image.length > 0) {
+    if (request.attachment.length > 0) {
         const setAttachment = async (a) => args.attachment = a
-        await setAttachment(request.image[0])
+        await setAttachment(request.attachment[0])
     }
 
     const success = await sendgridPost(args)

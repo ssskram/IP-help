@@ -10,12 +10,11 @@ export default class equipmentInformation extends React.Component<any, any> {
 
     public render() {
         const {
-            quantityEquipment,
             equipmentType,
             modelNumber,
             equipmentNumber,
             assetTagNumber,
-            image,
+            attachment,
         } = this.props.parentState
 
         const { 
@@ -23,7 +22,7 @@ export default class equipmentInformation extends React.Component<any, any> {
         } = this.props
 
         let imgButton
-        if (image.length == 0) {
+        if (attachment.length == 0) {
             imgButton = { display: 'block' }
         } else {
             imgButton = { display: 'none' }
@@ -42,14 +41,6 @@ export default class equipmentInformation extends React.Component<any, any> {
                     required
                 />
                 <UnsupportedItems />
-
-                <Number
-                    value={quantityEquipment}
-                    header="Quantity of equipment"
-                    prefix=""
-                    callback={(e, m, f) => setState({ quantityEquipment: f })}
-                    required
-                />
 
                 <TextArea
                     value={modelNumber}
@@ -77,7 +68,7 @@ export default class equipmentInformation extends React.Component<any, any> {
                         buttonStyles={imgButton}
                         withIcon={true}
                         buttonText='Attach an image'
-                        onChange={image => setState({ image })}
+                        onChange={attachment => setState({ attachment })}
                         imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
                         withLabel={false}
                         maxFileSize={5242880}

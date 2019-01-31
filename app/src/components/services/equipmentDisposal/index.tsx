@@ -10,6 +10,9 @@ import EquipmentInformation from './markup/equipmentInformation'
 import PickupInformation from './markup/pickupInformation'
 import postPickup from './post.js'
 import SubmitButton from '../shared/submitButton'
+import BulkOrSingle from './markup/bulkOrSingle'
+import BulkOrder from './markup/bulkOrder'
+import BackButton from './markup/backButton'
 
 type props = {
     successMessage: () => void
@@ -18,17 +21,17 @@ type props = {
 }
 
 type state = {
+    bulk: boolean
     primaryContact: string
     secondaryContact: string
     phoneNumber: string,
     department: string,
     locationEquipment: string,
-    quantityEquipment: number,
     equipmentType: string
     modelNumber: string,
     equipmentNumber: string
     assetTagNumber: string,
-    image: Array<any>,
+    attachment: Array<any>,
     redirect: boolean
 }
 
@@ -36,17 +39,17 @@ export class equipmentPickup extends React.Component<props, state> {
     constructor(props) {
         super(props)
         this.state = {
+            bulk: false,
             primaryContact: '',
             secondaryContact: '',
             phoneNumber: '',
             department: '',
             locationEquipment: '',
-            quantityEquipment: 0,
             equipmentType: '',
             modelNumber: '',
             equipmentNumber: '',
             assetTagNumber: '',
-            image: [],
+            attachment: [],
             redirect: false
         }
     }
@@ -59,7 +62,6 @@ export class equipmentPickup extends React.Component<props, state> {
         // data to post
         const load = {
             equipmentType: this.state.equipmentType,
-            quantityEquipment: this.state.quantityEquipment,
             modelNumber: this.state.modelNumber,
             equipmentNumber: this.state.equipmentNumber,
             assetTagNumber: this.state.assetTagNumber,
@@ -68,7 +70,7 @@ export class equipmentPickup extends React.Component<props, state> {
             secondaryContact: this.state.secondaryContact,
             phoneNumber: this.state.phoneNumber,
             department: this.state.department,
-            image: this.state.image
+            attachment: this.state.attachment
         }
         // communicate success/failure
         let success = true
@@ -89,7 +91,6 @@ export class equipmentPickup extends React.Component<props, state> {
             this.state.phoneNumber != '' &&
             this.state.department != '' &&
             this.state.locationEquipment != '' &&
-            this.state.quantityEquipment != 0 &&
             this.state.equipmentType != ''
 
         if (this.state.redirect) {
@@ -101,14 +102,30 @@ export class equipmentPickup extends React.Component<props, state> {
                 mainText='IT Equipment Disposal'
                 subText="We'll pick it up!"
             />
-            <EquipmentInformation
-                setState={this.setState.bind(this)}
-                parentState={this.state}
-            />
-            <PickupInformation
-                setState={this.setState.bind(this)}
-                parentState={this.state}
-            />
+            {this.state.bulk == undefined &&
+                <BulkOrSingle setState={this.setState.bind(this)} />
+            }
+            {this.state.bulk == false &&
+                <EquipmentInformation
+                    setState={this.setState.bind(this)}
+                    parentState={this.state}
+                />
+            }
+            {this.state.bulk == true &&
+                <BulkOrder
+                    setState={this.setState.bind(this)}
+                    attachment={this.state.attachment}
+                />
+            }
+            {this.state.bulk != undefined &&
+                <PickupInformation
+                    setState={this.setState.bind(this)}
+                    parentState={this.state}
+                />
+            }
+            {/* {valid == false && this.state.bulk != undefined &&
+                <BackButton setState={this.setState.bind(this)} />
+            } */}
             {valid == true &&
                 <SubmitButton
                     submit={this.submit.bind(this)}
