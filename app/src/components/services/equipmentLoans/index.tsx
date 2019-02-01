@@ -160,7 +160,7 @@ export class EquipmentReservations extends React.Component<props, state> {
                     mainText='Borrow equipment'
                     subText='Complete all fields and submit'
                 />
-                <div className='col-md-12' style={{ marginBottom: '100px' }}>
+                <div className='col-md-12'>
                     <UserInfo
                         parentState={this.state}
                         setState={this.setState.bind(this)}
@@ -186,11 +186,12 @@ export class EquipmentReservations extends React.Component<props, state> {
                                 parentState={this.state}
                                 addRemoveItem={this.addRemoveItem.bind(this)}
                             />
-                            <SubmitButton
-                                submit={this.submit.bind(this)}
-                            />
                         </div>
                     }
+                    <SubmitButton
+                        isEnabled={valid}
+                        submit={this.submit.bind(this)}
+                    />
                 </div>
             </div>
         )

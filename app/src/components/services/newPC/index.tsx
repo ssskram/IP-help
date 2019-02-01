@@ -178,7 +178,7 @@ export class NewPC extends React.Component<props, any> {
             return <Redirect to='/' />
         }
 
-        return <div className='col-md-12' style={{ marginBottom: '100px' }}>
+        return <div className='col-md-12'>
             <LiaisonCheck
                 itemType='new computers'
                 user={this.props.user}
@@ -208,11 +208,10 @@ export class NewPC extends React.Component<props, any> {
                 parentState={this.state}
                 setState={this.setState.bind(this)}
             />
-            {valid == true &&
-                <SubmitButton
-                    submit={this.submit.bind(this)}
-                />
-            }
+            <SubmitButton
+                isEnabled={valid}
+                submit={this.submit.bind(this)}
+            />
             <Modal
                 open={this.state.modalIsOpen}
                 onClose={this.closeTooltip.bind(this)}

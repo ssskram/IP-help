@@ -103,7 +103,7 @@ export class equipmentPickup extends React.Component<props, state> {
             return <Redirect push to={'/'} />
         }
 
-        return <div className='col-md-12' style={{ marginBottom: '100px' }}>
+        return <div className='col-md-12'>
             <Header
                 mainText='IT Equipment Disposal'
                 subText="We'll pick it up!"
@@ -132,11 +132,10 @@ export class equipmentPickup extends React.Component<props, state> {
             {valid == false && this.state.bulk != undefined &&
                 <BackButton setState={this.setState.bind(this)} />
             }
-            {valid == true && this.state.bulk != undefined &&
-                <SubmitButton
-                    submit={this.submit.bind(this)}
-                />
-            }
+            <SubmitButton
+                isEnabled={valid && this.state.bulk != undefined}
+                submit={this.submit.bind(this)}
+            />
         </div>
     }
 }

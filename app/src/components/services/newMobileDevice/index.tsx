@@ -93,7 +93,7 @@ export class MobileDevice extends React.Component<props, state> {
             return <Redirect to='/' />
         }
 
-        return <div className="centered" style={{ marginBottom: '100px' }}>
+        return <div className="centered">
             <LiaisonCheck
                 itemType='mobile devices'
                 user={this.props.user}
@@ -153,11 +153,10 @@ export class MobileDevice extends React.Component<props, state> {
                     }
                 </div>
             </div>
-            {valid &&
-                <SubmitButton
-                    submit={this.submit.bind(this)}
-                />
-            }
+            <SubmitButton
+                isEnabled={valid}
+                submit={this.submit.bind(this)}
+            />
         </div>
     }
 }

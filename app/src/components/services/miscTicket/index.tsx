@@ -75,7 +75,7 @@ export class Other extends React.Component<props, state> {
             return <Redirect to='/' />
         }
 
-        return <div className="centered" style={{ marginBottom: '100px' }}>
+        return <div className="centered">
             <Header
                 mainText='Miscellaneous request'
             />
@@ -106,11 +106,10 @@ export class Other extends React.Component<props, state> {
                     />
                 </div>
             </div>
-            {valid &&
-                <SubmitButton
-                    submit={this.submit.bind(this)}
-                />
-            }
+            <SubmitButton
+                isEnabled={valid}
+                submit={this.submit.bind(this)}
+            />
         </div >
     }
 }
