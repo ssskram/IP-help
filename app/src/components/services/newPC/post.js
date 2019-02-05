@@ -30,7 +30,7 @@ export default async function postOTRS(request, user) {
     let args = {
         to: undefined,
         user: user,
-        subject: 'Request for new PC',
+        subject: 'New PC Request for ' + request.userName,
         email: emailBody,
         attachment: undefined
     }
