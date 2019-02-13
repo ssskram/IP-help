@@ -6,7 +6,8 @@ export const equipmentTypes  = [
     { value: 'Fax machine', label: 'Fax machine' },
     { value: 'Keyboard', label: 'Keyboard' },
     { value: 'Mice', label: 'Mice' },
-    { value: 'Phone', label: 'Phone' },
+    { value: 'Office Phone', label: 'Office Phone' },
+    { value: 'Mobile Device', label: 'Mobile Device' },
   ]
 
   export default {

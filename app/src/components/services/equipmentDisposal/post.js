@@ -7,7 +7,7 @@ export default async function postPickup(request, user) {
     await fetch('emailTemplates/equipmentPickup.html')
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
-            request.equipmentType.value || 'Bulk',
+            request.equipmentType || 'Bulk',
             request.modelNumber || 'Bulk',
             request.equipmentNumber || 'Bulk',
             request.assetTagNumber || 'Bulk',
@@ -15,7 +15,7 @@ export default async function postPickup(request, user) {
             request.primaryContact || 'Bulk',
             request.secondaryContact || 'Bulk',
             request.phoneNumber || 'Bulk',
-            request.department.value || 'Bulk',
+            request.department || 'Bulk',
             request.attachments))
 
     const args = {

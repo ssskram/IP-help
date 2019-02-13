@@ -69,6 +69,6 @@ export default async function sendgridEndpoint(args: args) {
     if (args.attachment) {
         await handleAttachment(args.attachment)
     } else await post(JSON.stringify(sendgridLoad))
-    
+
     return postSuccess
 }

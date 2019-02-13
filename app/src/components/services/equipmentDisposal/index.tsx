@@ -12,7 +12,6 @@ import postPickup from './post.js'
 import SubmitButton from '../shared/submitButton'
 import BulkOrSingle from './markup/bulkOrSingle'
 import BulkOrder from './markup/bulkOrder'
-import BackButton from './markup/backButton'
 
 type props = {
     successMessage: () => void
@@ -117,7 +116,7 @@ export class equipmentPickup extends React.Component<props, state> {
                     parentState={this.state}
                 />
             }
-            {this.state.bulk == false &&
+            {this.state.bulk == false && this.state.equipmentType != "Mobile Device" &&
                 <PickupInformation
                     setState={this.setState.bind(this)}
                     parentState={this.state}
@@ -129,13 +128,12 @@ export class equipmentPickup extends React.Component<props, state> {
                     attachments={this.state.attachments}
                 />
             }
-            {valid == false && this.state.bulk != undefined &&
-                <BackButton setState={this.setState.bind(this)} />
+            {this.state.bulk == false && this.state.equipmentType != "Mobile Device" &&
+                < SubmitButton
+                    isEnabled={valid && this.state.bulk != undefined}
+                    submit={this.submit.bind(this)}
+                />
             }
-            <SubmitButton
-                isEnabled={valid && this.state.bulk != undefined}
-                submit={this.submit.bind(this)}
-            />
         </div>
     }
 }

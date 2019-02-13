@@ -24,10 +24,10 @@ export default class pickupInformation extends React.Component<any, any> {
             <div className='sectionHeader'>Pickup information<span className='glyphicon glyphicon-map-marker pull-right'></span></div>
             <div className='panel-body'>
                 <Select
-                    value={department}
+                    value={department ? { value: department, label: department } : ''}
                     header='Department'
                     placeholder='Select department'
-                    onChange={department => setState({ department })}
+                    onChange={d => setState({ department: d.value })}
                     multi={false}
                     options={SharedSelects.Departments}
                     required

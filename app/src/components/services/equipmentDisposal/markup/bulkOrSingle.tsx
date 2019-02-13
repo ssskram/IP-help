@@ -5,7 +5,7 @@ type props = {
 }
 
 const bigFont = {
-    fontSize: '1.5em'
+    fontSize: '1.2em'
 }
 
 export default class BulkOrSingle extends React.Component<props, {}> {
