@@ -87,7 +87,7 @@ export default class EmployeeInfo extends React.Component<any, any> {
                         />
                         <DatePicker
                             value={employeeStartDate}
-                            header='When is the of their employement?'
+                            header='When is the start of their employement?'
                             name="employeeStartDate"
                             placeholder="Select a date"
                             callback={(date) => setState({ employeeStartDate: date })}
