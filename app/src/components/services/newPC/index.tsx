@@ -18,6 +18,7 @@ import EmployeeInfo from './markup/employeeInfo'
 import PCInfo from './markup/pcInfo'
 import SubmitButton from '../shared/submitButton'
 import AdditionalInformation from './markup/additionalInfo'
+import * as moment from 'moment'
 
 type props = {
     user: types.user
@@ -41,6 +42,7 @@ export class NewPC extends React.Component<props, any> {
             floor: '',
             employmentStatus: '',
             employmentType: '',
+            employeeeStartDate: '',
             previouslyFunctioning: '',
             computerNumber: '',
             computerFunctioning: '',
@@ -119,6 +121,7 @@ export class NewPC extends React.Component<props, any> {
             floor: this.state.floor,
             employmentStatus: this.state.employmentStatus.value || '',
             employmentType: this.state.employmentType.value || '',
+            employeeStartDate: moment(this.state.employeeStartDate).format('MM/DD/YYYY') || '',
             previouslyFunctioning: this.state.previouslyFunctioning.value || '',
             computerNumber: this.state.computerNumber,
             computerFunctioning: this.state.computerFunctioning.value || '',

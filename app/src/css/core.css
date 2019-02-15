@@ -5,6 +5,7 @@
 html {
     height: 100% !important;
     width: 100% !important;
+    overflow-x: hidden;
 }
 
 body {
@@ -36,7 +37,7 @@ hr {
 /* ------------------------- */
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {

@@ -53,12 +53,12 @@ export default class Datepicker extends React.Component<any, any> {
         return (
             <div className="form-group">
                 <div className="col-md-12 form-element">
-                    <h5 className="form-h4">{this.props.header}{this.props.required == true && <span style={{color: 'red', fontSize: '20'}}>*</span>}</h5>
+                    <h5 className="form-h4">{this.props.header}{this.props.required == true && <span style={{ color: 'red', fontSize: '20' }}>*</span>}</h5>
                     <button
                         className={conditionalClass}
                         onClick={this.toggleCalendar.bind(this)}>
                         {this.state.date == null &&
-                            <span style={{color: '#aaa'}}>{this.props.placeholder}</span>
+                            <span style={{ color: '#aaa' }}>{this.props.placeholder}</span>
                         }
                         {this.state.date != null &&
                             <Moment format="MM/DD/YYYY" date={this.state.date} />
@@ -72,7 +72,7 @@ export default class Datepicker extends React.Component<any, any> {
                             placeholderText={this.props.placeholder}
                             onChange={this.handleChange.bind(this)}
                             className={conditionalClass}
-                            minDate={moment()}
+                            minDate={this.props.minDate ? moment() : undefined}
                             isClearable={true}
                             onClickOutside={this.toggleCalendar.bind(this)}
                             showMonthDropdown

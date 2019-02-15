@@ -25,7 +25,8 @@ export default async function postOTRS(request, user) {
             request.computerNumber, // 15
             request.computerFunctioning, // 16
             request.OTRSticket, // 17
-            request.additionalInformation)) // 18
+            request.additionalInformation, // 18
+            request.employeeStartDate)) // 19
 
     let args = {
         to: undefined,

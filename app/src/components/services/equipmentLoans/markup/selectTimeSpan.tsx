@@ -34,6 +34,7 @@ export default class NewTicket extends React.Component<any, any> {
                         name="fromDate"
                         placeholder="Select a date"
                         callback={(date) => this.handleChange('fromDate', moment(date).format('MM/DD/YYYY'))}
+                        minDate
                     />
                 </div>
                 <div className='col-md-6'>
@@ -51,6 +52,7 @@ export default class NewTicket extends React.Component<any, any> {
                         name="toDate"
                         placeholder="Select a date"
                         callback={((date) => this.handleChange('toDate', moment(date).format('MM/DD/YYYY')))}
+                        minDate
                     />
                 </div>
                 <div className='col-md-6'>

@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Select from '../../../formElements/select'
 import Input from '../../../formElements/input'
+import DatePicker from '../../../formElements/datepicker'
 import * as Selects from './../selects'
 import * as SharedSelects from '../../shared/selects'
+import * as moment from 'moment'
 
 export default class EmployeeInfo extends React.Component<any, any> {
 
@@ -15,6 +17,7 @@ export default class EmployeeInfo extends React.Component<any, any> {
             floor,
             employmentStatus,
             employmentType,
+            employeeStartDate,
             computerNumber
         } = this.props.parentState
 
@@ -43,7 +46,7 @@ export default class EmployeeInfo extends React.Component<any, any> {
                 />
                 <Input
                     value={userNetworkID}
-                    header="What is the employee's network id?"
+                    header="What is the employee's network ID?"
                     placeholder="Network ID"
                     callback={e => setState({ userNetworkID: e.target.value })}
                 />
@@ -72,21 +75,31 @@ export default class EmployeeInfo extends React.Component<any, any> {
                 />
 
                 {employmentStatus.value == 'New' &&
-                    <Select
-                        value={employmentType}
-                        header='Is this for a permanent employee, or intern?'
-                        placeholder='Permanent employee or intern'
-                        onChange={employmentType => setState({ employmentType })}
-                        multi={false}
-                        options={Selects.EmploymentTypes}
-                        required
-                    />
+                    <div>
+                        <Select
+                            value={employmentType}
+                            header='Is this for a permanent employee, or intern?'
+                            placeholder='Permanent employee or intern'
+                            onChange={employmentType => setState({ employmentType })}
+                            multi={false}
+                            options={Selects.EmploymentTypes}
+                            required
+                        />
+                        <DatePicker
+                            value={employeeStartDate}
+                            header='When is the of their employement?'
+                            name="employeeStartDate"
+                            placeholder="Select a date"
+                            callback={(date) => setState({ employeeStartDate: date })}
+                            required
+                        />
+                    </div>
                 }
                 {employmentStatus.value == 'Existing' &&
                     <Input
                         value={computerNumber}
                         header="Enter the employee's current computer number"
-                        placeholder="Computer number"                        
+                        placeholder="Computer number"
                         callback={e => setState({ computerNumber: e.target.value })}
                         required
                     />
