@@ -144,7 +144,8 @@
 
 .rbc-toolbar .rbc-toolbar-label {
     text-align: left !important;
-    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
 }
 
 .rbc-event {

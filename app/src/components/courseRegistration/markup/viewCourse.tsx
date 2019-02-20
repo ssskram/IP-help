@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as types from '../../../store/types'
 import Modal from 'react-responsive-modal'
+import Waitlist from './waitlist'
 
 type props = {
     course: types.course
@@ -10,10 +11,6 @@ type props = {
 }
 
 export default class ViewCourse extends React.Component<props, {}> {
-
-    componentDidMount() {
-        console.log(this.props)
-    }
 
     registerActive() {
         this.props.setState({
@@ -35,7 +32,8 @@ export default class ViewCourse extends React.Component<props, {}> {
 
         const enrollments = this.props.courseRegistrations.filter(reg => reg.courseCode == this.props.course.courseCode)
         const countActive = enrollments.filter(x => x.registrationStatus == "Active").length
-        const countWaitlisted = enrollments.filter(x => x.registrationStatus == "Waitlisted").length
+        const waitlist = enrollments.filter(x => x.registrationStatus == "Waitlisted")
+        const countWaitlisted = waitlist.length
 
         return (
             <Modal
@@ -47,7 +45,7 @@ export default class ViewCourse extends React.Component<props, {}> {
                 }}
                 center>
                 <div className='text-center'>
-                    <h4 style={{ textTransform: 'uppercase' }}><b>{this.props.course.courseName}</b></h4>
+                    <h4 className='oswald-header'>{this.props.course.courseName}</h4>
                     <div><i>{this.props.course.courseDescription}</i></div><br />
                     <div><b>Course start</b></div>
                     <div>{this.props.course.startDate}</div>
@@ -60,14 +58,17 @@ export default class ViewCourse extends React.Component<props, {}> {
                     {countWaitlisted > 0 &&
                         <div>
                             <div><b>Currently waitlisted</b></div>
-                            <div>{countWaitlisted} hungry brains</div>
+                            <div>{countWaitlisted} hungry brain{countWaitlisted > 1 ? 's' : ''}</div>
+                            <Waitlist 
+                                waitlist={waitlist}
+                            />
                         </div>
                     }
                     <br />
                     {countActive < this.props.course.maximumCapacity &&
                         <button className='btn btn-success' onClick={this.registerActive.bind(this)}>Sign me up!</button>
                     }
-                    {countActive == this.props.course.maximumCapacity &&
+                    {countActive >= this.props.course.maximumCapacity &&
                         <button className='btn btn-warning' onClick={this.registerWaitlist.bind(this)}>Add me to the waitlist!</button>
                     }
                 </div>

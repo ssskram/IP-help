@@ -5,8 +5,8 @@ export default class CourseRegistration extends React.Component {
     public render() {
         return (
             <div className='text-center'>
-                <h3 style={{ textTransform: 'uppercase' }}>Upcoming Courses</h3>
-                <h4>Select a course to view enrollment & register</h4>
+                <h3 className='oswald-header'>Upcoming Courses</h3>
+                <h4>Select a course to view enrollment and register</h4>
                 <hr />
             </div>
         )

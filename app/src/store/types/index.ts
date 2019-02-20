@@ -67,7 +67,6 @@ export interface course {
     endDate: string
     maximumCapacity: number
 }
-
 export interface courseRegistrations {
     courseRegistrations: courseRegistration[]
 }
@@ -76,4 +75,5 @@ export interface courseRegistration {
     user: string
     courseCode: string
     registrationStatus: string
+    registrationDate: string
 }

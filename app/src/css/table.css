@@ -23,16 +23,16 @@ td {
     white-space: pre-wrap !important;
     overflow: visible !important;
     text-overflow: inherit !important;
-    padding: 10px !important;
+    padding: 3px !important;
 }
 
 .rt-thead {
-    padding: 5px !important;
+    padding: 2px !important;
     font-weight: 600;
 }
 
 .rt-resizable-header-content {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .table-container {

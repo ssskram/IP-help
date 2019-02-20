@@ -30,9 +30,9 @@ export default class ConfirmRegistration extends React.Component<props, state> {
         })
         setTimeout(
             function () {
-                self.props.setState ({
-                  confirmRegistration: undefined,
-                  registrationComplete: 'Error'  
+                self.props.setState({
+                    confirmRegistration: undefined,
+                    registrationComplete: 'Success'
                 })
             }, 3000)
     }
@@ -48,16 +48,17 @@ export default class ConfirmRegistration extends React.Component<props, state> {
                 }}
                 center>
                 <div className='text-center'>
-                    <h3>Are you sure you want to register for this course?</h3>
+                    <h3>Are you sure you want to<br />register for this course?</h3>
                     <div><b>Course name</b></div>
                     <div>{this.props.course.courseName}</div>
                     <div><b>Course start</b></div>
                     <div>{this.props.course.startDate}</div>
                     <div><b>Course end</b></div>
                     <div>{this.props.course.endDate}</div>
-                    <button className='btn btn-success' onClick={this.submitRegistration.bind(this)}>{this.props.registrationType == "Active" ? "Yes! Sign me up!" : "Yes! Add me to the waitlist!"}</button>
+                    <br />
+                    <button className={this.props.registrationType == "Active" ? 'btn btn-success' : 'btn btn-warning'} onClick={this.submitRegistration.bind(this)}>{this.props.registrationType == "Active" ? "Yes! Sign me up!" : "Yes! Add me to the waitlist!"}</button>
                     {this.state.submitting == true &&
-                        <Spinner notice='...submitting your registration...'/>
+                        <Spinner notice='...submitting your registration...' />
                     }
                 </div>
             </Modal>
