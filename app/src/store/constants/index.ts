@@ -17,3 +17,8 @@ export const loadEquipmentLoans = 'loadEquipmentLoans'
 
 // equipment
 export const loadEquipment = 'loadEquipment'
+
+// course registrations
+export const loadCourses = 'loadCourses'
+export const loadRegistrations = 'loadRegistrations'
+export const newRegistration = 'newRegistration'

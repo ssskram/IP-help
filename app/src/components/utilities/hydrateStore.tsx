@@ -8,6 +8,8 @@ import * as user from '../../store/user'
 import * as liaisons from '../../store/liaisons'
 import * as equipmentLoans from '../../store/equipmentLoan'
 import * as equipment from '../../store/equipment'
+import * as courses from '../../store/courses'
+import * as courseRegistrations from '../../store/courseRegistrations'
 
 class Hydrate extends React.Component<any, {}> {
 
@@ -16,6 +18,12 @@ class Hydrate extends React.Component<any, {}> {
         this.props.loadLiaisons()
         this.props.loadEquipmentLoans()
         this.props.loadEquipment()
+        this.props.loadCourses()
+        this.props.loadCourseRegistrations()
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
     }
 
     public render() {
@@ -28,12 +36,16 @@ export default connect(
         ...state.user,
         ...state.liaisons,
         ...state.loans,
-        ...state.equipment
+        ...state.equipment,
+        ...state.courses,
+        ...state.courseRegistrations
     }),
     ({
         ...user.actionCreators,
         ...liaisons.actionCreators,
         ...equipmentLoans.actionCreators,
-        ...equipment.actionCreators
+        ...equipment.actionCreators,
+        ...courses.actionCreators,
+        ...courseRegistrations.actionCreators
     })
 )(Hydrate)

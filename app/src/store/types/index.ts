@@ -7,7 +7,7 @@ export interface user {
 }
 
 // message
-export interface messsage { 
+export interface messsage {
     message: string
 }
 
@@ -18,7 +18,7 @@ export interface liaisons {
 
 // equipment loans
 export interface equipmentLoans {
-    loans: equipmentLoan []
+    loans: equipmentLoan[]
 }
 export interface equipmentLoan {
     reservationID: string
@@ -52,4 +52,28 @@ export interface equipmentItem {
     pcNumber: string
     assetNumber: string
     itemID: string
+}
+
+// course registrations
+export interface courses {
+    courses: course[]
+}
+export interface course {
+    courseId: number
+    courseCode: string
+    courseName: string
+    courseDescription: string
+    startDate: string
+    endDate: string
+    maximumCapacity: number
+}
+
+export interface courseRegistrations {
+    courseRegistrations: courseRegistration[]
+}
+export interface courseRegistration {
+    registrationId: number
+    user: string
+    courseCode: string
+    registrationStatus: string
 }

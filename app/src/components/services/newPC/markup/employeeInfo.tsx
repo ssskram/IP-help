@@ -4,7 +4,6 @@ import Input from '../../../formElements/input'
 import DatePicker from '../../../formElements/datepicker'
 import * as Selects from './../selects'
 import * as SharedSelects from '../../shared/selects'
-import * as moment from 'moment'
 
 export default class EmployeeInfo extends React.Component<any, any> {
 
