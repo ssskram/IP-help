@@ -2,8 +2,10 @@ import * as React from 'react'
 import * as types from '../../../store/types'
 import Modal from 'react-responsive-modal'
 import Waitlist from './waitlist'
+import userIsRegistered from '../functions/userIsRegistered'
 
 type props = {
+    user: types.user
     course: types.course
     courseRegistrations: types.courseRegistration[]
     setState: (stateObj: object) => void
@@ -34,6 +36,7 @@ export default class ViewCourse extends React.Component<props, {}> {
         const countActive = enrollments.filter(x => x.registrationStatus == "Active").length
         const waitlist = enrollments.filter(x => x.registrationStatus == "Waitlisted")
         const countWaitlisted = waitlist.length
+        const userAlreadyRegistered = userIsRegistered(this.props.user, this.props.course, this.props.courseRegistrations)
 
         return (
             <Modal
@@ -45,6 +48,12 @@ export default class ViewCourse extends React.Component<props, {}> {
                 }}
                 center>
                 <div className='text-center'>
+                    {userAlreadyRegistered &&
+                        <div>
+                            <br />
+                            <div className='alert alert-info'>You are currently registered for this course</div>
+                        </div>
+                    }
                     <h4 className='oswald-header'>{this.props.course.courseName}</h4>
                     <div><i>{this.props.course.courseDescription}</i></div><br />
                     <div><b>Course start</b></div>
@@ -59,17 +68,21 @@ export default class ViewCourse extends React.Component<props, {}> {
                         <div>
                             <div><b>Currently waitlisted</b></div>
                             <div>{countWaitlisted} hungry brain{countWaitlisted > 1 ? 's' : ''}</div>
-                            <Waitlist 
+                            <Waitlist
                                 waitlist={waitlist}
                             />
                         </div>
                     }
                     <br />
-                    {countActive < this.props.course.maximumCapacity &&
-                        <button className='btn btn-success' onClick={this.registerActive.bind(this)}>Sign me up!</button>
-                    }
-                    {countActive >= this.props.course.maximumCapacity &&
-                        <button className='btn btn-warning' onClick={this.registerWaitlist.bind(this)}>Add me to the waitlist!</button>
+                    {!userAlreadyRegistered &&
+                        <div>
+                            {countActive < this.props.course.maximumCapacity &&
+                                <button className='btn btn-success' onClick={this.registerActive.bind(this)}>Sign me up!</button>
+                            }
+                            {countActive >= this.props.course.maximumCapacity &&
+                                <button className='btn btn-warning' onClick={this.registerWaitlist.bind(this)}>Add me to the waitlist!</button>
+                            }
+                        </div>
                     }
                 </div>
             </Modal>

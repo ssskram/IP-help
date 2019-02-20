@@ -71,6 +71,7 @@ export class CourseRegistration extends React.Component<props, state> {
                         closeModal={this.closeModal.bind(this)}
                         courseRegistrations={this.props.courseRegistrations}
                         course={this.state.course}
+                        user={this.props.user}
                     />
                 }
                 {this.state.confirmRegistration == true &&

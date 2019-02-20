@@ -8,7 +8,7 @@ type props = {
 }
 
 const columns = [{
-    Header: 'Waitlisted',
+    Header: 'Waitlist',
     accessor: 'user'
 }]
 
