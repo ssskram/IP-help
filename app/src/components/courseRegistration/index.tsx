@@ -19,6 +19,7 @@ type props = {
     courseRegistrations: types.courseRegistration[]
     loadCourses: () => void
     loadCourseRegistrations: () => void
+    newCourseRegistration: (registration: object) => boolean
 }
 
 type state = {
@@ -86,6 +87,8 @@ export class CourseRegistration extends React.Component<props, state> {
                         closeModal={this.closeModal.bind(this)}
                         registrationType={this.state.registrationType}
                         setState={this.setState.bind(this)}
+                        user={this.props.user}
+                        newCourseRegistration={this.props.newCourseRegistration.bind(this)}
                     />
                 }
                 {this.state.registrationComplete &&

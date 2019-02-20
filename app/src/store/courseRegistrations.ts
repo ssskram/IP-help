@@ -20,7 +20,26 @@ export const actionCreators = {
             .then(data => {
                 dispatch({ type: constants.loadRegistrations, registrations: data });
             })
-            .catch(err => {})
+            .catch(err => { })
+    },
+    newCourseRegistration: (registration): AppThunkAction<any> => async (dispatch) => {
+        let SPload = JSON.stringify({
+            User: registration.user,
+            Course_x0020_Code: registration.courseCode,
+            Registration_x0020_Status: registration.registrationStatus
+        })
+        const response = await fetch('https://365proxy.azurewebsites.us/iphelp/newCourseRegistration', {
+            method: 'POST',
+            body: SPload,
+            headers: new Headers({
+                'Authorization': 'Bearer ' + process.env.REACT_APP_365_API,
+                'Content-Type': 'application/json'
+            })
+        })
+        if (response.status == 200) {
+            dispatch({ type: constants.newRegistration, registration: registration })
+            return 'Success'
+        } else return 'Error'
     }
 }
 
@@ -29,6 +48,8 @@ export const reducer: Reducer<types.courseRegistrations> = (state: types.courseR
     switch (action.type) {
         case constants.loadRegistrations:
             return { ...state, courseRegistrations: action.registrations }
+        case constants.newRegistration:
+            return { ...state, courseRegistrations: state.courseRegistrations.concat(action.registration) }
     }
     return state || unloadedState
 }

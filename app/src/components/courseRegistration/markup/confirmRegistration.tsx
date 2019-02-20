@@ -2,11 +2,14 @@ import * as React from 'react'
 import * as types from '../../../store/types'
 import Modal from 'react-responsive-modal'
 import Spinner from '../../utilities/spinner'
+import * as moment from 'moment'
 
 type props = {
+    user: types.user
     course: types.course
     registrationType: "Active" | "Waitlisted"
     setState: (stateObj: object) => void
+    newCourseRegistration: (registration: object) => boolean
     closeModal: () => void
 }
 
@@ -22,19 +25,19 @@ export default class ConfirmRegistration extends React.Component<props, state> {
         }
     }
 
-    submitRegistration() {
-        // post here
-        let self = this
-        this.setState({
-            submitting: true
+    async submitRegistration() {
+        this.setState({ submitting: true })
+        const success = await this.props.newCourseRegistration({
+            registrationId: undefined,
+            user: this.props.user.email,
+            courseCode: this.props.course.courseCode,
+            registrationStatus: this.props.registrationType,
+            registrationDate: moment().format('MM-DD-YYYY, hh:mm A')
         })
-        setTimeout(
-            function () {
-                self.props.setState({
-                    confirmRegistration: undefined,
-                    registrationComplete: 'Success'
-                })
-            }, 3000)
+        this.props.setState({
+            confirmRegistration: undefined,
+            registrationComplete: success
+        })
     }
 
     public render() {
