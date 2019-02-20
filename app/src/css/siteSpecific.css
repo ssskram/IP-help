@@ -139,3 +139,10 @@
     opacity: 1;
     transition: opacity .5s ease-in;
 }
+
+/* calendar */
+
+.rbc-toolbar .rbc-toolbar-label {
+    text-align: left !important;
+    font-weight: bold;
+}
