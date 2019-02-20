@@ -55,19 +55,13 @@ export default class Table extends React.Component<props, {}> {
             <div className='text-center'>
                 <br />
                 <ReactTable
-                    data={this.props.courses}
+                    data={this.props.courses.sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate))}
                     columns={columns}
                     loading={false}
                     minRows={0}
                     pageSize={20}
                     showPageSizeOptions={false}
                     noDataText=''
-                    defaultSorted={[
-                        {
-                            id: moment('startDate'),
-                            asc: true
-                        }
-                    ]}
                 />
                 <br />
                 <br />
