@@ -51,11 +51,15 @@ export default class Table extends React.Component<props, {}> {
             maxWidth: 65
         }]
 
+        const now = +new Date()
         return (
             <div className='text-center'>
                 <br />
                 <ReactTable
-                    data={this.props.courses.sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate))}
+                    data={this.props.courses
+                        .filter(course => +new Date(course.startDate) > now)
+                        .sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate))
+                    }
                     columns={columns}
                     loading={false}
                     minRows={0}

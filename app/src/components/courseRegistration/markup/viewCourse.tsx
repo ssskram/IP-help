@@ -30,6 +30,10 @@ export default class ViewCourse extends React.Component<props, {}> {
         })
     }
 
+    courseIsNotInPast() {
+        return +new Date(this.props.course.startDate) > +new Date()
+    }
+
     public render() {
 
         const enrollments = this.props.courseRegistrations.filter(reg => reg.courseCode == this.props.course.courseCode)
@@ -74,7 +78,7 @@ export default class ViewCourse extends React.Component<props, {}> {
                         </div>
                     }
                     <br />
-                    {!userAlreadyRegistered &&
+                    {!userAlreadyRegistered && this.courseIsNotInPast() &&
                         <div>
                             {countActive < this.props.course.maximumCapacity &&
                                 <button className='btn btn-success' onClick={this.registerActive.bind(this)}>Sign me up!</button>
