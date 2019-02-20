@@ -128,7 +128,7 @@ export class equipmentPickup extends React.Component<props, state> {
                     attachments={this.state.attachments}
                 />
             }
-            {this.state.bulk == false && this.state.equipmentType != "Mobile Device" &&
+            {this.state.bulk != undefined && this.state.equipmentType != "Mobile Device" &&
                 < SubmitButton
                     isEnabled={valid && this.state.bulk != undefined}
                     submit={this.submit.bind(this)}
