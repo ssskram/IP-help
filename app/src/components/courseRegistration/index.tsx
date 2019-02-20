@@ -7,6 +7,7 @@ import * as courses from '../../store/courses'
 import * as courseRegistrations from '../../store/courseRegistrations'
 import Spinner from '../utilities/spinner'
 import Calendar from './markup/calendar'
+import Table from './markup/table'
 import Header from './markup/header'
 import ViewCourse from './markup/viewCourse'
 import ConfirmRegistration from './markup/confirmRegistration'
@@ -61,6 +62,11 @@ export class CourseRegistration extends React.Component<props, state> {
             <div className='col-md-8 col-md-offset-2'>
                 <Header />
                 <Calendar
+                    courseRegistrations={this.props.courseRegistrations}
+                    courses={this.props.courses}
+                    setState={this.setState.bind(this)}
+                />
+                <Table
                     courseRegistrations={this.props.courseRegistrations}
                     courses={this.props.courses}
                     setState={this.setState.bind(this)}
