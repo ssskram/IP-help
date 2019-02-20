@@ -9,6 +9,8 @@ import Spinner from '../utilities/spinner'
 import Calendar from './markup/calendar'
 import Header from './markup/header'
 import ViewCourse from './markup/viewCourse'
+import ConfirmRegistration from './markup/confirmRegistration'
+import RegistrationComplete from './markup/registrationComplete'
 
 type props = {
     user: types.user
@@ -21,6 +23,8 @@ type props = {
 type state = {
     viewCourse: boolean
     confirmRegistration: boolean
+    registrationType: "Active" | "Waitlisted"
+    registrationComplete: "Success" | "Error"
     course: types.course
 }
 
@@ -30,6 +34,8 @@ export class CourseRegistration extends React.Component<props, state> {
         this.state = {
             viewCourse: false,
             confirmRegistration: false,
+            registrationType: undefined,
+            registrationComplete: undefined,
             course: undefined
         }
     }
@@ -38,6 +44,16 @@ export class CourseRegistration extends React.Component<props, state> {
         window.scrollTo(0, 0)
         this.props.loadCourses()
         this.props.loadCourseRegistrations()
+    }
+
+    closeModal() {
+        this.setState({
+            viewCourse: false,
+            confirmRegistration: false,
+            registrationType: undefined,
+            registrationComplete: undefined,
+            course: undefined
+        })
     }
 
     public render() {
@@ -52,8 +68,26 @@ export class CourseRegistration extends React.Component<props, state> {
                 {this.state.viewCourse == true &&
                     <ViewCourse
                         setState={this.setState.bind(this)}
+                        closeModal={this.closeModal.bind(this)}
                         courseRegistrations={this.props.courseRegistrations}
                         course={this.state.course}
+                    />
+                }
+                {this.state.confirmRegistration == true &&
+                    <ConfirmRegistration
+                        course={this.state.course}
+                        closeModal={this.closeModal.bind(this)}
+                        registrationType={this.state.registrationType}
+                        setState={this.setState.bind(this)}
+                    />
+                }
+                {this.state.registrationComplete &&
+                    <RegistrationComplete
+                        course={this.state.course}
+                        registrationType={this.state.registrationType}
+                        registrationComplete={this.state.registrationComplete}
+                        closeModal={this.closeModal.bind(this)}
+                        setState={this.setState.bind(this)}
                     />
                 }
                 {this.props.courses.length == 0 && this.props.courseRegistrations.length == 0 &&

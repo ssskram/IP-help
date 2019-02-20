@@ -1,19 +1,47 @@
 import * as React from 'react'
 import * as types from '../../../store/types'
 import Modal from 'react-responsive-modal'
+import Spinner from '../../utilities/spinner'
 
 type props = {
     course: types.course
+    registrationType: "Active" | "Waitlisted"
     setState: (stateObj: object) => void
+    closeModal: () => void
 }
 
-export default class ConfirmRegistration extends React.Component<props, {}> {
+type state = {
+    submitting: boolean
+}
+
+export default class ConfirmRegistration extends React.Component<props, state> {
+    constructor(props) {
+        super(props)
+        this.state = {
+            submitting: false
+        }
+    }
+
+    submitRegistration() {
+        // post here
+        let self = this
+        this.setState({
+            submitting: true
+        })
+        setTimeout(
+            function () {
+                self.props.setState ({
+                  confirmRegistration: undefined,
+                  registrationComplete: 'Error'  
+                })
+            }, 3000)
+    }
 
     public render() {
         return (
             <Modal
                 open={true}
-                onClose={() => this.props.setState({ confirmRegistration: false, course: undefined })}
+                onClose={() => this.props.closeModal()}
                 classNames={{
                     overlay: 'custom-overlay',
                     modal: 'custom-modal'
@@ -27,8 +55,10 @@ export default class ConfirmRegistration extends React.Component<props, {}> {
                     <div>{this.props.course.startDate}</div>
                     <div><b>Course end</b></div>
                     <div>{this.props.course.endDate}</div>
-                    <button className='btn btn-success'>Yes! Sign me up!</button>
-                    <button className='btn btn-warning'>Yes! Add me to the waitlist!</button>
+                    <button className='btn btn-success' onClick={this.submitRegistration.bind(this)}>{this.props.registrationType == "Active" ? "Yes! Sign me up!" : "Yes! Add me to the waitlist!"}</button>
+                    {this.state.submitting == true &&
+                        <Spinner notice='...submitting your registration...'/>
+                    }
                 </div>
             </Modal>
         )
