@@ -6,8 +6,7 @@ export default function formatEvents (courses: types.course[]) {
             start: new Date(course.startDate),
             end: new Date(course.endDate),
             title: course.courseName,
-            description: course.courseDescription,
-            code: course.courseCode,
+            id: course.courseId
         }
     })
     return events

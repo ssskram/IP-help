@@ -146,3 +146,7 @@
     text-align: left !important;
     font-weight: bold;
 }
+
+.rbc-event {
+    background-color: rgb(44, 62, 80) !important;
+}
