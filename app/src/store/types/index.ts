@@ -63,6 +63,7 @@ export interface course {
     courseCode: string
     courseName: string
     courseDescription: string
+    courseLocation: string
     startDate: string
     endDate: string
     maximumCapacity: number
