@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as types from '../../../store/types'
 import ReactTable from "react-table"
 import "react-table/react-table.css"
-import * as moment from 'moment'
 
 type props = {
     courses: types.course[]
