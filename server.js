@@ -93,6 +93,11 @@ app.get('/accessDenied', function (req, res) {
   res.render('401')
 })
 
+// email templates
+app.get('/emailTemplates/*', function (req, res) {
+  res.sendFile('/emailTemplates/desktopPhone.html', {root: './app/public'})
+})
+
 // MS oauth service redirect
 app.get('/auth',
   passport.authenticate('windowslive', {
