@@ -17,7 +17,7 @@ export default class Bulk extends React.Component<props, {}> {
             <div className='sectionHeader'>Bulk Disposal<span className='glyphicon glyphicon-hdd pull-right'></span></div>
             <div className='panel-body'>
                 <h4><b>Step One</b></h4>
-                <a style={bigFont} target='_blank' href='https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Bulk%20Disposal%20Spreadsheet.xlsx'>
+                <a style={bigFont} target='_blank' href='https://blobby.blob.core.usgovcloudapi.net/iphelp/BulkDisposal.xlsx'>
                     Download and complete this spreadsheet
                 </a>
                 <h4><b>Step Two</b></h4>
