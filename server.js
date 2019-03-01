@@ -95,7 +95,7 @@ app.get('/accessDenied', function (req, res) {
 
 // email templates
 app.get('/emailTemplates/*', function (req, res) {
-  res.sendFile('/emailTemplates/desktopPhone.html', {root: './app/public'})
+  res.sendFile(req.url, {root: './app/public'})
 })
 
 // MS oauth service redirect
