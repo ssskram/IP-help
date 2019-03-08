@@ -14,7 +14,7 @@ import CourseRegistration from './components/courseRegistration'
 
 export default () => (
   <Layout>
-    <Route exact path='/' component={Home} />
+    <Route exact path='/:accessDenied?/:serviceType?' component={Home} />
     <Route exact path='/EmployeeData' component={EmployeeData} />
     <Route exact path='/EquipmentDisposal' component={EquipmentDisposal} />
     <Route exact path='/EquipmentLoan' component={EquipmentLoans} />

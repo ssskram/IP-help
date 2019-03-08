@@ -1,15 +1,15 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-const computer = require('../../images/computer.png')
-const laptop = require('../../images/laptop.png')
-const email = require('../../images/email.png')
-const cellphone = require('../../images/cellphone.png')
-const tablet = require('../../images/tablet2.png')
-const dispose = require('../../images/dispose.png')
-const projector = require('../../images/projector.png')
-const employee = require('../../images/employee.png')
-const deskPhone = require('../../images/deskPhone.png')
+const computer = require('../../../images/computer.png')
+const laptop = require('../../../images/laptop.png')
+const email = require('../../../images/email.png')
+const cellphone = require('../../../images/cellphone.png')
+const tablet = require('../../../images/tablet2.png')
+const dispose = require('../../../images/dispose.png')
+const projector = require('../../../images/projector.png')
+const employee = require('../../../images/employee.png')
+const deskPhone = require('../../../images/deskPhone.png')
 
 export default class Services extends React.Component {
 

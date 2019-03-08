@@ -4,20 +4,32 @@ import { ApplicationState } from '../../store'
 import * as MessageStore from '../../store/messages'
 import HydrateStore from '../utilities/hydrateStore'
 import Messages from '../utilities/messages'
-import Alerts from './alerts'
-import Services from './services'
+import Alerts from './markup/alerts'
+import Services from './markup/services'
 
 const ipIcon = require('../../images/ip.png')
 
-export class Home extends React.Component<any, any> {
+type state = {
+    accessDenied: boolean
+}
+
+type props = {
+    location: any
+}
+
+export class Home extends React.Component<props, state> {
     private ref: React.RefObject<any>
     constructor(props) {
         super(props)
         this.ref = React.createRef()
+        this.state = {
+            accessDenied: true
+        }
     }
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        console.log(this.props.location.search)
     }
 
     scrollServices() {

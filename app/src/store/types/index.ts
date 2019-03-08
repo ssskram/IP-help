@@ -13,7 +13,11 @@ export interface messsage {
 
 // liaisons
 export interface liaisons {
-    liaisons: user[]
+    liaisons: liaison[]
+}
+export interface liaison {
+    user: string
+    department: string
 }
 
 // equipment loans

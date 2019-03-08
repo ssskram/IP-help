@@ -59,7 +59,7 @@ export default class ViewCourse extends React.Component<props, {}> {
                         </div>
                     }
                     <h4 className='oswald-header'>{this.props.course.courseName}</h4>
-                    <div><i>{this.props.course.courseDescription}</i></div><br />
+                    <div>{this.props.course.courseDescription}</div><br />
                     <div><b>Course start</b></div>
                     <div>{this.props.course.startDate}</div>
                     <div><b>Course end</b></div>

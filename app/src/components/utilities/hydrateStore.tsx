@@ -22,6 +22,10 @@ class Hydrate extends React.Component<any, {}> {
         this.props.loadCourseRegistrations()
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+    }
+
     public render() {
         return null
     }
