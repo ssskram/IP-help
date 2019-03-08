@@ -80,10 +80,10 @@ export default class ViewCourse extends React.Component<props, {}> {
                     <br />
                     {!userAlreadyRegistered && this.courseIsNotInPast() &&
                         <div>
-                            {(countActive < this.props.course.maximumCapacity) && (countWaitlisted == 0) &&
+                            {(countActive < this.props.course.maximumCapacity && countWaitlisted == 0) &&
                                 <button className='btn btn-success' onClick={this.registerActive.bind(this)}>Sign me up!</button>
                             }
-                            {(countActive >= this.props.course.maximumCapacity) || (countWaitlisted > 0) &&
+                            {(countActive >= this.props.course.maximumCapacity || countWaitlisted > 0) &&
                                 <button className='btn btn-warning' onClick={this.registerWaitlist.bind(this)}>Add me to the waitlist!</button>
                             }
                         </div>
