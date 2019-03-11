@@ -29,7 +29,6 @@ export class Home extends React.Component<props, state> {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        console.log(this.props.location.search)
     }
 
     scrollServices() {

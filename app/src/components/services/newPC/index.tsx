@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ApplicationState } from '../../../store'
 import * as Liaisons from '../../../store/liaisons'
-import LiaisonCheck from '../shared/liaisonCheck'
+import AccessControl from '../../accessControl'
 import * as types from '../../../store/types'
 import * as Messages from '../../../store/messages'
 import * as User from '../../../store/user'
@@ -22,11 +21,10 @@ import * as moment from 'moment'
 
 type props = {
     user: types.user
-    liaisons: types.liaisons
+    liaisons: types.liaison[]
     successMessage: () => void
     errorMessage: () => void
     loadLiaisons: () => void
-    accessDenied: (type: string) => void
 }
 
 export class NewPC extends React.Component<props, any> {
@@ -177,17 +175,13 @@ export class NewPC extends React.Component<props, any> {
             this.state.floor != '' &&
             this.state.employmentStatus != ''
 
-        if (this.state.redirect) {
-            return <Redirect to='/' />
-        }
 
         return <div className='col-md-12'>
-            <LiaisonCheck
-                itemType='new computers'
+            <AccessControl
+                itemType='new PCs'
                 user={this.props.user}
                 liaisons={this.props.liaisons}
-                loadLiaisons={this.props.loadLiaisons.bind(this)}
-                accessDenied={this.props.accessDenied.bind(this)}
+                loadLiaisons={this.props.loadLiaisons}
             />
             <Header
                 mainText='Order a new PC'
