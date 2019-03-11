@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
+import AccessControl from '../../accessControl'
 import TextArea from '../../formElements/textarea'
 import Input from '../../formElements/input'
 import Select from '../../formElements/select'
-import LiaisonCheck from '../shared/liaisonCheck'
 import * as MessagesStore from '../../../store/messages'
 import * as Liaisons from '../../../store/liaisons'
 import * as User from '../../../store/user'
@@ -17,12 +16,11 @@ import * as Selects from './selects'
 import * as SharedSelects from '../shared/selects'
 
 type props = {
-    liaisons: types.liaisons
+    liaisons: types.liaison[]
     user: types.user
     successMessage: () => void
     errorMessage: () => void
     loadLiaisons: () => void
-    accessDenied: (type: string) => void
 }
 
 type state = {
@@ -89,17 +87,12 @@ export class MobileDevice extends React.Component<props, state> {
             newReplacement != '' &&
             (jobDuties != '' || replacementExplanation != '')
 
-        if (redirect) {
-            return <Redirect to='/' />
-        }
-
         return <div className="centered">
-            <LiaisonCheck
-                itemType='mobile devices'
+            <AccessControl
+                itemType='new mobile devices'
                 user={this.props.user}
                 liaisons={this.props.liaisons}
-                loadLiaisons={this.props.loadLiaisons.bind(this)}
-                accessDenied={this.props.accessDenied.bind(this)}
+                loadLiaisons={this.props.loadLiaisons}
             />
             <Header
                 mainText='Order a new mobile device'
