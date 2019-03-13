@@ -137,8 +137,7 @@ export class EquipmentReservations extends React.Component<props, state> {
         this.setState({ redirect: true })
     }
 
-    public render() {
-
+    public render() {        
         const showEquipment =
             this.state.fromDate != '' &&
             this.state.fromTime != '' &&

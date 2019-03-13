@@ -13,7 +13,9 @@ export const actionCreators = {
         fetch("https://365proxy.azurewebsites.us/iphelp/allCourses", {
             method: 'get',
             headers: new Headers({
-                'Authorization': 'Bearer ' + process.env.REACT_APP_365_API
+                'Authorization': 'Bearer ' + process.env.REACT_APP_365_API,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             })
         })
             .then(res => res.json())

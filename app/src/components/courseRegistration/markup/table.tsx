@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as types from '../../../store/types'
 import ReactTable from "react-table"
 import "react-table/react-table.css"
+const moment = require('moment')
 
 type props = {
     courses: types.course[]
@@ -56,8 +57,8 @@ export default class Table extends React.Component<props, {}> {
                 <br />
                 <ReactTable
                     data={this.props.courses
-                        .filter(course => +new Date(course.startDate) > now)
-                        .sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate))
+                        .filter(course => +new Date(moment(course.startDate, 'MM-DD-YYYY h:m A').format('YYYY-MM-DD HH:mm:ss')) > now)
+                        .sort((a, b) => +new Date(moment(a.startDate, 'MM-DD-YYYY h:m A').format('YYYY-MM-DD HH:mm:ss')) - +new Date(moment(b.startDate, 'MM-DD-YYYY h:m A').format('YYYY-MM-DD HH:mm:ss')))
                     }
                     columns={columns}
                     loading={false}
