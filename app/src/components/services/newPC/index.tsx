@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { ApplicationState } from '../../../store'
 import * as Liaisons from '../../../store/liaisons'
 import AccessControl from '../../accessControl'
@@ -176,6 +177,10 @@ export class NewPC extends React.Component<props, any> {
             this.state.employmentStatus != ''
 
 
+        if (this.state.redirect) {
+            return <Redirect push to={'/'} />
+        }
+        
         return <div className='col-md-12'>
             <AccessControl
                 itemType='new PCs'

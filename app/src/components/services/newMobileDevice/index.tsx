@@ -1,5 +1,7 @@
 import * as React from 'react'
 import AccessControl from '../../accessControl'
+import { Redirect } from 'react-router-dom'
+
 import TextArea from '../../formElements/textarea'
 import Input from '../../formElements/input'
 import Select from '../../formElements/select'
@@ -86,6 +88,10 @@ export class MobileDevice extends React.Component<props, state> {
             deviceType != '' &&
             newReplacement != '' &&
             (jobDuties != '' || replacementExplanation != '')
+
+        if (this.state.redirect) {
+            return <Redirect push to={'/'} />
+        }
 
         return <div className="centered">
             <AccessControl
