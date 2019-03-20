@@ -128,7 +128,7 @@ export class MobileDevice extends React.Component<props, state> {
                     <Input
                         value={jobTitle}
                         header="Please provide the employee's name & job title"
-                        placeholder="Name & title"
+                        placeholder="If a shared device, just type 'Shared'"
                         callback={e => this.setState({ jobTitle: e.target.value })}
                         required
                     />

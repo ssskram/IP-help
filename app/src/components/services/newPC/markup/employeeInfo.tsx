@@ -30,7 +30,7 @@ export default class EmployeeInfo extends React.Component<any, any> {
                 <Input
                     value={userName}
                     header="Which employee will be receiving this machine?"
-                    placeholder="Employee's full name"
+                    placeholder="If a shared device, just type 'Shared'"
                     callback={e => setState({ userName: e.target.value })}
                     required
                 />
