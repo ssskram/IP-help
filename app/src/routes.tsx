@@ -10,7 +10,9 @@ import NewTicket from './components/services/miscTicket'
 import MobileDevice from './components/services/newMobileDevice'
 import NewPC from './components/services/newPC'
 import newDeskPhone from './components/services/newDeskPhone'
+import InternationalTravel from './components/services/internationalTravel'
 import CourseRegistration from './components/courseRegistration'
+
 
 export default () => (
   <Layout>
@@ -23,6 +25,7 @@ export default () => (
     <Route exact path='/MobileDevice' component={MobileDevice} />
     <Route exact path='/NewPC' component={NewPC} />
     <Route exact path='/DeskPhone' component={newDeskPhone} />
+    <Route exact path='/InternationalTravel' component={InternationalTravel} />
     <Route exact path='/CourseRegistration' component={CourseRegistration} />
   </Layout>
 )
