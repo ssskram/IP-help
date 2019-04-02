@@ -8,7 +8,7 @@ export default async function postOTRS(request, user) {
         .then(response => response.text())
         .then(text => emailBody = String.format(text,
             request.userName, // 0
-            request.destination, // 1
+            request.destinations, // 1
             request.dateLeave, // 2
             request.dateReturn)) // 3
 

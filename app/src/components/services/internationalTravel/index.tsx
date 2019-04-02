@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 import Input from '../../formElements/input'
+import Textarea from '../../formElements/textarea'
 import Date from '../../formElements/cleave'
 import * as MessagesStore from '../../../store/messages'
 import * as User from '../../../store/user'
@@ -20,7 +21,7 @@ type props = {
 type state = {
     redirect: boolean
     userName: string
-    destination: string
+    destinations: string
     dateLeave: string
     dateReturn: string
 }
@@ -31,7 +32,7 @@ export class InternationalTravel extends React.Component<props, state> {
         this.state = {
             redirect: false,
             userName: '',
-            destination: '',
+            destinations: '',
             dateLeave: '',
             dateReturn: ''
         }
@@ -45,7 +46,7 @@ export class InternationalTravel extends React.Component<props, state> {
         // data to post
         let load = {
             userName: this.state.userName,
-            destination: this.state.destination,
+            destinations: this.state.destinations,
             dateLeave: this.state.dateLeave,
             dateReturn: this.state.dateReturn,
         }
@@ -66,14 +67,14 @@ export class InternationalTravel extends React.Component<props, state> {
         const {
             redirect,
             userName,
-            destination,
+            destinations,
             dateLeave,
             dateReturn
         } = this.state
 
         const valid =
             userName != '' &&
-            destination != '' &&
+            destinations != '' &&
             dateLeave != '' &&
             dateReturn != ''
 
@@ -96,11 +97,11 @@ export class InternationalTravel extends React.Component<props, state> {
                         callback={e => this.setState({ userName: e.target.value })}
                         required
                     />
-                    <Input
-                        value={destination}
-                        header="Where will you be traveling to?"
-                        placeholder="Country, state, city"
-                        callback={e => this.setState({ destination: e.target.value })}
+                    <Textarea
+                        value={destinations}
+                        header="What countries will you be visiting?"
+                        placeholder="List all countries, seperated by semicolons"
+                        callback={e => this.setState({ destinations: e.target.value })}
                         required
                     />
                     <Date
@@ -108,12 +109,14 @@ export class InternationalTravel extends React.Component<props, state> {
                         header="When will you be leaving?"
                         placeholder="Date of departure"
                         callback={date => this.setState({ dateLeave: date.target.value })}
+                        required
                     />
                     <Date
                         value={dateReturn}
                         header="When will you be returning?"
                         placeholder="Date of return"
                         callback={date => this.setState({ dateReturn: date.target.value })}
+                        required
                     />
                 </div>
             </div>
