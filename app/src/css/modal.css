@@ -3,6 +3,7 @@
 
 .custom-overlay {
     background: rgba(26, 36, 47, .9);
+    overflow: scroll;
 }
 
 .react-datepicker__portal {

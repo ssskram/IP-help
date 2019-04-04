@@ -68,26 +68,26 @@ export default class Services extends React.Component {
                 </div>
                 <div className='col-sm-6' style={{ padding: '0px 75px' }}>
                     <div style={{ fontSize: '3em' }}>I want to...</div>
-                    <div className='col-sm-6'>
+                    {/* <div className='col-sm-6'>
                         <Link to={'/InternationalTravel'} className='btn btn-home text-center'>
                             <img src={globe as string} style={imgStyle} className="center-block" />
                             <span className='btn-home-header'>Notify I&P of international travel</span>
 
                         </Link>
-                    </div>
+                    </div> */}
                     <div className='col-sm-6'>
                         <Link to={'/EquipmentLoan'} className='btn  btn-home text-center'>
                             <img src={projector as string} style={imgStyle} className="center-block" />
                             <span className='btn-home-header'>Borrow equipment</span>
                         </Link>
                     </div>
-                    <div className="clearfix"></div>
                     <div className='col-sm-6'>
                         <Link to={'/EquipmentDisposal'} className='btn  btn-home text-center'>
                             <img src={dispose as string} style={imgStyle} className="center-block" />
                             <span className='btn-home-header'>Get rid of equipment</span>
                         </Link>
                     </div>
+                    <div className="clearfix"></div>
                     <div className='col-sm-6'>
                         <Link to={'/EmployeeData'} className='btn btn-home text-center'>
                             <img src={employee as string} style={imgStyle} className="center-block" />
