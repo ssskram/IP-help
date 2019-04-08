@@ -14,7 +14,7 @@ export default async function postOTRS(request, user) {
 
 
     const args = {
-        to: user,
+        to: undefined,
         user: user,
         subject: request.userName + " out of the country, " + request.dateLeave + " - " + request.dateReturn,
         email: emailBody,
