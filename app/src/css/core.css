@@ -38,6 +38,11 @@ hr {
     text-transform: uppercase;
 }
 
+.ubuntu {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
 /* Scroll bar
 /* ------------------------- */
 
