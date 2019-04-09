@@ -77,7 +77,6 @@ export class InternationalTravel extends React.Component<props, state> {
 
     const valid =
       userName != "" &&
-      destinations != "" &&
       dateLeave != "" &&
       dateReturn != "" &&
       useWifi != "";
@@ -110,7 +109,6 @@ export class InternationalTravel extends React.Component<props, state> {
               header="What countries will you be visiting?"
               placeholder="List all countries, seperated by semicolons"
               callback={e => this.setState({ destinations: e.target.value })}
-              required
             />
             <Date
               value={dateLeave}
