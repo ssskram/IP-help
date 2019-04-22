@@ -3,6 +3,7 @@ import * as types from "../../../store/types";
 import Modal from "react-responsive-modal";
 import Waitlist from "./waitlist";
 import userIsRegistered from "../functions/userIsRegistered";
+const moment = require("moment");
 
 type props = {
   user: types.user;
@@ -43,7 +44,10 @@ export default class ViewCourse extends React.Component<props, {}> {
   }
 
   courseIsNotInPast() {
-    return +new Date(this.props.course.startDate) > +new Date();
+    return (
+      +new Date(moment(this.props.course.startDate, "MM-DD-YYYY h:m A")) >
+      +new Date()
+    );
   }
 
   public render() {
