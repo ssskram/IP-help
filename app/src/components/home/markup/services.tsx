@@ -22,7 +22,7 @@ export default class Services extends React.Component {
         return <div>
             <div className='row'>
                 <div className='col-sm-6' style={{ padding: '0px 75px' }}>
-                    <div style={{ fontSize: '3em' }}>I need a...</div>
+                    <div style={{ fontSize: '3em' }}>I need to order a...</div>
                     <div className='col-sm-6'>
                         <Link to={'/NewPC'} className='btn btn-home text-center'>
                             <img src={computer as string} style={imgStyle} className="center-block" />
