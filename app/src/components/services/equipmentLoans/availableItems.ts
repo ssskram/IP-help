@@ -11,7 +11,8 @@ export function getAvailableEquipment(state, equipment, reservations) {
       moment(reso.from).isBetween(from, to) ||
       moment(reso.to).isBetween(from, to) ||
       moment(from).isBetween(reso.from, reso.to) ||
-      moment(to).isBetween(reso.from, reso.to)
+      moment(to).isBetween(reso.from, reso.to) ||
+      (reso.from == from && reso.to == to)
     );
   });
   if (overlappingResos.length == 0) {
