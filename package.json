@@ -1,5 +1,5 @@
 {
-  "name": "IPHelp",
+  "name": "iphelp",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.15.2",
