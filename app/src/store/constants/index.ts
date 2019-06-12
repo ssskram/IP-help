@@ -1,25 +1,24 @@
-
 // user
-export const loadUser = 'loadUser'
+export const loadUser = "loadUser";
 
 // messages
-export const newMessage = 'reservationSuccess'
-export const success = 'successMessage'
-export const failure = 'failureMessage'
-export const clear = 'clearMessage'
-export const accessDenied = 'accessDenied'
+export const newMessage = "reservationSuccess";
+export const success = "successMessage";
+export const failure = "failureMessage";
+export const clear = "clearMessage";
+export const accessDenied = "accessDenied";
 
 // liaisons
-export const loadLiaisons = 'loadLiaisons'
+export const loadLiaisons = "loadLiaisons";
 
 // equipment loans
-export const loadEquipmentLoans = 'loadEquipmentLoans'
+export const loadEquipmentLoans = "loadEquipmentLoans";
 
 // equipment
-export const loadEquipment = 'loadEquipment'
+export const loadEquipment = "loadEquipment";
 
 // course registrations
-export const loadCourses = 'loadCourses'
-export const loadRegistrations = 'loadRegistrations'
-export const newRegistration = 'newRegistration'
-export const cancelRegistration = 'cancelRegistration'
+export const loadCourses = "loadCourses";
+export const loadRegistrations = "loadRegistrations";
+export const newRegistration = "newRegistration";
+export const cancelRegistration = "cancelRegistration";

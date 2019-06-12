@@ -76,10 +76,7 @@ export class InternationalTravel extends React.Component<props, state> {
     } = this.state;
 
     const valid =
-      userName != "" &&
-      dateLeave != "" &&
-      dateReturn != "" &&
-      useWifi != "";
+      userName != "" && dateLeave != "" && dateReturn != "" && useWifi != "";
 
     if (redirect) {
       return <Redirect to="/" />;
