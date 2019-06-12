@@ -1,207 +1,254 @@
 {
-    "content": [{
-            "title": "Departmental Liaisons to I&P",
-            "body": [{
-                    "section": "Troubleshooting",
-                    "items": [{
-                        "title": "FAQ for Liaisons",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf"
-                    }]
-                },
-                {
-                    "section": "User guides",
-                    "items": [{
-                        "title": "Guidelines for ordering PCs",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf"
-                    }]
-                }
-            ]
+  "content": [
+    {
+      "title": "Departmental Liaisons to I&P",
+      "body": [
+        {
+          "section": "Troubleshooting",
+          "items": [
+            {
+              "title": "FAQ for Liaisons",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/I&PLiaisonGuidelinesv5.pdf"
+            }
+          ]
         },
         {
-            "title": "APRS",
-            "body": [{
-                "section": "Troubleshooting",
-                "items": [{
-                    "title": "Can't see the entire screen",
-                    "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Problem%20with%20user%20viewing%20all%20of%20the%20APRS%20screen%20(1).pdf"
-                }]
-            }]
-        },
-        {
-            "title": "Legistar",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                    "title": "Legistar 5",
-                    "link": "http://www.dconc.gov/home/showdocument?id=12259"
-                }]
-            }]
-        },
-        {
-            "title": "Microsoft Office 365",
-            "body": [{
-                "section": "Training resources",
-                "items": [{
-                        "title": "Library of Training Topics",
-                        "link": "https://pittsburgh.o365support.com/library"
-                    },
-                    {
-                        "title": "Microsoft 365 Webinars",
-                        "link": "https://o365support.com/tips-and-tricks/"
-                    },
-                    {
-                        "title": "Outlook 2016 (Desktop)",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=48b2679e-0dc1-11e8-8108-000d3a908cc1&statusid=9"
-                    },
-                    {
-                        "title": "Outlook (Online)",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=e8faa151-56c5-11e7-80df-000d3a908cc1&tiguid=749a2e9c-8ae7-11e4-847a-00221918ee60&rtid=3"
-                    },
-                    {
-                        "title": "Word, Excel, & PowerPoint 2016 (Desktop)",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9"
-                    },
-                    {
-                        "title": "OneDrive for Business",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9"
-                    },
-                    {
-                        "title": "OneNote",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=12ddea45-f8b4-11e8-811c-000d3a7129c2&statusid=9"
-                    },
-                    {
-                        "title": "SharePoint Online",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9"
-                    },
-                    {
-                        "title": "Skype for Business",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=0743140d-585a-11e7-80df-000d3a908cc1&statusid=9"
-                    }
-                ]
-            }]
-        },
-        {
-            "title": "Municode",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                    "title": "Municode",
-                    "link": "http://www.hillcrestil.us/uploads/Municode%20Website%20-%20User%20Guide.pdf"
-                }]
-            }]
-        },
-        {
-            "title": "Printers & MFDs",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                        "title": "Printer guides",
-                        "link": "https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx?slrid=eb205c9e-1028-5000-e3c3-69893cfcaff7&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public%2fAmcom+Printer+Specific+Handouts&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4"
-                    },
-                    {
-                        "title": "Instructions to connect",
-                        "link": "https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4"
-                    },
-                    {
-                        "title": "Troubleshooting",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf"
-                    }
-                ]
-            }]
-        },
-        {
-            "title": "RSA Tokens",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                    "title": "RSA Tokens",
-                    "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/RSA%20token%20instructions%20-%202018%20pdf.pdf"
-                }]
-            }]
-        },
-        {
-            "title": "Telephone & Voicemail",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                    "title": "Remote voicemail access for CCB & PBP HQ",
-                    "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Remote%20VoiceMail%20Access%20for%20CCB%20and%20Police%20HQ.pdf"
-                }]
-            }]
-        },
-        {
-            "title": "Windows 7",
-            "body": [{
-                "section": "User guides",
-                "items": [{
-                        "title": "Create a folder shortcut",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%207.pdf"
-                    },
-                    {
-                        "title": "Create a website shortcut",
-                        "link": "http://apps.pittsburghpa.gov/redtail/images/1354_Create_Shortcuts_to_Websites_in_Windows_7.pdf"
-                    },
-                    {
-                        "title": "Configure printers & scanning",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win7.pdf"
-                    },
-                    {
-                        "title": "Set a default printer",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%207.pdf"
-                    },
-                    {
-                        "title": "Find your computer's name",
-                        "link": "http://apps.pittsburghpa.gov/redtail/images/1355_Finding_Your_Computer_Name_in_Windows_7.pdf"
-                    },
-                    {
-                        "title": "Map a network drive",
-                        "link": "http://apps.pittsburghpa.gov/redtail/images/1356_Map_a_Network_Drive_in_Windows_7.pdf"
-                    },
-                    {
-                        "title": "Fax a document from the computer",
-                        "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf"
-                    }
-                ]
-            }]
-        },
-        {
-            "title": "Windows 10",
-            "body": [{
-                    "section": "Training resources",
-                    "items": [{
-                        "title": "Windows 10",
-                        "link": "https://pittsburgh.o365support.com/content/view?cguid=b4de581b-5792-11e7-80df-000d3a908cc1&statusid=9"
-                    }]
-                },
-                {
-                    "section": "User guides",
-                    "items": [{
-                            "title": "Create a folder shortcut",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%2010.pdf"
-                        },
-                        {
-                            "title": "Create a website shortcut",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Shortcut%20to%20a%20Website%20in%20Windows%2010.pdf"
-                        },
-                        {
-                            "title": "Configure printers & scanning",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win10.pdf"
-                        },
-                        {
-                            "title": "Set a default printer",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%2010.pdf"
-                        },
-                        {
-                            "title": "Map a network drive",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Map%20a%20Network%20Drive%20in%20Windows%2010.pdf"
-                        },
-                        {
-                            "title": "Fax a document from the computer",
-                            "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf"
-                        }
-                    ]
-                }
-            ]
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Guidelines for ordering PCs",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/PC%20Ordering%20Guidelines%2011_2018.pdf"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "title": "APRS",
+      "body": [
+        {
+          "section": "Troubleshooting",
+          "items": [
+            {
+              "title": "Can't see the entire screen",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Problem%20with%20user%20viewing%20all%20of%20the%20APRS%20screen%20(1).pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Legistar",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Legistar 5",
+              "link": "http://www.dconc.gov/home/showdocument?id=12259"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Office 365",
+      "body": [
+        {
+          "section": "Training resources",
+          "items": [
+            {
+              "title": "Library of Training Topics",
+              "link": "https://pittsburgh.o365support.com/library"
+            },
+            {
+              "title": "Microsoft 365 Webinars",
+              "link": "https://o365support.com/tips-and-tricks/"
+            },
+            {
+              "title": "Outlook 2016 (Desktop)",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=48b2679e-0dc1-11e8-8108-000d3a908cc1&statusid=9"
+            },
+            {
+              "title": "Outlook (Online)",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=e8faa151-56c5-11e7-80df-000d3a908cc1&tiguid=749a2e9c-8ae7-11e4-847a-00221918ee60&rtid=3"
+            },
+            {
+              "title": "Word, Excel, & PowerPoint 2016 (Desktop)",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=4d4a1040-0c41-11e8-8108-000d3a908cc1&statusid=9"
+            },
+            {
+              "title": "OneDrive for Business",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=f69832ef-5779-11e7-80df-000d3a908cc1&statusid=9"
+            },
+            {
+              "title": "OneNote",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=12ddea45-f8b4-11e8-811c-000d3a7129c2&statusid=9"
+            },
+            {
+              "title": "SharePoint Online",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=d42016bc-578d-11e7-80df-000d3a908cc1&statusid=9"
+            },
+            {
+              "title": "Skype for Business",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=0743140d-585a-11e7-80df-000d3a908cc1&statusid=9"
+            },
+            {
+              "title": "Forms",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=23c36538-82dc-11e9-8127-000d3a712c44&statusid=9"
+            },
+            {
+              "title": "Planner",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=de17a70f-2ee4-11e9-8114-000d3a712c44&tguid=53198253-d162-11e8-8100-000d3a712c44&tiguid=00000000-0000-0000-0000-000000000000&rtid=1&statusid=9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Municode",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Municode",
+              "link": "http://www.hillcrestil.us/uploads/Municode%20Website%20-%20User%20Guide.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Printers & MFDs",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Printer guides",
+              "link": "https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx?slrid=eb205c9e-1028-5000-e3c3-69893cfcaff7&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public%2fAmcom+Printer+Specific+Handouts&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4"
+            },
+            {
+              "title": "Instructions to connect",
+              "link": "https://cityofpittsburgh-my.sharepoint.com/personal/andrew_hayhurst_pittsburghpa_gov/_layouts/15/onedrive.aspx#slrid=ef205c9e-60aa-5000-e3c3-6f374cf89689&id=%2fpersonal%2fandrew_hayhurst_pittsburghpa_gov%2fDocuments%2fPrinter+Deployment+Project%2fAmcom%2fTraining+Docs+-+Public&FolderCTID=0x012000ECAE49CC4657A84AAE592CC0E052EDF4"
+            },
+            {
+              "title": "Troubleshooting",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Printer%20Troubleshooting.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "RSA Tokens",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "RSA Tokens",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/RSA%20token%20instructions%20-%202018%20pdf.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Telephone & Voicemail",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Remote voicemail access for CCB & PBP HQ",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Remote%20VoiceMail%20Access%20for%20CCB%20and%20Police%20HQ.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Windows 7",
+      "body": [
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Create a folder shortcut",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%207.pdf"
+            },
+            {
+              "title": "Create a website shortcut",
+              "link": "http://apps.pittsburghpa.gov/redtail/images/1354_Create_Shortcuts_to_Websites_in_Windows_7.pdf"
+            },
+            {
+              "title": "Configure printers & scanning",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win7.pdf"
+            },
+            {
+              "title": "Set a default printer",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%207.pdf"
+            },
+            {
+              "title": "Find your computer's name",
+              "link": "http://apps.pittsburghpa.gov/redtail/images/1355_Finding_Your_Computer_Name_in_Windows_7.pdf"
+            },
+            {
+              "title": "Map a network drive",
+              "link": "http://apps.pittsburghpa.gov/redtail/images/1356_Map_a_Network_Drive_in_Windows_7.pdf"
+            },
+            {
+              "title": "Fax a document from the computer",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Windows 10",
+      "body": [
+        {
+          "section": "Training resources",
+          "items": [
+            {
+              "title": "Windows 10",
+              "link": "https://pittsburgh.o365support.com/content/view?cguid=b4de581b-5792-11e7-80df-000d3a908cc1&statusid=9"
+            }
+          ]
+        },
+        {
+          "section": "User guides",
+          "items": [
+            {
+              "title": "Create a folder shortcut",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Desktop%20Shortcuts%20in%20Windows%2010.pdf"
+            },
+            {
+              "title": "Create a website shortcut",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Create%20Shortcut%20to%20a%20Website%20in%20Windows%2010.pdf"
+            },
+            {
+              "title": "Configure printers & scanning",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Install_Printers_Scanning_Win10.pdf"
+            },
+            {
+              "title": "Set a default printer",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Set%20Default%20Printer%20in%20Windows%2010.pdf"
+            },
+            {
+              "title": "Map a network drive",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Map%20a%20Network%20Drive%20in%20Windows%2010.pdf"
+            },
+            {
+              "title": "Fax a document from the computer",
+              "link": "https://cityofpittsburgh.sharepoint.com/sites/InnovationandPerformance/IPHelp/Fax%20Documents%20from%20a%20Computer%20in%20Windows%2010.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
