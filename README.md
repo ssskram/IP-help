@@ -2,7 +2,7 @@
 
 I&P Help is the help desk site used by the Department of Innovation & Performance (I&P) at the City of Pittsburgh.  I&P uses [OTRS](https://otrs.com/) as a ticketing system, but the particular implementation of OTRS lacks flexibility in IT service management.  I&P Help fills that void by providing a flexible UI, customized forms, and business logic for various workflows involved in IT service delivery.  
 
-I&P Help interfaces with OTRS via the [sendgrid-proxy](https://github.com/CityofPittsburgh/sendgrid-proxy).  Where additional data or administrative interfaces need to be persisted, I&P Help interfaces with Sharepoint via the [365-proxy](https://github.com/CityofPittsburgh/365-api).  Where document storage needs to be provided, I&P Help  interfaces with an Azure blob via [blobby](https://github.com/CityofPittsburgh/blobby).
+I&P Help interfaces with OTRS via the [sendgrid-proxy](https://github.com/CityofPittsburgh/sendgrid-proxy).  Where additional data or administrative interfaces are nneeded, I&P Help interfaces with Sharepoint via the [365-proxy](https://github.com/CityofPittsburgh/365-api).  Where document storage needs to be provided, I&P Help  interfaces with an Azure blob via [blobby](https://github.com/CityofPittsburgh/blobby).
 
 <img src='screenshot.png' width='100%' />
 
