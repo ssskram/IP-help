@@ -1,5 +1,5 @@
 export const DeviceTypes = [
-  { value: "iPhone 7", label: "iPhone 7" },
-  { value: "Samsung Galaxy 8", label: "Samsung Galaxy 8" },
+  { value: "iPhone 8", label: "iPhone 8" },
+  { value: "Samsung Galaxy S9", label: "Samsung Galaxy S9" },
   { value: "Jet pack", label: "Jet pack" }
 ];
