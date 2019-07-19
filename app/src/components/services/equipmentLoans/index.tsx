@@ -18,6 +18,9 @@ import SelectEquipment from "./markup/selectEquipment";
 import SelectAccessories from "./markup/selectAccessories";
 import SubmitButton from "../shared/submitButton";
 import Header from "../shared/header";
+import Policy from "./markup/policy";
+import Select from "react-select";
+import { SpeechBubble } from "react-kawaii";
 
 type props = {
   loans: types.equipmentLoans;
@@ -43,6 +46,9 @@ type state = {
   selectedTypes: string[];
   availableItems: types.equipmentItem[];
   redirect: boolean;
+  showPolicy: boolean;
+  showPolicyAffirmation: boolean;
+  acceptsPolicy: boolean;
 };
 
 export class EquipmentReservations extends React.Component<props, state> {
@@ -60,7 +66,10 @@ export class EquipmentReservations extends React.Component<props, state> {
       throwTimeError: false,
       selectedTypes: [],
       availableItems: [],
-      redirect: false
+      redirect: false,
+      showPolicy: false,
+      showPolicyAffirmation: false,
+      acceptsPolicy: false
     };
   }
 
@@ -68,6 +77,12 @@ export class EquipmentReservations extends React.Component<props, state> {
     window.scrollTo(0, 0);
     this.props.loadEquipment();
     this.props.loadEquipmentLoans();
+  }
+
+  componentWillUpdate(nextProps, nextState: state) {
+    if (this.state.showPolicy == false && nextState.showPolicy == true) {
+      this.setState({ showPolicyAffirmation: true });
+    }
   }
 
   checkTimeFrame() {
@@ -163,7 +178,10 @@ export class EquipmentReservations extends React.Component<props, state> {
       this.state.toTime != null &&
       this.state.throwTimeError != true;
 
-    const valid = this.state.items.length > 0;
+    const showAccessories = this.state.items.length > 0;
+
+    const valid =
+      this.state.items.length > 0 && this.state.acceptsPolicy == true;
 
     if (this.state.redirect) {
       return <Redirect to="/" />;
@@ -195,12 +213,46 @@ export class EquipmentReservations extends React.Component<props, state> {
               addRemoveItem={this.addRemoveItem.bind(this)}
             />
           )}
-          {valid == true && (
+          {showAccessories == true && (
             <div>
               <SelectAccessories
                 parentState={this.state}
                 addRemoveItem={this.addRemoveItem.bind(this)}
               />
+              <div
+                className="col-md-4 col-md-offset-4 panel"
+                style={{ padding: "25px" }}
+              >
+                <h4 className="text-center">
+                  <SpeechBubble size={150} mood={"happy"} color="#337ab7" />
+                  <br />
+                  Please review and agree to the{" "}
+                  <a
+                    style={{ cursor: "pointer" }}
+                    onClick={() => this.setState({ showPolicy: true })}
+                  >
+                    terms and conditions
+                  </a>{" "}
+                  before continuing.
+                </h4>
+                {this.state.showPolicyAffirmation && (
+                  <Select
+                    placeholder={"Please agree to the terms"}
+                    value={
+                      this.state.acceptsPolicy == true
+                        ? { label: "Sure do!", value: "Sure do!" }
+                        : undefined
+                    }
+                    onChange={() => this.setState({ acceptsPolicy: true })}
+                    options={[{ label: "I accept", value: "I accept" }]}
+                  />
+                )}
+                {this.state.showPolicy == true && (
+                  <Policy
+                    closePolicy={() => this.setState({ showPolicy: false })}
+                  />
+                )}
+              </div>
             </div>
           )}
           <SubmitButton isEnabled={valid} submit={this.submit.bind(this)} />
