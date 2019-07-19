@@ -3,6 +3,7 @@ import Modal from "react-responsive-modal";
 
 type props = {
   closePolicy: () => void;
+  acceptPolicy: () => void;
 };
 
 export default function(props: props) {
@@ -16,7 +17,18 @@ export default function(props: props) {
       }}
       center
     >
-      <div>Policy here</div>
+      <div>
+        Policy here
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            props.acceptPolicy();
+            props.closePolicy();
+          }}
+        >
+          I accept!
+        </button>
+      </div>
     </Modal>
   );
 }

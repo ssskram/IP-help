@@ -49,6 +49,7 @@ type state = {
   showPolicy: boolean;
   showPolicyAffirmation: boolean;
   acceptsPolicy: boolean;
+  kawaiiState: "happy" | "blissful";
 };
 
 export class EquipmentReservations extends React.Component<props, state> {
@@ -69,7 +70,8 @@ export class EquipmentReservations extends React.Component<props, state> {
       redirect: false,
       showPolicy: false,
       showPolicyAffirmation: false,
-      acceptsPolicy: false
+      acceptsPolicy: false,
+      kawaiiState: "happy"
     };
   }
 
@@ -82,6 +84,9 @@ export class EquipmentReservations extends React.Component<props, state> {
   componentWillUpdate(nextProps, nextState: state) {
     if (this.state.showPolicy == false && nextState.showPolicy == true) {
       this.setState({ showPolicyAffirmation: true });
+    }
+    if (this.state.acceptsPolicy == false && nextState.acceptsPolicy == true) {
+      this.setState({ kawaiiState: "blissful" });
     }
   }
 
@@ -224,7 +229,11 @@ export class EquipmentReservations extends React.Component<props, state> {
                 style={{ padding: "25px" }}
               >
                 <h4 className="text-center">
-                  <SpeechBubble size={150} mood={"happy"} color="#337ab7" />
+                  <SpeechBubble
+                    size={150}
+                    mood={this.state.kawaiiState}
+                    color="#337ab7"
+                  />
                   <br />
                   Please review and agree to the{" "}
                   <a
@@ -235,21 +244,10 @@ export class EquipmentReservations extends React.Component<props, state> {
                   </a>{" "}
                   before continuing.
                 </h4>
-                {this.state.showPolicyAffirmation && (
-                  <Select
-                    placeholder={"Please agree to the terms"}
-                    value={
-                      this.state.acceptsPolicy == true
-                        ? { label: "Sure do!", value: "Sure do!" }
-                        : undefined
-                    }
-                    onChange={() => this.setState({ acceptsPolicy: true })}
-                    options={[{ label: "I accept", value: "I accept" }]}
-                  />
-                )}
                 {this.state.showPolicy == true && (
                   <Policy
                     closePolicy={() => this.setState({ showPolicy: false })}
+                    acceptPolicy={() => this.setState({ acceptsPolicy: true })}
                   />
                 )}
               </div>
