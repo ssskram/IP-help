@@ -228,11 +228,11 @@ export class EquipmentReservations extends React.Component<props, state> {
                 className="col-md-4 col-md-offset-4 panel"
                 style={{ padding: "25px" }}
               >
-                <h4 className="text-center">
+                <h3 className="text-center">
                   <SpeechBubble
                     size={150}
                     mood={this.state.kawaiiState}
-                    color="#337ab7"
+                    color="#5393C8"
                   />
                   <br />
                   Please review and agree to the{" "}
@@ -243,7 +243,7 @@ export class EquipmentReservations extends React.Component<props, state> {
                     terms and conditions
                   </a>{" "}
                   before continuing.
-                </h4>
+                </h3>
                 {this.state.showPolicy == true && (
                   <Policy
                     closePolicy={() => this.setState({ showPolicy: false })}
